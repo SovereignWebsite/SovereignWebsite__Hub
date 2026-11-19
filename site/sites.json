@@ -1,0 +1,100 @@
+{
+  "about": "The hub's registry: one hub-site/1 entry per listed site (schema/hub-site.schema.json). Written by hand for now; source: SovereignWebsite__Factory org/repos.json, 19 November 2026.",
+  "sites": [
+    {
+      "schema": "hub-site/1",
+      "slug": "sovereignwebsite/website",
+      "name": "sovereignwebsite.ai",
+      "summary": "The Sovereign Agentic Website brand. Built by agents, owned by you.",
+      "kind": "brand",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://sovereignwebsite.ai",
+        "domain": "own"
+      },
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/SovereignWebsite__Website",
+        "branch": "dev"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "holding-page"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sovereignwebsite/org",
+      "name": "sovereignwebsite.org",
+      "summary": "The open pattern for a Sovereign Agentic Website, free for anyone to use.",
+      "kind": "pattern",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://sovereignwebsite.org",
+        "domain": "own"
+      },
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/SovereignWebsite__Org",
+        "branch": "dev"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "holding-page"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sovereignwebsite/site",
+      "name": "sovereignwebsite.site",
+      "summary": "Where hosted sovereign websites live, at <name>.sovereignwebsite.site.",
+      "kind": "hosting",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://sovereignwebsite.site",
+        "domain": "own"
+      },
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/SovereignWebsite__Site",
+        "branch": "dev"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "holding-page"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sovereignwebsite/hub",
+      "name": "hub.sovereignwebsite.site",
+      "summary": "The hub for sovereign websites powered by sgit vaults.",
+      "kind": "hub",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://hub.sovereignwebsite.site",
+        "domain": "sovereignwebsite.site"
+      },
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/SovereignWebsite__Hub",
+        "branch": "dev"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "holding-page",
+      "team": [
+        {
+          "name": "hub.b@SovereignWebsite.dinis",
+          "role": "Builds the hub",
+          "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d"
+        }
+      ]
+    }
+  ]
+}

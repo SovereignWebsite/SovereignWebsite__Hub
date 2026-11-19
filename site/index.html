@@ -9,18 +9,31 @@
 :root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#e4e1d8}
 @media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:44rem;margin:0 auto;padding:12vh 1rem 4rem}
+main{max-width:44rem;margin:0 auto;padding:8vh 1rem 4rem}
 .mark{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
 h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;margin:.4rem 0 1rem}
 p{color:var(--muted);margin:0 0 1rem}a{color:var(--accent)}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.sites{list-style:none;padding:0;margin:2rem 0 0}.sites li{border-top:1px solid var(--line);padding:1.2rem 0}
+h2{font-size:1.25rem;margin:0 0 .3rem}dl{display:grid;grid-template-columns:7rem 1fr;gap:.2rem .8rem;margin:.6rem 0 0;font-size:.9rem}dt{color:var(--muted)}dd{margin:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <main>
 <div class="mark">Sovereign Agentic Website</div>
 <h1>Sites you can clone, open and hand on.</h1>
-<p>Every site on the hub lives in two places: a public repository and an sgit vault holding the same files. A vault can be cloned and opened on your own machine, because the sites are static, and handed on to its next owner.</p><p>Each site will have a page here with its owner, the team that built it, its address, its repository and vault, its licence and its versions.</p><p>The hub is being built now, in the open.</p>
+<p>Every site on the hub lives in two places: a public repository and an sgit vault holding the same files. A vault can be cloned and opened on your own machine, because the sites are static, and handed on to its next owner.</p><p>Each site will have a page here with its owner, the team that built it, its address, its repository and vault, its licence and its versions.</p><p>The hub is being built now, in the open. These are the first four sites, all from the SovereignWebsite organisation. None has a vault yet; that comes next.</p>
+<ul class="sites">
+<li><h2><a href="https://sovereignwebsite.ai">sovereignwebsite.ai</a></h2><p>The Sovereign Agentic Website brand. Built by agents, owned by you.</p>
+<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Website">SovereignWebsite__Website</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
+<li><h2><a href="https://sovereignwebsite.org">sovereignwebsite.org</a></h2><p>The open pattern for a Sovereign Agentic Website, free for anyone to use.</p>
+<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Org">SovereignWebsite__Org</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
+<li><h2><a href="https://sovereignwebsite.site">sovereignwebsite.site</a></h2><p>Where hosted sovereign websites live, at &lt;name&gt;.sovereignwebsite.site.</p>
+<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Site">SovereignWebsite__Site</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
+<li><h2><a href="https://hub.sovereignwebsite.site">hub.sovereignwebsite.site</a></h2><p>The hub for sovereign websites powered by sgit vaults.</p>
+<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
+</ul>
+<p>Each entry follows the <a href="schema/hub-site.schema.json">hub-site format</a>; the registry is <a href="sites.json">sites.json</a>. The plan is in the <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/blob/dev/docs/plan.md">repository</a>.</p>
 <footer>hub.sovereignwebsite.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · Read why: <a href="https://newsroom.sgit.ai/articles/sovereign-agentic-website.html">Sovereign Agentic Website</a></footer>
 </main>
 </body>

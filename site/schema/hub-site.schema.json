@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hub.sovereignwebsite.site/schema/hub-site.schema.json",
+  "title": "hub-site/1: a site's entry on hub.sovereignwebsite.site",
+  "description": "Carried by each site as hub.json at the root of its repository and vault. Draft, 19 November 2026.",
+  "type": "object",
+  "required": ["schema", "slug", "name", "summary", "kind", "owner", "address", "repository", "vault", "licence", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "hub-site/1" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+/[a-z0-9.-]+$", "description": "<owner>/<site>, the page path on the hub." },
+    "name": { "type": "string" },
+    "summary": { "type": "string", "maxLength": 200 },
+    "kind": { "enum": ["shop", "newsroom", "portfolio", "event", "brand", "pattern", "hosting", "hub", "other"] },
+    "owner": {
+      "type": "object", "required": ["name"], "additionalProperties": false,
+      "properties": { "name": { "type": "string" }, "url": { "type": "string", "format": "uri" } }
+    },
+    "team": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["name"], "additionalProperties": false,
+        "properties": { "name": { "type": "string" }, "role": { "type": "string" }, "session": { "type": "string", "format": "uri" } }
+      }
+    },
+    "address": {
+      "type": "object", "required": ["url"], "additionalProperties": false,
+      "properties": { "url": { "type": "string", "format": "uri" }, "domain": { "enum": ["own", "sovereignwebsite.site"] } }
+    },
+    "repository": {
+      "type": "object", "required": ["url"], "additionalProperties": false,
+      "properties": { "url": { "type": "string", "format": "uri" }, "branch": { "type": "string" } }
+    },
+    "vault": {
+      "description": "null while the site has no vault.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object", "required": ["id"], "additionalProperties": false,
+          "properties": {
+            "id": { "type": "string" },
+            "server": { "type": "string", "format": "uri" },
+            "read_key": { "type": "string", "description": "Only if the owner chose to publish it." },
+            "in_step": { "type": "boolean", "description": "Set by CI: vault and repository hold the same files." },
+            "checked": { "type": "string", "format": "date-time" }
+          }
+        }
+      ]
+    },
+    "licence": {
+      "description": "null until stated.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object", "additionalProperties": false,
+          "properties": { "code": { "type": "string" }, "text": { "type": "string" } }
+        }
+      ]
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["version"], "additionalProperties": false,
+        "properties": {
+          "version": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "repository_commit": { "type": "string" },
+          "vault_commit": { "type": "string" }
+        }
+      }
+    },
+    "template": {
+      "type": "object", "required": ["copyable"], "additionalProperties": false,
+      "properties": { "copyable": { "type": "boolean" }, "how": { "type": "string" } }
+    },
+    "consent": {
+      "type": "object", "required": ["by", "date"], "additionalProperties": false,
+      "properties": { "by": { "type": "string" }, "date": { "type": "string", "format": "date" } }
+    },
+    "status": { "enum": ["planned", "holding-page", "live", "retired"] }
+  }
+}
