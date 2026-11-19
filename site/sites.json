@@ -95,6 +95,35 @@
           "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d"
         }
       ]
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sovereignwebsite/vault",
+      "name": "vault.sovereignwebsite.site",
+      "summary": "The base for sites powered by sgit vaults: open a site sealed in a vault, in your own browser.",
+      "kind": "other",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "team": [
+        {
+          "name": "hub.b@SovereignWebsite.dinis",
+          "role": "Builds the vault drop page",
+          "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d"
+        }
+      ],
+      "address": {
+        "url": "https://vault.sovereignwebsite.site",
+        "domain": "sovereignwebsite.site"
+      },
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/SovereignWebsite__Vault",
+        "branch": "dev"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live"
     }
   ]
 }
