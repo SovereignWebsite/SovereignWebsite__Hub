@@ -73,18 +73,29 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
 .d-5 .site{text-align:center}.d-5 .tags{justify-content:center}.d-5 .hero{text-align:center}.d-5 .hero p{margin:0 auto}
 @media (min-width:900px){.d-5 .sites{grid-template-columns:repeat(3,1fr);gap:2rem}}
 
-.family{font-size:.8rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
-.family ul{list-style:none;margin:0 auto;padding:.35rem 1rem;display:flex;flex-wrap:wrap;gap:.25rem .9rem;max-width:72rem}
-.family a{color:inherit;opacity:.8;text-decoration:none}
-.family a:hover,.family a:focus-visible{opacity:1;text-decoration:underline}
-.family a[aria-current="true"]{opacity:1;font-weight:600}
+.family{--fam-fg:var(--family-fg,#454545);--fam-strong:var(--family-fg-strong,#111);font-size:.875rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
+@media (prefers-color-scheme:dark){.family{--fam-fg:var(--family-fg,#cfcfcf);--fam-strong:var(--family-fg-strong,#fff)}}
+.family ul{list-style:none;margin:0 auto;padding:.1rem 1rem;display:flex;flex-wrap:wrap;gap:0 1rem;max-width:72rem}
+.family .family-narrow{display:none}
+.family a{color:var(--fam-fg);text-decoration:none;display:inline-block;padding:.2rem 0;min-height:24px}
+.family a:hover,.family a:focus-visible{color:var(--fam-strong);text-decoration:underline}
+.family a[aria-current="true"]{color:var(--fam-strong);font-weight:600}
 .family .family-sep{margin-left:auto}
-@media (max-width:40rem){.family .family-sep{margin-left:0}}
+/* Phones: the same links folded into one line (a details/summary), instead of three wrapped lines above the
+   site's own header. Two copies in the markup, one shown per width: CSS only, so no script and no CSP issue. */
+@media (max-width:40rem){
+  .family .family-wide{display:none}
+  .family .family-narrow{display:block}
+  .family summary{cursor:pointer;padding:.3rem 1rem;min-height:24px;color:var(--fam-fg)}
+  .family summary:hover,.family summary:focus-visible{color:var(--fam-strong)}
+  .family .family-narrow ul{flex-direction:column;gap:0;padding:0 1rem .4rem}
+  .family .family-sep{margin-left:0}
+}
 </style>
 </head>
 <body>
 <nav class="family" aria-label="The Sovereign Website family">
-  <ul>
+  <ul class="family-wide">
     <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
     <li><a href="https://sovereignwebsite.org/">Principles</a></li>
     <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
@@ -95,6 +106,20 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
     <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
     <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
   </ul>
+  <details class="family-narrow">
+    <summary>Sovereign Website family</summary>
+    <ul>
+      <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+      <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+      <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+      <li><a href="https://hub.sovereignweb.site/" aria-current="true">Hub</a></li>
+      <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+      <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+      <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+      <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+      <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+    </ul>
+  </details>
 </nav>
 <nav class="switch" aria-label="Design"><span>Design</span><button type="button" data-d="1" aria-pressed="false">1. Editorial</button><button type="button" data-d="2" aria-pressed="false">2. Night gallery</button><button type="button" data-d="3" aria-pressed="false">3. Grid</button><button type="button" data-d="4" aria-pressed="false">4. By group</button><button type="button" data-d="5" aria-pressed="false">5. Studio</button></nav>
 <main>
