@@ -267,6 +267,7 @@
       "enum": [
         "People",
         "Startups",
+        "Providers",
         "Businesses",
         "PrompTugal.news",
         "Demos",

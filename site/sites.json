@@ -814,6 +814,38 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__RiskMandate-At-WebSummit",
         "branch": "dev"
       }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "mistral",
+      "name": "Mistral",
+      "summary": "Mistral, a European brain for a sovereign website: what Mistral offers at every level, cited, with browser demos using your own key. Independent; not affiliated with Mistral AI.",
+      "kind": "Provider guide",
+      "group": "Provider",
+      "section": "Providers",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "team": [
+        {
+          "name": "conductor.mistral@SovereignWebsite.dinis",
+          "role": "keeper",
+          "session": "https://claude.ai/code/session_01Kw9UwFkZvAwG1yRZJhexqX"
+        }
+      ],
+      "address": {
+        "url": "https://mistral.provider.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/mistral",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Provider__Mistral",
+        "branch": "dev"
+      }
     }
   ]
 }

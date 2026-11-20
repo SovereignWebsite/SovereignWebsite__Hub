@@ -32,6 +32,7 @@ sites.sort(key=lambda s: (bool(s.get('waiting')), s.get('featured', 10**6)))
 SECTIONS = [
     ('People', 'Personal sites for real people. Kate Curtis-Evans was the first to take hers over and edit it herself.'),
     ('Startups', 'Independent brochures about the startups in the family, each made from the company\'s own public pages.'),
+    ('Providers', 'Independent guides to the AI providers a sovereign website can use, cited, with browser demos that use your own key.'),
     ('Businesses', 'Sites for businesses: two made-up examples, labelled as such, and a redesign proposal made with the company\'s agreement.'),
     ('PrompTugal.news', 'The parts of PrompTugal.news that are live: Portugal\'s public data, gathered and explained by agent teams.'),
     ('Demos', 'Demonstrations: what an agent team builds from public data, and how a site is made from one request.'),
