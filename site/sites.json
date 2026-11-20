@@ -110,7 +110,8 @@
       "licence": null,
       "status": "live",
       "shot": "shots/kate-curtis-evans",
-      "featured": 1
+      "featured": 1,
+      "note": "Handed over: Kate edits it herself on GitHub, since 20 Nov 2026."
     },
     {
       "schema": "hub-site/1",
