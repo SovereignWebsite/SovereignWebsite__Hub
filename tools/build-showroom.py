@@ -29,7 +29,8 @@ sites = [s for s in data['sites'] if s.get('status') == 'live']
 # Featured (hand-picked rank) first; a site still waiting on something goes last.
 sites.sort(key=lambda s: (bool(s.get('waiting')), s.get('featured', 10**6)))
 people = [s for s in sites if s.get('featured')]
-tools = [s for s in sites if not s.get('featured')]
+startups = [s for s in sites if not s.get('featured') and s.get('group') == 'Startups']
+tools = [s for s in sites if not s.get('featured') and s.get('group') != 'Startups']
 hero = next((s for s in people if s.get('handed_over')), people[0] if people else sites[0])
 handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
@@ -229,6 +230,10 @@ page = f'''<!doctype html>
 <ol class="steps">{''.join(f'<li>{e(t)}</li>' for t in steps)}</ol>
 {f'<p class="go"><a href="{e(demo["address"]["url"])}">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>' if demo else ''}
 </section>
+{f'''<section class="tools" aria-labelledby="h-startups"><h2 class="sec-h" id="h-startups">Startups</h2>
+<div class="grid">
+{chr(10).join(card(s, i, small=True) for i, s in enumerate(startups))}
+</div></section>''' if startups else ''}
 <section class="tools" aria-labelledby="h-tools"><h2 class="sec-h" id="h-tools">Tools and demos</h2>
 <div class="grid">
 {chr(10).join(card(s, i, small=True) for i, s in enumerate(tools))}

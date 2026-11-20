@@ -147,6 +147,30 @@
       "chips": [
         "Five designs"
       ]
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sgit",
+      "name": "sgit",
+      "summary": "Git for encrypted vaults, for humans and AI agents: an independent brochure made from sgit.ai's own public pages.",
+      "kind": "Brochure",
+      "group": "Startups",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://sgit.startups.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/sgit",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Startups__Sgit",
+        "branch": "dev"
+      }
     }
   ]
 }
