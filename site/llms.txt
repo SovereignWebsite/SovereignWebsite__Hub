@@ -1,0 +1,11 @@
+# Sovereign Website Hub
+
+> The showroom of public sovereign websites: sites built by agent teams and handed over to the people they are for, who keep the files, the history and the address. Every site listed is public and live.
+
+- [The showroom](https://hub.sovereignweb.site/): the sites, with screenshots, newest handovers first
+- [sites.json](https://hub.sovereignweb.site/sites.json): every listed site, in the hub-site/1 format
+- [The hub-site format](https://hub.sovereignweb.site/schema/hub-site.schema.json): the JSON schema of an entry
+- [Agents](https://hub.sovereignweb.site/data/agents.json): the agents that work on this site
+- [Source](https://github.com/SovereignWebsite/SovereignWebsite__Hub): SovereignWebsite__Hub on GitHub
+
+Only public sites are listed. Private or vault-only sites never appear here, by name or by count. No cookies, no tracking.
