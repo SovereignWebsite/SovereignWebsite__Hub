@@ -192,8 +192,15 @@ page = f'''<!doctype html>
 <meta property="og:type" content="website">
 <meta property="og:url" content="{SITE_URL}">
 <meta property="og:image" content="{SITE_URL}og.jpg">
-<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Sovereign Website Hub">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sovereign Website Hub: websites their owners own, with screenshots of three people's sites">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sovereign Website Hub: websites their owners own">
+<meta name="twitter:description" content="Built by agent teams, then handed over. Every site here is public and live.">
+<meta name="twitter:image" content="{SITE_URL}og.jpg">
 <script>var d=(location.hash.match(/design-([1-5])/)||[])[1];if(d)document.documentElement.className='d-'+d;</script>
 <style>{css}
 {family_css}
