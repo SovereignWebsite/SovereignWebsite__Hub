@@ -109,6 +109,30 @@
       "licence": null,
       "status": "live",
       "shot": "shots/kate-curtis-evans"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sarah-cruz",
+      "name": "Sarah Cruz",
+      "summary": "Creative Director and designer: 25+ years of wine, spirits and retail packaging, five designs.",
+      "kind": "Portfolio",
+      "group": "Designer",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://sarah-cruz.designer.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/sarah-cruz",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz",
+        "branch": "dev"
+      }
     }
   ]
 }
