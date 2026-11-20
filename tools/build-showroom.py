@@ -67,11 +67,11 @@ main{max-width:76rem;margin:0 auto;padding:4rem 1rem 3rem}
 .hero h1{margin:.4rem 0 1rem;line-height:1.02;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em}
 .hero p{max-width:40rem;color:var(--muted);font-size:1.1rem;margin:0}
 .sites{display:grid;gap:2.5rem;margin-top:3.5rem}
-.band{display:contents}.band-h{display:none}
+.band{display:contents}.band-h{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .frame{display:block;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:transform .25s,box-shadow .25s}
 .frame:hover,.frame:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
 .frame img{aspect-ratio:16/10;object-fit:cover;object-position:top;height:auto}
-@media (max-width:640px){.frame img{aspect-ratio:4/5}}
+@media (max-width:640px){.frame img{aspect-ratio:4/3}}
 .chrome{display:flex;align-items:center;gap:.35rem;padding:.5rem .75rem;border-bottom:1px solid var(--line);background:var(--card);font-size:.75rem;color:var(--muted)}
 .chrome i{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}.chrome b{font-weight:500;margin-left:.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .tags{display:flex;gap:.4rem;margin:1rem 0 .3rem;padding:0;flex-wrap:wrap}.tags span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
@@ -111,7 +111,7 @@ footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
 @media (prefers-color-scheme:dark){.d-4{--bg:#1e1813;--fg:#f3e9dc;--muted:#c8b8a6;--accent:#e8a07a;--fill:#e8a07a;--on-fill:#1e1813;--line:#3b3027;--card:#261f19}}
 .d-4 h1,.d-4 .site h3,.d-4 .band-h{font-family:"Palatino Linotype",Palatino,Georgia,serif}
 .d-4 .sites{display:block}.d-4 .band{display:grid;gap:2rem;padding:2rem 0;border-top:2px solid var(--line)}
-.d-4 .band-h{display:block;margin:0;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--accent)}
+.d-4 .band-h{position:static;width:auto;height:auto;clip:auto;overflow:visible;white-space:normal;display:block;margin:0;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--accent)}
 @media (min-width:900px){.d-4 .band{grid-template-columns:14rem repeat(2,1fr);align-items:start}.d-4 .band-h{grid-row:span 2}}
 
 /* 5 Studio: gradient stage, tilted devices */
