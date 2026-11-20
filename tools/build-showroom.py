@@ -32,6 +32,7 @@ people = [s for s in sites if s.get('featured')]
 tools = [s for s in sites if not s.get('featured')]
 hero = next((s for s in people if s.get('handed_over')), people[0] if people else sites[0])
 handed = sum(1 for s in sites if s.get('handed_over'))
+working = sum(1 for s in sites if not s.get('waiting'))
 names = ['Editorial', 'Night gallery', 'Grid', 'Paper', 'Studio']
 SITE_URL = 'https://hub.sovereignweb.site/'
 
@@ -102,7 +103,7 @@ main{max-width:78rem;margin:0 auto;padding:3rem 1rem}
 .hero h1{margin:.4rem 0 1rem;line-height:1.02;font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:-.02em}
 .hero-text>p{color:var(--muted);font-size:1.1rem;margin:0 0 1rem;max-width:34rem}
 .count{display:flex;gap:1.5rem;flex-wrap:wrap;margin:1.4rem 0 0;padding:0;list-style:none}.count li{color:var(--muted);font-size:.9rem}.count b{display:block;font-size:2rem;line-height:1.1;color:var(--fg)}
-.hero-shot{display:block}.badge{display:block;padding:.7rem 1rem;font-weight:600;font-size:.95rem;background:var(--fill);color:var(--on-fill)}
+.hero-shot{display:block}.hero-shot img{object-position:left top}.badge{display:block;padding:.7rem 1rem;font-weight:600;font-size:.95rem;background:var(--fill);color:var(--on-fill)}
 .frame{display:block;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:transform .25s,box-shadow .25s}
 .frame:hover,.frame:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
 .frame img{aspect-ratio:16/10;object-fit:cover;object-position:top}
@@ -122,7 +123,8 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
 .chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 .6rem;padding:0}
 .chips span{font-size:.75rem;padding:.12rem .6rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 .chips .hand{background:var(--fill);border-color:var(--fill);color:var(--on-fill);font-weight:600}.chips .live{color:var(--accent);border-color:var(--accent)}
-.waiting{opacity:.72}.waiting .frame img{filter:grayscale(.7)}
+/* A waiting site is shown by its label and a muted frame; its text keeps full contrast. */
+.waiting .frame{border-style:dashed}.waiting .frame img{filter:grayscale(1) contrast(.85)}
 .go{margin:0}.go a{font-weight:600;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}.go a:hover{text-decoration:underline}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;counter-reset:s}
 .steps li{position:relative;padding-left:3rem;min-height:2.2rem;display:flex;align-items:center;font-weight:600}
@@ -192,17 +194,17 @@ page = f'''<!doctype html>
 </head>
 <body>
 {family}
-<div class="bar"><a class="brand" href="./">Sovereign Website Hub</a>
-<details class="chooser"><summary>Choose a design</summary><nav class="opts" aria-label="Designs of this page">{opts}</nav></details></div>
+<header class="bar"><a class="brand" href="./">Sovereign Website Hub</a>
+<details class="chooser"><summary>Choose a design</summary><nav class="opts" aria-label="Designs of this page">{opts}</nav></details></header>
 <main>
 <header class="hero">
   <div class="hero-text">
     <p class="kicker">The showroom</p>
     <h1>Websites their owners own.</h1>
     <p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
-    <ul class="count"><li><b>{len(sites)}</b>sites live</li><li><b>{len(people)}</b>people's sites</li><li><b>{handed}</b>handed over</li></ul>
+    <ul class="count"><li><b>{working}</b>sites working</li><li><b>{len(people)}</b>people's sites</li><li><b>{handed}</b>handed over</li></ul>
   </div>
-  <a class="hero-shot frame" href="{e(hero['address']['url'])}" aria-label="Open {e(hero['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host_of(hero))}</b></span><img src="{e(hero['shot'])}.jpg" alt="Screenshot of {e(hero['name'])}" width="1280" height="800" loading="eager">{f'<span class="badge">{e(hero_note)}</span>' if hero_note else ''}</a>
+  <a class="hero-shot frame" href="{e(hero['address']['url'])}" aria-label="Open {e(hero['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host_of(hero))}</b></span><picture><source media="(max-width:640px)" srcset="{e(hero['shot'])}-phone.jpg"><img src="{e(hero['shot'])}.jpg" alt="Screenshot of {e(hero['name'])}" width="1280" height="800" loading="eager"></picture>{f'<span class="badge">{e(hero_note)}</span>' if hero_note else ''}</a>
 </header>
 <section class="people" aria-labelledby="h-people"><h2 class="sec-h" id="h-people">People</h2>
 <div class="grid">

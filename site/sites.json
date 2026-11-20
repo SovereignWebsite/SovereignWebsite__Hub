@@ -44,7 +44,10 @@
         "url": "https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz",
         "branch": "dev"
       },
-      "featured": 2
+      "featured": 2,
+      "chips": [
+        "Five designs"
+      ]
     },
     {
       "schema": "hub-site/1",
