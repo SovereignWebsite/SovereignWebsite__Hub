@@ -61,6 +61,26 @@
       "status": "live",
       "shot": "shots/google-maps",
       "note": "Not switched on yet: waiting for the owner's Maps key."
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "whois",
+      "name": "Whois: who holds a domain or IP address",
+      "summary": "Who holds a domain or an IP address, from the registries' own RDAP records. No ads, no tracking.",
+      "kind": "Tool",
+      "group": "Tool",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://whois.tool.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/whois"
     }
   ]
 }
