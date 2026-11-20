@@ -66,7 +66,7 @@ main{max-width:76rem;margin:0 auto;padding:4rem 1rem 3rem}
 .hero .kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700;color:var(--accent);margin:0}
 .hero h1{margin:.4rem 0 1rem;line-height:1.02;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em}
 .hero p{max-width:40rem;color:var(--muted);font-size:1.1rem;margin:0}
-.sites{display:grid;gap:2.5rem;margin-top:3.5rem}
+.sites{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem;margin-top:3.5rem}.site{min-width:0}
 .band{display:contents}.band-h{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .frame{display:block;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:transform .25s,box-shadow .25s}
 .frame:hover,.frame:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
