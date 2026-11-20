@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://hub.sovereignwebsite.site/schema/hub-site.schema.json",
-  "title": "hub-site/1: a site's entry on hub.sovereignwebsite.site",
+  "$id": "https://hub.sovereignweb.site/schema/hub-site.schema.json",
+  "title": "hub-site/1: a site's entry on hub.sovereignweb.site",
   "description": "Carried by each public site as hub.json and listed in the showroom registry. Private or vault-only sites are never listed.",
   "type": "object",
   "required": [

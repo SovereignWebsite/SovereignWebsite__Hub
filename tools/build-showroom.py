@@ -129,7 +129,7 @@ page = f'''<!doctype html>
 </section>
 <p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added by the site's own agent when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
-<footer>hub.sovereignwebsite.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · No cookies, no tracking.</footer>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · No cookies, no tracking.</footer>
 <script>
 (function(){{
   var bs=document.querySelectorAll('.switch button');

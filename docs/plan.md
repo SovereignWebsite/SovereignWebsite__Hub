@@ -6,7 +6,7 @@ Sources: Dinis Cruz's articles on the SGit Newsroom, "A hub for agentic sites" (
 
 ## What the hub is
 
-hub.sovereignwebsite.site is the gallery of sovereign agentic websites, a code host for them in the way hub.agenticcells.site is for AgentiCCells' sites (Dinis, 19 Nov 2026): one page per site, generated from a small file each site carries. Every site lives in two places, a public repository and an sgit vault holding the same files. Because the sites are static, a vault is a complete site: it can be cloned, opened locally and handed on, so vaults can be the distribution medium. The hub itself is a static site in site/, with no database, no server code, no cookies and no tracking.
+hub.sovereignweb.site is the gallery of sovereign agentic websites, a code host for them in the way hub.agenticcells.site is for AgentiCCells' sites (Dinis, 19 Nov 2026): one page per site, generated from a small file each site carries. Every site lives in two places, a public repository and an sgit vault holding the same files. Because the sites are static, a vault is a complete site: it can be cloned, opened locally and handed on, so vaults can be the distribution medium. The hub itself is a static site in site/, with no database, no server code, no cookies and no tracking.
 
 Each site page shows: name and what it does, owner, the team that built it, live address, repository, vault (and its read key, only if the owner publishes it), licence, versions, and, for a template, how to copy it. Nothing is listed without its owner's consent, recorded with the date, and a site leaves the day its owner asks.
 
@@ -52,6 +52,6 @@ Needs a person: consent to be listed (the owner); choosing to publish a vault's 
 ## Open questions for Dinis
 
 1. Who is the owner listed for the four sites (SovereignWebsite, AgentiCCells, or you), and which licence for text and code (the Factory uses Apache-2.0 for code and CC BY 4.0 for text)?
-2. Page path: `hub.sovereignwebsite.site/<owner>/<site>/` as in the article?
+2. Page path: `hub.sovereignweb.site/<owner>/<site>/` as in the article?
 3. Should the hub also list the AgentiCCells and newsroom demo sites the article mentions, or SovereignWebsite sites only?
 4. This agent's key lives in this container and goes when it is reclaimed. Is a session key, rotated per session, what you want?
