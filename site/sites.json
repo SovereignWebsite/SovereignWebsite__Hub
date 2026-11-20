@@ -43,7 +43,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz",
         "branch": "dev"
-      }
+      },
+      "featured": 2
     },
     {
       "schema": "hub-site/1",
@@ -108,7 +109,8 @@
       "vault": null,
       "licence": null,
       "status": "live",
-      "shot": "shots/kate-curtis-evans"
+      "shot": "shots/kate-curtis-evans",
+      "featured": 1
     },
     {
       "schema": "hub-site/1",
@@ -132,7 +134,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz",
         "branch": "dev"
-      }
+      },
+      "featured": 3
     }
   ]
 }

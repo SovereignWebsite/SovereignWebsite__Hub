@@ -243,6 +243,11 @@
     "note": {
       "type": "string",
       "description": "A short, true status note shown with the site."
+    },
+    "featured": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Hand-picked showroom order; lower comes first. Sites without it follow, in file order."
     }
   }
 }

@@ -24,6 +24,8 @@ family_css = family_css.group(0) if family_css else ''
 
 e = lambda x: html.escape(str(x), quote=True)
 sites = [s for s in data['sites'] if s.get('status') == 'live']
+# Featured order first (hand-picked rank), then the rest in file order.
+sites.sort(key=lambda s: s.get('featured', 10**6))
 
 
 def card(s, i):
