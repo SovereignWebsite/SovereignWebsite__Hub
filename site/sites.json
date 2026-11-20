@@ -219,6 +219,30 @@
         "url": "https://github.com/SovereignWebsite/Site__Startups__Risk-Mandate",
         "branch": "dev"
       }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "agentic-cells",
+      "name": "AgentiCCells",
+      "summary": "Small teams of AI agents that do one job for you: an independent brochure made from agenticcells.ai's own public pages.",
+      "kind": "Brochure",
+      "group": "Startups",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://agentic-cells.startups.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/agentic-cells",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells",
+        "branch": "dev"
+      }
     }
   ]
 }
