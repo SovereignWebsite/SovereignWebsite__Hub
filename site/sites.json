@@ -25,7 +25,7 @@
       "schema": "hub-site/1",
       "slug": "emily-cruz",
       "name": "Emily Cruz",
-      "summary": "Emily Cruz, actor-musician and artist. BA (Hons) Actor-Musician, Guildford School of Acting, 2026.",
+      "summary": "Actor-musician and artist. BA (Hons) Actor-Musician, Guildford School of Acting, 2026.",
       "kind": "Portfolio",
       "group": "Artist",
       "owner": {
@@ -39,7 +39,11 @@
       "vault": null,
       "licence": null,
       "status": "live",
-      "shot": "shots/emily-cruz"
+      "shot": "shots/emily-cruz",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz",
+        "branch": "dev"
+      }
     },
     {
       "schema": "hub-site/1",
