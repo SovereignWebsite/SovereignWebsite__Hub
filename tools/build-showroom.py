@@ -22,116 +22,169 @@ family_css = re.search(r'\.family\{.*?(?=\n</style>|\n#|\n\.d-)', old, re.S)
 family = family.group(0) if family else ''
 family_css = family_css.group(0) if family_css else ''
 
+
 e = lambda x: html.escape(str(x), quote=True)
+host_of = lambda s: re.sub(r'^https?://|/$', '', s['address']['url'])
 sites = [s for s in data['sites'] if s.get('status') == 'live']
-# Featured order first (hand-picked rank), then the rest in file order.
-sites.sort(key=lambda s: s.get('featured', 10**6))
+# Featured (hand-picked rank) first; a site still waiting on something goes last.
+sites.sort(key=lambda s: (bool(s.get('waiting')), s.get('featured', 10**6)))
+people = [s for s in sites if s.get('featured')]
+tools = [s for s in sites if not s.get('featured')]
+hero = next((s for s in people if s.get('handed_over')), people[0] if people else sites[0])
+handed = sum(1 for s in sites if s.get('handed_over'))
+names = ['Editorial', 'Night gallery', 'Grid', 'Paper', 'Studio']
+SITE_URL = 'https://hub.sovereignweb.site/'
 
 
-def card(s, i):
-    host = re.sub(r'^https?://|/$', '', s['address']['url'])
-    note = f'<p class="note">{e(s["note"])}</p>' if s.get('note') else ''
-    shot = s.get('shot')
-    img = (f'<picture><source media="(max-width:640px)" srcset="{e(shot)}-phone.jpg">'
-           f'<img src="{e(shot)}.jpg" alt="Screenshot of {e(s["name"])}" loading="{'eager' if i < 3 else 'lazy'}" width="1280" height="800"></picture>') if shot else ''
-    return f'''<article class="site" style="--i:{i}">
-  <a class="frame" href="{e(s['address']['url'])}" aria-label="Open {e(s['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host)}</b></span>{img}</a>
+def shot(s, eager, sizes='(min-width:900px) 33vw, 100vw'):
+    sh = s.get('shot')
+    if not sh:
+        return ''
+    return (f'<picture><source media="(max-width:640px)" srcset="{e(sh)}-phone.jpg">'
+            f'<img src="{e(sh)}.jpg" alt="Screenshot of {e(s["name"])}" loading="{"eager" if eager else "lazy"}" width="1280" height="800"></picture>')
+
+
+def frame(s, eager):
+    return (f'<a class="frame" href="{e(s["address"]["url"])}" aria-label="Open {e(s["name"])}">'
+            f'<span class="chrome"><i></i><i></i><i></i><b>{e(host_of(s))}</b></span>{shot(s, eager)}</a>')
+
+
+def chips(s):
+    c = []
+    if s.get('handed_over'):
+        c.append(('hand', 'Handed over'))
+    c += [('', x) for x in s.get('chips', [])]
+    c.append(('wait', 'Not switched on yet') if s.get('waiting') else ('live', 'Live'))
+    return '<p class="chips">' + ''.join(f'<span class="{k}">{e(t)}</span>' for k, t in c) + '</p>'
+
+
+def card(s, i, small=False):
+    # A handed-over site says so in its chip (and in the hero), so the note is not repeated.
+    note = f'<p class="note">{e(s["note"])}</p>' if s.get('note') and not s.get('handed_over') else ''
+    wait = f'<p class="wait-note">{e(s["waiting"])}</p>' if s.get('waiting') else ''
+    cls = 'site small' if small else 'site'
+    if s.get('waiting'):
+        cls += ' waiting'
+    return f'''<article class="{cls}">
+  {frame(s, i < 3 and not small)}
   <div class="meta">
-    <p class="tags"><span>{e(s.get('group', ''))}</span><span>{e(s['kind'])}</span></p>
+    <p class="kind">{e(s.get('group') or s['kind'])}</p>
     <h3><a href="{e(s['address']['url'])}">{e(s['name'])}</a></h3>
-    <p class="sum">{e(s['summary'])}</p>{note}
-    <p class="go"><a href="{e(s['address']['url'])}">{e(host)} <span aria-hidden="true">&rarr;</span></a></p>
+    <p class="sum">{e(s['summary'])}</p>{note}{wait}
+    {chips(s)}
+    <p class="go"><a href="{e(s['address']['url'])}">{e(host_of(s))} <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </article>'''
 
 
-groups = []
-for x in sites:
-    g = x.get('group') or 'Other'
-    if g not in groups: groups.append(g)
-ordered = [x for g in groups for x in sites if (x.get('group') or 'Other') == g]
-idx = {id(x): i for i, x in enumerate(ordered)}
-cards = '\n'.join(
-    f'<section class="band" aria-label="{e(g)}"><h2 class="band-h">{e(g)}</h2>\n'
-    + '\n'.join(card(x, idx[id(x)]) for x in ordered if (x.get('group') or 'Other') == g) + '\n</section>'
-    for g in groups)
-names = ['Editorial', 'Night gallery', 'Grid', 'By group', 'Studio']
+demo = next((s for s in sites if s['slug'] == 'pipeline-demo'), None)
+steps = ['One request', 'An agent team builds it', 'Five designs to choose from', 'The owner chooses one', "Handed over to the owner's GitHub"]
+opts = ''.join(f'<a href="#design-{i+1}" data-d="{i+1}"><img src="shots/hub-design-{i+1}.jpg" alt="" width="640" height="400" loading="lazy"><span>{i+1}. {e(n)}</span></a>'
+               for i, n in enumerate(names))
 
 css = r'''
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg)}
-a{color:inherit}img{display:block;width:100%}
-.switch{position:sticky;top:0;z-index:5;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;padding:.5rem 1rem;background:var(--bg);border-bottom:1px solid var(--line);font-size:.85rem}
-.switch span{color:var(--muted);margin-right:.3rem}.switch button{font:inherit;padding:.3rem .75rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
-.switch button[aria-pressed=true]{background:var(--fill);border-color:var(--fill);color:var(--on-fill)}
-main{max-width:76rem;margin:0 auto;padding:4rem 1rem 3rem}
-.hero .kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700;color:var(--accent);margin:0}
-.hero h1{margin:.4rem 0 1rem;line-height:1.02;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em}
-.hero p{max-width:40rem;color:var(--muted);font-size:1.1rem;margin:0}
-.sites{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem;margin-top:3.5rem}.site{min-width:0}
-.band{display:contents}.band-h{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+a{color:inherit}img{display:block;width:100%;height:auto}
+.bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.55rem 1rem;background:var(--bg);border-bottom:1px solid var(--line);font-size:.9rem}
+.brand{font-weight:700;text-decoration:none;white-space:nowrap}
+.chooser summary{list-style:none;cursor:pointer;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.chooser summary::-webkit-details-marker{display:none}.chooser summary::after{content:" \25BE"}
+.chooser[open] summary{background:var(--fill);color:var(--on-fill);border-color:var(--fill)}
+.opts{position:absolute;right:1rem;top:calc(100% + .4rem);width:min(60rem,calc(100vw - 2rem));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;padding:.9rem;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -24px rgba(0,0,0,.45)}
+.opts a{text-decoration:none;font-size:.82rem;border-radius:8px;padding:.3rem;border:2px solid transparent}.opts a[aria-current=true]{border-color:var(--fill)}
+.opts img{border-radius:6px;border:1px solid var(--line);aspect-ratio:16/10;object-fit:cover;object-position:top}.opts span{display:block;margin-top:.35rem}
+@media (max-width:700px){.opts{grid-template-columns:repeat(2,minmax(0,1fr));max-height:75vh;overflow:auto}}
+main{max-width:78rem;margin:0 auto;padding:3rem 1rem}
+.hero{display:grid;gap:2rem;align-items:center}
+@media (min-width:900px){.hero{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:3.5rem}}
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700;color:var(--accent);margin:0}
+.hero h1{margin:.4rem 0 1rem;line-height:1.02;font-size:clamp(2.4rem,6vw,4.6rem);letter-spacing:-.02em}
+.hero-text>p{color:var(--muted);font-size:1.1rem;margin:0 0 1rem;max-width:34rem}
+.count{display:flex;gap:1.5rem;flex-wrap:wrap;margin:1.4rem 0 0;padding:0;list-style:none}.count li{color:var(--muted);font-size:.9rem}.count b{display:block;font-size:2rem;line-height:1.1;color:var(--fg)}
+.hero-shot{display:block}.badge{display:block;padding:.7rem 1rem;font-weight:600;font-size:.95rem;background:var(--fill);color:var(--on-fill)}
 .frame{display:block;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:transform .25s,box-shadow .25s}
 .frame:hover,.frame:focus-visible{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
-.frame img{aspect-ratio:16/10;object-fit:cover;object-position:top;height:auto}
+.frame img{aspect-ratio:16/10;object-fit:cover;object-position:top}
 @media (max-width:640px){.frame img{aspect-ratio:4/3}}
-.chrome{display:flex;align-items:center;gap:.35rem;padding:.5rem .75rem;border-bottom:1px solid var(--line);background:var(--card);font-size:.75rem;color:var(--muted)}
-.chrome i{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}.chrome b{font-weight:500;margin-left:.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tags{display:flex;gap:.4rem;margin:1rem 0 .3rem;padding:0;flex-wrap:wrap}.tags span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
-.tags span:empty{display:none}
-.site h3{margin:.2rem 0 .4rem;font-size:1.6rem;line-height:1.15}.site h3 a{text-decoration:none}.site h3 a:hover{text-decoration:underline}
-.sum{color:var(--muted);margin:0 0 .6rem}.note{font-size:.85rem;margin:0 0 .6rem;padding:.3rem .6rem;border-left:3px solid var(--fill);background:var(--card)}
-.go a{font-weight:600;color:var(--accent);text-decoration:none}.go a:hover{text-decoration:underline}
+.chrome{display:flex;align-items:center;gap:.35rem;padding:.5rem .75rem;border-bottom:1px solid var(--line);background:var(--card);font-size:.75rem;color:var(--muted);min-width:0}
+.chrome i{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}.chrome b{font-weight:500;margin-left:.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0 1.5rem;line-height:1.1}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem}.site{min-width:0}
+@media (min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:960px){.people .grid,.tools .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.kind{margin:1rem 0 .1rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:700}
+.site h3{margin:0 0 .35rem;font-size:1.45rem;line-height:1.15}.site h3 a{text-decoration:none}.site h3 a:hover{text-decoration:underline}
+.small h3{font-size:1.1rem}.small .sum{font-size:.92rem}
+.sum{color:var(--muted);margin:0 0 .6rem}
+.note{font-size:.85rem;margin:0 0 .6rem;padding:.3rem .6rem;border-left:3px solid var(--fill);background:var(--card)}
+.wait-note{font-size:.85rem;color:var(--muted);margin:0 0 .6rem;font-style:italic}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 .6rem;padding:0}
+.chips span{font-size:.75rem;padding:.12rem .6rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.chips .hand{background:var(--fill);border-color:var(--fill);color:var(--on-fill);font-weight:600}.chips .live{color:var(--accent);border-color:var(--accent)}
+.waiting{opacity:.72}.waiting .frame img{filter:grayscale(.7)}
+.go{margin:0}.go a{font-weight:600;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}.go a:hover{text-decoration:underline}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;counter-reset:s}
+.steps li{position:relative;padding-left:3rem;min-height:2.2rem;display:flex;align-items:center;font-weight:600}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;background:var(--fill);color:var(--on-fill);font-weight:700}
+@media (min-width:860px){.steps{grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem}
+ .steps li{padding:3.2rem .3rem 0;text-align:center;justify-content:center;align-items:flex-start}
+ .steps li::before{left:50%;transform:translateX(-50%)}
+ .steps li:not(:last-child)::after{content:"";position:absolute;top:1.1rem;left:calc(50% + 1.4rem);right:calc(-50% + 1.4rem);height:2px;background:var(--line)}}
+.made .go{margin-top:1.5rem}
 .how{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem;max-width:46rem}
 .how a,footer a{color:var(--accent)}
-footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Each design has a light and a dark palette; the visitor's setting chooses. --accent is for text, --fill for fills. */
-/* 1 Editorial: serif, one site per row, large shots */
+/* 1 Editorial: serif, calm */
 .d-1{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--fill:#2f6b4f;--on-fill:#fff;--line:#e4e1d8;--card:#fff}
 @media (prefers-color-scheme:dark){.d-1{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#86c9a8;--fill:#86c9a8;--on-fill:#141513;--line:#2c2d29;--card:#1c1d1a}}
-.d-1 h1,.d-1 .site h3{font-family:Georgia,"Times New Roman",serif;font-weight:500}
-@media (min-width:900px){.d-1 .site{display:grid;grid-template-columns:1.6fr 1fr;gap:2.5rem;align-items:center}.d-1 .site:nth-of-type(even) .frame{order:2}}
+.d-1 h1,.d-1 .site h3,.d-1 .sec-h{font-family:Georgia,"Times New Roman",serif;font-weight:500}
 
-/* 2 Night gallery: the first site large and glowing, the rest in a grid */
+/* 2 Night gallery: dark, glowing frames */
 .d-2{--bg:#0d0f12;--fg:#eef1f4;--muted:#9aa3ad;--accent:#7cf0c4;--fill:#7cf0c4;--on-fill:#0d0f12;--line:#262b31;--card:#151920;--glow:#7cf0c4}
 @media (prefers-color-scheme:light){.d-2{--bg:#f6f8fb;--fg:#0e1726;--muted:#4a5568;--accent:#0f6e4f;--fill:#0f6e4f;--on-fill:#fff;--line:#d8dee8;--card:#fff;--glow:#3aa77f}}
 .d-2 .hero h1{background:linear-gradient(90deg,var(--accent),#5b8def);-webkit-background-clip:text;background-clip:text;color:transparent}
 .d-2 .frame{box-shadow:0 0 0 1px var(--line),0 20px 60px -30px var(--glow)}
-@media (min-width:800px){.d-2 .sites{grid-template-columns:1fr 1fr}.d-2 .sites>.band:first-child>.site:first-of-type{grid-column:1/-1}}
 
-/* 3 Grid: bold, square, monospace labels, three columns */
+/* 3 Grid: bold, square, monospace labels */
 .d-3{--bg:#f4f1ea;--fg:#111;--muted:#333;--accent:#b3261e;--fill:#b3261e;--on-fill:#fff;--line:#111;--card:#fff;--hard:#111}
 @media (prefers-color-scheme:dark){.d-3{--bg:#141414;--fg:#f4f1ea;--muted:#d6d2c8;--accent:#ff8a7a;--fill:#ff8a7a;--on-fill:#141414;--line:#f4f1ea;--card:#1e1e1e;--hard:#f4f1ea}}
-.d-3 .hero h1{text-transform:uppercase;font-weight:900;letter-spacing:-.03em}
-.d-3 .frame,.d-3 .switch button,.d-3 .tags span{border-radius:0;border-width:2px}.d-3 .frame:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--hard)}
-.d-3 .tags span,.d-3 .chrome{font-family:ui-monospace,Menlo,Consolas,monospace}
-@media (min-width:900px){.d-3 .sites{grid-template-columns:repeat(3,1fr);gap:1.5rem}}
+.d-3 .hero h1,.d-3 .sec-h{text-transform:uppercase;font-weight:900;letter-spacing:-.03em}
+.d-3 .frame,.d-3 .chooser summary,.d-3 .chips span,.d-3 .opts,.d-3 .steps li::before{border-radius:0;border-width:2px}.d-3 .frame:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--hard)}
+.d-3 .chips,.d-3 .chrome,.d-3 .kind{font-family:ui-monospace,Menlo,Consolas,monospace}
 
-/* 4 By group: one band per group, so the page explains the groups as it shows the sites */
+/* 4 Paper: warm, bookish, sections ruled off */
 .d-4{--bg:#f6efe3;--fg:#2b211a;--muted:#6f5e50;--accent:#9c4421;--fill:#9c4421;--on-fill:#fff;--line:#e2d3bf;--card:#fffaf2}
 @media (prefers-color-scheme:dark){.d-4{--bg:#1e1813;--fg:#f3e9dc;--muted:#c8b8a6;--accent:#e8a07a;--fill:#e8a07a;--on-fill:#1e1813;--line:#3b3027;--card:#261f19}}
-.d-4 h1,.d-4 .site h3,.d-4 .band-h{font-family:"Palatino Linotype",Palatino,Georgia,serif}
-.d-4 .sites{display:block}.d-4 .band{display:grid;gap:2rem;padding:2rem 0;border-top:2px solid var(--line)}
-.d-4 .band-h{position:static;width:auto;height:auto;clip:auto;overflow:visible;white-space:normal;display:block;margin:0;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--accent)}
-@media (min-width:900px){.d-4 .band{grid-template-columns:14rem repeat(2,1fr);align-items:start}.d-4 .band-h{grid-row:span 2}}
+.d-4 h1,.d-4 .site h3,.d-4 .sec-h{font-family:"Palatino Linotype",Palatino,Georgia,serif}
+.d-4 section{border-top:2px solid var(--line);padding-top:2rem}.d-4 .sec-h{color:var(--accent)}
 
-/* 5 Studio: gradient stage, tilted devices */
+/* 5 Studio: gradient stage, tilted frames */
 .d-5{--bg:#14112b;--fg:#fff;--muted:#c9c3ef;--accent:#ffcf5c;--fill:#ffcf5c;--on-fill:#14112b;--line:#3a3466;--card:#201b45;--stage:radial-gradient(1200px 600px at 10% -10%,#5b3fd1 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#d13f8f 0,transparent 55%),#14112b}
 @media (prefers-color-scheme:light){.d-5{--bg:#f7f5ff;--fg:#1b1640;--muted:#4b4570;--accent:#5a3fd1;--fill:#5a3fd1;--on-fill:#fff;--line:#ddd7f5;--card:#fff;--stage:radial-gradient(1200px 600px at 10% -10%,#e3dbff 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#ffd9ec 0,transparent 55%),#f7f5ff}}
-.d-5 body{background:var(--stage)}
+.d-5 body{background:var(--stage)}.d-5 .bar{background:transparent;backdrop-filter:blur(12px)}
 .d-5 .frame{border-radius:18px;transform:perspective(1200px) rotateX(4deg);box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}.d-5 .frame:hover{transform:perspective(1200px) rotateX(0) translateY(-4px)}
-.d-5 .site{text-align:center}.d-5 .tags{justify-content:center}.d-5 .hero{text-align:center}.d-5 .hero p{margin:0 auto}
-@media (min-width:900px){.d-5 .sites{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.d-5 .site{text-align:center}.d-5 .chips{justify-content:center}
 '''
 
+hero_note = hero.get('note') or ''
 page = f'''<!doctype html>
 <html lang="en" class="d-1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sovereign Website Hub</title>
-<meta name="description" content="The showroom of public sovereign websites: built by agents, owned by the people they are for.">
+<meta name="description" content="Websites their owners own: built by agent teams, then handed over. Every site here is public and live.">
+<meta property="og:title" content="Sovereign Website Hub: websites their owners own">
+<meta property="og:description" content="Built by agent teams, then handed over. Every site here is public and live.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{SITE_URL}">
+<meta property="og:image" content="{SITE_URL}og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script>var d=(location.hash.match(/design-([1-5])/)||[])[1];if(d)document.documentElement.className='d-'+d;</script>
 <style>{css}
 {family_css}
@@ -139,29 +192,45 @@ page = f'''<!doctype html>
 </head>
 <body>
 {family}
-<nav class="switch" aria-label="Design"><span>Design</span>{''.join(f'<button type="button" data-d="{i+1}" aria-pressed="false">{i+1}. {n}</button>' for i, n in enumerate(names))}</nav>
+<div class="bar"><a class="brand" href="./">Sovereign Website Hub</a>
+<details class="chooser"><summary>Choose a design</summary><nav class="opts" aria-label="Designs of this page">{opts}</nav></details></div>
 <main>
 <header class="hero">
-  <p class="kicker">The showroom</p>
-  <h1>Sovereign websites, live.</h1>
-  <p>Sites built by agents and owned by the people they are for: their files, their history, their address. Every site here is public and live; open one to see it working.</p>
+  <div class="hero-text">
+    <p class="kicker">The showroom</p>
+    <h1>Websites their owners own.</h1>
+    <p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
+    <ul class="count"><li><b>{len(sites)}</b>sites live</li><li><b>{len(people)}</b>people's sites</li><li><b>{handed}</b>handed over</li></ul>
+  </div>
+  <a class="hero-shot frame" href="{e(hero['address']['url'])}" aria-label="Open {e(hero['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host_of(hero))}</b></span><img src="{e(hero['shot'])}.jpg" alt="Screenshot of {e(hero['name'])}" width="1280" height="800" loading="eager">{f'<span class="badge">{e(hero_note)}</span>' if hero_note else ''}</a>
 </header>
-<section class="sites" aria-label="Public sites">
-{cards}
+<section class="people" aria-labelledby="h-people"><h2 class="sec-h" id="h-people">People</h2>
+<div class="grid">
+{chr(10).join(card(s, i) for i, s in enumerate(people))}
+</div></section>
+<section class="made" aria-labelledby="h-made"><h2 class="sec-h" id="h-made">How a site is made</h2>
+<ol class="steps">{''.join(f'<li>{e(t)}</li>' for t in steps)}</ol>
+{f'<p class="go"><a href="{e(demo["address"]["url"])}">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>' if demo else ''}
 </section>
-<p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added by the site's own agent when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
+<section class="tools" aria-labelledby="h-tools"><h2 class="sec-h" id="h-tools">Tools and demos</h2>
+<div class="grid">
+{chr(10).join(card(s, i, small=True) for i, s in enumerate(tools))}
+</div></section>
+<p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
 <footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · No cookies, no tracking, nothing stored in your browser; the design you pick lives only in the address (#design-1 to #design-5).</footer>
 <script>
 (function(){{
-  var bs=document.querySelectorAll('.switch button');
-  function set(d){{document.documentElement.className='d-'+d;bs.forEach(function(b){{b.setAttribute('aria-pressed',b.dataset.d===d?'true':'false');}});}}
-  bs.forEach(function(b){{b.onclick=function(){{set(b.dataset.d);history.replaceState(null,'','#design-'+b.dataset.d);}};}});
-  set((document.documentElement.className.match(/d-([1-5])/)||[0,'1'])[1]);
+  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser');
+  function set(d){{document.documentElement.className='d-'+d;as.forEach(function(a){{a.setAttribute('aria-current',a.dataset.d===d?'true':'false');}});}}
+  function fromHash(){{set((location.hash.match(/design-([1-5])/)||[0,'1'])[1]);}}
+  as.forEach(function(a){{a.onclick=function(ev){{ev.preventDefault();history.replaceState(null,'','#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;}};}});
+  addEventListener('hashchange',fromHash);fromHash();
+  document.addEventListener('keydown',function(ev){{if(ev.key==='Escape')ch.open=false;}});
 }})();
 </script>
 </body>
 </html>
 '''
 (SITE / 'index.html').write_text(page)
-print(f'showroom: {len(sites)} live public sites, {len(names)} designs')
+print(f'showroom: {len(sites)} live public sites ({len(people)} people, {handed} handed over), {len(names)} designs')

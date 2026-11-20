@@ -248,6 +248,23 @@
       "type": "integer",
       "minimum": 1,
       "description": "Hand-picked showroom order; lower comes first. Sites without it follow, in file order."
+    },
+    "handed_over": {
+      "type": "string",
+      "format": "date",
+      "description": "The day the owner took the site over and began editing it on GitHub."
+    },
+    "chips": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 30
+      },
+      "description": "Short facts shown as chips on the showroom card, e.g. Five designs."
+    },
+    "waiting": {
+      "type": "string",
+      "description": "Why a live site is not fully working yet. Shown muted, and the site is listed last."
     }
   }
 }
