@@ -64,6 +64,8 @@ def card(s, i, small=False):
     note = f'<p class="note">{e(s["note"])}</p>' if s.get('note') and not s.get('handed_over') else ''
     wait = f'<p class="wait-note">{e(s["waiting"])}</p>' if s.get('waiting') else ''
     cls = 'site small' if small else 'site'
+    if s is hero:
+        cls += ' is-hero'
     if s.get('waiting'):
         cls += ' waiting'
     return f'''<article class="{cls}">
@@ -124,6 +126,9 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
 .chips span{font-size:.75rem;padding:.12rem .6rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 .chips .hand{background:var(--fill);border-color:var(--fill);color:var(--on-fill);font-weight:600}.chips .live{color:var(--accent);border-color:var(--accent)}
 /* A waiting site is shown by its label and a muted frame; its text keeps full contrast. */
+/* On phones the lead screenshot is right above, so the lead site's card drops its own. */
+@media (max-width:640px){.is-hero .frame{display:none}}
+.skip{position:absolute;left:1rem;top:-3rem;z-index:9;padding:.5rem 1rem;background:var(--fill);color:var(--on-fill);border-radius:8px}.skip:focus{top:.5rem}
 .waiting .frame{border-style:dashed}.waiting .frame img{filter:grayscale(1) contrast(.85)}
 .go{margin:0}.go a{font-weight:600;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}.go a:hover{text-decoration:underline}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;counter-reset:s}
@@ -178,6 +183,8 @@ page = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6e4f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <title>Sovereign Website Hub</title>
 <meta name="description" content="Websites their owners own: built by agent teams, then handed over. Every site here is public and live.">
 <meta property="og:title" content="Sovereign Website Hub: websites their owners own">
@@ -193,10 +200,11 @@ page = f'''<!doctype html>
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to the sites</a>
 {family}
 <header class="bar"><a class="brand" href="./">Sovereign Website Hub</a>
 <details class="chooser"><summary>Choose a design</summary><nav class="opts" aria-label="Designs of this page">{opts}</nav></details></header>
-<main>
+<main id="main">
 <header class="hero">
   <div class="hero-text">
     <p class="kicker">The showroom</p>
