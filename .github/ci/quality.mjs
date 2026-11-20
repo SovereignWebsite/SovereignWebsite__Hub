@@ -51,7 +51,9 @@ add('No em dashes', dash);
 // 4. A customer site carries no family strip above its header: only the top-right pop-up.
 // One of SovereignWebsite's own sites (FAMILY=bar in the workflow) carries the family bar on every page instead.
 const own = process.env.FAMILY === 'bar';
-const strip = pages.filter((p) => /<nav class="family"/.test(readFileSync(p, 'utf8')) !== own).map((p) => own ? `${relative(dir, p)}: no family bar (use build/family-bar.mjs)` : `${relative(dir, p)}: the family strip (use build/family-bar.mjs --credit)`);
+// FAMILY_DEMO lists pages (relative to the site) that stand in for a customer's page, so carry neither.
+const demo = (process.env.FAMILY_DEMO || '').split(/\s+/).filter(Boolean);
+const strip = pages.filter((p) => !demo.includes(relative(dir, p).split('\\').join('/')) && /<nav class="family"/.test(readFileSync(p, 'utf8')) !== own).map((p) => own ? `${relative(dir, p)}: no family bar (use build/family-bar.mjs)` : `${relative(dir, p)}: the family strip (use build/family-bar.mjs --credit)`);
 add(own ? 'Family bar on every page' : 'No family strip', strip);
 
 // 5. Leak scan: no private key, token or secret in any published file.
