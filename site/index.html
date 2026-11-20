@@ -76,6 +76,11 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
  .steps li::before{left:50%;transform:translateX(-50%)}
  .steps li:not(:last-child)::after{content:"";position:absolute;top:1.1rem;left:calc(50% + 1.4rem);right:calc(-50% + 1.4rem);height:2px;background:var(--line)}}
 .made .go{margin-top:1.5rem}
+.sec-intro{color:var(--muted);margin:-.8rem 0 1.5rem;max-width:44rem}
+.sections{margin-top:3rem}.sections ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.sections a{display:inline-block;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.92rem;background:var(--card)}
+.sections a:hover,.sections a:focus-visible{border-color:var(--fill)}.sections span{color:var(--muted);margin-left:.2rem}
+section[id]{scroll-margin-top:4rem}
 .how{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem;max-width:46rem}
 .how a,footer a{color:var(--accent)}
 footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
@@ -170,11 +175,13 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
     <p class="kicker">The showroom</p>
     <h1>Websites their owners own.</h1>
     <p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
-    <ul class="count"><li><b>10</b>sites working</li><li><b>3</b>people's sites</li><li><b>1</b>handed over</li></ul>
+    <ul class="count"><li><b>31</b>sites working</li><li><b>10</b>people's sites</li><li><b>1</b>handed over</li></ul>
   </div>
   <a class="hero-shot frame" href="https://kate-curtis-evans.founder.sovereignweb.site/" aria-label="Open Kate Curtis-Evans"><span class="chrome"><i></i><i></i><i></i><b>kate-curtis-evans.founder.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/kate-curtis-evans-phone.jpg"><img src="shots/kate-curtis-evans.jpg" alt="Screenshot of Kate Curtis-Evans" width="1280" height="800" loading="eager"></picture><span class="badge">Handed over: Kate edits it herself on GitHub, since 20 Nov 2026.</span></a>
 </header>
-<section class="people" aria-labelledby="h-people"><h2 class="sec-h" id="h-people">People</h2>
+<nav class="sections" aria-label="Sections"><ul><li><a href="#s-people">People <span>10</span></a></li><li><a href="#s-startups">Startups <span>5</span></a></li><li><a href="#s-businesses">Businesses <span>3</span></a></li><li><a href="#s-promptugal-news">PrompTugal.news <span>5</span></a></li><li><a href="#s-demos">Demos <span>7</span></a></li><li><a href="#s-tools">Tools <span>2</span></a></li></ul></nav>
+<section class="people" id="s-people" aria-labelledby="h-s-people"><h2 class="sec-h" id="h-s-people">People</h2>
+<p class="sec-intro">Personal sites for real people. Kate Curtis-Evans was the first to take hers over and edit it herself.</p>
 <div class="grid">
 <article class="site is-hero">
   <a class="frame" href="https://kate-curtis-evans.founder.sovereignweb.site/" aria-label="Open Kate Curtis-Evans"><span class="chrome"><i></i><i></i><i></i><b>kate-curtis-evans.founder.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/kate-curtis-evans-phone.jpg"><img src="shots/kate-curtis-evans.jpg" alt="Screenshot of Kate Curtis-Evans" loading="eager" width="1280" height="800"></picture></a>
@@ -206,12 +213,83 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
     <p class="go"><a href="https://sarah-cruz.designer.sovereignweb.site/">sarah-cruz.designer.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </article>
+<article class="site">
+  <a class="frame" href="https://silvio-switha.agenticcells.site/" aria-label="Open Silvio Switha"><span class="chrome"><i></i><i></i><i></i><b>silvio-switha.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/silvio-switha-phone.jpg"><img src="shots/silvio-switha.jpg" alt="Screenshot of Silvio Switha" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Musician</p>
+    <h3><a href="https://silvio-switha.agenticcells.site/">Silvio Switha</a></h3>
+    <p class="sum">Silvio Switha, AI entrepreneur, musician and producer: a portfolio, made by the site factory.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://silvio-switha.agenticcells.site/">silvio-switha.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site">
+  <a class="frame" href="https://gabriel-dacruz.agenticcells.site/" aria-label="Open Gabriel DaCruz"><span class="chrome"><i></i><i></i><i></i><b>gabriel-dacruz.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/gabriel-dacruz-phone.jpg"><img src="shots/gabriel-dacruz.jpg" alt="Screenshot of Gabriel DaCruz" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Composer</p>
+    <h3><a href="https://gabriel-dacruz.agenticcells.site/">Gabriel DaCruz</a></h3>
+    <p class="sum">Personal site of Gabriel DaCruz, composer for concert, film and television, trained in Lisbon and London.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://gabriel-dacruz.agenticcells.site/">gabriel-dacruz.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site">
+  <a class="frame" href="https://yiheng-wang.agenticcells.site/" aria-label="Open Yiheng (Vicky) Wang"><span class="chrome"><i></i><i></i><i></i><b>yiheng-wang.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/yiheng-wang-phone.jpg"><img src="shots/yiheng-wang.jpg" alt="Screenshot of Yiheng (Vicky) Wang" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Operations</p>
+    <h3><a href="https://yiheng-wang.agenticcells.site/">Yiheng (Vicky) Wang</a></h3>
+    <p class="sum">Yiheng Wang, project and operations manager: a personal site and presentation, made by the site factory.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://yiheng-wang.agenticcells.site/">yiheng-wang.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site">
+  <a class="frame" href="https://marc-noah.agenticcells.site/" aria-label="Open Marc Noah"><span class="chrome"><i></i><i></i><i></i><b>marc-noah.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/marc-noah-phone.jpg"><img src="shots/marc-noah.jpg" alt="Screenshot of Marc Noah" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Songwriter</p>
+    <h3><a href="https://marc-noah.agenticcells.site/">Marc Noah</a></h3>
+    <p class="sum">Marc Noah, Australian-Portuguese singer-songwriter living in the Algarve: the composer and his songs.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://marc-noah.agenticcells.site/">marc-noah.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site">
+  <a class="frame" href="https://indi-gupte.agenticcells.site/" aria-label="Open Indi Gupte"><span class="chrome"><i></i><i></i><i></i><b>indi-gupte.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/indi-gupte-phone.jpg"><img src="shots/indi-gupte.jpg" alt="Screenshot of Indi Gupte" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Brand</p>
+    <h3><a href="https://indi-gupte.agenticcells.site/">Indi Gupte</a></h3>
+    <p class="sum">Indi Gupte: brand, partnerships and research at RiskMandate, a team of AI agents behind him, and looking for work experience.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://indi-gupte.agenticcells.site/">indi-gupte.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site">
+  <a class="frame" href="https://mondweep-chakravorty.agenticcells.site/" aria-label="Open Mondweep Chakravorty"><span class="chrome"><i></i><i></i><i></i><b>mondweep-chakravorty.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/mondweep-chakravorty-phone.jpg"><img src="shots/mondweep-chakravorty.jpg" alt="Screenshot of Mondweep Chakravorty" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">AI leader</p>
+    <h3><a href="https://mondweep-chakravorty.agenticcells.site/">Mondweep Chakravorty</a></h3>
+    <p class="sum">Mondweep Chakravorty: enterprise AI leader and agentic systems builder in London, co-founder of Agentics Foundation London, and his work with Dinis Cruz.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://mondweep-chakravorty.agenticcells.site/">mondweep-chakravorty.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site">
+  <a class="frame" href="https://jose-bota.agenticcells.site/" aria-label="Open José Bota"><span class="chrome"><i></i><i></i><i></i><b>jose-bota.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/jose-bota-phone.jpg"><img src="shots/jose-bota.jpg" alt="Screenshot of José Bota" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Automation</p>
+    <h3><a href="https://jose-bota.agenticcells.site/">José Bota</a></h3>
+    <p class="sum">José Bota, AI automation expert: a portfolio, made by the site factory.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://jose-bota.agenticcells.site/">jose-bota.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
 </div></section>
 <section class="made" aria-labelledby="h-made"><h2 class="sec-h" id="h-made">How a site is made</h2>
 <ol class="steps"><li>One request</li><li>An agent team builds it</li><li>Five designs to choose from</li><li>The owner chooses one</li><li>Handed over to the owner&#x27;s GitHub</li></ol>
 <p class="go"><a href="https://pipeline-demo.demo.sovereignweb.site/">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>
 </section>
-<section class="tools" aria-labelledby="h-startups"><h2 class="sec-h" id="h-startups">Startups</h2>
+<section class="tools" id="s-startups" aria-labelledby="h-s-startups"><h2 class="sec-h" id="h-s-startups">Startups</h2>
+<p class="sec-intro">Independent brochures about the startups in the family, each made from the company&#x27;s own public pages.</p>
 <div class="grid">
 <article class="site small">
   <a class="frame" href="https://sgit.startups.sovereignweb.site/" aria-label="Open sgit"><span class="chrome"><i></i><i></i><i></i><b>sgit.startups.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/sgit-phone.jpg"><img src="shots/sgit.jpg" alt="Screenshot of sgit" loading="lazy" width="1280" height="800"></picture></a>
@@ -264,7 +342,96 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
   </div>
 </article>
 </div></section>
-<section class="tools" aria-labelledby="h-tools"><h2 class="sec-h" id="h-tools">Tools and demos</h2>
+<section class="tools" id="s-businesses" aria-labelledby="h-s-businesses"><h2 class="sec-h" id="h-s-businesses">Businesses</h2>
+<p class="sec-intro">Sites for businesses: two made-up examples, labelled as such, and a redesign proposal made with the company&#x27;s agreement.</p>
+<div class="grid">
+<article class="site small">
+  <a class="frame" href="https://sustain-nobility.agenticcells.site/" aria-label="Open SUSTAIN-NOBILITY"><span class="chrome"><i></i><i></i><i></i><b>sustain-nobility.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/sustain-nobility-phone.jpg"><img src="shots/sustain-nobility.jpg" alt="Screenshot of SUSTAIN-NOBILITY" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Business</p>
+    <h3><a href="https://sustain-nobility.agenticcells.site/">SUSTAIN-NOBILITY</a></h3>
+    <p class="sum">A redesign proposal for SUSTAIN-NOBILITY Advisory, AI governance readiness for SMEs and their advisers, made by AgentiCCells with their agreement.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://sustain-nobility.agenticcells.site/">sustain-nobility.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://algarve-holiday-homes.agenticcells.site/" aria-label="Open Algarve holiday homes"><span class="chrome"><i></i><i></i><i></i><b>algarve-holiday-homes.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/algarve-holiday-homes-phone.jpg"><img src="shots/algarve-holiday-homes.jpg" alt="Screenshot of Algarve holiday homes" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Made-up company</p>
+    <h3><a href="https://algarve-holiday-homes.agenticcells.site/">Algarve holiday homes</a></h3>
+    <p class="sum">A made-up company with five holiday homes in the Algarve: availability, a simulated booking, a scripted agent, and live weather and events from our data.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://algarve-holiday-homes.agenticcells.site/">algarve-holiday-homes.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://algarve-orange-grower.agenticcells.site/" aria-label="Open Algarve orange grower"><span class="chrome"><i></i><i></i><i></i><b>algarve-orange-grower.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/algarve-orange-grower-phone.jpg"><img src="shots/algarve-orange-grower.jpg" alt="Screenshot of Algarve orange grower" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Made-up company</p>
+    <h3><a href="https://algarve-orange-grower.agenticcells.site/">Algarve orange grower</a></h3>
+    <p class="sum">A made-up orange grower&#x27;s site with a zone map and an order flow (invented prices, nothing sent).</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://algarve-orange-grower.agenticcells.site/">algarve-orange-grower.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+</div></section>
+<section class="tools" id="s-promptugal-news" aria-labelledby="h-s-promptugal-news"><h2 class="sec-h" id="h-s-promptugal-news">PrompTugal.news</h2>
+<p class="sec-intro">The parts of PrompTugal.news that are live: Portugal&#x27;s public data, gathered and explained by agent teams.</p>
+<div class="grid">
+<article class="site small">
+  <a class="frame" href="https://data.promptugal.news/" aria-label="Open PrompTugal.news Data"><span class="chrome"><i></i><i></i><i></i><b>data.promptugal.news</b></span><picture><source media="(max-width:640px)" srcset="shots/data-promptugal-news-phone.jpg"><img src="shots/data-promptugal-news.jpg" alt="Screenshot of PrompTugal.news Data" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">PrompTugal.news</p>
+    <h3><a href="https://data.promptugal.news/">PrompTugal.news Data</a></h3>
+    <p class="sum">The data behind PrompTugal.news: a refactor of the storm data site, built by its own agentic team.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://data.promptugal.news/">data.promptugal.news <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://weather.promptugal.news/" aria-label="Open PrompTugal.news Weather"><span class="chrome"><i></i><i></i><i></i><b>weather.promptugal.news</b></span><picture><source media="(max-width:640px)" srcset="shots/weather-promptugal-news-phone.jpg"><img src="shots/weather-promptugal-news.jpg" alt="Screenshot of PrompTugal.news Weather" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">PrompTugal.news</p>
+    <h3><a href="https://weather.promptugal.news/">PrompTugal.news Weather</a></h3>
+    <p class="sum">Weather and civil protection for Portugal, place by place: IPMA warnings and forecasts, fire risk, storms, sea state and UV.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://weather.promptugal.news/">weather.promptugal.news <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://travel.promptugal.news/" aria-label="Open PrompTugal.news Travel"><span class="chrome"><i></i><i></i><i></i><b>travel.promptugal.news</b></span><picture><source media="(max-width:640px)" srcset="shots/travel-promptugal-news-phone.jpg"><img src="shots/travel-promptugal-news.jpg" alt="Screenshot of PrompTugal.news Travel" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">PrompTugal.news</p>
+    <h3><a href="https://travel.promptugal.news/">PrompTugal.news Travel</a></h3>
+    <p class="sum">Travel and tourism in Portugal: flights, transport and strikes, weather for visitors, events, and tourism as an industry.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://travel.promptugal.news/">travel.promptugal.news <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://startups.promptugal.news/" aria-label="Open PrompTugal.news Startups"><span class="chrome"><i></i><i></i><i></i><b>startups.promptugal.news</b></span><picture><source media="(max-width:640px)" srcset="shots/startups-promptugal-news-phone.jpg"><img src="shots/startups-promptugal-news.jpg" alt="Screenshot of PrompTugal.news Startups" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">PrompTugal.news</p>
+    <h3><a href="https://startups.promptugal.news/">PrompTugal.news Startups</a></h3>
+    <p class="sum">Portugal&#x27;s startups and their funding, place by place: companies, incubators, programmes and rounds.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://startups.promptugal.news/">startups.promptugal.news <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://civic.promptugal.news/" aria-label="Open PrompTugal.news Civic"><span class="chrome"><i></i><i></i><i></i><b>civic.promptugal.news</b></span><picture><source media="(max-width:640px)" srcset="shots/civic-promptugal-news-phone.jpg"><img src="shots/civic-promptugal-news.jpg" alt="Screenshot of PrompTugal.news Civic" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">PrompTugal.news</p>
+    <h3><a href="https://civic.promptugal.news/">PrompTugal.news Civic</a></h3>
+    <p class="sum">Public data, public services and bureaucracy in Portugal, explained and cross-mapped. Independent, not a government site.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://civic.promptugal.news/">civic.promptugal.news <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+</div></section>
+<section class="tools" id="s-demos" aria-labelledby="h-s-demos"><h2 class="sec-h" id="h-s-demos">Demos</h2>
+<p class="sec-intro">Demonstrations: what an agent team builds from public data, and how a site is made from one request.</p>
 <div class="grid">
 <article class="site small">
   <a class="frame" href="https://pipeline-demo.demo.sovereignweb.site/" aria-label="Open A site from one request"><span class="chrome"><i></i><i></i><i></i><b>pipeline-demo.demo.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/pipeline-demo-phone.jpg"><img src="shots/pipeline-demo.jpg" alt="Screenshot of A site from one request" loading="lazy" width="1280" height="800"></picture></a>
@@ -276,6 +443,70 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
     <p class="go"><a href="https://pipeline-demo.demo.sovereignweb.site/">pipeline-demo.demo.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </article>
+<article class="site small">
+  <a class="frame" href="https://london-billboard.agenticcells.site/" aria-label="Open A London billboard, live from the Algarve"><span class="chrome"><i></i><i></i><i></i><b>london-billboard.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/london-billboard-phone.jpg"><img src="shots/london-billboard.jpg" alt="Screenshot of A London billboard, live from the Algarve" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Demonstration</p>
+    <h3><a href="https://london-billboard.agenticcells.site/">A London billboard, live from the Algarve</a></h3>
+    <p class="sum">A simulated demonstration: a weather-driven London billboard showing the Algarve live, built by an agentic team from the public data PrompTugal.news collects.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://london-billboard.agenticcells.site/">london-billboard.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://weather-demo.agenticcells.site/" aria-label="Open Weather, from our data"><span class="chrome"><i></i><i></i><i></i><b>weather-demo.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/weather-demo-phone.jpg"><img src="shots/weather-demo.jpg" alt="Screenshot of Weather, from our data" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Demonstration</p>
+    <h3><a href="https://weather-demo.agenticcells.site/">Weather, from our data</a></h3>
+    <p class="sum">A demonstration site: Portugal&#x27;s weather from the public data PrompTugal.news collects, how it was built by an agentic team, and how to use the raw data.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://weather-demo.agenticcells.site/">weather-demo.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://events-demo.agenticcells.site/" aria-label="Open Events, from our data"><span class="chrome"><i></i><i></i><i></i><b>events-demo.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/events-demo-phone.jpg"><img src="shots/events-demo.jpg" alt="Screenshot of Events, from our data" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Demonstration</p>
+    <h3><a href="https://events-demo.agenticcells.site/">Events, from our data</a></h3>
+    <p class="sum">A demonstration site: events in Lisbon and the Algarve from the public data PrompTugal.news collects, with the weather for each, how it was built, and how to use the raw data.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://events-demo.agenticcells.site/">events-demo.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://cyber-demo.agenticcells.site/" aria-label="Open Cyber, from our data"><span class="chrome"><i></i><i></i><i></i><b>cyber-demo.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/cyber-demo-phone.jpg"><img src="shots/cyber-demo.jpg" alt="Screenshot of Cyber, from our data" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Demonstration</p>
+    <h3><a href="https://cyber-demo.agenticcells.site/">Cyber, from our data</a></h3>
+    <p class="sum">A demonstration site: how the PrompTugal.news agentic team will capture and publish threat intelligence, and how to use the data, built from what exists today.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://cyber-demo.agenticcells.site/">cyber-demo.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://ipma-data.agenticcells.site/" aria-label="Open IPMA data, drawn"><span class="chrome"><i></i><i></i><i></i><b>ipma-data.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/ipma-data-phone.jpg"><img src="shots/ipma-data.jpg" alt="Screenshot of IPMA data, drawn" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Demonstration</p>
+    <h3><a href="https://ipma-data.agenticcells.site/">IPMA data, drawn</a></h3>
+    <p class="sum">Portugal&#x27;s public weather data from IPMA, drawn live from data.promptugal.news, with the Storm Charles archive. Not a warning service: follow IPMA.</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://ipma-data.agenticcells.site/">ipma-data.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://riskmandate-at-websummit.agenticcells.site/" aria-label="Open RiskMandate at Web Summit"><span class="chrome"><i></i><i></i><i></i><b>riskmandate-at-websummit.agenticcells.site</b></span><picture><source media="(max-width:640px)" srcset="shots/riskmandate-at-websummit-phone.jpg"><img src="shots/riskmandate-at-websummit.jpg" alt="Screenshot of RiskMandate at Web Summit" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Demonstration</p>
+    <h3><a href="https://riskmandate-at-websummit.agenticcells.site/">RiskMandate at Web Summit</a></h3>
+    <p class="sum">The first site made by the site factory from a request file (newsroom, &quot;The site factory works&quot;).</p>
+    <p class="chips"><span class="live">Live</span></p>
+    <p class="go"><a href="https://riskmandate-at-websummit.agenticcells.site/">riskmandate-at-websummit.agenticcells.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+</div></section>
+<section class="tools" id="s-tools" aria-labelledby="h-s-tools"><h2 class="sec-h" id="h-s-tools">Tools</h2>
+<p class="sec-intro">Small working tools.</p>
+<div class="grid">
 <article class="site small">
   <a class="frame" href="https://whois.tool.sovereignweb.site/" aria-label="Open Whois: who holds a domain or IP address"><span class="chrome"><i></i><i></i><i></i><b>whois.tool.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/whois-phone.jpg"><img src="shots/whois.jpg" alt="Screenshot of Whois: who holds a domain or IP address" loading="lazy" width="1280" height="800"></picture></a>
   <div class="meta">
@@ -304,7 +535,7 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
 (function(){
   var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser');
   function set(d){document.documentElement.className='d-'+d;as.forEach(function(a){a.setAttribute('aria-current',a.dataset.d===d?'true':'false');});}
-  function fromHash(){set((location.hash.match(/design-([1-5])/)||[0,'1'])[1]);}
+  function fromHash(){var m=location.hash.match(/design-([1-5])/);set(m?m[1]:(document.documentElement.className.match(/d-([1-5])/)||[0,'1'])[1]);}
   as.forEach(function(a){a.onclick=function(ev){ev.preventDefault();history.replaceState(null,'','#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;};});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){if(ev.key==='Escape')ch.open=false;});

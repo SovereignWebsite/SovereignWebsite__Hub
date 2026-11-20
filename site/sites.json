@@ -23,7 +23,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo",
         "branch": "dev"
-      }
+      },
+      "section": "Demos"
     },
     {
       "schema": "hub-site/1",
@@ -51,7 +52,8 @@
       "featured": 2,
       "chips": [
         "Five designs"
-      ]
+      ],
+      "section": "People"
     },
     {
       "schema": "hub-site/1",
@@ -72,7 +74,8 @@
       "licence": null,
       "status": "live",
       "shot": "shots/google-maps",
-      "waiting": "Not switched on yet: waiting for the owner's Maps key."
+      "waiting": "Not switched on yet: waiting for the owner's Maps key.",
+      "section": "Tools"
     },
     {
       "schema": "hub-site/1",
@@ -92,7 +95,8 @@
       "vault": null,
       "licence": null,
       "status": "live",
-      "shot": "shots/whois"
+      "shot": "shots/whois",
+      "section": "Tools"
     },
     {
       "schema": "hub-site/1",
@@ -122,7 +126,8 @@
       "handed_over": "2026-11-20",
       "chips": [
         "Five designs"
-      ]
+      ],
+      "section": "People"
     },
     {
       "schema": "hub-site/1",
@@ -150,7 +155,8 @@
       "featured": 3,
       "chips": [
         "Five designs"
-      ]
+      ],
+      "section": "People"
     },
     {
       "schema": "hub-site/1",
@@ -174,7 +180,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Startups__Sgit",
         "branch": "dev"
-      }
+      },
+      "section": "Startups"
     },
     {
       "schema": "hub-site/1",
@@ -198,7 +205,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Startups__The-Cyber-Boardroom",
         "branch": "dev"
-      }
+      },
+      "section": "Startups"
     },
     {
       "schema": "hub-site/1",
@@ -222,7 +230,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Startups__Risk-Mandate",
         "branch": "dev"
-      }
+      },
+      "section": "Startups"
     },
     {
       "schema": "hub-site/1",
@@ -246,7 +255,8 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells",
         "branch": "dev"
-      }
+      },
+      "section": "Startups"
     },
     {
       "schema": "hub-site/1",
@@ -269,6 +279,539 @@
       "shot": "shots/sovereign-website",
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website",
+        "branch": "dev"
+      },
+      "section": "Startups"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "silvio-switha",
+      "name": "Silvio Switha",
+      "summary": "Silvio Switha, AI entrepreneur, musician and producer: a portfolio, made by the site factory.",
+      "kind": "Portfolio",
+      "group": "Musician",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://silvio-switha.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/silvio-switha",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Silvio-Switha",
+        "branch": "dev"
+      },
+      "featured": 4
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "gabriel-dacruz",
+      "name": "Gabriel DaCruz",
+      "summary": "Personal site of Gabriel DaCruz, composer for concert, film and television, trained in Lisbon and London.",
+      "kind": "Portfolio",
+      "group": "Composer",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://gabriel-dacruz.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/gabriel-dacruz",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Gabriel-DaCruz",
+        "branch": "dev"
+      },
+      "featured": 5
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "yiheng-wang",
+      "name": "Yiheng (Vicky) Wang",
+      "summary": "Yiheng Wang, project and operations manager: a personal site and presentation, made by the site factory.",
+      "kind": "Portfolio",
+      "group": "Operations",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://yiheng-wang.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/yiheng-wang",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Yiheng-Wang",
+        "branch": "dev"
+      },
+      "featured": 6
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "marc-noah",
+      "name": "Marc Noah",
+      "summary": "Marc Noah, Australian-Portuguese singer-songwriter living in the Algarve: the composer and his songs.",
+      "kind": "Portfolio",
+      "group": "Songwriter",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://marc-noah.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/marc-noah",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Marc-Noah",
+        "branch": "dev"
+      },
+      "featured": 7
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "indi-gupte",
+      "name": "Indi Gupte",
+      "summary": "Indi Gupte: brand, partnerships and research at RiskMandate, a team of AI agents behind him, and looking for work experience.",
+      "kind": "Portfolio",
+      "group": "Brand",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://indi-gupte.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/indi-gupte",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Indi-Gupte",
+        "branch": "dev"
+      },
+      "featured": 8
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "mondweep-chakravorty",
+      "name": "Mondweep Chakravorty",
+      "summary": "Mondweep Chakravorty: enterprise AI leader and agentic systems builder in London, co-founder of Agentics Foundation London, and his work with Dinis Cruz.",
+      "kind": "Portfolio",
+      "group": "AI leader",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://mondweep-chakravorty.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/mondweep-chakravorty",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Mondweep-Chakravorty",
+        "branch": "dev"
+      },
+      "featured": 9
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "jose-bota",
+      "name": "José Bota",
+      "summary": "José Bota, AI automation expert: a portfolio, made by the site factory.",
+      "kind": "Portfolio",
+      "group": "Automation",
+      "section": "People",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://jose-bota.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/jose-bota",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Jose-Bota",
+        "branch": "dev"
+      },
+      "featured": 10
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "sustain-nobility",
+      "name": "SUSTAIN-NOBILITY",
+      "summary": "A redesign proposal for SUSTAIN-NOBILITY Advisory, AI governance readiness for SMEs and their advisers, made by AgentiCCells with their agreement.",
+      "kind": "Redesign proposal",
+      "group": "Business",
+      "section": "Businesses",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://sustain-nobility.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/sustain-nobility",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Sustain-Nobility",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "algarve-holiday-homes",
+      "name": "Algarve holiday homes",
+      "summary": "A made-up company with five holiday homes in the Algarve: availability, a simulated booking, a scripted agent, and live weather and events from our data.",
+      "kind": "Business",
+      "group": "Made-up company",
+      "section": "Businesses",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://algarve-holiday-homes.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/algarve-holiday-homes",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Algarve-Holiday-Homes",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "algarve-orange-grower",
+      "name": "Algarve orange grower",
+      "summary": "A made-up orange grower's site with a zone map and an order flow (invented prices, nothing sent).",
+      "kind": "Business",
+      "group": "Made-up company",
+      "section": "Businesses",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://algarve-orange-grower.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/algarve-orange-grower",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Algarve-Orange-Grower",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "data-promptugal-news",
+      "name": "PrompTugal.news Data",
+      "summary": "The data behind PrompTugal.news: a refactor of the storm data site, built by its own agentic team.",
+      "kind": "News",
+      "group": "PrompTugal.news",
+      "section": "PrompTugal.news",
+      "owner": {
+        "name": "PrompTugal",
+        "url": "https://github.com/PrompTugal"
+      },
+      "address": {
+        "url": "https://data.promptugal.news/",
+        "domain": "promptugal.news"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/data-promptugal-news",
+      "repository": {
+        "url": "https://github.com/PrompTugal/PrompTugal__News__Data",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "weather-promptugal-news",
+      "name": "PrompTugal.news Weather",
+      "summary": "Weather and civil protection for Portugal, place by place: IPMA warnings and forecasts, fire risk, storms, sea state and UV.",
+      "kind": "News",
+      "group": "PrompTugal.news",
+      "section": "PrompTugal.news",
+      "owner": {
+        "name": "PrompTugal",
+        "url": "https://github.com/PrompTugal"
+      },
+      "address": {
+        "url": "https://weather.promptugal.news/",
+        "domain": "promptugal.news"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/weather-promptugal-news",
+      "repository": {
+        "url": "https://github.com/PrompTugal/PrompTugal__News__Weather",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "travel-promptugal-news",
+      "name": "PrompTugal.news Travel",
+      "summary": "Travel and tourism in Portugal: flights, transport and strikes, weather for visitors, events, and tourism as an industry.",
+      "kind": "News",
+      "group": "PrompTugal.news",
+      "section": "PrompTugal.news",
+      "owner": {
+        "name": "PrompTugal",
+        "url": "https://github.com/PrompTugal"
+      },
+      "address": {
+        "url": "https://travel.promptugal.news/",
+        "domain": "promptugal.news"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/travel-promptugal-news",
+      "repository": {
+        "url": "https://github.com/PrompTugal/PrompTugal__News__Travel",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "startups-promptugal-news",
+      "name": "PrompTugal.news Startups",
+      "summary": "Portugal's startups and their funding, place by place: companies, incubators, programmes and rounds.",
+      "kind": "News",
+      "group": "PrompTugal.news",
+      "section": "PrompTugal.news",
+      "owner": {
+        "name": "PrompTugal",
+        "url": "https://github.com/PrompTugal"
+      },
+      "address": {
+        "url": "https://startups.promptugal.news/",
+        "domain": "promptugal.news"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/startups-promptugal-news",
+      "repository": {
+        "url": "https://github.com/PrompTugal/PrompTugal__News__Startups",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "civic-promptugal-news",
+      "name": "PrompTugal.news Civic",
+      "summary": "Public data, public services and bureaucracy in Portugal, explained and cross-mapped. Independent, not a government site.",
+      "kind": "News",
+      "group": "PrompTugal.news",
+      "section": "PrompTugal.news",
+      "owner": {
+        "name": "PrompTugal",
+        "url": "https://github.com/PrompTugal"
+      },
+      "address": {
+        "url": "https://civic.promptugal.news/",
+        "domain": "promptugal.news"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/civic-promptugal-news",
+      "repository": {
+        "url": "https://github.com/PrompTugal/PrompTugal__News__Civic",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "london-billboard",
+      "name": "A London billboard, live from the Algarve",
+      "summary": "A simulated demonstration: a weather-driven London billboard showing the Algarve live, built by an agentic team from the public data PrompTugal.news collects.",
+      "kind": "Data demo",
+      "group": "Demonstration",
+      "section": "Demos",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://london-billboard.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/london-billboard",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__London-Billboard",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "weather-demo",
+      "name": "Weather, from our data",
+      "summary": "A demonstration site: Portugal's weather from the public data PrompTugal.news collects, how it was built by an agentic team, and how to use the raw data.",
+      "kind": "Data demo",
+      "group": "Demonstration",
+      "section": "Demos",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://weather-demo.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/weather-demo",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Weather-Demo",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "events-demo",
+      "name": "Events, from our data",
+      "summary": "A demonstration site: events in Lisbon and the Algarve from the public data PrompTugal.news collects, with the weather for each, how it was built, and how to use the raw data.",
+      "kind": "Data demo",
+      "group": "Demonstration",
+      "section": "Demos",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://events-demo.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/events-demo",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Events-Demo",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "cyber-demo",
+      "name": "Cyber, from our data",
+      "summary": "A demonstration site: how the PrompTugal.news agentic team will capture and publish threat intelligence, and how to use the data, built from what exists today.",
+      "kind": "Data demo",
+      "group": "Demonstration",
+      "section": "Demos",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://cyber-demo.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/cyber-demo",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Cyber-Demo",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "ipma-data",
+      "name": "IPMA data, drawn",
+      "summary": "Portugal's public weather data from IPMA, drawn live from data.promptugal.news, with the Storm Charles archive. Not a warning service: follow IPMA.",
+      "kind": "Data demo",
+      "group": "Demonstration",
+      "section": "Demos",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://ipma-data.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/ipma-data",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__IPMA-Data",
+        "branch": "dev"
+      }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "riskmandate-at-websummit",
+      "name": "RiskMandate at Web Summit",
+      "summary": "The first site made by the site factory from a request file (newsroom, \"The site factory works\").",
+      "kind": "Event site",
+      "group": "Demonstration",
+      "section": "Demos",
+      "owner": {
+        "name": "AgentiCCells",
+        "url": "https://github.com/AgentiCCells"
+      },
+      "address": {
+        "url": "https://riskmandate-at-websummit.agenticcells.site/",
+        "domain": "agenticcells.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/riskmandate-at-websummit",
+      "repository": {
+        "url": "https://github.com/AgentiCCells/AgentiCCells__Site__RiskMandate-At-WebSummit",
         "branch": "dev"
       }
     }

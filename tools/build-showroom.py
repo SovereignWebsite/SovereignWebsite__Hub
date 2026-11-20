@@ -28,9 +28,18 @@ host_of = lambda s: re.sub(r'^https?://|/$', '', s['address']['url'])
 sites = [s for s in data['sites'] if s.get('status') == 'live']
 # Featured (hand-picked rank) first; a site still waiting on something goes last.
 sites.sort(key=lambda s: (bool(s.get('waiting')), s.get('featured', 10**6)))
-people = [s for s in sites if s.get('featured')]
-startups = [s for s in sites if not s.get('featured') and s.get('group') == 'Startups']
-tools = [s for s in sites if not s.get('featured') and s.get('group') != 'Startups']
+# The showroom's sections, in order, each with one line that says what it holds.
+SECTIONS = [
+    ('People', 'Personal sites for real people. Kate Curtis-Evans was the first to take hers over and edit it herself.'),
+    ('Startups', 'Independent brochures about the startups in the family, each made from the company\'s own public pages.'),
+    ('Businesses', 'Sites for businesses: two made-up examples, labelled as such, and a redesign proposal made with the company\'s agreement.'),
+    ('PrompTugal.news', 'The parts of PrompTugal.news that are live: Portugal\'s public data, gathered and explained by agent teams.'),
+    ('Demos', 'Demonstrations: what an agent team builds from public data, and how a site is made from one request.'),
+    ('Tools', 'Small working tools.'),
+]
+by_section = {n: [s for s in sites if s.get('section', 'Demos') == n] for n, _ in SECTIONS}
+people = by_section['People']
+sid = lambda n: 's-' + re.sub(r'[^a-z0-9]+', '-', n.lower()).strip('-')
 hero = next((s for s in people if s.get('handed_over')), people[0] if people else sites[0])
 handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
@@ -140,6 +149,11 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
  .steps li::before{left:50%;transform:translateX(-50%)}
  .steps li:not(:last-child)::after{content:"";position:absolute;top:1.1rem;left:calc(50% + 1.4rem);right:calc(-50% + 1.4rem);height:2px;background:var(--line)}}
 .made .go{margin-top:1.5rem}
+.sec-intro{color:var(--muted);margin:-.8rem 0 1.5rem;max-width:44rem}
+.sections{margin-top:3rem}.sections ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.sections a{display:inline-block;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.92rem;background:var(--card)}
+.sections a:hover,.sections a:focus-visible{border-color:var(--fill)}.sections span{color:var(--muted);margin-left:.2rem}
+section[id]{scroll-margin-top:4rem}
 .how{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem;max-width:46rem}
 .how a,footer a{color:var(--accent)}
 footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
@@ -179,6 +193,10 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
 '''
 
 hero_note = hero.get('note') or ''
+made = '\n' + f'''<section class="made" aria-labelledby="h-made"><h2 class="sec-h" id="h-made">How a site is made</h2>
+<ol class="steps">{''.join(f'<li>{e(t)}</li>' for t in steps)}</ol>
+{f'<p class="go"><a href="{e(demo["address"]["url"])}">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>' if demo else ''}
+</section>'''
 page = f'''<!doctype html>
 <html lang="en" class="d-1">
 <head>
@@ -222,22 +240,12 @@ page = f'''<!doctype html>
   </div>
   <a class="hero-shot frame" href="{e(hero['address']['url'])}" aria-label="Open {e(hero['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host_of(hero))}</b></span><picture><source media="(max-width:640px)" srcset="{e(hero['shot'])}-phone.jpg"><img src="{e(hero['shot'])}.jpg" alt="Screenshot of {e(hero['name'])}" width="1280" height="800" loading="eager"></picture>{f'<span class="badge">{e(hero_note)}</span>' if hero_note else ''}</a>
 </header>
-<section class="people" aria-labelledby="h-people"><h2 class="sec-h" id="h-people">People</h2>
+<nav class="sections" aria-label="Sections"><ul>{''.join(f'<li><a href="#{sid(n)}">{e(n)} <span>{len(by_section[n])}</span></a></li>' for n, _ in SECTIONS if by_section[n])}</ul></nav>
+{chr(10).join(f'''<section class="{'people' if n == 'People' else 'tools'}" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 class="sec-h" id="h-{sid(n)}">{e(n)}</h2>
+<p class="sec-intro">{e(intro)}</p>
 <div class="grid">
-{chr(10).join(card(s, i) for i, s in enumerate(people))}
-</div></section>
-<section class="made" aria-labelledby="h-made"><h2 class="sec-h" id="h-made">How a site is made</h2>
-<ol class="steps">{''.join(f'<li>{e(t)}</li>' for t in steps)}</ol>
-{f'<p class="go"><a href="{e(demo["address"]["url"])}">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>' if demo else ''}
-</section>
-{f'''<section class="tools" aria-labelledby="h-startups"><h2 class="sec-h" id="h-startups">Startups</h2>
-<div class="grid">
-{chr(10).join(card(s, i, small=True) for i, s in enumerate(startups))}
-</div></section>''' if startups else ''}
-<section class="tools" aria-labelledby="h-tools"><h2 class="sec-h" id="h-tools">Tools and demos</h2>
-<div class="grid">
-{chr(10).join(card(s, i, small=True) for i, s in enumerate(tools))}
-</div></section>
+{chr(10).join(card(s, i, small=(n != 'People')) for i, s in enumerate(by_section[n]))}
+</div></section>''' + (made if n == 'People' else '') for n, intro in SECTIONS if by_section[n])}
 <p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
 <footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · No cookies, no tracking, nothing stored in your browser; the design you pick lives only in the address (#design-1 to #design-5).</footer>
@@ -245,7 +253,7 @@ page = f'''<!doctype html>
 (function(){{
   var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser');
   function set(d){{document.documentElement.className='d-'+d;as.forEach(function(a){{a.setAttribute('aria-current',a.dataset.d===d?'true':'false');}});}}
-  function fromHash(){{set((location.hash.match(/design-([1-5])/)||[0,'1'])[1]);}}
+  function fromHash(){{var m=location.hash.match(/design-([1-5])/);set(m?m[1]:(document.documentElement.className.match(/d-([1-5])/)||[0,'1'])[1]);}}
   as.forEach(function(a){{a.onclick=function(ev){{ev.preventDefault();history.replaceState(null,'','#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;}};}});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){{if(ev.key==='Escape')ch.open=false;}});

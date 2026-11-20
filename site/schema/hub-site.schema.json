@@ -87,11 +87,8 @@
           "format": "uri"
         },
         "domain": {
-          "enum": [
-            "own",
-            "sovereignweb.site",
-            "sovereignwebsite.site"
-          ]
+          "type": "string",
+          "description": "own, or the shared domain the site is served under"
         }
       }
     },
@@ -265,6 +262,17 @@
     "waiting": {
       "type": "string",
       "description": "Why a live site is not fully working yet. Shown muted, and the site is listed last."
+    },
+    "section": {
+      "enum": [
+        "People",
+        "Startups",
+        "Businesses",
+        "PrompTugal.news",
+        "Demos",
+        "Tools"
+      ],
+      "description": "The showroom section the site is listed in."
     }
   }
 }
