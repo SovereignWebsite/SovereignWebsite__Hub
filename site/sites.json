@@ -13,13 +13,17 @@
         "url": "https://github.com/SovereignWebsite"
       },
       "address": {
-        "url": "https://pipeline-demo.sovereignweb.site/",
+        "url": "https://pipeline-demo.demo.sovereignweb.site/",
         "domain": "sovereignweb.site"
       },
       "vault": null,
       "licence": null,
       "status": "live",
-      "shot": "shots/pipeline-demo"
+      "shot": "shots/pipeline-demo",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo",
+        "branch": "dev"
+      }
     },
     {
       "schema": "hub-site/1",
