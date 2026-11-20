@@ -1,22 +1,67 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="d-1">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sovereign Website Hub</title>
-<meta name="description" content="Sovereign websites in a repository and an sgit vault.">
+<meta name="description" content="The showroom of public sovereign websites: built by agents, owned by the people they are for.">
+<script>try{var d=(location.hash.match(/design-([1-5])/)||[])[1]||localStorage.getItem('hub-design');if(d)document.documentElement.className='d-'+d;}catch(e){}</script>
 <style>
-:root{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--line:#e4e1d8}
-@media (prefers-color-scheme:dark){:root{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#7fc3a0;--line:#2c2d29}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
-main{max-width:44rem;margin:0 auto;padding:8vh 1rem 4rem}
-.mark{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
-h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;margin:.4rem 0 1rem}
-p{color:var(--muted);margin:0 0 1rem}a{color:var(--accent)}
-footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
-.sites{list-style:none;padding:0;margin:2rem 0 0}.sites li{border-top:1px solid var(--line);padding:1.2rem 0}
-h2{font-size:1.25rem;margin:0 0 .3rem}dl{display:grid;grid-template-columns:7rem 1fr;gap:.2rem .8rem;margin:.6rem 0 0;font-size:.9rem}dt{color:var(--muted)}dd{margin:0;overflow-wrap:anywhere}
-/* The Sovereign Website family bar: the same on every site in the family. */
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg);transition:background .3s,color .3s}
+a{color:inherit}img{display:block;width:100%;height:auto}
+.switch{position:sticky;top:0;z-index:5;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap;padding:.5rem 1rem;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);font-size:.85rem}
+.switch span{color:var(--muted);margin-right:.3rem}.switch button{font:inherit;padding:.3rem .75rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.switch button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+main{max-width:76rem;margin:0 auto;padding:4rem 1rem 3rem}
+.hero .kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700;color:var(--accent);margin:0}
+.hero h1{margin:.4rem 0 1rem;line-height:1.02;font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.02em}
+.hero p{max-width:40rem;color:var(--muted);font-size:1.1rem;margin:0}
+.sites{display:grid;gap:2.5rem;margin-top:3.5rem}
+.frame{display:block;border-radius:12px;overflow:hidden;background:var(--card);border:1px solid var(--line);text-decoration:none;transition:transform .25s,box-shadow .25s}
+.frame:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
+.chrome{display:flex;align-items:center;gap:.35rem;padding:.5rem .75rem;border-bottom:1px solid var(--line);background:var(--card);font-size:.75rem;color:var(--muted)}
+.chrome i{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}.chrome b{font-weight:500;margin-left:.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tags{display:flex;gap:.4rem;margin:1rem 0 .3rem;padding:0;flex-wrap:wrap}.tags span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.tags span:empty{display:none}
+.site h2{margin:.2rem 0 .4rem;font-size:1.6rem;line-height:1.15}.site h2 a{text-decoration:none}.site h2 a:hover{text-decoration:underline}
+.sum{color:var(--muted);margin:0 0 .6rem}.note{font-size:.85rem;margin:0 0 .6rem;padding:.3rem .6rem;border-left:3px solid var(--accent);background:var(--card)}
+.go a{font-weight:600;color:var(--accent);text-decoration:none}.go a:hover{text-decoration:underline}
+.how{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.92rem;max-width:46rem}
+footer{max-width:76rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* 1 Editorial: light, serif headings, one site per row, large shots */
+.d-1{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--on-accent:#fff;--line:#e4e1d8;--card:#fff}
+.d-1 h1,.d-1 .site h2{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+@media (min-width:900px){.d-1 .site{display:grid;grid-template-columns:1.6fr 1fr;gap:2.5rem;align-items:center}.d-1 .site:nth-child(even) .frame{order:2}}
+
+/* 2 Night gallery: dark, glowing frames, two columns */
+.d-2{--bg:#0d0f12;--fg:#eef1f4;--muted:#9aa3ad;--accent:#7cf0c4;--on-accent:#0d0f12;--line:#262b31;--card:#151920}
+.d-2 .hero h1{background:linear-gradient(90deg,#7cf0c4,#8ab4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.d-2 .frame{box-shadow:0 0 0 1px #262b31,0 20px 60px -30px #7cf0c4}
+@media (min-width:800px){.d-2 .sites{grid-template-columns:1fr 1fr}.d-2 .site:first-child{grid-column:1/-1}}
+
+/* 3 Grid: bold, square, monospace labels, three columns */
+.d-3{--bg:#f4f1ea;--fg:#111;--muted:#333;--accent:#e4402f;--on-accent:#fff;--line:#111;--card:#fff}
+.d-3 .hero h1{text-transform:uppercase;font-weight:900;letter-spacing:-.03em}
+.d-3 .frame,.d-3 .switch button,.d-3 .tags span{border-radius:0;border-width:2px}.d-3 .frame:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 #111}
+.d-3 .tags span,.d-3 .chrome{font-family:ui-monospace,Menlo,Consolas,monospace}
+@media (min-width:900px){.d-3 .sites{grid-template-columns:repeat(3,1fr);gap:1.5rem}}
+
+/* 4 Magazine: warm cream, staggered, big numbers */
+.d-4{--bg:#f6efe3;--fg:#2b211a;--muted:#6f5e50;--accent:#b4532a;--on-accent:#fff;--line:#e2d3bf;--card:#fffaf2}
+.d-4 h1,.d-4 .site h2{font-family:"Palatino Linotype",Palatino,Georgia,serif}
+.d-4 .site{position:relative;counter-increment:n;padding-top:2.6rem}.d-4 .site::before{content:"0" counter(n);position:absolute;top:0;right:0;font:700 3.2rem/1 Georgia,serif;color:var(--accent);opacity:.25}
+@media (min-width:900px){.d-4 .sites{grid-template-columns:1fr 1fr;column-gap:3rem}.d-4 .site:nth-child(even){margin-top:6rem}}
+
+/* 5 Studio: gradient stage, floating devices, phone shot on small screens */
+.d-5{--bg:#14112b;--fg:#fff;--muted:#c9c3ef;--accent:#ffcf5c;--on-accent:#14112b;--line:#3a3466;--card:#201b45}
+.d-5 body,.d-5{background:radial-gradient(1200px 600px at 10% -10%,#5b3fd1 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#d13f8f 0,transparent 55%),#14112b}
+.d-5 .frame{border-radius:18px;transform:perspective(1200px) rotateX(4deg);box-shadow:0 30px 80px -30px #000}.d-5 .frame:hover{transform:perspective(1200px) rotateX(0) translateY(-4px)}
+.d-5 .site{text-align:center}.d-5 .tags{justify-content:center}.d-5 .hero{text-align:center}.d-5 .hero p{margin:0 auto}
+@media (min-width:900px){.d-5 .sites{grid-template-columns:repeat(3,1fr);gap:2rem}}
+
 .family{font-size:.8rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
 .family ul{list-style:none;margin:0 auto;padding:.35rem 1rem;display:flex;flex-wrap:wrap;gap:.25rem .9rem;max-width:72rem}
 .family a{color:inherit;opacity:.8;text-decoration:none}
@@ -39,24 +84,52 @@ h2{font-size:1.25rem;margin:0 0 .3rem}dl{display:grid;grid-template-columns:7rem
     <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
   </ul>
 </nav>
+<div class="switch" role="group" aria-label="Choose a design"><span>Design</span><button type="button" data-d="1" aria-pressed="false">1. Editorial</button><button type="button" data-d="2" aria-pressed="false">2. Night gallery</button><button type="button" data-d="3" aria-pressed="false">3. Grid</button><button type="button" data-d="4" aria-pressed="false">4. Magazine</button><button type="button" data-d="5" aria-pressed="false">5. Studio</button></div>
 <main>
-<div class="mark">Sovereign Agentic Website</div>
-<h1>Sites you can clone, open and hand on.</h1>
-<p>Every site on the hub lives in two places: a public repository and an sgit vault holding the same files. A vault can be cloned and opened on your own machine, because the sites are static, and handed on to its next owner.</p><p>Each site will have a page here with its owner, the team that built it, its address, its repository and vault, its licence and its versions.</p><p>The hub is being built now, in the open. This is the gallery. These are the first five sites, all from the SovereignWebsite organisation. To open a site sealed in a vault, go to <a href="https://vault.sovereignwebsite.site">vault.sovereignwebsite.site</a>.</p>
-<ul class="sites">
-<li><h2><a href="https://sovereignwebsite.ai">sovereignwebsite.ai</a></h2><p>The Sovereign Agentic Website brand. Built by agents, owned by you.</p>
-<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Website">SovereignWebsite__Website</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
-<li><h2><a href="https://sovereignwebsite.org">sovereignwebsite.org</a></h2><p>The open pattern for a Sovereign Agentic Website, free for anyone to use.</p>
-<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Org">SovereignWebsite__Org</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
-<li><h2><a href="https://sovereignwebsite.site">sovereignwebsite.site</a></h2><p>Where hosted sovereign websites live, at &lt;name&gt;.sovereignwebsite.site.</p>
-<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Site">SovereignWebsite__Site</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
-<li><h2><a href="https://hub.sovereignwebsite.site">hub.sovereignwebsite.site</a></h2><p>The hub for sovereign websites powered by sgit vaults.</p>
-<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a></dd><dt>Vault</dt><dd>Not yet</dd><dt>Status</dt><dd>Holding page</dd></dl></li>
-<li><h2><a href="https://vault.sovereignwebsite.site">vault.sovereignwebsite.site</a></h2><p>The base for sites powered by sgit vaults: open a site sealed in a vault, in your own browser.</p>
-<dl><dt>Owner</dt><dd><a href="https://github.com/SovereignWebsite">SovereignWebsite</a></dd><dt>Repository</dt><dd><a href="https://github.com/SovereignWebsite/SovereignWebsite__Vault">SovereignWebsite__Vault</a></dd><dt>Vault</dt><dd>Not yet; it opens example vaults</dd><dt>Status</dt><dd>Drop page and two example vaults</dd></dl></li>
-</ul>
-<p>Each entry follows the <a href="schema/hub-site.schema.json">hub-site format</a>; the registry is <a href="sites.json">sites.json</a>. The plan is in the <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/blob/dev/docs/plan.md">repository</a>.</p>
-<footer>hub.sovereignwebsite.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · Read why: <a href="https://newsroom.sgit.ai/articles/sovereign-agentic-website.html">Sovereign Agentic Website</a></footer>
+<header class="hero">
+  <p class="kicker">The showroom</p>
+  <h1>Sovereign websites, live.</h1>
+  <p>Sites built by agents and owned by the people they are for: their files, their history, their address. Every site here is public and live; open one to see it working.</p>
+</header>
+<section class="sites" aria-label="Public sites">
+<article class="site" style="--i:0">
+  <a class="frame" href="https://pipeline-demo.sovereignweb.site/" aria-label="Open A site from one request"><span class="chrome"><i></i><i></i><i></i><b>pipeline-demo.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/pipeline-demo-phone.jpg"><img src="shots/pipeline-demo.jpg" alt="Screenshot of A site from one request" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="tags"><span>Demo</span><span>Guide</span></p>
+    <h2><a href="https://pipeline-demo.sovereignweb.site/">A site from one request</a></h2>
+    <p class="sum">How the Sovereign Website pipeline turns one request into a site, with this site as the worked example.</p>
+    <p class="go"><a href="https://pipeline-demo.sovereignweb.site/">pipeline-demo.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site" style="--i:1">
+  <a class="frame" href="https://emily-cruz.artist.sovereignweb.site/" aria-label="Open Emily Cruz"><span class="chrome"><i></i><i></i><i></i><b>emily-cruz.artist.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/emily-cruz-phone.jpg"><img src="shots/emily-cruz.jpg" alt="Screenshot of Emily Cruz" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="tags"><span>Artist</span><span>Portfolio</span></p>
+    <h2><a href="https://emily-cruz.artist.sovereignweb.site/">Emily Cruz</a></h2>
+    <p class="sum">Emily Cruz, actor-musician and artist. BA (Hons) Actor-Musician, Guildford School of Acting, 2026.</p>
+    <p class="go"><a href="https://emily-cruz.artist.sovereignweb.site/">emily-cruz.artist.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site" style="--i:2">
+  <a class="frame" href="https://google-maps.sovereignwebsite.site/" aria-label="Open Directions, and the cameras on the way"><span class="chrome"><i></i><i></i><i></i><b>google-maps.sovereignwebsite.site</b></span><picture><source media="(max-width:640px)" srcset="shots/google-maps-phone.jpg"><img src="shots/google-maps.jpg" alt="Screenshot of Directions, and the cameras on the way" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="tags"><span>Demo</span><span>Tool</span></p>
+    <h2><a href="https://google-maps.sovereignwebsite.site/">Directions, and the cameras on the way</a></h2>
+    <p class="sum">A sovereign website that uses a paid third-party service, Google Maps, on the owner&#x27;s own key and budget.</p><p class="note">Not switched on yet: waiting for the owner&#x27;s Maps key.</p>
+    <p class="go"><a href="https://google-maps.sovereignwebsite.site/">google-maps.sovereignwebsite.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+</section>
+<p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added by the site's own agent when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
+<footer>hub.sovereignwebsite.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · No cookies, no tracking.</footer>
+<script>
+(function(){
+  var bs=document.querySelectorAll('.switch button');
+  function set(d){document.documentElement.className='d-'+d;bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.d===d?'true':'false');});try{localStorage.setItem('hub-design',d);}catch(e){}}
+  bs.forEach(function(b){b.onclick=function(){set(b.dataset.d);history.replaceState(null,'','#design-'+b.dataset.d);};});
+  set((document.documentElement.className.match(/d-([1-5])/)||[0,'1'])[1]);
+})();
+</script>
 </body>
 </html>
