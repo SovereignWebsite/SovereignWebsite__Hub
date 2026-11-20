@@ -89,6 +89,7 @@
         "domain": {
           "enum": [
             "own",
+            "sovereignweb.site",
             "sovereignwebsite.site"
           ]
         }
