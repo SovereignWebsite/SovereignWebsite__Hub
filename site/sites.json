@@ -846,6 +846,39 @@
         "url": "https://github.com/SovereignWebsite/Site__Provider__Mistral",
         "branch": "dev"
       }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "grace-farrell",
+      "name": "Grace Farrell",
+      "summary": "Actor-singer and soprano: National Theatre, Les Misérables, BBC Champion, Diablo IV, and the Pride and Prejudice* (*sort of) tour.",
+      "kind": "Portfolio",
+      "group": "Artist",
+      "section": "People",
+      "featured": 11,
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "team": [
+        {
+          "name": "grace.b@SovereignWebsite.dinis",
+          "role": "keeper",
+          "session": "https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE"
+        }
+      ],
+      "address": {
+        "url": "https://grace-farrell.artist.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/grace-farrell",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell",
+        "branch": "dev"
+      }
     }
   ]
 }
