@@ -33,6 +33,7 @@ SECTIONS = [
     ('People', 'Personal sites for real people. Kate Curtis-Evans was the first to take hers over and edit it herself.'),
     ('Startups', 'Independent brochures about the startups in the family, each made from the company\'s own public pages.'),
     ('Providers', 'Independent guides to the AI providers a sovereign website can use, cited, with browser demos that use your own key.'),
+    ('Platforms', 'Unofficial guides to platforms we use, made from their public material. Each says it is not made or endorsed by the platform.'),
     ('Businesses', 'Sites for businesses: two made-up examples, labelled as such, and a redesign proposal made with the company\'s agreement.'),
     ('PrompTugal.news', 'The parts of PrompTugal.news that are live: Portugal\'s public data, gathered and explained by agent teams.'),
     ('Demos', 'Demonstrations: what an agent team builds from public data, and how a site is made from one request.'),
@@ -150,6 +151,7 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
  .steps li::before{left:50%;transform:translateX(-50%)}
  .steps li:not(:last-child)::after{content:"";position:absolute;top:1.1rem;left:calc(50% + 1.4rem);right:calc(-50% + 1.4rem);height:2px;background:var(--line)}}
 .made .go{margin-top:1.5rem}
+.find{max-width:44rem;margin:0 auto 1.5rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.find input{flex:1;min-width:12rem;font:inherit;padding:.45rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--fg)}#qn{color:var(--muted);font-size:.85rem}.add{max-width:44rem;color:var(--muted);margin:1rem 0 0}.add code{font-size:.85em}[hidden]{display:none!important}
 .sec-intro{color:var(--muted);margin:-.8rem 0 1.5rem;max-width:44rem}
 .sections{margin-top:3rem}.sections ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .sections a{display:inline-block;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.92rem;background:var(--card)}
@@ -197,6 +199,7 @@ hero_note = hero.get('note') or ''
 made = '\n' + f'''<section class="made" aria-labelledby="h-made"><h2 class="sec-h" id="h-made">How a site is made</h2>
 <ol class="steps">{''.join(f'<li>{e(t)}</li>' for t in steps)}</ol>
 {f'<p class="go"><a href="{e(demo["address"]["url"])}">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>' if demo else ''}
+<p class="add">How a site is added: one folder in the Factory, <code>requests/&lt;date&gt;__&lt;label&gt;/site.json</code>, with Dinis's yes. The Factory then creates the repository, the address and the pages. The groups (artist, tool, platform and the rest) and the rules are in <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/README.md">the Factory's requests guide <span aria-hidden="true">&rarr;</span></a>. For example, <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/2026-11-20__google-maps/site.json">the Google Maps tool</a> and <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/2026-11-20__whois/site.json">Whois</a> are each one small request file.</p>
 </section>'''
 page = f'''<!doctype html>
 <html lang="en" class="d-1">
@@ -242,6 +245,7 @@ page = f'''<!doctype html>
   <a class="hero-shot frame" href="{e(hero['address']['url'])}" aria-label="Open {e(hero['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host_of(hero))}</b></span><picture><source media="(max-width:640px)" srcset="{e(hero['shot'])}-phone.jpg"><img src="{e(hero['shot'])}.jpg" alt="Screenshot of {e(hero['name'])}" width="1280" height="800" loading="eager"></picture>{f'<span class="badge">{e(hero_note)}</span>' if hero_note else ''}</a>
 </header>
 <nav class="sections" aria-label="Sections"><ul>{''.join(f'<li><a href="#{sid(n)}">{e(n)} <span>{len(by_section[n])}</span></a></li>' for n, _ in SECTIONS if by_section[n])}</ul></nav>
+<p class="find"><label for="q">Find a site</label> <input id="q" type="search" placeholder="name, owner or kind" autocomplete="off"> <span id="qn" role="status" aria-live="polite"></span></p>
 {chr(10).join(f'''<section class="{'people' if n == 'People' else 'tools'}" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 class="sec-h" id="h-{sid(n)}">{e(n)}</h2>
 <p class="sec-intro">{e(intro)}</p>
 <div class="grid">
@@ -258,6 +262,11 @@ page = f'''<!doctype html>
   as.forEach(function(a){{a.onclick=function(ev){{ev.preventDefault();history.replaceState(null,'','#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;}};}});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){{if(ev.key==='Escape')ch.open=false;}});
+  var q=document.getElementById('q'),qn=document.getElementById('qn'),cards=[].slice.call(document.querySelectorAll('article.site'));
+  q.addEventListener('input',function(){{var v=q.value.trim().toLowerCase(),n=0;
+    cards.forEach(function(c){{var m=!v||c.textContent.toLowerCase().indexOf(v)>-1;c.hidden=!m;if(m)n++;}});
+    document.querySelectorAll('section.people,section.tools').forEach(function(s){{s.hidden=!!v&&!s.querySelector('article.site:not([hidden])');}});
+    qn.textContent=v?n+' of '+cards.length+' sites':'';}});
 }})();
 </script>
 </body>

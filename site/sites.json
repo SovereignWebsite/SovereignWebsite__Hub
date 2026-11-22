@@ -879,6 +879,118 @@
         "url": "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell",
         "branch": "dev"
       }
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "odoo",
+      "name": "Odoo",
+      "summary": "What Odoo offers and how to use it, from its public material. An unofficial site, not made or endorsed by Odoo.",
+      "kind": "Guide",
+      "group": "Platform",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://odoo.platform.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/odoo",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Platform__Odoo",
+        "branch": "dev"
+      },
+      "chips": [
+        "Unofficial"
+      ],
+      "section": "Platforms"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "openrouter",
+      "name": "OpenRouter",
+      "summary": "What OpenRouter offers and how to use it, from its public material. An unofficial site, not made or endorsed by OpenRouter.",
+      "kind": "Guide",
+      "group": "Platform",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://openrouter.platform.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/openrouter",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Platform__OpenRouter",
+        "branch": "dev"
+      },
+      "chips": [
+        "Unofficial"
+      ],
+      "section": "Platforms"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "owasp",
+      "name": "OWASP",
+      "summary": "What OWASP offers and how to use it, from its public material. An unofficial site, not made or endorsed by OWASP.",
+      "kind": "Guide",
+      "group": "Platform",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://owasp.platform.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/owasp",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Platform__OWASP",
+        "branch": "dev"
+      },
+      "chips": [
+        "Unofficial"
+      ],
+      "section": "Platforms"
+    },
+    {
+      "schema": "hub-site/1",
+      "slug": "wikipedia",
+      "name": "Wikipedia",
+      "summary": "What Wikipedia offers and how to use it, from its public material. An unofficial site, not made or endorsed by Wikipedia.",
+      "kind": "Guide",
+      "group": "Platform",
+      "owner": {
+        "name": "SovereignWebsite",
+        "url": "https://github.com/SovereignWebsite"
+      },
+      "address": {
+        "url": "https://wikipedia.platform.sovereignweb.site/",
+        "domain": "sovereignweb.site"
+      },
+      "vault": null,
+      "licence": null,
+      "status": "live",
+      "shot": "shots/wikipedia",
+      "repository": {
+        "url": "https://github.com/SovereignWebsite/Site__Platform__Wikipedia",
+        "branch": "dev"
+      },
+      "chips": [
+        "Unofficial"
+      ],
+      "section": "Platforms"
     }
   ]
 }

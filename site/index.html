@@ -76,6 +76,7 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
  .steps li::before{left:50%;transform:translateX(-50%)}
  .steps li:not(:last-child)::after{content:"";position:absolute;top:1.1rem;left:calc(50% + 1.4rem);right:calc(-50% + 1.4rem);height:2px;background:var(--line)}}
 .made .go{margin-top:1.5rem}
+.find{max-width:44rem;margin:0 auto 1.5rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.find input{flex:1;min-width:12rem;font:inherit;padding:.45rem .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--fg)}#qn{color:var(--muted);font-size:.85rem}.add{max-width:44rem;color:var(--muted);margin:1rem 0 0}.add code{font-size:.85em}[hidden]{display:none!important}
 .sec-intro{color:var(--muted);margin:-.8rem 0 1.5rem;max-width:44rem}
 .sections{margin-top:3rem}.sections ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
 .sections a{display:inline-block;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.92rem;background:var(--card)}
@@ -175,11 +176,12 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
     <p class="kicker">The showroom</p>
     <h1>Websites their owners own.</h1>
     <p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
-    <ul class="count"><li><b>33</b>sites working</li><li><b>11</b>people's sites</li><li><b>1</b>handed over</li></ul>
+    <ul class="count"><li><b>37</b>sites working</li><li><b>11</b>people's sites</li><li><b>1</b>handed over</li></ul>
   </div>
   <a class="hero-shot frame" href="https://kate-curtis-evans.founder.sovereignweb.site/" aria-label="Open Kate Curtis-Evans"><span class="chrome"><i></i><i></i><i></i><b>kate-curtis-evans.founder.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/kate-curtis-evans-phone.jpg"><img src="shots/kate-curtis-evans.jpg" alt="Screenshot of Kate Curtis-Evans" width="1280" height="800" loading="eager"></picture><span class="badge">Handed over: Kate edits it herself on GitHub, since 20 Nov 2026.</span></a>
 </header>
-<nav class="sections" aria-label="Sections"><ul><li><a href="#s-people">People <span>11</span></a></li><li><a href="#s-startups">Startups <span>5</span></a></li><li><a href="#s-providers">Providers <span>1</span></a></li><li><a href="#s-businesses">Businesses <span>3</span></a></li><li><a href="#s-promptugal-news">PrompTugal.news <span>5</span></a></li><li><a href="#s-demos">Demos <span>7</span></a></li><li><a href="#s-tools">Tools <span>2</span></a></li></ul></nav>
+<nav class="sections" aria-label="Sections"><ul><li><a href="#s-people">People <span>11</span></a></li><li><a href="#s-startups">Startups <span>5</span></a></li><li><a href="#s-providers">Providers <span>1</span></a></li><li><a href="#s-platforms">Platforms <span>4</span></a></li><li><a href="#s-businesses">Businesses <span>3</span></a></li><li><a href="#s-promptugal-news">PrompTugal.news <span>5</span></a></li><li><a href="#s-demos">Demos <span>7</span></a></li><li><a href="#s-tools">Tools <span>2</span></a></li></ul></nav>
+<p class="find"><label for="q">Find a site</label> <input id="q" type="search" placeholder="name, owner or kind" autocomplete="off"> <span id="qn" role="status" aria-live="polite"></span></p>
 <section class="people" id="s-people" aria-labelledby="h-s-people"><h2 class="sec-h" id="h-s-people">People</h2>
 <p class="sec-intro">Personal sites for real people. Kate Curtis-Evans was the first to take hers over and edit it herself.</p>
 <div class="grid">
@@ -297,6 +299,7 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
 <section class="made" aria-labelledby="h-made"><h2 class="sec-h" id="h-made">How a site is made</h2>
 <ol class="steps"><li>One request</li><li>An agent team builds it</li><li>Five designs to choose from</li><li>The owner chooses one</li><li>Handed over to the owner&#x27;s GitHub</li></ol>
 <p class="go"><a href="https://pipeline-demo.demo.sovereignweb.site/">See it run: the pipeline demo <span aria-hidden="true">&rarr;</span></a></p>
+<p class="add">How a site is added: one folder in the Factory, <code>requests/&lt;date&gt;__&lt;label&gt;/site.json</code>, with Dinis's yes. The Factory then creates the repository, the address and the pages. The groups (artist, tool, platform and the rest) and the rules are in <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/README.md">the Factory's requests guide <span aria-hidden="true">&rarr;</span></a>. For example, <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/2026-11-20__google-maps/site.json">the Google Maps tool</a> and <a href="https://github.com/SovereignWebsite/SovereignWebsite__Factory/blob/dev/requests/2026-11-20__whois/site.json">Whois</a> are each one small request file.</p>
 </section>
 <section class="tools" id="s-startups" aria-labelledby="h-s-startups"><h2 class="sec-h" id="h-s-startups">Startups</h2>
 <p class="sec-intro">Independent brochures about the startups in the family, each made from the company&#x27;s own public pages.</p>
@@ -363,6 +366,50 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
     <p class="sum">Mistral, a European brain for a sovereign website: what Mistral offers at every level, cited, with browser demos using your own key. Independent; not affiliated with Mistral AI.</p>
     <p class="chips"><span class="live">Live</span></p>
     <p class="go"><a href="https://mistral.provider.sovereignweb.site/">mistral.provider.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+</div></section>
+<section class="tools" id="s-platforms" aria-labelledby="h-s-platforms"><h2 class="sec-h" id="h-s-platforms">Platforms</h2>
+<p class="sec-intro">Unofficial guides to platforms we use, made from their public material. Each says it is not made or endorsed by the platform.</p>
+<div class="grid">
+<article class="site small">
+  <a class="frame" href="https://odoo.platform.sovereignweb.site/" aria-label="Open Odoo"><span class="chrome"><i></i><i></i><i></i><b>odoo.platform.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/odoo-phone.jpg"><img src="shots/odoo.jpg" alt="Screenshot of Odoo" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Platform</p>
+    <h3><a href="https://odoo.platform.sovereignweb.site/">Odoo</a></h3>
+    <p class="sum">What Odoo offers and how to use it, from its public material. An unofficial site, not made or endorsed by Odoo.</p>
+    <p class="chips"><span class="">Unofficial</span><span class="live">Live</span></p>
+    <p class="go"><a href="https://odoo.platform.sovereignweb.site/">odoo.platform.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://openrouter.platform.sovereignweb.site/" aria-label="Open OpenRouter"><span class="chrome"><i></i><i></i><i></i><b>openrouter.platform.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/openrouter-phone.jpg"><img src="shots/openrouter.jpg" alt="Screenshot of OpenRouter" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Platform</p>
+    <h3><a href="https://openrouter.platform.sovereignweb.site/">OpenRouter</a></h3>
+    <p class="sum">What OpenRouter offers and how to use it, from its public material. An unofficial site, not made or endorsed by OpenRouter.</p>
+    <p class="chips"><span class="">Unofficial</span><span class="live">Live</span></p>
+    <p class="go"><a href="https://openrouter.platform.sovereignweb.site/">openrouter.platform.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://owasp.platform.sovereignweb.site/" aria-label="Open OWASP"><span class="chrome"><i></i><i></i><i></i><b>owasp.platform.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/owasp-phone.jpg"><img src="shots/owasp.jpg" alt="Screenshot of OWASP" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Platform</p>
+    <h3><a href="https://owasp.platform.sovereignweb.site/">OWASP</a></h3>
+    <p class="sum">What OWASP offers and how to use it, from its public material. An unofficial site, not made or endorsed by OWASP.</p>
+    <p class="chips"><span class="">Unofficial</span><span class="live">Live</span></p>
+    <p class="go"><a href="https://owasp.platform.sovereignweb.site/">owasp.platform.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
+  </div>
+</article>
+<article class="site small">
+  <a class="frame" href="https://wikipedia.platform.sovereignweb.site/" aria-label="Open Wikipedia"><span class="chrome"><i></i><i></i><i></i><b>wikipedia.platform.sovereignweb.site</b></span><picture><source media="(max-width:640px)" srcset="shots/wikipedia-phone.jpg"><img src="shots/wikipedia.jpg" alt="Screenshot of Wikipedia" loading="lazy" width="1280" height="800"></picture></a>
+  <div class="meta">
+    <p class="kind">Platform</p>
+    <h3><a href="https://wikipedia.platform.sovereignweb.site/">Wikipedia</a></h3>
+    <p class="sum">What Wikipedia offers and how to use it, from its public material. An unofficial site, not made or endorsed by Wikipedia.</p>
+    <p class="chips"><span class="">Unofficial</span><span class="live">Live</span></p>
+    <p class="go"><a href="https://wikipedia.platform.sovereignweb.site/">wikipedia.platform.sovereignweb.site <span aria-hidden="true">&rarr;</span></a></p>
   </div>
 </article>
 </div></section>
@@ -563,6 +610,11 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
   as.forEach(function(a){a.onclick=function(ev){ev.preventDefault();history.replaceState(null,'','#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;};});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){if(ev.key==='Escape')ch.open=false;});
+  var q=document.getElementById('q'),qn=document.getElementById('qn'),cards=[].slice.call(document.querySelectorAll('article.site'));
+  q.addEventListener('input',function(){var v=q.value.trim().toLowerCase(),n=0;
+    cards.forEach(function(c){var m=!v||c.textContent.toLowerCase().indexOf(v)>-1;c.hidden=!m;if(m)n++;});
+    document.querySelectorAll('section.people,section.tools').forEach(function(s){s.hidden=!!v&&!s.querySelector('article.site:not([hidden])');});
+    qn.textContent=v?n+' of '+cards.length+' sites':'';});
 })();
 </script>
 </body>
