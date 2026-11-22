@@ -19,6 +19,25 @@
         "fingerprint": "sha256:af936bb535837009",
         "signing_fingerprint": "sha256:5131e886013a6483"
       }
+    },
+    {
+      "id": "hub-d-sovereignwebsite",
+      "agent": "hub.d@SovereignWebsite.dinis",
+      "role": "Works on the Hub gallery, the vault sites and the agent's own site, alongside hub.b (account D). A session key: it ends with its session.",
+      "how": "Made by the agent in its own session on 21 November 2026 with sgit pki keygen; public bundle from sgit pki export. Only the public half is here. Commits are signed through tools/sgit-ssh-sign.py, which calls sgit pki sign.",
+      "created": "2026-11-21",
+      "status": "active",
+      "session": "https://claude.ai/code/session_015gaHdbMGVTN5vJ9jVfAi3N",
+      "fingerprint": "sha256:3936cd62f64798c5",
+      "signing_fingerprint": "sha256:57e671d29fd124cc",
+      "bundle": {
+        "v": 1,
+        "encrypt": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAqNd9eYBZlaeCmcbui/50\nptZwQAr5nsYtWcmYpSxU45Tca1teA7sz8Sw7TQiETsC5Yg58BzSp/9ebd7qK1mBf\n15rIYyqV2xhj9rjpizfYUXjUX2XorvKtG7ZdInzqm7clyp81p5TWPv0wjuAueEEm\nS2y+BRmW9LB+yuNAujH1w/GTtrEbDQMqDxcraj0pOhxyGNKaghATesjd53y9srrZ\nl6kOQlpvey5IAmaRg35L53YlW0WN3aXOrhIXGjdWCphTZBAcm5gwiTBhHCwEaSMA\n/UP9Rp/ycEkEaR9Q/9XG3djSyl8g8n452rb63bYSh4ktYmwIvTF80ahMt36WT/Hz\naHF39S84+VsZMewWUbbXdxgKMEzkkspBopji42WI0jaDDjVn+lH85aqsww6qyWlb\nrmzX9CScl7xNt46rzAuhLTm7gm5wMqc1fTZ1iyHo0riNyLW01BVUULQq34STN1S5\nM4gDg27L0h5IByKLfoZL64wR/aEFnKWDn6uNXl5vGhnyC5cbSdEH5Zu+XyhI7qMC\njOy94rRgMRJRMT57aXy0Iuf/n1l5c6wu5wMm4bNtfibsXY+zs6YHD1KWYby38HEq\nTATxh6YpzlHWgUircf1RgPrmH74UtSOSS228oDdBQUT7OsDMdayX2hS8JnSB0o8Q\n4wATLrFZ3TM6j5sHkMp18WECAwEAAQ==\n-----END PUBLIC KEY-----\n",
+        "sign": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAELekDHbgCmajwMOiSjMflOcGcW2iR\nsMmaiTCqCGm+a7sgdvEg2PPvCHzj/a2ueJDhBEnuhspos6MplqCqW1mFFA==\n-----END PUBLIC KEY-----\n",
+        "label": "hub.d@SovereignWebsite.dinis",
+        "fingerprint": "sha256:3936cd62f64798c5",
+        "signing_fingerprint": "sha256:57e671d29fd124cc"
+      }
     }
   ]
 }
