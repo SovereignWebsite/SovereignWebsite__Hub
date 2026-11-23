@@ -64,6 +64,26 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 
 ## Open items
 
+**Status, round 12 (v0.1.57, design.b.rounds, review 9a7d554):**
+- The hub is rated 4 and reaches M4. It keeps the 4 unless a measured check fails, or The Line falls below 4 of 5 in two runs in a row.
+- The Line got 4 of 5 for the third run, The Street 3 of 5, and the others 1 of 5 each.
+
+Round 12's list, in order:
+1. The low-vision reader:
+   - the Register's stamp sits beside its sentence, not over it;
+   - the Gallery's body text is darker and a size up;
+   - the Contact Sheet's ring is clear of "01A";
+   - a solid band goes behind the Street's awning addresses.
+2. Editing cost: the round asks for two lines.
+   - "A Claude plan is optional": check this is true before saying it.
+   - "Partners set their own prices": this needs a source or Dinis's word. Never invent it; ask decisions.b if no record holds it.
+   - The Line's "Who looks after it?" line shows on desktop only; add it on phones.
+3. Own versus rent, and a non-artist example, on the other three designs (item 2 below).
+4. Phones:
+   - the founder's card shows an empty frame; use a plain label, since her pictures stay off the hub (ask 31);
+   - the Street lacks Emily Cruz's window.
+5. design.b's step: the case told in each design's own form, one design per tag (item 3 below).
+
 0. **Navigation, Dinis's "super critical" item** (record `2026-11-23__navigation-and-review`; guidelines 2b in Site__Agents__Design 08c179c). sites.b leads one shared wayfinder for every site ("home", "up", next and previous, "find the agent, connect"). The hub's part is the registry: `site/registry.json` (schema "sws-registry/1", shape proposed to sites.b on 23 Nov 23:55 UTC). It holds home, groups with a hub URL and order, and sites with host, name, group, parent, order, state, agent and connect. Build it from sites.json, building.json and sites.b's register.json, public sites only, with the first handed-over site unnamed. sites.b agreed the shape on 23 Nov at 23:24 UTC, with two additions:
    - each site carries "repository" (owner/name);
    - a top-level integer "version", raised on any schema change.
