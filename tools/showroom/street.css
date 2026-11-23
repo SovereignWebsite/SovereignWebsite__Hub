@@ -28,7 +28,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-off
 .window img{aspect-ratio:16/10;object-fit:cover;object-position:top}
 @media(max-width:40rem){.window img{aspect-ratio:4/3}}
 .plate b{display:block;font-size:1.15rem}
-.plate span{color:var(--muted);font-size:.95rem}
+.plate span{color:var(--fg);font-size:.95rem}
 .door{display:inline-flex;align-items:center;min-height:44px;padding:.4rem .9rem;border:2px solid var(--fg);border-radius:999px;font-weight:700;justify-self:start}
 .shop:hover .door,.shop:focus-visible .door{background:var(--fg);color:var(--bg)}
 .board{display:inline-block;background:#0f6e4f;color:#fff;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .5rem;margin:0 .3rem .3rem 0}
@@ -40,7 +40,8 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-off
 .how{max-width:80rem;margin:0 auto;padding:1.6rem 1rem 0;color:var(--muted);font-size:.92rem}
 .how a{color:var(--accent)}
 .lead-row{display:grid;gap:1.2rem;align-items:end}
-@media(min-width:52rem){.lead-row{grid-template-columns:26rem minmax(0,1fr);gap:2.4rem}}
+@media(min-width:52rem){.lead-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:end}}
+.sky .about{margin-top:1rem}
 .lead-row .shop{margin-top:.8rem}.about p{margin:.4rem 0}.want a,.how a{color:var(--accent)}
 @media(max-width:40rem){
  .row .shop:not(.lead) .window img{aspect-ratio:16/10}

@@ -30,9 +30,12 @@ h1,h2,h3,.tally b{font-family:Georgia,"Times New Roman",serif}
 .sum{margin:0 0 .4rem}
 @media (max-width:40rem){.title:not(.lead) .sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.95rem}}
 .deed{margin:0 0 .3rem}
-.deed summary{cursor:pointer;color:var(--muted);font-size:.9rem;min-height:32px;display:inline-flex;align-items:center}
+.deed summary{cursor:pointer;color:var(--fg);font-size:.95rem;min-height:36px;display:inline-flex;align-items:center;gap:.4rem;list-style:none}
+.deed summary::-webkit-details-marker{display:none}
+.deed summary::before{content:"\25B8";font-size:.9em;transition:transform .15s}
+.deed[open] summary::before{transform:rotate(90deg)}
 .deed dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.2rem .9rem;margin:.3rem 0 .2rem;font-size:.95rem;align-items:baseline}
-.deed dt{color:var(--muted);font-size:.8rem;font-variant:small-caps;letter-spacing:.06em}
+.deed dt{color:var(--fg);opacity:.8;font-size:1rem;font-variant:small-caps;letter-spacing:.06em}
 .deed dd{margin:0;overflow-wrap:break-word;min-width:0}
 .deed a,.go a{color:var(--accent)}
 .go{margin:0}.go a{display:inline-block;padding:.6rem 0;line-height:1.4;font-weight:650}

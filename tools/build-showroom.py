@@ -126,7 +126,7 @@ def chooser(cur):
     opts = ''.join(f'<a href="{h}"' + (' aria-current="page"' if d == cur else '')
                    + f'><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><span>{d}. {e(n)}{" (home)" if h == "/" else ""}{" (dark)" if dark else ""}</span></a>'
                    for d, n, h, _, dark in DESIGNS)
-    label = f'Design <span class="cur">{cur}</span><span class="nm">: {e(names[cur - 1])}</span>' if cur else 'Five designs'
+    label = (f'<span class="dw">Design </span><span class="cur">{cur}</span><span class="dw">:</span> {e(names[cur - 1])}') if cur else 'Five designs'
     return (f'<details class="chooser"><summary>{label}</summary>'
             f'<nav class="opts" aria-label="Designs of this page">{opts}<a href="/designs/"' + (' aria-current="page"' if not cur else '')
             + '><span>All five, side by side</span></a></nav></details>')
@@ -235,6 +235,19 @@ def fold(n, render, box, where):
     return f'<div class="{box}">{first}</div><details class="more"><summary>{summary}</summary><div class="{box}">{inner}</div></details>'
 
 
+def street_people():
+    # Wide screens show the first two people's shops beside Kate's in the sky, so their street starts at the
+    # fourth; a phone shows them here. Each copy is display:none where it does not apply, so each is read once.
+    es = rest('People')
+    summary = f'Show all {len(by_section["People"])} in People'
+    phone_more = ''.join(shop(s) for s in es[2:])
+    wide_more = ''.join(shop(s) for s in es[5:])
+    return (f'<div class="row">{"".join(f"<div class=phone-only>{shop(s)}</div>" for s in es[:2])}'
+            f'{"".join(f"<div class=wide-only>{shop(s)}</div>" for s in es[2:5])}</div>'
+            + (f'<div class="phone-only"><details class="more"><summary>{summary}</summary><div class="row">{phone_more}</div></details></div>' if phone_more else '')
+            + (f'<div class="wide-only"><details class="more"><summary>{summary}</summary><div class="row">{wide_more}</div></details></div>' if wide_more else ''))
+
+
 def phone_fold(items, box, summary):
     # Wide screens show every item; a phone shows two and folds the rest into "Show all" (each item read once).
     if len(items) <= 2:
@@ -307,8 +320,8 @@ def frame_of(s, eager):
     cross = '<span class="cross" aria-hidden="true"></span>' if s.get('waiting') else ''
     mark = '<span class="mark">Handed over</span>' if s.get('handed_over') else '<span class="mark">Not switched on yet</span>' if s.get('waiting') else ''
     chip = ' · '.join(s.get('chips', []))
-    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><figure><span class="pic">{pic(s, eager, "(min-width:40rem) 20rem, 100vw", lead=s is lead)}{cross}</span>'
-            f'<span class="rebate"><span class="num">{entry_no[s["slug"]]:02d}A</span>{mark}</span>'
+    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><figure><span class="pic">{pic(s, eager, "(min-width:40rem) 20rem, 100vw", lead=s is lead)}{cross}'
+            f'<span class="rebate"><span class="num">{entry_no[s["slug"]]:02d}A</span>{mark}</span></span>'
             f'<figcaption><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])} · {soft(host_of(s))}</span>'
             + (f'<br><span class="chip">{e(chip)}</span>' if chip else '') + (credit(s) if s is lead else '') + '</figcaption></figure></a>')
 
@@ -339,11 +352,12 @@ def shop(s, is_lead=False):
 page('street/', 'The Street', css('street'), f'''<main id="main">
 <section class="sky" aria-labelledby="st-h"><div><p class="k">The showroom</p><h1 id="st-h">Websites their owners own.</h1>
 <p class="lede">{e(ABOUT)}</p>
-<div class="lead-row">{shop(lead, True)}<div class="about"><p class="want">{WANT}</p>
-<nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></div></section>
+<div class="lead-row">{shop(lead, True)}{''.join(f'<div class="wide-only">{shop(s)}</div>' for s in rest('People')[:2])}</div>
+<div class="about"><p class="want">{WANT}</p>
+<nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></section>
 <section class="road" aria-label="On this street"><p>{e(COUNTS)}</p></section>
 {chr(10).join(f"""<section class="street" id="st-{sid(n)}" aria-labelledby="st-h-{sid(n)}"><h2 id="st-h-{sid(n)}">{e(n)}</h2><p class="sub">{e(intro)}</p>
-{fold(n, shop, 'row', n)}</section>
+{street_people() if n == 'People' else fold(n, shop, 'row', n)}</section>
 <div class="kerb" aria-hidden="true"></div>""" for n, intro in shown)}
 <p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites.{DEMO_LINK}</p>
 {GET}
@@ -366,7 +380,7 @@ at_end = [s for s in people if s.get('handed_over')]
 at_five = [s for s in people if not s.get('handed_over') and many(s)]
 at_built = [s for s in people if s not in at_end and s not in at_five]
 STATIONS = [(steps[0], [], WANT), (steps[1], at_built, 'Built and live, open to visit.'), (steps[2], at_five, ''),
-            (steps[3], [], 'The owner picks the design they want to keep.'), (steps[4], at_end, ''),
+            (steps[3], [], 'The owner picks the design they want to keep. None at this step today.'), (steps[4], at_end, ''),
             ('Get one', [], '<a href="/start/#get-one">Start here: how to get a site like these</a>.')]
 
 

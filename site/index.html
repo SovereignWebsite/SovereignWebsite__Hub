@@ -30,7 +30,7 @@ a{color:inherit}img{display:block;width:100%;height:auto}
 .brand{font-weight:700;text-decoration:none;white-space:nowrap}
 .chooser summary{list-style:none;cursor:pointer;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
 .chooser summary::-webkit-details-marker{display:none}.chooser summary::after{content:" \25BE"}
-@media (max-width:40rem){.chooser .nm{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+@media (max-width:40rem){.chooser .dw{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 .chooser[open] summary{background:var(--fill);color:var(--on-fill);border-color:var(--fill)}
 .opts{position:absolute;right:1rem;top:calc(100% + .4rem);width:min(60rem,calc(100vw - 2rem));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;padding:.9rem;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -24px rgba(0,0,0,.45)}
 .opts a{text-decoration:none;font-size:.82rem;border-radius:8px;padding:.3rem;border:2px solid transparent}.opts a[aria-current=true]{border-color:var(--fill)}
@@ -85,9 +85,12 @@ h1,h2,h3,.tally b{font-family:Georgia,"Times New Roman",serif}
 .sum{margin:0 0 .4rem}
 @media (max-width:40rem){.title:not(.lead) .sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:.95rem}}
 .deed{margin:0 0 .3rem}
-.deed summary{cursor:pointer;color:var(--muted);font-size:.9rem;min-height:32px;display:inline-flex;align-items:center}
+.deed summary{cursor:pointer;color:var(--fg);font-size:.95rem;min-height:36px;display:inline-flex;align-items:center;gap:.4rem;list-style:none}
+.deed summary::-webkit-details-marker{display:none}
+.deed summary::before{content:"\25B8";font-size:.9em;transition:transform .15s}
+.deed[open] summary::before{transform:rotate(90deg)}
 .deed dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.2rem .9rem;margin:.3rem 0 .2rem;font-size:.95rem;align-items:baseline}
-.deed dt{color:var(--muted);font-size:.8rem;font-variant:small-caps;letter-spacing:.06em}
+.deed dt{color:var(--fg);opacity:.8;font-size:1rem;font-variant:small-caps;letter-spacing:.06em}
 .deed dd{margin:0;overflow-wrap:break-word;min-width:0}
 .deed a,.go a{color:var(--accent)}
 .go{margin:0}.go a{display:inline-block;padding:.6rem 0;line-height:1.4;font-weight:650}
@@ -167,7 +170,7 @@ footer{max-width:62rem}
   </details>
 </nav>
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
-<details class="chooser"><summary>Design <span class="cur">1</span><span class="nm">: The Register</span></summary><nav class="opts" aria-label="Designs of this page"><a href="/" aria-current="page"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Register (home)</span></a><a href="/gallery/"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Gallery (dark)</span></a><a href="/contact-sheet/"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Contact Sheet (dark)</span></a><a href="/street/"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. The Street</span></a><a href="/line/"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Line</span></a><a href="/designs/"><span>All five, side by side</span></a></nav></details></header>
+<details class="chooser"><summary><span class="dw">Design </span><span class="cur">1</span><span class="dw">:</span> The Register</summary><nav class="opts" aria-label="Designs of this page"><a href="/" aria-current="page"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Register (home)</span></a><a href="/gallery/"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Gallery (dark)</span></a><a href="/contact-sheet/"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Contact Sheet (dark)</span></a><a href="/street/"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. The Street</span></a><a href="/line/"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Line</span></a><a href="/designs/"><span>All five, side by side</span></a></nav></details></header>
 <main id="main">
 <section class="cover" aria-labelledby="r-h"><p class="k">The register of title</p><h1 id="r-h">Websites their owners own.</h1>
 <p class="lede">Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public; open one to see it working. <span class="tally">33 sites working, 11 of them people&#x27;s own; 1 handed over to its owner so far. Plus 1 not switched on yet.</span></p>
