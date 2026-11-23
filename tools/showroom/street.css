@@ -1,0 +1,44 @@
+
+:root{--bg:#e9eef2;--fg:#15202b;--muted:#46525e;--accent:#0b4f8a;--fill:#0f6e4f;--on-fill:#fff;--line:#b9c3cc;--card:#f7f3ec;--sky:#cfe0ee;--road:#2d333a;--road-ink:#f3f4f6;--awning1:#0f6e4f;--awning2:#fff;--brick:#f7f3ec;--sign:#15202b;--sign-ink:#fff;--focus:#c2410c}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1218;--fg:#e8edf2;--muted:#aab4be;--accent:#8cc8ff;--fill:#1f8a64;--on-fill:#fff;--line:#2c3742;--card:#17202a;--sky:#141d27;--road:#05080b;--road-ink:#e8edf2;--awning1:#1f8a64;--awning2:#0d1218;--brick:#17202a;--sign:#e8edf2;--sign-ink:#0d1218;--focus:#ffa76b}}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sky{background:linear-gradient(var(--sky),var(--bg));padding:1.2rem 1rem 1.4rem}
+.sky>div{max-width:80rem;margin:0 auto}
+.sky .k{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.875rem;margin:0;color:var(--muted)}
+.sky h1{font-size:clamp(1.9rem,6vw,4.2rem);line-height:1;letter-spacing:-.02em;margin:.3rem 0 .2rem;font-weight:800;max-width:18ch}
+.sky p{max-width:40rem}
+.streets{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:1rem 0 0}
+.streets a{display:inline-block;padding:.3rem .8rem;border:2px solid var(--fg);border-radius:999px;color:var(--fg);text-decoration:none;font-weight:600;font-size:.9rem}
+.streets a:hover{background:var(--fg);color:var(--bg)}
+.road{background:var(--road);color:var(--road-ink);padding:1.2rem 1rem;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;background:repeating-linear-gradient(90deg,#f4c542 0 40px,#0000 40px 80px);opacity:.9}
+.road p{margin:0 auto;max-width:80rem;position:relative}.road p{background:var(--road);display:block;width:fit-content;max-width:min(80rem,100%);padding:0 .6rem;font-weight:600}
+.road li{background:var(--road);padding:0 .5rem;font-size:.95rem}
+.road b{font-size:1.6rem;margin-right:.3rem}
+.street{max-width:80rem;margin:0 auto;padding:0 1rem;scroll-margin-top:4rem}
+.street h2{font-size:1rem;letter-spacing:.14em;text-transform:uppercase;margin:2.4rem 0 0;color:var(--muted)}
+.street .sub{margin:.3rem 0 0;color:var(--muted);max-width:44rem}
+.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr));gap:0 1rem;align-items:end}
+.shop{display:block;text-decoration:none;color:var(--fg);margin-top:1.6rem;min-width:0}
+.sign{display:block;background:var(--sign);color:var(--sign-ink);font:700 clamp(.75rem,3.2vw,.95rem)/1.25 ui-monospace,Menlo,Consolas,monospace;padding:.5rem .6rem;text-align:center;border-radius:4px 4px 0 0}
+.awning{display:block;height:22px;background:repeating-linear-gradient(90deg,var(--awning1) 0 24px,var(--awning2) 24px 48px);clip-path:polygon(0 0,100% 0,97% 100%,3% 100%);border-bottom:2px solid var(--awning1)}
+.front{background:var(--brick);border:2px solid var(--line);border-top:0;padding:12px;display:grid;gap:.7rem}
+.window{display:block;border:6px solid var(--fg);border-radius:2px;background:#000;position:relative}
+.window::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgb(255 255 255/.22),#0000 35%);pointer-events:none}
+.window img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.window img{aspect-ratio:4/3}}
+.plate b{display:block;font-size:1.15rem}
+.plate span{color:var(--muted);font-size:.95rem}
+.door{display:inline-flex;align-items:center;min-height:44px;padding:.4rem .9rem;border:2px solid var(--fg);border-radius:999px;font-weight:700;justify-self:start}
+.shop:hover .door,.shop:focus-visible .door{background:var(--fg);color:var(--bg)}
+.board{display:inline-block;background:#0f6e4f;color:#fff;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .5rem;margin:0 .3rem .3rem 0}
+.board.alt{background:var(--fg);color:var(--bg)}
+.shut .window img{filter:grayscale(1) brightness(.6)}
+.shut .awning{background:repeating-linear-gradient(90deg,#6b7480 0 24px,var(--awning2) 24px 48px);border-color:#6b7480}
+.shut .door{border-style:dashed}
+.kerb{height:10px;background:#9aa3ab;margin-top:2rem}
+.how{max-width:80rem;margin:0 auto;padding:1.6rem 1rem 0;color:var(--muted);font-size:.92rem}
+.how a{color:var(--accent)}
+.lead-row{display:grid;gap:1.2rem;align-items:end}
+@media(min-width:52rem){.lead-row{grid-template-columns:26rem minmax(0,1fr);gap:2.4rem}}
+.lead-row .shop{margin-top:.8rem}.about p{margin:.4rem 0}.want a,.how a{color:var(--accent)}

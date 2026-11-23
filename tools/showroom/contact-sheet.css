@@ -1,0 +1,38 @@
+
+:root{--bg:#141414;--fg:#f2f2f0;--muted:#c4c4c0;--accent:#ffb000;--fill:#ffb000;--on-fill:#141414;--line:#3a3a38;--card:#1d1d1c;--sheet:#0a0a0a;--edge:#ffb000;--grease:#ff4d3d;--family-fg:#cfcfcb;--family-fg-strong:#fff}
+a:focus-visible,summary:focus-visible{outline:3px solid #ffd400;outline-offset:2px}
+main{max-width:80rem;margin:0 auto;padding:0 1rem}
+.head{display:grid;gap:1rem;padding:1.6rem 0 1.2rem;border-bottom:1px solid var(--line)}
+@media(min-width:56rem){.head{grid-template-columns:1.3fr 1fr;align-items:end}}
+.head .k{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--edge);font-size:.9rem;margin:0;letter-spacing:.08em}
+.head h1{font-size:clamp(2.4rem,7.5vw,5rem);line-height:.98;letter-spacing:-.03em;margin:.3rem 0 0;font-weight:800}
+.head p{margin:0;color:var(--muted)}
+.counts{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--edge);margin-top:.6rem!important}
+.rolls{display:flex;flex-wrap:wrap;gap:.3rem 1rem;list-style:none;padding:0;margin:.8rem 0 0;font:.85rem ui-monospace,Menlo,Consolas,monospace}
+.rolls a{color:var(--muted)}.rolls a:hover{color:var(--fg)}
+.sheet{background:var(--sheet);margin:1.8rem 0;padding:1rem 0 1.2rem;border-radius:4px;scroll-margin-top:4rem}
+.sheet h2{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem;font-weight:600;color:var(--edge);margin:0 1rem .3rem;letter-spacing:.1em;text-transform:uppercase}
+.sheet .sub{margin:0 1rem .8rem;color:var(--muted);font-size:.9rem;max-width:44rem}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:0;padding:22px 0;position:relative;background:#050505}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:22px;background:radial-gradient(circle at 50% 50%,#2a2a28 0 4px,#0000 4.5px) 0 0/22px 22px repeat-x}
+.strip::before{top:0}.strip::after{bottom:0}
+.frame{position:relative;display:block;padding:14px;color:var(--fg);text-decoration:none;min-width:0}
+.frame figure{margin:0}
+.pic{position:relative;display:block}
+.pic img{border:1px solid #222;aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.pic img{aspect-ratio:4/3}}
+.rebate{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-top:.8rem;font:700 .8rem ui-monospace,Menlo,Consolas,monospace;color:var(--edge)}
+figcaption{padding:.4rem .2rem 0;font-size:.95rem}
+figcaption b{display:block;font-size:1.05rem}
+figcaption .m{color:var(--muted);overflow-wrap:break-word}
+.pick .pic::before{content:"";position:absolute;inset:-7px -5px;border:4px solid var(--grease);border-radius:48% 52% 45% 55%/55% 45% 55% 45%;transform:rotate(-2deg);pointer-events:none;z-index:2}
+.mark{font:800 .95rem/1 "Marker Felt","Comic Sans MS",cursive;color:#fff;background:#c9302c;padding:.2rem .45rem;transform:rotate(-2deg)}
+.x img{filter:grayscale(1) contrast(.8) brightness(.6)}
+.x .cross{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,#0000 calc(50% - 2px),var(--grease) calc(50% - 2px) calc(50% + 2px),#0000 calc(50% + 2px))}
+.x .mark{font:700 .8rem ui-monospace,monospace;background:#000;color:#fff;border:1px solid var(--grease);padding:.1rem .4rem;transform:none}
+.frame:hover figcaption b,.frame:focus-visible figcaption b{text-decoration:underline}
+.chip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.875rem;color:var(--edge)}
+.how{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem;color:var(--muted);border-left:3px solid var(--edge);padding-left:1rem;max-width:44rem;margin:2rem 0}
+.how a{color:var(--edge)}
+footer{max-width:80rem}
+.want{color:var(--muted);margin-top:.4rem!important}.want a{color:var(--edge)}
