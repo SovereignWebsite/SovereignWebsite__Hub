@@ -249,7 +249,7 @@ page = f'''<!doctype html>
 </div></section>''' + (made if n == 'People' else '') for n, intro in SECTIONS if by_section[n])}
 <p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
-<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="policy/">How this site is governed</a> · No cookies, no tracking, nothing stored in your browser; the design you pick lives only in the address (#design-1 to #design-5).</footer>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="policy/">How this site is governed</a> · <a href="operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser; the design you pick lives only in the address (#design-1 to #design-5).</footer>
 <script>
 (function(){{
   var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser');
