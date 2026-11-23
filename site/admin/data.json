@@ -1,0 +1,76 @@
+{
+ "built": "2026-11-23 12:52 UTC",
+ "commits": 59,
+ "tags": 34,
+ "last_release": "v0.1.33",
+ "last_release_date": "2026-11-23 12:51 UTC",
+ "designs": 5,
+ "sites_listed": 34,
+ "handed_over": 1,
+ "commits_by_day": {
+  "2026-11-19": 5,
+  "2026-11-20": 32,
+  "2026-11-21": 3,
+  "2026-11-22": 1,
+  "2026-11-23": 18
+ },
+ "sites_by_section": {
+  "People": 11,
+  "Startups": 5,
+  "Providers": 1,
+  "Businesses": 3,
+  "PrompTugal.news": 5,
+  "Demos": 7,
+  "Tools": 2
+ },
+ "design_rounds": [
+  {
+   "title": "Hub, round 7: each idea now opens its page; crop to Kate, not her menu",
+   "date": "2026-11-23",
+   "rating": 3,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-23-round-7.md"
+  },
+  {
+   "title": "Hub, round 6: five real ideas, live; each first screen still opens the same way",
+   "date": "2026-11-23",
+   "rating": 3,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-23-round-6.md"
+  },
+  {
+   "title": "Hub as the showreel: design brief and five directions",
+   "date": "2026-11-20",
+   "rating": null,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-showroom-brief.md"
+  },
+  {
+   "title": "Hub, round 5: five ideas, not five skins",
+   "date": "2026-11-20",
+   "rating": null,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-5-five-ideas.md"
+  },
+  {
+   "title": "Hub, round 4: round 3's fixes checked",
+   "date": "2026-11-20",
+   "rating": 3,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-4.md"
+  },
+  {
+   "title": "Hub, round 3: the showroom after Dinis's reorder",
+   "date": "2026-11-20",
+   "rating": null,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-3.md"
+  },
+  {
+   "title": "Review: hub showroom, five designs (SovereignWebsite__Hub dev 2f3436e)",
+   "date": "2026-11-20",
+   "rating": null,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-1.md"
+  },
+  {
+   "title": "Hub showroom, round 1 result",
+   "date": "2026-11-20",
+   "rating": 2,
+   "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-1-result.md"
+  }
+ ]
+}

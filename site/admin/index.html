@@ -61,6 +61,23 @@ h2{font-size:1.25rem;margin:2rem 0 .5rem}ol,ul.plain{color:var(--muted);padding-
 pre{background:rgba(127,127,127,.1);padding:.8rem 1rem;border-radius:6px;white-space:pre-wrap;font-size:.9rem;color:var(--fg)}
 code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 </style>
+<style>
+main{max-width:62rem}
+.tiles{list-style:none;padding:0;margin:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr))}
+.tiles a{display:block;padding:.8rem 1rem;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--fg);height:100%}
+.tiles a:hover,.tiles a:focus-visible{border-color:var(--accent)}
+.tiles b{display:block;font-size:1.7rem;line-height:1.1;color:var(--fg);overflow-wrap:anywhere}.tiles span{color:var(--muted);font-size:.85rem}
+.chart{margin:0}.chart svg{width:100%;height:auto;display:block}
+.chart .bar{fill:var(--accent)}.chart .lab{fill:var(--fg);font-size:13px}.chart .val{fill:var(--fg);font-size:13px;font-weight:600}
+.chart details{margin-top:.4rem;font-size:.9rem}.chart summary{cursor:pointer;color:var(--accent)}
+.chart table{border-collapse:collapse;margin-top:.4rem}.chart th,.chart td{padding:.2rem .8rem .2rem 0;text-align:left;border-bottom:1px solid var(--line)}
+.rounds{padding-left:1.2rem}.rounds .when{color:var(--muted);font-size:.85rem}
+.rate{display:inline-block;font-size:.8rem;font-weight:700;padding:0 .45rem;border:1px solid var(--accent);border-radius:999px;color:var(--fg)}
+.ask{border:1px solid var(--line);border-radius:8px;padding:.6rem 1rem .8rem;margin:.8rem 0}
+.ask h3{margin:.2rem 0 .4rem;font-size:1rem}.ask pre{margin:0 0 .5rem}
+.ask button{font:inherit;font-size:.9rem;padding:.35rem .9rem;min-height:36px;border:1px solid var(--accent);background:transparent;color:var(--fg);border-radius:6px;cursor:pointer}
+#made{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -89,21 +106,36 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
   </nav>
 </header>
 <main id="main">
-<div class="mark">How this site was made</div>
-<h1>How this site was made</h1>
+<div class="mark">Admin</div>
+<h1>The hub at a glance</h1>
+<p>Built 2026-11-23 12:52 UTC from this site's own history, its register and its design reviews. Nothing on this page asks another site for anything; the numbers are in <a href="data.json">data.json</a>.</p>
+<section aria-labelledby="h-over"><h2 id="h-over">Overview</h2>
+<ul class="tiles"><li><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/commits/dev"><b>59</b><span>commits</span></a></li><li><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/tags"><b>34</b><span>releases</span></a></li><li><a href="/designs/"><b>5</b><span>designs</span></a></li><li><a href="/sites.json"><b>34</b><span>sites listed</span></a></li><li><a href="/"><b>1</b><span>handed over</span></a></li><li><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/actions"><b>v0.1.33</b><span>last deploy, 2026-11-23 12:51 UTC</span></a></li></ul></section>
+<section aria-labelledby="h-act"><h2 id="h-act">Activity: commits a day</h2>
+<figure class="chart"><svg viewBox="0 0 640 170" role="img" aria-label="Day, commits to the hub"><text x="122" y="17.7" text-anchor="end" class="lab">2026-11-19</text><rect x="130" y="0" width="73.4" height="26" rx="3" class="bar"/><text x="209.4" y="17.7" class="val">5</text><text x="122" y="51.7" text-anchor="end" class="lab">2026-11-20</text><rect x="130" y="34" width="470.0" height="26" rx="3" class="bar"/><text x="606.0" y="51.7" class="val">32</text><text x="122" y="85.7" text-anchor="end" class="lab">2026-11-21</text><rect x="130" y="68" width="44.1" height="26" rx="3" class="bar"/><text x="180.1" y="85.7" class="val">3</text><text x="122" y="119.7" text-anchor="end" class="lab">2026-11-22</text><rect x="130" y="102" width="14.7" height="26" rx="3" class="bar"/><text x="150.7" y="119.7" class="val">1</text><text x="122" y="153.7" text-anchor="end" class="lab">2026-11-23</text><rect x="130" y="136" width="264.4" height="26" rx="3" class="bar"/><text x="400.4" y="153.7" class="val">18</text></svg><details><summary>The numbers</summary><table><thead><tr><th scope="col">Day</th><th scope="col">Commits</th></tr></thead><tbody><tr><th scope="row">2026-11-19</th><td>5</td></tr><tr><th scope="row">2026-11-20</th><td>32</td></tr><tr><th scope="row">2026-11-21</th><td>3</td></tr><tr><th scope="row">2026-11-22</th><td>1</td></tr><tr><th scope="row">2026-11-23</th><td>18</td></tr></tbody></table></details></figure></section>
+<section aria-labelledby="h-sec"><h2 id="h-sec">Sites listed, by section</h2>
+<figure class="chart"><svg viewBox="0 0 640 238" role="img" aria-label="Section, public sites listed"><text x="122" y="17.7" text-anchor="end" class="lab">People</text><rect x="130" y="0" width="470.0" height="26" rx="3" class="bar"/><text x="606.0" y="17.7" class="val">11</text><text x="122" y="51.7" text-anchor="end" class="lab">Startups</text><rect x="130" y="34" width="213.6" height="26" rx="3" class="bar"/><text x="349.6" y="51.7" class="val">5</text><text x="122" y="85.7" text-anchor="end" class="lab">Providers</text><rect x="130" y="68" width="42.7" height="26" rx="3" class="bar"/><text x="178.7" y="85.7" class="val">1</text><text x="122" y="119.7" text-anchor="end" class="lab">Businesses</text><rect x="130" y="102" width="128.2" height="26" rx="3" class="bar"/><text x="264.2" y="119.7" class="val">3</text><text x="122" y="153.7" text-anchor="end" class="lab">PrompTugal.news</text><rect x="130" y="136" width="213.6" height="26" rx="3" class="bar"/><text x="349.6" y="153.7" class="val">5</text><text x="122" y="187.7" text-anchor="end" class="lab">Demos</text><rect x="130" y="170" width="299.1" height="26" rx="3" class="bar"/><text x="435.1" y="187.7" class="val">7</text><text x="122" y="221.7" text-anchor="end" class="lab">Tools</text><rect x="130" y="204" width="85.5" height="26" rx="3" class="bar"/><text x="221.5" y="221.7" class="val">2</text></svg><details><summary>The numbers</summary><table><thead><tr><th scope="col">Section</th><th scope="col">Sites</th></tr></thead><tbody><tr><th scope="row">People</th><td>11</td></tr><tr><th scope="row">Startups</th><td>5</td></tr><tr><th scope="row">Providers</th><td>1</td></tr><tr><th scope="row">Businesses</th><td>3</td></tr><tr><th scope="row">PrompTugal.news</th><td>5</td></tr><tr><th scope="row">Demos</th><td>7</td></tr><tr><th scope="row">Tools</th><td>2</td></tr></tbody></table></details></figure></section>
+<section aria-labelledby="h-des"><h2 id="h-des">Design rounds</h2>
+<ol class="rounds"><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-23-round-7.md">Hub, round 7: each idea now opens its page; crop to Kate, not her menu</a> <span class="when">2026-11-23</span> <span class="rate">rated 3 of 5</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-23-round-6.md">Hub, round 6: five real ideas, live; each first screen still opens the same way</a> <span class="when">2026-11-23</span> <span class="rate">rated 3 of 5</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-showroom-brief.md">Hub as the showreel: design brief and five directions</a> <span class="when">2026-11-20</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-5-five-ideas.md">Hub, round 5: five ideas, not five skins</a> <span class="when">2026-11-20</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-4.md">Hub, round 4: round 3&#x27;s fixes checked</a> <span class="when">2026-11-20</span> <span class="rate">rated 3 of 5</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-3.md">Hub, round 3: the showroom after Dinis&#x27;s reorder</a> <span class="when">2026-11-20</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-1.md">Review: hub showroom, five designs (SovereignWebsite__Hub dev 2f3436e)</a> <span class="when">2026-11-20</span></li><li><a href="https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-20-round-1-result.md">Hub showroom, round 1 result</a> <span class="when">2026-11-20</span> <span class="rate">rated 2 of 5</span></li></ol>
+<p>The reviews are kept by design.b and design.b.rounds in <a href="https://github.com/SovereignWebsite/Site__Agents__Design/tree/dev/docs/reviews/hub">Site__Agents__Design</a>.</p></section>
+<section aria-labelledby="h-ask"><h2 id="h-ask">Ask Claude</h2>
+<p>For whoever keeps the hub: copy one of these into Claude, with write access to the repository.</p>
+<div class="ask"><h3>Add a site</h3><pre id="p0">Read https://hub.sovereignweb.site/llms.txt and follow the instructions for the owner. Add the public site at [address] to site/sites.json in the hub-site format, take its screenshots with tools/take-shots.js, rebuild with tools/build-showroom.py, run the checks and push to dev.</pre><button type="button" data-copy="p0">Copy</button></div><div class="ask"><h3>Refresh the screenshots</h3><pre id="p1">Read https://hub.sovereignweb.site/llms.txt as the owner. Run tools/refresh.sh, tell me which sites did not answer, and push the new screenshots to dev if the checks pass.</pre><button type="button" data-copy="p1">Copy</button></div><div class="ask"><h3>Take a design round</h3><pre id="p2">Read https://hub.sovereignweb.site/llms.txt as the owner. Read the latest hub review in Site__Agents__Design docs/reviews/hub, fix its items one commit each, and tell me each release tag.</pre><button type="button" data-copy="p2">Copy</button></div><div class="ask"><h3>What changed this week</h3><pre id="p3">Read the commits of https://github.com/SovereignWebsite/SovereignWebsite__Hub on dev for the last seven days and summarise what changed on hub.sovereignweb.site, with a link for each point.</pre><button type="button" data-copy="p3">Copy</button></div><div class="ask"><h3>Check it is still safe</h3><pre id="p4">Read https://hub.sovereignweb.site/llms.txt as the owner. Check that no private or vault-only site is named anywhere in site/, that the site sets no cookies and makes no request to another host, and report what you find.</pre><button type="button" data-copy="p4">Copy</button></div>
+</section>
+<h2 id="made">How this site was made</h2>
 <p>Everything that made this site is public, so you can check it.</p>
-<h2>The request</h2>
+<h3>The request</h3>
 <p>The hub is one of the SovereignWebsite organisation's own sites, not a request: its repository was seeded from the organisation's <a href="https://github.com/SovereignWebsite/SovereignWebsite__IaC">SovereignWebsite__IaC</a> (see the first commits in <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/commits/dev">its history</a>). The sites it lists each began as a request in <a href="https://github.com/SovereignWebsite/SovereignWebsite__IaC/tree/dev/requests">SovereignWebsite__IaC/requests</a>.</p>
-<h2>The agents</h2>
+<h3>The agents</h3>
 <p>The agents that work on this site are listed in <a href="/data/agents.json">data/agents.json</a>, each with its name and its role. Each signs its commits with a key published at <a href="https://agents.sovereignweb.site/">agents.sovereignweb.site</a>.</p>
-<h2>Every change</h2>
+<h3>Every change</h3>
 <ul class="plain">
 <li><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/commits/dev">The commits</a>: who changed what, and when.</li>
 <li><a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub/actions">The workflow runs</a>: each publish of the site.</li>
 </ul>
-<h2>Design rounds</h2>
+<h3>Design rounds</h3>
 <p>Each design round and its review is in the design agent's <a href="https://design.agents.sovereignweb.site/back-office.html">back office</a>.</p>
-<h2>Synthetic user runs</h2>
+<h3>Synthetic user runs</h3>
 <p>Runs of synthetic users against this site, and what they found, are listed here as the site's agents record them.</p>
 
 <footer>
@@ -116,5 +148,7 @@ code{font-size:.9em}main a,main code{overflow-wrap:anywhere}
 A sovereign website, made with the <a href="https://sovereignwebsite.org/">open pattern</a>. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">github.com/SovereignWebsite/SovereignWebsite__Hub</a>.
 </footer>
 </main>
+<script>document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.copy).textContent;
+if(navigator.clipboard)navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1500);});});});</script>
 </body>
 </html>
