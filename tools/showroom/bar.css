@@ -25,3 +25,6 @@ footer a{color:var(--accent)}
 .wide-only,div.phone-only{display:contents}
 @media (min-width:40.01rem){.phone-only{display:none!important}}
 @media (max-width:40rem){.wide-only{display:none!important}}
+.get{max-width:44rem;margin:2.6rem auto 0;padding:1rem 1.2rem;border:2px solid currentColor;border-radius:4px}
+.get h2{margin:0 0 .3rem;font-size:1.3rem}.get p{margin:0}.get a{color:var(--accent);font-weight:650}
+main>.get:last-child{margin-bottom:0}

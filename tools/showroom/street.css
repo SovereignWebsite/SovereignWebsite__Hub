@@ -58,3 +58,5 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-off
  .row .shop:not(.lead) .window img{aspect-ratio:3/4}
  .row .shop:not(.lead) .door{justify-self:start}
 }
+main>.get{margin:2.4rem 1rem 0}
+@media(min-width:46rem){main>.get{margin:2.4rem auto 0}}

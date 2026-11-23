@@ -74,7 +74,10 @@ COUNTS = (f"{working} sites working, {people_working} of them people's own; {han
 ABOUT = 'Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public; open one to see it working.'
 # There is no request form yet; say so, and point to how it works.
 WANT = ('Want one? It starts with one request. There is no request form yet: '
-        '<a href="https://sovereignwebsite.ai/how-it-works.html">see how it works</a>.')
+        '<a href="/start/#get-one">here is how to start</a>.')
+# The last step of every design: get one.
+GET = ('<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2><p>Every site here began with one request '
+       'and was handed over to its owner. <a href="/start/#get-one">Start here: how to get a site like these</a>.</p></section>')
 STEPS_LINE = '; '.join(x[:1].lower() + x[1:] if i else x for i, x in enumerate(steps))
 DEMO_LINK = f' <a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''
 
@@ -240,6 +243,7 @@ register_main = f'''<main id="main">
 <p class="intro">{e(intro)}</p>
 {entries(n, k)}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK} Each entry comes from <a href="/sites.json">sites.json</a>, in the <a href="/schema/hub-site.schema.json">hub-site format</a>; the screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
+{GET}
 </main>'''
 # Old #design-N addresses on the home page (the skins it used to carry) forward to the page that design now is.
 FORWARD = json.dumps({str(d): h for d, _, h, _, _ in DESIGNS if h != '/'})
@@ -271,6 +275,7 @@ page('gallery/', 'The Gallery', css('gallery'), f'''<main id="main">
 <p class="room-intro">{e(intro)}</p>
 {fold(n, piece, 'wall', f'Room {ROOMS[k]}, {n}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">Each label comes from the hub's <a href="/sites.json">sites.json</a> and is hung when the site goes live; the pictures are taken from the live sites. How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
+{GET}
 </main>''', scheme='dark', cur=2, note=design_note(2))
 
 
@@ -294,6 +299,7 @@ page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main
 {chr(10).join(f"""<section class="sheet" id="c-{sid(n)}" aria-labelledby="c-h-{sid(n)}"><h2 id="c-h-{sid(n)}">Strip {k + 1}: {e(n)}</h2><p class="sub">{e(intro)}</p>
 <div class="strip">{''.join(frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n]))}</div></section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
+{GET}
 </main>''', scheme='dark', cur=3, note=design_note(3))
 
 
@@ -317,6 +323,7 @@ page('street/', 'The Street', css('street'), f'''<main id="main">
 {fold(n, shop, 'row', n)}</section>
 <div class="kerb" aria-hidden="true"></div>""" for n, intro in shown)}
 <p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites.{DEMO_LINK}</p>
+{GET}
 </main>''', cur=4, note=design_note(4))
 
 
@@ -336,12 +343,13 @@ at_end = [s for s in people if s.get('handed_over')]
 at_five = [s for s in people if not s.get('handed_over') and many(s)]
 at_built = [s for s in people if s not in at_end and s not in at_five]
 STATIONS = [(steps[0], [], WANT), (steps[1], at_built, 'Built and live, open to visit.'), (steps[2], at_five, ''),
-            (steps[3], [], 'The owner picks the design they want to keep.'), (steps[4], at_end, '')]
+            (steps[3], [], 'The owner picks the design they want to keep.'), (steps[4], at_end, ''),
+            ('Get one', [], '<a href="/start/#get-one">Start here: how to get a site like these</a>.')]
 
 
 def station(i, title, here, note):
     cards = ''.join(f'<li>{lcard(s, i == 4, img=(len(here) <= 3), big=(i == 4))}</li>' for s in here)
-    return (f'<li class="st{" end" if i == 4 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{note if i == 0 else e(note)}</p>' if note else '')
+    return (f'<li class="st{" end" if i == 4 else ""}{" get-st" if i == 5 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{note if i in (0, 5) else e(note)}</p>' if note else '')
             + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
 
 

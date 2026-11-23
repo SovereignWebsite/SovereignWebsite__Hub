@@ -8,7 +8,7 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 .lede{max-width:40rem;font-size:1.1rem}
 .counts{font-weight:700;border-left:4px solid var(--belt);padding-left:.7rem;margin:1rem 0 0;max-width:44rem}
 .line{list-style:none;margin:2.8rem 0;padding:0 0 0 1.3rem;display:grid;gap:0;counter-reset:st}
-@media(min-width:60rem){.line{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}}
+@media(min-width:60rem){.line{grid-template-columns:repeat(6,minmax(0,1fr));padding:0}}
 .st{position:relative;padding:1rem 1rem 1.2rem 2.2rem;border-left:4px solid var(--belt);counter-increment:st;min-width:0}
 @media(min-width:60rem){.st{border-left:0;border-top:4px solid var(--belt);padding:2.4rem .8rem 1rem}}
 .st::before{content:counter(st);position:absolute;left:-1.35rem;top:.9rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--bg);border:4px solid var(--belt);display:grid;place-items:center;font-weight:900}
@@ -36,3 +36,6 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 .card.off img{filter:grayscale(1)}
 .side a:not(.card){color:var(--accent)}
 .empty a{color:var(--accent)}
+.st.get-st{border-color:var(--hi)}
+.st.get-st::before{background:var(--hi);color:var(--hi-ink);border-color:var(--hi)}
+.st.get-st .empty{color:var(--fg);font-weight:600}
