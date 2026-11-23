@@ -117,3 +117,5 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
  .rent td{border-bottom:0;padding:.3rem .6rem}.rent td::before{content:attr(data-h);display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
  .rent .ours td::before{color:var(--hi-ink)}
 }
+.who{margin:.9rem 0 0;max-width:52rem}.who a{color:var(--accent)}
+.range{font-weight:700;max-width:52rem}

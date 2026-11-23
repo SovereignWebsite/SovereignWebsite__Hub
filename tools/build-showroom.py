@@ -448,6 +448,8 @@ GETS = [
 def what_you_get():
     items = ''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p><a href="{e(u)}">See it: {e(x)}</a></li>' for t, d, x, u in GETS)
     return (f'<section class="gets" aria-labelledby="get-what"><h2 id="get-what">What you get</h2><ol>{items}</ol>'
+            '<p class="who"><b>Who looks after it?</b> You do, with your own AI (you would need a Claude plan), and the agent team that made it can help. '
+            'After hand-over, help is offered by <a href="https://sovereignwebsite.ai/partners.html">partners</a> at their own prices. <a href="/start/">How it starts</a>.</p>'
             '<p class="more-q"><a href="/features/">Can it do something else? Look it up</a></p></section>')
 
 
@@ -480,6 +482,7 @@ def people_room():
     others = sum(len(by_section[n]) for n, _ in shown if n != 'People')
     return (f'<section class="people" aria-labelledby="p-h"><h2 id="p-h">The people so far</h2>'
             f'<p>{len(people)} people\'s own sites, each made the same way. Open one to see it working.</p>'
+            '<p class="range">Founders, artists, singers, composers, designers, AI builders and project managers so far. Your work is different? Each site is made around its owner.</p>'
             + phone_fold([person(s) for s in people], 'pgrid', f'Show all {len(people)} people', keep=4)
             + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a></p></section>')
 
