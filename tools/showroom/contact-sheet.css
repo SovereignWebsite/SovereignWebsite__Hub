@@ -50,3 +50,4 @@ footer{max-width:80rem}
 @media(max-width:40rem){.counts{font-size:.82rem}.rolls{font-size:.78rem;margin-top:.5rem}.head{padding:1rem 0 .8rem}}
 @media(max-width:40rem){.sheet{margin:.8rem 0}.frame{padding:8px 10px}figcaption{font-size:.88rem}.strip{padding:18px 0}.head-case .kate5{padding:10px 8px}}
 .head-case .case h1{margin-bottom:1.3rem;line-height:1.02}
+@media(max-width:40rem){.sheet .sub{font-size:.8rem;line-height:1.4}.how{font-size:.85rem;margin:1.2rem 0}.sheet h2{margin-bottom:.2rem}}

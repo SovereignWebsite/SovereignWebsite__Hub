@@ -59,3 +59,4 @@ main>.get:last-child{margin-bottom:0}
  .rent td{border-bottom:0;padding:.3rem .6rem}.rent td::before{content:attr(data-h);display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
  .rent .ours td::before{color:var(--hi-ink,#111)}
 }@media(max-width:46rem){.rent td:nth-child(2){display:none}.rent td{padding:.2rem .6rem}.rent tr{margin-bottom:.45rem}.rent td::before{display:inline;margin-right:.35rem}.rent>p{font-size:.92rem}}
+.demo-flag{display:inline-block;margin:.25rem 0;padding:.05rem .45rem;font-size:.78rem;font-weight:800;letter-spacing:.02em;border:2px dashed currentColor}

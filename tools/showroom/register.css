@@ -72,3 +72,4 @@ footer{max-width:62rem}
 .cover .lede{margin-top:1.2rem}
 @media (max-width:40rem){.cover .lede{font-size:0}.cover .lede .tally{font-size:.9rem;display:block}}
 @media (max-width:40rem){.lead .shot picture{display:none}.lead .shot .credit{display:none}.lead .seal{position:static;transform:rotate(-8deg);margin:0 0 .4rem;width:3.8rem;height:3.8rem}.sealed .shot{margin-bottom:0}}
+@media (max-width:40rem){.title{margin-bottom:.5rem;padding:.6rem}.intro{font-size:.86rem;margin-bottom:.5rem}.parts{font-size:.82rem}.how{font-size:.85rem;margin-top:1.2rem}}

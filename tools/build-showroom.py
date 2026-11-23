@@ -104,6 +104,11 @@ def sentences(text):
     return f'{e(m.group(1))}<span class="s2">{e(m.group(2))}</span>'
 
 
+def demo_flag(s):
+    # A made-up business says so on its card, in every design (round 10: "the businesses look made-up").
+    return '<span class="demo-flag">Demonstration, not a real business</span>' if s.get('group') == 'Made-up company' else ''
+
+
 def waiting_line(s):
     w = s['waiting']
     return w if w.lower().startswith('not switched on yet') else 'Not switched on yet: ' + w[:1].lower() + w[1:]
@@ -267,7 +272,7 @@ def entry(s, is_lead=False, copy=''):
     hid = 't-' + s['slug'] + copy
     hn = 'h2' if is_lead else 'h3'
     return (f'<article class="{cls}" aria-labelledby="{hid}"><div class="shot">{seal}{pic(s, is_lead, "(min-width:46rem) 22rem, 7rem" if is_lead else "(min-width:46rem) 15rem, 7rem", lead=is_lead)}{credit(s) if is_lead else ""}</div>'
-            f'<div class="meta"><p class="no">Entry {entry_no[s["slug"]]:02d}</p><{hn} id="{hid}"><a href="{e(s["address"]["url"])}">{e(s["name"])}</a></{hn}>'
+            f'<div class="meta"><p class="no">Entry {entry_no[s["slug"]]:02d}</p><{hn} id="{hid}"><a href="{e(s["address"]["url"])}">{e(s["name"])}</a></{hn}>{demo_flag(s)}'
             f'<p class="sum">{sentences(s["summary"])}</p>'
             + (f'<p class="status-line">{e(waiting_line(s))}</p>' if s.get('waiting') else '') +
             f'<details class="deed"{" open" if is_lead else ""}><summary>The register entry</summary>{deed(s)}</details>'
@@ -362,7 +367,7 @@ def piece(s, is_lead=False):
     acq = s['note'] if s.get('handed_over') and s.get('note') else waiting_line(s) if s.get('waiting') else 'Live, open to visit.'
     tags = ''.join(f'<span>{e(x)}</span>' for x in (['Handed over'] if s.get('handed_over') else []) + s.get('chips', []))
     return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><span class="spot"><span class="frame">{pic(s, is_lead, "(min-width:52rem) 62rem, 100vw" if is_lead else "(min-width:52rem) 38rem, 100vw", lead=is_lead)}</span>{credit(s) if is_lead else ""}</span>'
-            f'<span class="label"><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span><span class="sum">{sentences(s["summary"])}</span>'
+            f'<span class="label"><b>{e(s["name"])}</b>{demo_flag(s)}<span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span><span class="sum">{sentences(s["summary"])}</span>'
             f'<span class="acq">{e(acq)}</span>' + (f'<span class="tags">{tags}</span>' if tags else '') + '</span></a>')
 
 
@@ -388,7 +393,7 @@ def frame_of(s, eager):
     chip = ' · '.join(s.get('chips', []))
     return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><figure><span class="pic">{pic(s, eager, "(min-width:40rem) 20rem, 100vw", lead=s is lead)}{cross}'
             f'<span class="rebate"><span class="num">{entry_no[s["slug"]]:02d}A</span>{mark}</span></span>'
-            f'<figcaption><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])} · {soft(host_of(s))}</span>'
+            f'<figcaption><b>{e(s["name"])}</b>{demo_flag(s)}<span class="m">{e(s.get("group") or s["kind"])} · {soft(host_of(s))}</span>'
             + (f'<br><span class="chip">{e(chip)}</span>' if chip else '') + (credit(s) if s is lead else '') + '</figcaption></figure></a>')
 
 
@@ -410,7 +415,7 @@ def shop(s, is_lead=False):
     words = waiting_line(s) if s.get('waiting') else s['summary']
     return (f'<a class="shop{" shut" if s.get("waiting") else ""}{" lead" if is_lead else ""}" href="{e(s["address"]["url"])}"><span class="sign">{soft(host_of(s))}</span>'
             f'<span class="awning" aria-hidden="true"></span><span class="front"><span class="window">{pic(s, is_lead, "(min-width:52rem) 26rem, 100vw", lead=is_lead)}</span>{credit(s) if is_lead else ""}'
-            f'<span class="plate"><b>{e(s["name"])}</b><span>{e(s.get("group") or s["kind"])}. {e(words)}</span></span>'
+            f'<span class="plate"><b>{e(s["name"])}</b>{demo_flag(s)}<span>{e(s.get("group") or s["kind"])}. <span class="desc">{e(words)}</span></span></span>'
             + (f'<span>{"".join(boards)}</span>' if boards else '')
             + f'<span class="door">{"Not switched on yet" if s.get("waiting") else "Walk in &rarr;"}</span></span></a>')
 
@@ -438,7 +443,7 @@ def lcard(s, eager, img=True, big=False):
     line2 = e(waiting_line(s)) if s.get('waiting') else soft(host_of(s))
     tags = ''.join(f'<span class="tag">{e(x)}</span>' for x in s.get('chips', []))
     cls = 'card' + (' big' if big else '') + (' off' if s.get('waiting') else '')
-    return (f'<a class="{cls}" href="{e(s["address"]["url"])}">{pic(s, eager, "(min-width:60rem) 15rem, 100vw", lead=big) if img else ""}{credit(s) if big else ""}<b>{e(s["name"])}</b>'
+    return (f'<a class="{cls}" href="{e(s["address"]["url"])}">{pic(s, eager, "(min-width:60rem) 15rem, 100vw", lead=big) if img else ""}{credit(s) if big else ""}<b>{e(s["name"])}</b>{demo_flag(s)}'
             f'<span class="m">{line2}</span>' + (f'<span>{tags}</span>' if tags else '') + '</a>')
 
 
