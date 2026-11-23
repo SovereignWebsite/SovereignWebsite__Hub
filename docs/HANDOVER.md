@@ -75,7 +75,14 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 
    Build the registry in `tools/` and put the wayfinder on the hub's own pages.
 1. **Car buyer** is the case on every first screen, and is also on `/building/` until Dinis has seen it (its draft notice goes) and its design round passes.
-2. **Design round 11** runs on the tag that carries the price, the email route and the ask 31 change.
-3. **Held until The Line keeps 4 of 5 a second time:** each design tells the case in its own way.
+2. **Design round 11** ran on v0.1.56: The Line got 4 of 5 for the second time, and The Street got 4 of 5 for the first time. The other three each got 1 of 5.
+   - Fixed in v0.1.57:
+     - the strip links meet target-size;
+     - The Street is 7,932 px on a live phone;
+     - the want line gives the email route.
+   - Still to do:
+     - readability: the Register's HANDED OVER stamp covers its sentence, the Contact Sheet's red ring crosses "01A", and the Gallery's body text is thin and pale;
+     - on the Register, Gallery and Contact Sheet, add the own-versus-rent table and one example that is not an artist or a startup.
+3. **Each design tells the case in its own way.** This was held until The Line kept 4 of 5 a second time, which it did in round 11. It can start once round 12 confirms on v0.1.57.
 4. **The operator page:** add "Decisions, open and acted" once decisions.b publishes its list; ask decisions.b for the format.
 5. **Wakes:** Dinis creates the scheduled task (hub.b every 2 hours, ending before 22:00 UTC; ask 24).
