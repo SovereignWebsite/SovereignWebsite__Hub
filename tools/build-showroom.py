@@ -109,7 +109,7 @@ def pic(s, eager=False, sizes='(min-width:52rem) 40vw, 100vw', alt=''):
 
 def chooser(cur):
     opts = ''.join(f'<a href="{h}"' + (' aria-current="page"' if d == cur else '')
-                   + f'><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><span>{d}. {e(n)}{" (dark)" if dark else ""}</span></a>'
+                   + f'><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><span>{d}. {e(n)}{" (home)" if h == "/" else ""}{" (dark)" if dark else ""}</span></a>'
                    for d, n, h, _, dark in DESIGNS)
     label = f'Design <span class="cur">{cur}</span><span class="nm">: {e(names[cur - 1])}</span>' if cur else 'Five designs'
     return (f'<details class="chooser"><summary>{label}</summary>'
