@@ -469,9 +469,37 @@ def people_room():
             + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a></p></section>')
 
 
+# Own, not rent (design.b's brief, item 5): strategy.b's facts, each checked on 23 Nov 2026 against the source linked.
+# A blank cell means no published fact was found. Our own price stays "Ask us" until Dinis confirms it.
+RENT_CHECKED = '23 November 2026'
+RENT = [
+    ('Wix', '"Your site must run on Wix\'s servers"', 'No', '', 'https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere', ''),
+    ('Squarespace', '', 'In part: an XML file of some content, without store pages, custom CSS or style settings', 'Basic $19 to $25, up to Advanced $99 to $139 a month', 'https://support.squarespace.com/hc/en-us/articles/206566687', 'https://www.squarespace.com/pricing'),
+    ('WordPress.com', '"What you build belongs to you"', 'Content yes: posts, pages and comments; not the theme or media files', 'Personal $9 a month ($4 billed yearly); Business $40 ($25 billed yearly)', 'https://wordpress.com/support/export/', 'https://wordpress.com/pricing/'),
+    ('Fliplet', '', 'No: "Fliplet does not offer a facility for You to transfer or copy any Content or Applications"', 'Free $0, Plus $25, Max from $50 a month', 'https://fliplet.com/terms/', 'https://fliplet.com/pricing/'),
+]
+
+
+def own_rent():
+    rows = ''.join(f'<tr><th scope="row">{e(n)}</th><td data-h="Who holds the files">{e(f) or "<span class=blank>Not stated</span>"}</td>'
+                   f'<td data-h="Can you leave with the site">{e(l)}</td><td data-h="Price a month">{e(p) or "<span class=blank>No price found</span>"}</td>'
+                   f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
+    ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "The files, the history and the address are yours"</td>'
+            '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
+            '<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Ask us</a> for the price</td>'
+            '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
+    return (f'<section class="rent" aria-labelledby="rent-h"><h2 id="rent-h">Own it, do not rent it</h2>'
+            f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
+            f'<div class="rent-wrap"><table><thead><tr><th scope="col">Builder</th><th scope="col">Who holds the files</th><th scope="col">Can you leave with the site</th>'
+            f'<th scope="col">Price a month</th><th scope="col">Sources</th></tr></thead><tbody>{rows}{ours}</tbody></table></div>'
+            '<p class="honest">To be fair: editing a sovereign website today needs a Claude plan or a partner, and nothing is sold yet. '
+            'Prices are as each page showed them to a reader outside the UK; Wix showed none we could confirm. Facts gathered by strategy.b.</p></section>')
+
+
 LINE_MAIN = f'''<main id="main">
 {case()}
 {what_you_get()}
+{own_rent()}
 <section class="how-line" aria-labelledby="hl-h"><h2 id="hl-h">How you get one</h2>
 <p class="one-line">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
