@@ -333,7 +333,10 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Gabriel-DaCruz",
         "branch": "dev"
       },
-      "featured": 6
+      "featured": 6,
+      "chips": [
+        "Six designs"
+      ]
     },
     {
       "schema": "hub-site/1",
@@ -385,7 +388,10 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Marc-Noah",
         "branch": "dev"
       },
-      "featured": 8
+      "featured": 8,
+      "chips": [
+        "Six designs"
+      ]
     },
     {
       "schema": "hub-site/1",
@@ -411,7 +417,10 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Indi-Gupte",
         "branch": "dev"
       },
-      "featured": 9
+      "featured": 9,
+      "chips": [
+        "Five designs"
+      ]
     },
     {
       "schema": "hub-site/1",
@@ -437,7 +446,10 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Mondweep-Chakravorty",
         "branch": "dev"
       },
-      "featured": 10
+      "featured": 10,
+      "chips": [
+        "Five designs"
+      ]
     },
     {
       "schema": "hub-site/1",
@@ -878,7 +890,10 @@
       "repository": {
         "url": "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell",
         "branch": "dev"
-      }
+      },
+      "chips": [
+        "Five designs"
+      ]
     }
   ]
 }

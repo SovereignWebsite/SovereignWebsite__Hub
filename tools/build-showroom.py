@@ -98,8 +98,9 @@ def register(s):
     repo = (s.get('repository') or {}).get('url')
     if repo:
         rows.append(('Files', f'<a href="{e(repo)}">{soft(re.sub(r"^https://github.com/", "", repo))}</a>'))
-    if 'Five designs' in s.get('chips', []):
-        rows.append(('Designs', 'Five designs'))
+    for c in s.get('chips', []):
+        if c.endswith(' designs'):
+            rows.append(('Designs', e(c)))
     return '<dl class="reg">' + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows) + '</dl>'
 
 
@@ -617,9 +618,11 @@ def lcard(s, eager, pic=True, big=False):
     return f'<a class="{cls}" href="{e(s["address"]["url"])}">{img}<b>{e(s["name"])}</b><span class="m">{line2}</span>' + (f'<span>{tags}</span>' if tags else '') + '</a>'
 
 
+# A station with more than three sites shows compact cards, so the line stays readable.
 # Each person's site at the station its record shows: handed over at the end, five designs at station 3, the rest built and live at 2.
 at_end = [s for s in people if s.get('handed_over')]
-at_five = [s for s in people if not s.get('handed_over') and 'Five designs' in s.get('chips', [])]
+many = lambda s: any(c in ('Five designs', 'Six designs') for c in s.get('chips', []))
+at_five = [s for s in people if not s.get('handed_over') and many(s)]
 at_built = [s for s in people if s not in at_end and s not in at_five]
 STATIONS = [
     (steps[0], [], 'Every site starts here: one request, from its owner.'),
@@ -631,7 +634,7 @@ STATIONS = [
 
 
 def station(i, title, here, note):
-    cards = ''.join(f'<li>{lcard(s, i == 4, pic=(i != 1), big=(i == 4))}</li>' for s in here)
+    cards = ''.join(f'<li>{lcard(s, i == 4, pic=(len(here) <= 3), big=(i == 4))}</li>' for s in here)
     return (f'<li class="st{" end" if i == 4 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{e(note)}</p>' if note else '')
             + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
 
