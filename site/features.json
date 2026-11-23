@@ -1,63 +1,319 @@
 {
   "about": "What a sovereign website can do today, feature by feature: its status, live examples, the agent working on it and what is holding it up. Kept by hub.b; every line checked on the date given. Only public sites are named.",
   "checked": "2026-11-23",
-  "statuses": {"live": "Live", "partial": "Works, with limits", "waiting": "Built, waiting", "planned": "Planned, not built", "none": "Not started"},
+  "statuses": {
+    "live": "Live",
+    "partial": "Works, with limits",
+    "waiting": "Built, waiting",
+    "planned": "Planned, not built",
+    "none": "Not started"
+  },
   "features": [
-    {"name": "Spotify", "keywords": "music, songs, album, track, player, streaming, apple music, soundcloud",
-     "status": "partial", "today": "Works as links and embeds: a site links a track or album, or embeds Spotify's own player. There is no deeper integration (no playlists or listening data pulled in).",
-     "examples": [["Silvio Switha links a track", "https://silvio-switha.agenticcells.site/"], ["Marc Noah's album", "https://marc-noah.agenticcells.site/"], ["Gabriel DaCruz on Spotify and Apple Music", "https://gabriel-dacruz.agenticcells.site/"]],
-     "agent": "No dedicated agent; each site's keeper adds the links.", "bottleneck": "No one has asked for more yet: there is no request for a Spotify feature."},
-    {"name": "Five designs to choose from", "keywords": "design, look, theme, layout, choose",
-     "status": "live", "today": "Each person's site is made in five designs (two in six); the owner picks one.",
-     "examples": [["Kate Curtis-Evans", "https://kate-curtis-evans.founder.sovereignweb.site/designs/index.html"], ["Emily Cruz", "https://emily-cruz.artist.sovereignweb.site/"], ["Grace Farrell", "https://grace-farrell.artist.sovereignweb.site/"]],
-     "agent": "design.b and design.b.rounds (design rounds and reviews).", "bottleneck": "None recorded."},
-    {"name": "Your files on your own GitHub", "keywords": "own, ownership, handover, repository, files, move, export",
-     "status": "live", "today": "The site is plain files in a GitHub repository handed over to the owner, who can move it to any host.",
-     "examples": [["Kate Curtis-Evans edits hers herself", "https://kate-curtis-evans.founder.sovereignweb.site/"]],
-     "agent": "Each site's keeper does the handover.", "bottleneck": "Each owner needs a GitHub account; Emily's handover waits on her GitHub username."},
-    {"name": "Change it by talking to your AI", "keywords": "ai, claude, chat, edit, update, change",
-     "status": "live", "today": "Every site has a \"Use with your AI\" page and an llms.txt with instructions for the owner's agent.",
-     "examples": [["The hub's own page", "https://hub.sovereignweb.site/agents/"]],
-     "agent": "Each site's keeper.", "bottleneck": "The owner needs a Claude plan (or a partner) to make changes this way."},
-    {"name": "A message box with replies", "keywords": "contact, form, feedback, message, enquiry, email",
-     "status": "live", "today": "A feedback box on a site, with replies, and no GitHub needed for the visitor.",
-     "examples": [["Kate Curtis-Evans's site", "https://kate-curtis-evans.founder.sovereignweb.site/"]],
-     "agent": "feedback.b.", "bottleneck": "None recorded."},
-    {"name": "Google Maps directions", "keywords": "maps, directions, location, google, map",
-     "status": "waiting", "today": "A demo site that uses Google Maps on the owner's own key and budget is built.",
-     "examples": [["The Maps demo", "https://google-maps.sovereignwebsite.site/"]],
-     "agent": "Not recorded.", "bottleneck": "Waiting for the owner's Maps key."},
-    {"name": "Visitor numbers", "keywords": "analytics, traffic, visitors, stats, statistics, views",
-     "status": "planned", "today": "Not on any site yet. The sites set no cookies and do no tracking.",
-     "examples": [],
-     "agent": "observability.b.", "bottleneck": "Waiting on Dinis's decisions: whether freeipapi.com may see visitor IP addresses, and which sites pilot it."},
-    {"name": "AI in your browser, on your own key", "keywords": "mistral, ai, llm, model, chat, key, browser",
-     "status": "live", "today": "Guides to AI providers with browser demos that use the visitor's own key.",
-     "examples": [["Mistral", "https://mistral.provider.sovereignweb.site/"]],
-     "agent": "conductor.mistral and its team.", "bottleneck": "None recorded."},
-    {"name": "Instagram", "keywords": "instagram, social, posts, meta",
-     "status": "partial", "today": "An Instagram agent has its own site, which records its mandate and what it has done, post by post.",
-     "examples": [["The Instagram agent's site", "https://instagram.platform.sovereignweb.site/"]],
-     "agent": "The Instagram agent.", "bottleneck": "Not recorded."},
-    {"name": "Private pages in a vault", "keywords": "private, password, vault, members, secret, encrypted",
-     "status": "live", "today": "Pages that only people with the key can open, kept in an encrypted vault.",
-     "examples": [["The vault", "https://vault.sovereignwebsite.site/"]],
-     "agent": "hub.b keeps the vault demo.", "bottleneck": "None recorded."},
-    {"name": "Your own domain", "keywords": "domain, address, url, dns, name",
-     "status": "partial", "today": "A site is served on a sovereignweb.site address until the owner points their own domain at it; the owner buys and holds the domain.",
-     "examples": [["Owning your domain", "https://sovereignwebsite.ai/domain.html"]],
-     "agent": "Not recorded.", "bottleneck": "The owner buys the domain at a registrar of their own."},
-    {"name": "A shop", "keywords": "shop, store, sell, payments, checkout, stripe, ecommerce",
-     "status": "none", "today": "Listed in the plan as an add-on (a shop without a backend); not built, and no price set.",
-     "examples": [],
-     "agent": "None yet.", "bottleneck": "Not started."},
-    {"name": "Run your AWS from your browser", "keywords": "aws, amazon, cloud, accounts",
-     "status": "live", "today": "Sign in with Google, one-hour credentials, read-only by default, and every change a plan you approve.",
-     "examples": [["AWS Platform", "https://aws.platform.sovereignweb.site/"]],
-     "agent": "Its site's keeper.", "bottleneck": "None recorded."},
-    {"name": "Who holds a domain (Whois)", "keywords": "whois, domain, ip, rdap, lookup",
-     "status": "live", "today": "Who holds a domain or IP address, from the registries' own records.",
-     "examples": [["Whois", "https://whois.tool.sovereignweb.site/"]],
-     "agent": "Its site's keeper.", "bottleneck": "None recorded."}
+    {
+      "name": "Spotify",
+      "keywords": "music, songs, album, track, player, streaming, apple music, soundcloud",
+      "status": "partial",
+      "today": "Works as links and embeds: a site links a track or album, or embeds Spotify's own player. There is no deeper integration (no playlists or listening data pulled in).",
+      "examples": [
+        [
+          "Silvio Switha links a track",
+          "https://silvio-switha.agenticcells.site/"
+        ],
+        [
+          "Marc Noah's album",
+          "https://marc-noah.agenticcells.site/"
+        ],
+        [
+          "Gabriel DaCruz on Spotify and Apple Music",
+          "https://gabriel-dacruz.agenticcells.site/"
+        ]
+      ],
+      "agent": "No dedicated agent; each site's keeper adds the links.",
+      "bottleneck": "No one has asked for more yet: there is no request for a Spotify feature."
+    },
+    {
+      "name": "What it costs",
+      "keywords": "price, cost, how much, fee, pay, payment, subscription, monthly",
+      "status": "partial",
+      "today": "No monthly fee from us: you hold the site. The launch price is being confirmed; ask us for it. You pay for your own domain if you want one, and editing it yourself needs a Claude plan or a partner.",
+      "examples": [
+        [
+          "Ask us",
+          "https://hub.sovereignweb.site/start/#get-one"
+        ],
+        [
+          "Own it, do not rent it: the comparison",
+          "https://hub.sovereignweb.site/#rent-h"
+        ]
+      ],
+      "agent": "strategy.b (prices and the comparison).",
+      "bottleneck": "Waiting for the request form and for sovereignwebsite.ai's pricing page to match Dinis's decision."
+    },
+    {
+      "name": "Five designs to choose from",
+      "keywords": "design, look, theme, layout, choose",
+      "status": "live",
+      "today": "Each person's site is made in five designs (two in six); the owner picks one.",
+      "examples": [
+        [
+          "Kate Curtis-Evans",
+          "https://kate-curtis-evans.founder.sovereignweb.site/designs/index.html"
+        ],
+        [
+          "Emily Cruz",
+          "https://emily-cruz.artist.sovereignweb.site/"
+        ],
+        [
+          "Grace Farrell",
+          "https://grace-farrell.artist.sovereignweb.site/"
+        ]
+      ],
+      "agent": "design.b and design.b.rounds (design rounds and reviews).",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Your files on your own GitHub",
+      "keywords": "own, ownership, handover, repository, files, move, export",
+      "status": "live",
+      "today": "The site is plain files in a GitHub repository handed over to the owner, who can move it to any host.",
+      "examples": [
+        [
+          "Kate Curtis-Evans edits hers herself",
+          "https://kate-curtis-evans.founder.sovereignweb.site/"
+        ]
+      ],
+      "agent": "Each site's keeper does the handover.",
+      "bottleneck": "Each owner needs a GitHub account; Emily's handover waits on her GitHub username."
+    },
+    {
+      "name": "Change it by talking to your AI",
+      "keywords": "ai, claude, chat, edit, update, change",
+      "status": "live",
+      "today": "Every site has a \"Use with your AI\" page and an llms.txt with instructions for the owner's agent.",
+      "examples": [
+        [
+          "The hub's own page",
+          "https://hub.sovereignweb.site/agents/"
+        ]
+      ],
+      "agent": "Each site's keeper.",
+      "bottleneck": "The owner needs a Claude plan (or a partner) to make changes this way."
+    },
+    {
+      "name": "A message box with replies",
+      "keywords": "contact, form, feedback, message, enquiry, email, contact us, get in touch, form",
+      "status": "live",
+      "today": "A feedback box on a site, with replies, and no GitHub needed for the visitor.",
+      "examples": [
+        [
+          "Kate Curtis-Evans's site",
+          "https://kate-curtis-evans.founder.sovereignweb.site/"
+        ]
+      ],
+      "agent": "feedback.b.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Google Maps directions",
+      "keywords": "maps, directions, location, google, map",
+      "status": "waiting",
+      "today": "A demo site that uses Google Maps on the owner's own key and budget is built.",
+      "examples": [
+        [
+          "The Maps demo",
+          "https://google-maps.sovereignwebsite.site/"
+        ]
+      ],
+      "agent": "Not recorded.",
+      "bottleneck": "Waiting for the owner's Maps key."
+    },
+    {
+      "name": "Visitor numbers",
+      "keywords": "analytics, traffic, visitors, stats, statistics, views",
+      "status": "planned",
+      "today": "Not on any site yet. The sites set no cookies and do no tracking.",
+      "examples": [],
+      "agent": "observability.b.",
+      "bottleneck": "Waiting on Dinis's decisions: whether freeipapi.com may see visitor IP addresses, and which sites pilot it."
+    },
+    {
+      "name": "AI in your browser, on your own key",
+      "keywords": "mistral, ai, llm, model, chat, key, browser",
+      "status": "live",
+      "today": "Guides to AI providers with browser demos that use the visitor's own key.",
+      "examples": [
+        [
+          "Mistral",
+          "https://mistral.provider.sovereignweb.site/"
+        ]
+      ],
+      "agent": "conductor.mistral and its team.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Instagram",
+      "keywords": "instagram, social, posts, meta",
+      "status": "partial",
+      "today": "An Instagram agent has its own site, which records its mandate and what it has done, post by post.",
+      "examples": [
+        [
+          "The Instagram agent's site",
+          "https://instagram.platform.sovereignweb.site/"
+        ]
+      ],
+      "agent": "The Instagram agent.",
+      "bottleneck": "Not recorded."
+    },
+    {
+      "name": "Private pages in a vault",
+      "keywords": "private, password, vault, members, secret, encrypted",
+      "status": "live",
+      "today": "Pages that only people with the key can open, kept in an encrypted vault.",
+      "examples": [
+        [
+          "The vault",
+          "https://vault.sovereignwebsite.site/"
+        ]
+      ],
+      "agent": "hub.b keeps the vault demo.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Your own domain",
+      "keywords": "domain, address, url, dns, name",
+      "status": "partial",
+      "today": "A site is served on a sovereignweb.site address until the owner points their own domain at it; the owner buys and holds the domain.",
+      "examples": [
+        [
+          "Owning your domain",
+          "https://sovereignwebsite.ai/domain.html"
+        ]
+      ],
+      "agent": "Not recorded.",
+      "bottleneck": "The owner buys the domain at a registrar of their own."
+    },
+    {
+      "name": "A shop",
+      "keywords": "shop, store, sell, payments, checkout, stripe, ecommerce",
+      "status": "none",
+      "today": "Listed in the plan as an add-on (a shop without a backend); not built, and no price set.",
+      "examples": [],
+      "agent": "None yet.",
+      "bottleneck": "Not started."
+    },
+    {
+      "name": "Run your AWS from your browser",
+      "keywords": "aws, amazon, cloud, accounts",
+      "status": "live",
+      "today": "Sign in with Google, one-hour credentials, read-only by default, and every change a plan you approve.",
+      "examples": [
+        [
+          "AWS Platform",
+          "https://aws.platform.sovereignweb.site/"
+        ]
+      ],
+      "agent": "Its site's keeper.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Who holds a domain (Whois)",
+      "keywords": "whois, domain, ip, rdap, lookup",
+      "status": "live",
+      "today": "Who holds a domain or IP address, from the registries' own records.",
+      "examples": [
+        [
+          "Whois",
+          "https://whois.tool.sovereignweb.site/"
+        ]
+      ],
+      "agent": "Its site's keeper.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "A gallery of your photos or work",
+      "keywords": "gallery, photos, pictures, portfolio, images, work",
+      "status": "live",
+      "today": "Pages of your photos and work, with captions.",
+      "examples": [
+        [
+          "Emily Cruz's photos",
+          "https://emily-cruz.artist.sovereignweb.site/#gallery"
+        ],
+        [
+          "Silvio Switha's portfolio",
+          "https://silvio-switha.agenticcells.site/portfolio/"
+        ]
+      ],
+      "agent": "Each site's keeper.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Video",
+      "keywords": "video, film, showreel, youtube, clip, movie",
+      "status": "live",
+      "today": "Your own video files played on your page, or links to your channel.",
+      "examples": [
+        [
+          "Silvio Switha's film, 3:38",
+          "https://silvio-switha.agenticcells.site/"
+        ],
+        [
+          "Silvio's photos and videos",
+          "https://silvio-switha.agenticcells.site/photos-and-videos/"
+        ]
+      ],
+      "agent": "Each site's keeper; a YouTube platform site is being built.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Writing, articles and a podcast",
+      "keywords": "blog, articles, writing, posts, podcast, news, books",
+      "status": "partial",
+      "today": "Pages for your writing, books and podcast. There is no blog engine with comments.",
+      "examples": [
+        [
+          "Donna Freed's writing (being built)",
+          "https://donna-freed.author.sovereignweb.site/writing/"
+        ]
+      ],
+      "agent": "Each site's keeper.",
+      "bottleneck": "None recorded."
+    },
+    {
+      "name": "Opening hours and where to find you",
+      "keywords": "opening hours, hours, open, address, location, find us, times",
+      "status": "partial",
+      "today": "Any page can show your hours and address as plain text; there is no live example on a real business yet.",
+      "examples": [],
+      "agent": "Each site's keeper.",
+      "bottleneck": "No real business site yet."
+    },
+    {
+      "name": "Bookings and appointments",
+      "keywords": "booking, book, appointment, reservation, calendar, schedule",
+      "status": "none",
+      "today": "Not built. A site can link to a booking service you already use.",
+      "examples": [],
+      "agent": "None yet.",
+      "bottleneck": "Not started: no one has asked yet."
+    },
+    {
+      "name": "Reviews and testimonials",
+      "keywords": "reviews, testimonials, ratings, feedback from customers, stars",
+      "status": "none",
+      "today": "Not built as a feature. Quotes you already have can go on a page.",
+      "examples": [],
+      "agent": "None yet.",
+      "bottleneck": "Not started."
+    },
+    {
+      "name": "A newsletter",
+      "keywords": "newsletter, mailing list, email list, subscribe, updates",
+      "status": "none",
+      "today": "Not built. The sites set no cookies and keep no lists.",
+      "examples": [],
+      "agent": "None yet.",
+      "bottleneck": "Not started."
+    }
   ]
 }

@@ -69,6 +69,21 @@ main>.get:last-child{margin-bottom:0}
 .case-note{margin:.8rem 0 0;max-width:44rem}.case-note a,.can{color:var(--accent);font-weight:600}
 .case-act{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin:.7rem 0 0}.case-act .want-btn{margin-top:0}
 @media(max-width:40rem){.case h1{font-size:1.65rem}.kate5 img{height:170px}.case-note{font-size:.92rem}}
+/* Own it, do not rent it */
+.rent{margin-top:2.4rem;border-top:4px solid var(--fg);padding-top:1rem}
+.rent h2{font-size:1.6rem;margin:0 0 .3rem;font-weight:900}.rent>p{max-width:52rem}
+.rent table{width:100%;border-collapse:collapse;margin-top:.8rem;font-size:.95rem}
+.rent th,.rent td{text-align:left;vertical-align:top;padding:.55rem .6rem;border-bottom:2px solid var(--line)}
+.rent thead th{border-bottom:3px solid var(--fg);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+.rent .ours th,.rent .ours td{background:var(--hi,#ffd60a);color:var(--hi-ink,#111);font-weight:700}.rent .ours a{color:var(--hi-ink,#111)}
+.rent a{color:var(--accent)}.blank{color:var(--muted);font-style:italic}
+.honest{font-size:.9rem;color:var(--muted)}
+@media(max-width:46rem){
+ .rent table,.rent tbody,.rent tr,.rent th,.rent td{display:block}.rent thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .rent tr{border:2px solid var(--fg);margin-bottom:.6rem}.rent th[scope=row]{font-size:1.05rem;border-bottom:2px solid var(--line)}
+ .rent td{border-bottom:0;padding:.3rem .6rem}.rent td::before{content:attr(data-h);display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+ .rent .ours td::before{color:var(--hi-ink,#111)}
+}@media(max-width:46rem){.rent td:nth-child(2){display:none}.rent td{padding:.2rem .6rem}.rent tr{margin-bottom:.45rem}.rent td::before{display:inline;margin-right:.35rem}.rent>p{font-size:.92rem}}
 /* The Register: a register of title. Who holds each address, and since when. The lead design. */
 :root{--bg:#f4f0e6;--fg:#1d2a24;--muted:#4b544f;--accent:#0d5a3f;--fill:#0d5a3f;--on-fill:#fff;--line:#c9c1ae;--card:#fbf8f1;--seal:#9e2a1f;--rule:#1d2a24}
 @media (prefers-color-scheme:dark){:root{--bg:#121714;--fg:#e9e5da;--muted:#b4b9b3;--accent:#7fd6ae;--fill:#7fd6ae;--on-fill:#121714;--line:#39423d;--card:#18201c;--seal:#ff8a7a;--rule:#e9e5da}}

@@ -82,3 +82,6 @@ main>.get{margin:2.4rem 1rem 0}
 .plot .front{border-style:dashed;min-height:12rem;align-content:space-between}
 .empty-lot{display:block;font-style:italic;color:var(--fg)}
 .plot:hover .door,.plot:focus-visible .door{background:var(--fg);color:var(--bg)}
+main>.rent{max-width:80rem;margin:2rem auto 0;padding:1rem 1rem 0}
+@media(max-width:40rem){.lead-row .shop.lead{display:none}}
+@media(max-width:40rem){.sky .lede{display:none}.plot .front{min-height:6rem}.street h2{margin-top:1.1rem}.kerb{margin-top:1rem}.street .sub{font-size:.85rem;margin-top:.15rem}.road{padding:.8rem 1rem}}

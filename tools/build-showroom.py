@@ -195,6 +195,33 @@ def design_note(d):
     return f'Design {d} of 5, {names[d - 1]}' + ('; the lead design is <a href="/">The Line</a>.' if d != 1 else ', the lead design. <a href="/designs/">See all five</a>.')
 
 
+# Own, not rent (design.b's brief, item 5): strategy.b's facts, each checked on 23 Nov 2026 against the source linked.
+# A blank cell means no published fact was found. Our own price stays "Ask us" until Dinis confirms it.
+RENT_CHECKED = '23 November 2026'
+RENT = [
+    ('Wix', '"Your site must run on Wix\'s servers"', 'No', '', 'https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere', ''),
+    ('Squarespace', '', 'In part: an XML file of some content, without store pages, custom CSS or style settings', 'Basic $19 to $25, up to Advanced $99 to $139 a month', 'https://support.squarespace.com/hc/en-us/articles/206566687', 'https://www.squarespace.com/pricing'),
+    ('WordPress.com', '"What you build belongs to you"', 'Content yes: posts, pages and comments; not the theme or media files', 'Personal $9 a month ($4 billed yearly); Business $40 ($25 billed yearly)', 'https://wordpress.com/support/export/', 'https://wordpress.com/pricing/'),
+    ('Fliplet', '', 'No: "Fliplet does not offer a facility for You to transfer or copy any Content or Applications"', 'Free $0, Plus $25, Max from $50 a month', 'https://fliplet.com/terms/', 'https://fliplet.com/pricing/'),
+]
+
+
+def own_rent():
+    rows = ''.join(f'<tr><th scope="row">{e(n)}</th><td data-h="Who holds the files">{e(f) or "<span class=blank>Not stated</span>"}</td>'
+                   f'<td data-h="Can you leave with the site">{e(l)}</td><td data-h="Price a month">{e(p) or "<span class=blank>No price found</span>"}</td>'
+                   f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
+    ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "The files, the history and the address are yours"</td>'
+            '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
+            '<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Ask us</a> for the price</td>'
+            '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
+    return (f'<section class="rent" aria-labelledby="rent-h"><h2 id="rent-h">Own it, do not rent it</h2>'
+            f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
+            f'<div class="rent-wrap"><table><thead><tr><th scope="col">Builder</th><th scope="col">Who holds the files</th><th scope="col">Can you leave with the site</th>'
+            f'<th scope="col">Price a month</th><th scope="col">Sources</th></tr></thead><tbody>{rows}{ours}</tbody></table></div>'
+            '<p class="honest">To be fair: editing a sovereign website today needs a Claude plan or a partner, and nothing is sold yet. '
+            'Prices are as each page showed them to a reader outside the UK; Wix showed none we could confirm. Facts gathered by strategy.b.</p></section>')
+
+
 # The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
 KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
 
@@ -395,6 +422,7 @@ page('street/', 'The Street', css('street'), f'''<main id="main">
 <div class="about"><p class="want">{WANT}</p>
 <nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></div>
 <section class="road" aria-label="On this street"><p>{e(COUNTS)}</p></section>
+{own_rent()}
 {chr(10).join(f"""<section class="street" id="st-{sid(n)}" aria-labelledby="st-h-{sid(n)}"><h2 id="st-h-{sid(n)}">{e(n)}</h2><p class="sub">{e(intro)}</p>
 {street_people() if n == 'People' else fold(n, shop, 'row', n)}</section>
 <div class="kerb" aria-hidden="true"></div>""" for n, intro in shown)}
@@ -490,33 +518,6 @@ def people_room():
             + f'<a href="/building/">{len(json.loads((SITE / "building.json").read_text())["sites"])} more being built or coming</a>.</p></section>')
 
 
-# Own, not rent (design.b's brief, item 5): strategy.b's facts, each checked on 23 Nov 2026 against the source linked.
-# A blank cell means no published fact was found. Our own price stays "Ask us" until Dinis confirms it.
-RENT_CHECKED = '23 November 2026'
-RENT = [
-    ('Wix', '"Your site must run on Wix\'s servers"', 'No', '', 'https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere', ''),
-    ('Squarespace', '', 'In part: an XML file of some content, without store pages, custom CSS or style settings', 'Basic $19 to $25, up to Advanced $99 to $139 a month', 'https://support.squarespace.com/hc/en-us/articles/206566687', 'https://www.squarespace.com/pricing'),
-    ('WordPress.com', '"What you build belongs to you"', 'Content yes: posts, pages and comments; not the theme or media files', 'Personal $9 a month ($4 billed yearly); Business $40 ($25 billed yearly)', 'https://wordpress.com/support/export/', 'https://wordpress.com/pricing/'),
-    ('Fliplet', '', 'No: "Fliplet does not offer a facility for You to transfer or copy any Content or Applications"', 'Free $0, Plus $25, Max from $50 a month', 'https://fliplet.com/terms/', 'https://fliplet.com/pricing/'),
-]
-
-
-def own_rent():
-    rows = ''.join(f'<tr><th scope="row">{e(n)}</th><td data-h="Who holds the files">{e(f) or "<span class=blank>Not stated</span>"}</td>'
-                   f'<td data-h="Can you leave with the site">{e(l)}</td><td data-h="Price a month">{e(p) or "<span class=blank>No price found</span>"}</td>'
-                   f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
-    ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "The files, the history and the address are yours"</td>'
-            '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
-            '<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Ask us</a> for the price</td>'
-            '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
-    return (f'<section class="rent" aria-labelledby="rent-h"><h2 id="rent-h">Own it, do not rent it</h2>'
-            f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
-            f'<div class="rent-wrap"><table><thead><tr><th scope="col">Builder</th><th scope="col">Who holds the files</th><th scope="col">Can you leave with the site</th>'
-            f'<th scope="col">Price a month</th><th scope="col">Sources</th></tr></thead><tbody>{rows}{ours}</tbody></table></div>'
-            '<p class="honest">To be fair: editing a sovereign website today needs a Claude plan or a partner, and nothing is sold yet. '
-            'Prices are as each page showed them to a reader outside the UK; Wix showed none we could confirm. Facts gathered by strategy.b.</p></section>')
-
-
 LINE_MAIN = f'''<main id="main">
 {case()}
 {what_you_get()}
@@ -560,7 +561,7 @@ def feature(f):
 
 
 FEATURES_JS = '''<script>addEventListener('DOMContentLoaded',function(){var q=document.getElementById('q'),fs=[].slice.call(document.querySelectorAll('.feat')),n=document.getElementById('none'),nq=document.getElementById('nq'),c=document.getElementById('count');
-function run(){var v=q.value.trim().toLowerCase(),k=0;fs.forEach(function(f){var s=!v||f.dataset.words.indexOf(v)>-1;f.hidden=!s;if(s)k++;});
+function run(){var v=q.value.trim().toLowerCase(),k=0,ws=v.split(/\\s+/).filter(Boolean);fs.forEach(function(f){var s=!ws.length||ws.every(function(w){return f.dataset.words.indexOf(w)>-1;});f.hidden=!s;if(s)k++;});
 n.hidden=k>0;nq.textContent=q.value.trim();c.textContent=v?k+' of '+fs.length+' match':fs.length+' features';}
 q.addEventListener('input',run);var m=location.hash.match(/^#q=(.+)$/);if(m){q.value=decodeURIComponent(m[1]);}run();});</script>'''
 page('features/', 'What it can do', css('features'), f'''<main id="main">
