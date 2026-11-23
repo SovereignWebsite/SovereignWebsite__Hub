@@ -41,3 +41,4 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 .st.get-st .empty{color:var(--fg);font-weight:600}
 .here .more>summary{margin:.2rem 0 .6rem;font-size:.9rem}
 .here .more .here{margin-top:.2rem}
+@media(max-width:40rem){.st{padding-top:.8rem;padding-bottom:.9rem}.side{margin-top:1.8rem}.side p{font-size:.92rem}}

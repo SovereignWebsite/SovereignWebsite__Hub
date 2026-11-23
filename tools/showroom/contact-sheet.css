@@ -36,3 +36,4 @@ figcaption .m{color:var(--muted);overflow-wrap:break-word}
 .how a{color:var(--edge)}
 footer{max-width:80rem}
 .want{color:var(--muted);margin-top:.4rem!important}.want a{color:var(--edge)}
+@media(max-width:40rem){.sheet{margin:1.2rem 0}.sheet .sub{font-size:.85rem;margin-bottom:.5rem}.frame{padding:10px 12px}}
