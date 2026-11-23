@@ -12,11 +12,11 @@ h1,h2,h3,.tally b{font-family:Georgia,"Times New Roman",serif}
 .tally{color:var(--muted)}
 .parts{display:flex;flex-wrap:wrap;justify-content:center;gap:.2rem .9rem;list-style:none;padding:0;margin:.8rem 0 0;font-size:.92rem}
 .parts a{color:var(--accent)}
-.part{margin-top:2.6rem;scroll-margin-top:4rem}
+.part{margin-top:2rem;scroll-margin-top:4rem}
 .part h2{font-size:1.5rem;border-bottom:2px solid var(--rule);padding-bottom:.3rem;margin:0 0 .6rem;display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
 .part h2 small{font:400 .9rem system-ui,sans-serif;color:var(--muted)}
 .intro{margin:0 0 1rem;color:var(--muted);max-width:44rem}
-.title{position:relative;display:grid;gap:1rem;grid-template-columns:6.5rem minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rule);padding:.9rem;margin:0 0 .8rem}
+.title{position:relative;display:grid;gap:1rem;grid-template-columns:6.5rem minmax(0,1fr);background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rule);padding:.75rem;margin:0 0 .7rem}
 @media (min-width:46rem){.title{grid-template-columns:15rem minmax(0,1fr);padding:1.1rem}}
 .title .shot img{border:1px solid var(--line);aspect-ratio:16/10;object-fit:cover;object-position:top}
 @media (max-width:40rem){.title .shot img{aspect-ratio:1/1}}
@@ -53,3 +53,6 @@ footer{max-width:62rem}
  .title:not(.lead) .deed,.title:not(.lead) .go{grid-column:1/-1}
  .title:not(.lead) .deed{margin-top:.4rem}
 }
+.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;min-height:44px;padding:.3rem 1rem;margin:0 0 .8rem;border:1.5px solid var(--rule);background:var(--card);font-weight:650;color:var(--fg)}
+.more>summary::-webkit-details-marker{display:none}.more>summary::after{content:" \25BE";margin-left:.4rem}
+.more[open]>summary{margin-bottom:.8rem}.more[open]>summary::after{content:" \25B4"}

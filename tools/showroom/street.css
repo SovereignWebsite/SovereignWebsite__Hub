@@ -42,3 +42,19 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-off
 .lead-row{display:grid;gap:1.2rem;align-items:end}
 @media(min-width:52rem){.lead-row{grid-template-columns:26rem minmax(0,1fr);gap:2.4rem}}
 .lead-row .shop{margin-top:.8rem}.about p{margin:.4rem 0}.want a,.how a{color:var(--accent)}
+@media(max-width:40rem){
+ .row .shop:not(.lead) .window img{aspect-ratio:16/10}
+ .row .shop:not(.lead) .plate span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .row .shop:not(.lead) .front{gap:.5rem;padding:10px}
+ .row .shop{margin-top:1.2rem}
+ .street h2{margin-top:1.6rem}
+ .kerb{margin-top:1.4rem}
+}
+@media(max-width:40rem){.row .shop:not(.lead) .window{border-width:4px}.row .shop:not(.lead) .door{min-height:40px;padding:.3rem .8rem}.row .shop:not(.lead) .plate b{font-size:1.05rem}.street .sub{font-size:.9rem}.row .board{margin-bottom:0}}
+/* Phones: the window beside the name plate, so a street of shops is half as tall. */
+@media(max-width:40rem){
+ .row .shop:not(.lead) .front{grid-template-columns:8.5rem minmax(0,1fr);align-items:start;column-gap:.7rem;row-gap:.35rem}
+ .row .shop:not(.lead) .window{grid-row:1/span 3}
+ .row .shop:not(.lead) .window img{aspect-ratio:3/4}
+ .row .shop:not(.lead) .door{justify-self:start}
+}

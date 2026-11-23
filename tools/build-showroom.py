@@ -201,6 +201,36 @@ def entry(s, is_lead=False):
 
 
 PARTS = 'ABCDEFGHIJ'
+SHOW = 3
+
+
+def fold(n, render, box, where):
+    # First three in the box; the rest in a "Show all" disclosure holding a second box of the same kind.
+    # On a phone only two show; the third is hidden there and repeated as the first inside the disclosure
+    # (display:none on the copy that does not apply, so each site is read once).
+    es = rest(n)
+    if len(es) <= 2:
+        return f'<div class="{box}">{"".join(render(s) for s in es)}</div>'
+    first = ''.join(render(s) for s in es[:2]) + ''.join(f'<div class="wide-only">{render(s)}</div>' for s in es[2:SHOW])
+    inner = ''.join(f'<div class="phone-only">{render(s)}</div>' for s in es[2:SHOW]) + ''.join(render(s) for s in es[SHOW:])
+    hidden_wide = len(es) - SHOW
+    summary = f'Show all {len(by_section[n])} in {e(where)}'
+    if hidden_wide <= 0:
+        return f'<div class="{box}">{first}</div><details class="more phone-only"><summary>{summary}</summary><div class="{box}">{inner}</div></details>'
+    return f'<div class="{box}">{first}</div><details class="more"><summary>{summary}</summary><div class="{box}">{inner}</div></details>'
+
+
+def entries(n, k):
+    # Each part shows its first three entries; the rest fold into a disclosure that works without script.
+    es = rest(n)
+    more = es[SHOW:]
+    out = ''.join(entry(s) for s in es[:SHOW])
+    if more:
+        out += (f'<details class="more"><summary>Show all {len(by_section[n])} entries in Part {PARTS[k]}, {e(n)} '
+                f'<span class="sr">({len(more)} more)</span></summary>{"".join(entry(s) for s in more)}</details>')
+    return out
+
+
 register_main = f'''<main id="main">
 <section class="cover" aria-labelledby="r-h"><p class="k">The register of title</p><h1 id="r-h">Websites their owners own.</h1>
 {entry(lead, True)}
@@ -208,7 +238,7 @@ register_main = f'''<main id="main">
 <nav aria-label="Parts of the register"><ul class="parts">{''.join(f'<li><a href="#{sid(n)}">Part {PARTS[k]}: {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></section>
 {chr(10).join(f"""<section class="part" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 id="h-{sid(n)}"><span>Part {PARTS[k]}: {e(n)}</span><small>{len(by_section[n])} {'entry' if len(by_section[n]) == 1 else 'entries'}{', Entry 01 above' if lead in by_section[n] else ''}</small></h2>
 <p class="intro">{e(intro)}</p>
-{''.join(entry(s) for s in rest(n))}</section>""" for k, (n, intro) in enumerate(shown))}
+{entries(n, k)}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK} Each entry comes from <a href="/sites.json">sites.json</a>, in the <a href="/schema/hub-site.schema.json">hub-site format</a>; the screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>'''
 # Old #design-N addresses on the home page (the skins it used to carry) forward to the page that design now is.
@@ -228,7 +258,7 @@ def piece(s, is_lead=False):
     acq = s['note'] if s.get('handed_over') and s.get('note') else waiting_line(s) if s.get('waiting') else 'Live, open to visit.'
     tags = ''.join(f'<span>{e(x)}</span>' for x in (['Handed over'] if s.get('handed_over') else []) + s.get('chips', []))
     return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><span class="spot"><span class="frame">{pic(s, is_lead, "(min-width:52rem) 62rem, 100vw" if is_lead else "(min-width:52rem) 38rem, 100vw")}</span></span>'
-            f'<span class="label"><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span>{e(s["summary"])}'
+            f'<span class="label"><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span><span class="sum">{e(s["summary"])}</span>'
             f'<span class="acq">{e(acq)}</span>' + (f'<span class="tags">{tags}</span>' if tags else '') + '</span></a>')
 
 
@@ -239,7 +269,7 @@ page('gallery/', 'The Gallery', css('gallery'), f'''<main id="main">
 <nav aria-label="Rooms"><ul class="rooms">{''.join(f'<li><a href="#g-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></section>
 {chr(10).join(f"""<section aria-labelledby="g-{sid(n)}"><h2 class="room" id="g-{sid(n)}"><small>Room {ROOMS[k]}</small>{e(n)}</h2>
 <p class="room-intro">{e(intro)}</p>
-<div class="wall">{''.join(piece(s) for s in rest(n))}</div></section>""" for k, (n, intro) in enumerate(shown))}
+{fold(n, piece, 'wall', f'Room {ROOMS[k]}, {n}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">Each label comes from the hub's <a href="/sites.json">sites.json</a> and is hung when the site goes live; the pictures are taken from the live sites. How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 </main>''', scheme='dark', cur=2, note=design_note(2))
 
@@ -284,7 +314,7 @@ page('street/', 'The Street', css('street'), f'''<main id="main">
 <nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></div></section>
 <section class="road" aria-label="On this street"><p>{e(COUNTS)}</p></section>
 {chr(10).join(f"""<section class="street" id="st-{sid(n)}" aria-labelledby="st-h-{sid(n)}"><h2 id="st-h-{sid(n)}">{e(n)}</h2><p class="sub">{e(intro)}</p>
-<div class="row">{''.join(shop(s) for s in rest(n))}</div></section>
+{fold(n, shop, 'row', n)}</section>
 <div class="kerb" aria-hidden="true"></div>""" for n, intro in shown)}
 <p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites.{DEMO_LINK}</p>
 </main>''', cur=4, note=design_note(4))

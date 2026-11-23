@@ -39,3 +39,16 @@ footer{max-width:80rem}
 @media(max-width:40rem){.lead-wall{padding-top:2.4rem}.lead-wall .frame{padding:8px;border-width:8px}}
 .about{max-width:40rem;margin:1rem auto 0}.about p{margin:.4rem 0}
 .tally{color:var(--fg)}.want{color:var(--muted)}.want a{color:var(--gold)}
+@media(max-width:40rem){
+ .wall{gap:2.6rem;padding:2.8rem 0 .6rem}
+ .wall:not(.lead-wall) .frame img{aspect-ratio:16/10}
+ .wall:not(.lead-wall) .frame{padding:6px;border-width:7px}
+ .wall:not(.lead-wall) .label{font-size:.9rem;padding:.6rem .8rem}
+ .wall:not(.lead-wall) .label .acq{display:none}
+ .room{margin-top:1.6rem;padding-top:1.2rem}
+}
+.label .sum{display:block}
+@media(max-width:40rem){.wall:not(.lead-wall) .label .sum{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.room-intro{font-size:.9rem}.spot::after{display:none}}
+@media(max-width:40rem){.wall:not(.lead-wall){padding-top:1.4rem;gap:1.8rem}.wall:not(.lead-wall) .frame::before{display:none}.wall:not(.lead-wall) .piece{gap:.7rem}.room-intro{margin-top:.2rem}.more>summary{margin:.6rem 0}}
+@media(max-width:40rem){.wall:not(.lead-wall) .label .sum{-webkit-line-clamp:1}.wall:not(.lead-wall) .label .tags{margin-top:.3rem}.room{font-size:1.4rem}}
+@media(max-width:40rem){.room{margin-top:1.1rem;padding-top:.9rem}.lead-wall{padding-top:2rem}.how{margin-top:2rem}}
