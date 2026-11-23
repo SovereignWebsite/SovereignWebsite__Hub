@@ -4,7 +4,7 @@
 # /version.json, and team/keys.json. No backend: the page is static, rebuilt with the hub.
 # Private (vault) sites and sites not yet made are never shown, and no line that names one is published.
 # Usage: python3 tools/build-operator.py <path to a SovereignWebsite__IaC checkout, on dev>
-import concurrent.futures, datetime, html, json, pathlib, re, subprocess, sys, urllib.request
+import concurrent.futures, datetime, hashlib, html, json, pathlib, re, subprocess, sys, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / 'site' / 'operator'
@@ -22,9 +22,27 @@ hidden = [r for r in reqs if r['private'] or not r['made']]
 terms = {t.lower() for r in hidden for t in (r['host'], r['label'], r['title'], r['label'].replace('-', ' ')) if t and len(t) > 3}
 # For a private site, each distinctive word of its name too, so a short mention cannot slip through.
 terms |= {w for r in hidden if r['private'] for w in re.split(r'[^a-z0-9]+', (r['label'] + ' ' + r['title']).lower()) if len(w) >= 5 and w not in ('demonstration', 'sovereign', 'website')}
+link_of = lambda text: (re.search(r'https://\S+', text) or [None])[0]
+strip_link = lambda text: re.sub(r'\s*-?\s*https://\S+\s*$', '', text).strip()
+cap = lambda s: s[:1].upper() + s[1:]
+
+
 def public(text):
     low = str(text).lower()
     return not any(t in low for t in terms)
+
+# The conductor's public-safe view, read live by the page. Second guard: any line in it that this filter would block
+# is published only as a SHA-256 of the whole line, so the browser drops it without the page carrying the words.
+LIVE = 'https://raw.githubusercontent.com/SovereignWebsite/SovereignWebsite__IaC/dev/board/operator.json'
+try:
+    with urllib.request.urlopen(urllib.request.Request(LIVE, headers={'User-Agent': 'sws-hub-operator'}), timeout=20) as r:
+        live = json.loads(r.read().decode())
+except Exception as ex:
+    live = {}
+    print(f'note: {LIVE} not read ({type(ex).__name__}); the page will still try it live', file=sys.stderr)
+live_lines = [x for k in ('waiting_on_dinis', 'done_recent', 'next') for x in live.get(k, [])] + [live.get('state', '')]
+blocked_hashes = sorted({hashlib.sha256(x.encode()).hexdigest() for x in live_lines if x and not public(x)})
+nxt = [{'line': cap(strip_link(x)), 'url': link_of(x) or IAC_WEB + 'board/operator.json'} for x in live.get('next', []) if public(x)]
 
 # The organisation's own sites, then every public request.
 OWN = [('sovereignwebsite.ai', 'Sovereign Website'), ('sovereignwebsite.org', 'The principles'), ('sovereignwebsite.site', 'Hosted'),
@@ -50,10 +68,6 @@ def probe(s):
 with concurrent.futures.ThreadPoolExecutor(12) as pool:
     probed = list(pool.map(probe, sites))
 
-link_of = lambda text: (re.search(r'https://\S+', text) or [None])[0]
-strip_link = lambda text: re.sub(r'\s*-?\s*https://\S+\s*$', '', text).strip()
-
-cap = lambda s: s[:1].upper() + s[1:]
 waiting = [{'line': cap(strip_link(a).removeprefix('Dinis: ')), 'url': link_of(a) or IAC_WEB + 'status.json'}
            for a in status.get('asks', []) if public(a)]
 waiting += [{'line': h, 'url': IAC_WEB + 'status.json', 'tag': 'held'} for h in status.get('held_for_dinis', []) if public(h)]
@@ -67,7 +81,7 @@ agents = sorted({k['agent'] for k in keys if k.get('status') == 'active' and k.g
 now = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
 data = {'built': now, 'status_updated': status.get('updated'), 'state': status.get('state') if public(status.get('state', '')) else None,
         'waiting_on_dinis': waiting, 'blocked': blocked, 'shipped': shipped, 'done_recently': done,
-        'live_without_version': [{'line': f"{p['title']}: {p['note']}", 'url': p['url']} for p in nopipe], 'active_agents': len(agents)}
+        'next': nxt, 'live_without_version': [{'line': f"{p['title']}: {p['note']}", 'url': p['url']} for p in nopipe], 'active_agents': len(agents)}
 
 def items(rows, empty):
     if not rows:
@@ -109,7 +123,7 @@ a{{color:inherit}}.skip{{position:absolute;left:1rem;top:-3rem}}.skip:focus{{top
 header,main,footer{{max-width:72rem;margin:0 auto;padding:1rem}}header{{padding-top:2rem}}
 h1{{margin:0 0 .3rem;font-size:clamp(1.8rem,4vw,2.6rem)}}.sub{{color:var(--muted);margin:0}}
 .stats{{display:flex;flex-wrap:wrap;gap:1.5rem;list-style:none;padding:0;margin:1.2rem 0 0}}.stats b{{display:block;font-size:1.8rem;line-height:1.1}}.stats li{{color:var(--muted);font-size:.9rem}}
-.cols{{display:grid;gap:1.25rem;grid-template-columns:minmax(0,1fr)}}@media (min-width:960px){{.cols{{grid-template-columns:repeat(3,minmax(0,1fr))}}}}
+.cols{{display:grid;gap:1.25rem;grid-template-columns:minmax(0,1fr)}}@media (min-width:760px){{.cols{{grid-template-columns:repeat(2,minmax(0,1fr))}}}}
 section{{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem;min-width:0}}
 h2{{margin:0 0 .6rem;font-size:1.2rem;display:flex;gap:.5rem;align-items:baseline}}h2 span{{font-size:.85rem;color:var(--muted);font-weight:500}}
 .wait h2{{color:var(--wait)}}.block h2{{color:var(--warn)}}.ship h2{{color:var(--accent)}}
@@ -123,18 +137,44 @@ footer{{color:var(--muted);font-size:.85rem}}
 <a class="skip" href="#main">Skip to the lists</a>
 <header>
 <h1>Operator</h1>
-<p class="sub">For Dinis: what is waiting on you, what is blocked, and what shipped. Built {e(now)} from what the agents publish; the IaC status was updated {e(status.get('updated', ''))}.</p>
-<ul class="stats"><li><b>{len(waiting)}</b>waiting on you</li><li><b>{len(blocked)}</b>blocked</li><li><b>{len(shipped)}</b>sites on the pipeline</li><li><b>{len(agents)}</b>agents with a live key</li></ul>
+<p class="sub">For Dinis: what is waiting on you, what is blocked, and what shipped. Built {e(now)} from what the agents publish; the IaC status was updated <span id="upd">{e(status.get('updated', ''))}</span>.</p>
+<p class="sub" id="live" data-src="{e(LIVE)}" data-blocked="{e(' '.join(blocked_hashes))}">Waiting, next and done are read live from the conductor's <a href="{IAC_WEB}board/operator.json">operator.json</a> when your browser allows it.</p>
+<ul class="stats"><li><b id="s-wait">{len(waiting)}</b>waiting on you</li><li><b>{len(blocked)}</b>blocked</li><li><b>{len(shipped)}</b>sites on the pipeline</li><li><b>{len(agents)}</b>agents with a live key</li></ul>
 </header>
 <main id="main">
 <div class="cols">
-<section class="wait" aria-labelledby="h-wait"><h2 id="h-wait">Waiting on you <span>{len(waiting)}</span></h2>{items(waiting, 'Nothing is waiting on you.')}</section>
+<section class="wait" aria-labelledby="h-wait"><h2 id="h-wait">Waiting on you <span id="n-wait">{len(waiting)}</span></h2><div id="l-wait">{items(waiting, 'Nothing is waiting on you.')}</div></section>
 <section class="block" aria-labelledby="h-block"><h2 id="h-block">Blocked <span>{len(blocked)}</span></h2>{items(blocked, 'Nothing is blocked: every public site answers.')}</section>
 <section class="ship" aria-labelledby="h-ship"><h2 id="h-ship">Shipped <span>{len(shipped)}</span></h2>{items(shipped, 'No releases found.')}</section>
 </div>
-<details><summary>Done lately, from the IaC status ({len(done)})</summary>{items(done, 'None.')}</details>
+<section class="next" aria-labelledby="h-next"><h2 id="h-next">Next <span id="n-next">{len(nxt)}</span></h2><div id="l-next">{items(nxt, 'Nothing planned yet.')}</div></section>
+<details><summary>Done lately, from the IaC status (<span id="n-done">{len(done)}</span>)</summary><div id="l-done">{items(done, 'None.')}</div></details>
 <details><summary>Live without a version ({len(nopipe)})</summary>{items(data['live_without_version'], 'None.')}</details>
 </main>
+<script>
+(function(){{
+  // Reads the conductor's public-safe operator.json and refreshes waiting, next and done. Nothing is stored or sent.
+  var box=document.getElementById('live'),blocked=box.dataset.blocked.split(' ');
+  if(!window.fetch||!window.crypto||!crypto.subtle)return;
+  function hex(b){{return Array.prototype.map.call(new Uint8Array(b),function(x){{return ('0'+x.toString(16)).slice(-2);}}).join('');}}
+  function keep(lines){{return Promise.all(lines.map(function(l){{return crypto.subtle.digest('SHA-256',new TextEncoder().encode(l)).then(function(h){{return blocked.indexOf(hex(h))<0?l:null;}});}})).then(function(a){{return a.filter(Boolean);}});}}
+  function list(id,n,lines,empty,fallback){{
+    var el=document.getElementById(id);el.textContent='';document.getElementById(n).textContent=lines.length;
+    if(!lines.length){{var p=document.createElement('p');p.className='empty';p.textContent=empty;el.appendChild(p);return;}}
+    var ol=document.createElement('ol');
+    lines.forEach(function(l){{
+      var m=l.match(/https:\\/\\/\\S+/),t=l.replace(/\\s*-?\\s*https:\\/\\/\\S+\\s*$/,'').replace(/^Dinis: /,'').trim(),li=document.createElement('li'),a=document.createElement('a');
+      a.href=m?m[0]:fallback;a.textContent=t.charAt(0).toUpperCase()+t.slice(1);li.appendChild(a);ol.appendChild(li);}});
+    el.appendChild(ol);}}
+  fetch(box.dataset.src,{{cache:'no-store',credentials:'omit',referrerPolicy:'no-referrer'}}).then(function(r){{return r.ok?r.json():Promise.reject();}}).then(function(d){{
+    var src='{IAC_WEB}board/operator.json';
+    return Promise.all([keep(d.waiting_on_dinis||[]),keep(d.next||[]),keep((d.done_recent||[]).slice().reverse())]).then(function(r){{
+      list('l-wait','n-wait',r[0],'Nothing is waiting on you.',src);document.getElementById('s-wait').textContent=r[0].length;list('l-next','n-next',r[1],'Nothing planned yet.',src);list('l-done','n-done',r[2],'None.',src);
+      if(d.updated)document.getElementById('upd').textContent=d.updated;
+      box.textContent='Waiting, next and done: live from the conductor\u2019s operator.json, updated '+(d.updated||'')+'.';}});
+  }}).catch(function(){{}});
+}})();
+</script>
 <footer>Sources: <a href="{IAC_WEB}status.json">IaC status.json</a>, the IaC site requests, each site's /version.json and <a href="{IAC_WEB}team/keys.json">team/keys.json</a>. Private sites are never shown. Data: <a href="data.json">data.json</a> · <a href="../">The hub</a> · <a href="../policy/">How this site is governed</a></footer>
 </body>
 </html>
