@@ -75,8 +75,9 @@ names = [d[1] for d in DESIGNS]
 COUNTS = (f"{working} sites working, {people_working} of them people's own; {handed} handed over to its owner so far."
           + (f" Plus {waiting} not switched on yet." if waiting else ''))
 ABOUT = 'Built by agent teams, then handed over: the owner keeps the files and the history, and the address too with their own domain. Every site here is public; open one to see it working.'
-# There is no request form yet; say so, and point to how it works.
-WANT = ('Want one? It starts with one request. There is no request form yet: '
+# The route is email for now (record 2026-11-23__asks-22-to-32, ask 25); there is no public form (ask 8).
+WANT = ('Want one? It starts with one email to '
+        '<a href="mailto:agent@withmandate.ai?subject=I%20want%20one">agent@withmandate.ai</a>: '
         '<a href="/start/#get-one">here is how to start</a>.')
 # The last step of every design: get one.
 GET = ('<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2><p>Every site here began with one request '
