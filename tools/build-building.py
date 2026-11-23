@@ -41,6 +41,11 @@ def read(r):
 keep = [r for r in reg['sites'] if r['state'] in ('under-construction', 'coming')]
 with concurrent.futures.ThreadPoolExecutor(10) as pool:
     items = list(pool.map(read, keep))
+# Sites sites.b sent directly that the register does not list yet.
+EXTRA = ROOT / 'tools' / 'showroom' / 'building-extra.json'
+if EXTRA.exists():
+    listed = {i['host'] for i in items} | {host(r['address']) for r in reg['sites']}
+    items += [{k: v for k, v in x.items() if k != 'sent'} for x in json.loads(EXTRA.read_text())['sites'] if x['host'] not in listed]
 data = {'about': "Sites being built and sites coming, from sites.b's register. Building: live, not finished, not yet in the showroom. "
                  "Coming: requested, not live yet. Private (vault) sites are never listed; sites still on the Factory's seed page are left out.",
         'checked': reg['checked'][:10], 'checked_at': reg['checked'], 'source': reg['source'], 'sites': items}

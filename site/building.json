@@ -73,7 +73,7 @@
       "group": "Agents' own sites",
       "host": "decisions.agents.sovereignweb.site",
       "name": "Decisions",
-      "summary": "The Decisions agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No decisions agent has a key in the Factory's team/keys.json yet.",
+      "summary": "Dinis Cruz's decisions, recorded word for word and signed, so his agents can act on them and anyone can check them.",
       "five_designs": false
     },
     {
@@ -235,6 +235,14 @@
       "name": "YouTube",
       "summary": "Manage, monitor and publish to your YouTube channel from your own browser, with YouTube's official API. An unofficial site, not made or endorsed by YouTube or Google.",
       "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Tools",
+      "host": "car-buyer.tool.sovereignweb.site",
+      "name": "Car buyer: a toolkit for buying a used car in the UK",
+      "summary": "A checklist, the official checks (DVLA, DVSA MOT history, TfL, recalls) and an ownership cost sheet for buying a used car in the UK. Your notes stay in your browser.",
+      "five_designs": false
     }
   ]
 }
