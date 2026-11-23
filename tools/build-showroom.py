@@ -414,8 +414,25 @@ def case():
             '<p><a class="want-btn" href="/start/#get-one">I want one</a></p>\n</section>')
 
 
+# What you get: five items, each with a live example (design.b's hub-sells brief, item 2).
+GETS = [
+    ('A site about you, at its own address', 'Your work, your story and how to reach you, made from your CV, photos and links.', "Emily Cruz's site", 'https://emily-cruz.artist.sovereignweb.site/'),
+    ('Five designs to choose from', 'Five real ideas of the same site; you keep the one you like.', "Kate's five designs", KATE + 'designs/index.html'),
+    ('Your files, on your own GitHub', 'Plain files you hold and can move to any host. No platform subscription.', "Kate's repository", 'https://github.com/SovereignWebsite/Site__Founder__Kate-Curtis-Evans'),
+    ('Changes by talking to your AI', 'Tell your AI what to change; the site says how, for you and for it.', "Kate's \"Use with your AI\"", KATE + 'agents/'),
+    ('A start page and your own numbers', 'How to take it over, and an admin page with what has changed.', "Kate's admin page", KATE + 'admin/'),
+]
+
+
+def what_you_get():
+    items = ''.join(f'<li><h3>{e(t)}</h3><p>{e(d)}</p><a href="{e(u)}">See it: {e(x)}</a></li>' for t, d, x, u in GETS)
+    return (f'<section class="gets" aria-labelledby="get-what"><h2 id="get-what">What you get</h2><ol>{items}</ol>'
+            '<p class="more-q"><a href="/features/">Can it do something else? Look it up</a></p></section>')
+
+
 LINE_MAIN = f'''<main id="main">
 {case()}
+{what_you_get()}
 <p class="lede">{e(ABOUT)}</p>
 <p class="counts">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>

@@ -64,3 +64,14 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 }
 @media(max-width:40rem){.kate5 img{aspect-ratio:1/1;object-position:left top}.counts{font-size:.92rem}.line{margin:1.6rem 0}.side{margin-top:1.4rem;padding-top:.7rem}.side h2{font-size:1.25rem}.get{margin-top:1.6rem}}
 @media(max-width:40rem){.st .card:not(.big) picture{display:none}}
+/* What you get */
+.gets{margin:2rem 0 0;border-top:4px solid var(--belt);padding-top:1rem}
+.gets h2{font-size:1.6rem;margin:0 0 .8rem;font-weight:900}
+.gets ol{list-style:none;padding:0;margin:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,14rem),1fr));counter-reset:g}
+.gets li{border:2px solid var(--fg);padding:.8rem;counter-increment:g;background:var(--bg)}
+.gets li::before{content:counter(g);display:inline-grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--hi);color:var(--hi-ink);font-weight:900;margin-bottom:.4rem}
+.gets h3{font-size:1.05rem;margin:0 0 .3rem;line-height:1.2}.gets p{margin:0 0 .4rem;font-size:.95rem}
+.gets a{color:var(--accent);font-weight:700}
+.more-q{margin:.8rem 0 0}
+@media(max-width:40rem){.gets li{padding:.6rem .7rem}.gets p{font-size:.9rem}}
+@media(max-width:40rem){.gets ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}.gets li:last-child{grid-column:1/-1}.gets p{display:none}.gets h3{font-size:.95rem}.gets a{font-size:.85rem}.gets li::before{width:1.5rem;height:1.5rem;margin-bottom:.2rem}}
