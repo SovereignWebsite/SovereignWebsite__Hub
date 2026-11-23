@@ -101,12 +101,14 @@ def waiting_line(s):
 
 
 def pic(s, eager=False, sizes='(min-width:52rem) 40vw, 100vw', alt=''):
-    # Phones get the phone crop; wider screens the 640 copy, or the 1280 one where the space and the screen need it.
+    # Phones get the phone crop; wider screens a 480 or 960 WebP (JPEG 640 or 1280 where WebP is not supported).
     sh = s.get('shot')
     if not sh:
         return ''
     lazy = '' if eager else ' loading="lazy" decoding="async"'
-    return (f'<picture><source media="(max-width:40rem)" srcset="/{e(sh)}-phone.jpg">'
+    return (f'<picture><source media="(max-width:40rem)" type="image/webp" srcset="/{e(sh)}-phone.webp">'
+            f'<source media="(max-width:40rem)" srcset="/{e(sh)}-phone.jpg">'
+            f'<source type="image/webp" srcset="/{e(sh)}-480.webp 480w, /{e(sh)}-960.webp 960w" sizes="{sizes}">'
             f'<img src="/{e(sh)}-640.jpg" srcset="/{e(sh)}-640.jpg 640w, /{e(sh)}.jpg 1280w" sizes="{sizes}" width="1280" height="800" alt="{e(alt)}"{lazy}></picture>')
 
 

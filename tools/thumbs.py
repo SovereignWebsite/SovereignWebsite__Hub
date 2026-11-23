@@ -1,18 +1,32 @@
 #!/usr/bin/env python3
-# Makes a 640-pixel-wide copy of each desktop screenshot (shots/<slug>-640.jpg), so pages can serve
-# the small one by srcset and the 1280 one only to wide, sharp screens. Run after tools/take-shots.js.
+# Makes smaller copies of each desktop screenshot (shots/<slug>-640.jpg, -480.webp, -960.webp), so pages can serve
+# a small one by srcset and the 1280 one only to wide, sharp screens. Run after tools/take-shots.js.
 import pathlib
 from PIL import Image
 
 SHOTS = pathlib.Path(__file__).resolve().parent.parent / 'site' / 'shots'
+# Also WebP at 480 and 960 pixels wide, and a WebP of the phone crop, offered first by the pages' <picture>.
+def fresh(out, src):
+    return out.exists() and out.stat().st_mtime >= src.stat().st_mtime
+
+
 n = 0
 for p in sorted(SHOTS.glob('*.jpg')):
-    if p.stem.endswith(('-phone', '-640')) or p.stem.startswith('hub-design'):
+    if p.stem.endswith('-640') or p.stem.startswith('hub-design'):
         continue
-    out = p.with_name(p.stem + '-640.jpg')
-    if out.exists() and out.stat().st_mtime >= p.stat().st_mtime:
+    im = None
+    if p.stem.endswith('-phone'):
+        out = p.with_suffix('.webp')
+        if not fresh(out, p):
+            Image.open(p).convert('RGB').save(out, quality=72, method=6)
+            n += 1
         continue
-    im = Image.open(p).convert('RGB')
-    im.resize((640, round(im.height * 640 / im.width)), Image.LANCZOS).save(out, quality=78, optimize=True, progressive=True)
-    n += 1
+    for w, ext, q in ((640, 'jpg', 78), (480, 'webp', 72), (960, 'webp', 72)):
+        out = p.with_name(f'{p.stem}-{w}.{ext}')
+        if fresh(out, p):
+            continue
+        im = im or Image.open(p).convert('RGB')
+        small = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
+        small.save(out, quality=q, optimize=True, progressive=True) if ext == 'jpg' else small.save(out, quality=q, method=6)
+        n += 1
 print(f'thumbs: {n} made')
