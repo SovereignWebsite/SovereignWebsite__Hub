@@ -119,5 +119,3 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 }
 .who{margin:.9rem 0 0;max-width:52rem}.who a{color:var(--accent)}
 .range{font-weight:700;max-width:52rem}
-.offer{display:inline-block;max-width:36rem;font-size:.95rem;line-height:1.4}.offer b{display:block;font-size:1.05rem}
-.case-can{margin:.5rem 0 0}
