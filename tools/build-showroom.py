@@ -77,7 +77,8 @@ WANT = ('Want one? It starts with one request. There is no request form yet: '
         '<a href="/start/#get-one">here is how to start</a>.')
 # The last step of every design: get one.
 GET = ('<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2><p>Every site here began with one request '
-       'and was handed over to its owner. <a href="/start/#get-one">Start here: how to get a site like these</a>.</p></section>')
+       'and was handed over to its owner. <a href="/start/#get-one">Start here: how to get a site like these</a>.</p>'
+       '<p><a class="want-btn" href="/start/#get-one">I want one</a></p></section>')
 STEPS_LINE = '; '.join(x[:1].lower() + x[1:] if i else x for i, x in enumerate(steps))
 DEMO_LINK = f' <a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''
 
@@ -470,6 +471,7 @@ LINE_MAIN = f'''<main id="main">
 <p class="counts">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
 {people_room()}
+{GET}
 </main>'''
 page('', 'Sovereign Website Hub', css('line'), LINE_MAIN, cur=1, note=design_note(1), script=HOME_SCRIPT)
 page('line/', 'The Line', css('line'), LINE_MAIN, cur=1, note=design_note(1))

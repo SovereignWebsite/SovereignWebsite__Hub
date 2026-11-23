@@ -29,3 +29,6 @@ footer a{color:var(--accent)}
 .get h2{margin:0 0 .3rem;font-size:1.3rem}.get p{margin:0}.get a{color:var(--accent);font-weight:650}
 main>.get:last-child{margin-bottom:0}
 .credit{display:block;font-size:.75rem;opacity:.85;margin-top:.25rem}
+.want-btn{display:inline-flex;align-items:center;min-height:48px;margin-top:.8rem;padding:.6rem 1.4rem;background:var(--fill);color:var(--on-fill);border:3px solid var(--fill);font-weight:800;font-size:1.1rem;text-decoration:none}
+.want-btn:hover,.want-btn:focus-visible{background:transparent;color:inherit}
+.get .want-btn{color:var(--on-fill)}.get .want-btn:hover,.get .want-btn:focus-visible{color:inherit}

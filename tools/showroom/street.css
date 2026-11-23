@@ -63,3 +63,4 @@ main>.get{margin:2.4rem 1rem 0}
 @media(min-width:46rem){main>.get{margin:2.4rem auto 0}}
 .sky .lede{margin:.3rem 0 0;max-width:44rem}
 @media(max-width:40rem){.sky .lede{font-size:.95rem}}
+.want-btn,.get .want-btn{background:var(--fg);border-color:var(--fg);color:var(--bg)}
