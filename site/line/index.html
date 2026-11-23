@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6e4f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<title>The Line: Sovereign Website Hub</title>
+<link rel="canonical" href="https://hub.sovereignweb.site/">
+<meta name="description" content="Websites their owners own: built by agent teams, then handed over. Every site here is public and live.">
+<meta property="og:title" content="The Line: Sovereign Website Hub: websites their owners own">
+<meta property="og:description" content="Built by agent teams, then handed over. Every site here is public and live.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hub.sovereignweb.site/line/">
+<meta property="og:image" content="https://hub.sovereignweb.site/og.jpg">
+<meta property="og:site_name" content="Sovereign Website Hub">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sovereign Website Hub: websites their owners own, with screenshots of three people's sites">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Line: Sovereign Website Hub: websites their owners own">
+<meta name="twitter:description" content="Built by agent teams, then handed over. Every site here is public and live.">
+<meta name="twitter:image" content="https://hub.sovereignweb.site/og.jpg">
+
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg)}
+a{color:inherit}img{display:block;width:100%;height:auto}
+.bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.55rem 1rem;background:var(--bg);border-bottom:1px solid var(--line);font-size:.9rem}
+.brand{font-weight:700;text-decoration:none;white-space:nowrap}
+.chooser summary{list-style:none;cursor:pointer;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.chooser summary::-webkit-details-marker{display:none}.chooser summary::after{content:" \25BE"}
+@media (max-width:40rem){.chooser .nm{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+.chooser[open] summary{background:var(--fill);color:var(--on-fill);border-color:var(--fill)}
+.opts{position:absolute;right:1rem;top:calc(100% + .4rem);width:min(60rem,calc(100vw - 2rem));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;padding:.9rem;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -24px rgba(0,0,0,.45)}
+.opts a{text-decoration:none;font-size:.82rem;border-radius:8px;padding:.3rem;border:2px solid transparent}.opts a[aria-current=true]{border-color:var(--fill)}
+.opts img{border-radius:6px;border:1px solid var(--line);aspect-ratio:16/10;object-fit:cover;object-position:top}.opts span{display:block;margin-top:.35rem}
+@media (max-width:700px){.opts{grid-template-columns:repeat(2,minmax(0,1fr));max-height:75vh;overflow:auto}}
+.skip{position:absolute;left:1rem;top:-3rem;z-index:9;padding:.5rem 1rem;background:var(--fill);color:var(--on-fill);border-radius:8px}.skip:focus{top:.5rem}
+footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+footer a{color:var(--accent)}
+
+:root{--bg:#fafafa;--fg:#111;--muted:#4a4a4a;--accent:#0040c1;--fill:#111;--on-fill:#fff;--line:#d4d4d4;--card:#fff;--belt:#111;--hi:#ffd60a;--hi-ink:#111;--done:#0b7a43;--focus:#e4002b}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0b0b;--fg:#f2f2f2;--muted:#b8b8b8;--accent:#8fb4ff;--fill:#f2f2f2;--on-fill:#0b0b0b;--line:#2e2e2e;--card:#151515;--belt:#f2f2f2;--hi:#ffd60a;--hi-ink:#111;--done:#4fd18b;--focus:#ff6b81}}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+main{max-width:80rem;margin:0 auto;padding:0 1rem}
+.k{font-weight:800;font-size:.875rem;letter-spacing:.16em;text-transform:uppercase;margin:1.6rem 0 0}
+main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035em;margin:.3rem 0 .8rem;font-weight:900;max-width:14ch}
+.lede{max-width:40rem;font-size:1.1rem}
+.counts{display:flex;gap:.6rem;flex-wrap:wrap;list-style:none;padding:0;margin:1rem 0 0}
+.counts li{border:2px solid var(--fg);padding:.3rem .7rem;font-weight:700}
+.line{list-style:none;margin:2.8rem 0;padding:0 0 0 1.3rem;display:grid;gap:0;counter-reset:st}
+@media(min-width:60rem){.line{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}}
+.st{position:relative;padding:1rem 1rem 1.2rem 2.2rem;border-left:4px solid var(--belt);counter-increment:st;min-width:0}
+@media(min-width:60rem){.st{border-left:0;border-top:4px solid var(--belt);padding:2.4rem .8rem 1rem}}
+.st::before{content:counter(st);position:absolute;left:-1.35rem;top:.9rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--bg);border:4px solid var(--belt);display:grid;place-items:center;font-weight:900}
+@media(min-width:60rem){.st::before{left:.8rem;top:-1.35rem}}
+.st h2{font-size:1.1rem;margin:0 0 .6rem;line-height:1.2}
+.st.end{border-color:var(--done)}
+.st.end::before{background:var(--done);color:var(--bg);border-color:var(--done)}
+.here{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.card{display:block;color:var(--fg);text-decoration:none;border:2px solid var(--fg);background:var(--bg);min-width:0}
+.card img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.card img{aspect-ratio:4/3}}
+.card b{display:block;padding:.45rem .6rem 0}
+.card .m{display:block;padding:0 .6rem .5rem;font-size:.9rem;color:var(--muted);overflow-wrap:break-word}
+.card:hover,.card:focus-visible{background:var(--hi);color:var(--hi-ink)}
+.card:hover .m,.card:focus-visible .m{color:var(--hi-ink)}
+.card.big{border-width:3px;border-color:var(--done)}
+.card.big b{font-size:1.2rem}
+.card .tag{display:inline-block;background:var(--hi);color:var(--hi-ink);font-weight:800;font-size:.8rem;padding:.05rem .4rem;margin:0 .6rem .5rem}
+.empty{font-size:.9rem;color:var(--muted);margin:0 0 .6rem}
+.side{border-top:4px solid var(--belt);padding-top:1rem;margin-top:2.4rem;scroll-margin-top:4rem}
+.side h2{font-size:1.4rem;margin:0 0 .4rem}
+.side p{margin:0;max-width:44rem}
+.side .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:1rem;margin-top:1rem}
+.card.off{border-style:dashed}
+.card.off img{filter:grayscale(1)}
+.side a:not(.card){color:var(--accent)}
+
+.family{--fam-fg:var(--family-fg,#454545);--fam-strong:var(--family-fg-strong,#111);font-size:.875rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
+@media (prefers-color-scheme:dark){.family{--fam-fg:var(--family-fg,#cfcfcf);--fam-strong:var(--family-fg-strong,#fff)}}
+.family ul{list-style:none;margin:0 auto;padding:.1rem 1rem;display:flex;flex-wrap:wrap;gap:0 1rem;max-width:72rem}
+.family .family-narrow{display:none}
+.family a{color:var(--fam-fg);text-decoration:none;display:inline-block;padding:.2rem 0;min-height:24px}
+.family a:hover,.family a:focus-visible{color:var(--fam-strong);text-decoration:underline}
+.family a[aria-current="true"]{color:var(--fam-strong);font-weight:600}
+.family .family-sep{margin-left:auto}
+/* Phones: the same links folded into one line (a details/summary), instead of three wrapped lines above the
+   site's own header. Two copies in the markup, one shown per width: CSS only, so no script and no CSP issue. */
+@media (max-width:40rem){
+  .family .family-wide{display:none}
+  .family .family-narrow{display:block}
+  .family summary{cursor:pointer;padding:.3rem 1rem;min-height:24px;color:var(--fam-fg)}
+  .family summary:hover,.family summary:focus-visible{color:var(--fam-strong)}
+  .family .family-narrow ul{flex-direction:column;gap:0;padding:0 1rem .4rem}
+  .family .family-sep{margin-left:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the sites</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul class="family-wide">
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/" aria-current="true">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+  <details class="family-narrow">
+    <summary>Sovereign Website family</summary>
+    <ul>
+      <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+      <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+      <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+      <li><a href="https://hub.sovereignweb.site/" aria-current="true">Hub</a></li>
+      <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+      <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+      <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+      <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+      <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+    </ul>
+  </details>
+</nav>
+<header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
+<details class="chooser"><summary>Design <span class="cur">5</span><span class="nm">: The Line</span></summary><nav class="opts" aria-label="Designs of this page"><a href="/gallery/" data-d="1"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Gallery</span></a><a href="/" data-d="2" data-skin><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/contact-sheet/" data-d="3"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Contact Sheet</span></a><a href="/street/" data-d="4"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. The Street</span></a><a href="/line/" data-d="5" aria-current="true"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Line</span></a></nav></details></header>
+<main id="main">
+<p class="k">The showroom</p><h1>Websites their owners own.</h1>
+<p class="lede">Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
+<ul class="counts"><li>33 sites working</li><li>11 people's sites</li><li>1 handed over</li></ul>
+<ol class="line" aria-label="How a site is made, with each person's site where it stands"><li class="st"><h2>One request</h2><p class="empty">Every site starts here: one request, from its owner.</p></li><li class="st"><h2>An agent team builds it</h2><p class="empty">Built and live, open to visit.</p><ul class="here"><li><a class="card" href="https://grace-farrell.artist.sovereignweb.site/"><b>Grace Farrell</b><span class="m">grace-farrell.<wbr>artist.<wbr>sovereignweb.<wbr>site</span></a></li><li><a class="card" href="https://silvio-switha.agenticcells.site/"><b>Silvio Switha</b><span class="m">silvio-switha.<wbr>agenticcells.<wbr>site</span></a></li><li><a class="card" href="https://gabriel-dacruz.agenticcells.site/"><b>Gabriel DaCruz</b><span class="m">gabriel-dacruz.<wbr>agenticcells.<wbr>site</span></a></li><li><a class="card" href="https://yiheng-wang.agenticcells.site/"><b>Yiheng (Vicky) Wang</b><span class="m">yiheng-wang.<wbr>agenticcells.<wbr>site</span></a></li><li><a class="card" href="https://marc-noah.agenticcells.site/"><b>Marc Noah</b><span class="m">marc-noah.<wbr>agenticcells.<wbr>site</span></a></li><li><a class="card" href="https://indi-gupte.agenticcells.site/"><b>Indi Gupte</b><span class="m">indi-gupte.<wbr>agenticcells.<wbr>site</span></a></li><li><a class="card" href="https://mondweep-chakravorty.agenticcells.site/"><b>Mondweep Chakravorty</b><span class="m">mondweep-chakravorty.<wbr>agenticcells.<wbr>site</span></a></li><li><a class="card" href="https://jose-bota.agenticcells.site/"><b>José Bota</b><span class="m">jose-bota.<wbr>agenticcells.<wbr>site</span></a></li></ul></li><li class="st"><h2>Five designs to choose from</h2><ul class="here"><li><a class="card" href="https://emily-cruz.artist.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/emily-cruz-phone.jpg"><img src="/shots/emily-cruz.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Emily Cruz</b><span class="m">emily-cruz.<wbr>artist.<wbr>sovereignweb.<wbr>site</span><span><span class="tag">Five designs</span></span></a></li><li><a class="card" href="https://sarah-cruz.designer.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/sarah-cruz-phone.jpg"><img src="/shots/sarah-cruz.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Sarah Cruz</b><span class="m">sarah-cruz.<wbr>designer.<wbr>sovereignweb.<wbr>site</span><span><span class="tag">Five designs</span></span></a></li></ul></li><li class="st"><h2>The owner chooses one</h2><p class="empty">The owner picks the design they want to keep.</p></li><li class="st end"><h2>Handed over to the owner&#x27;s GitHub</h2><ul class="here"><li><a class="card big" href="https://kate-curtis-evans.founder.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/kate-curtis-evans-phone.jpg"><img src="/shots/kate-curtis-evans.jpg" width="1280" height="800" alt=""></picture><b>Kate Curtis-Evans</b><span class="m">kate-curtis-evans.<wbr>founder.<wbr>sovereignweb.<wbr>site</span><span><span class="tag">Five designs</span></span></a></li></ul></li></ol>
+<section class="side" id="l-s-startups" aria-labelledby="l-h-s-startups"><h2 id="l-h-s-startups">Startups</h2><p>Independent brochures about the startups in the family, each made from the company&#x27;s own public pages.</p>
+<div class="row"><a class="card" href="https://sgit.startups.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/sgit-phone.jpg"><img src="/shots/sgit.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>sgit</b><span class="m">sgit.<wbr>startups.<wbr>sovereignweb.<wbr>site</span></a><a class="card" href="https://the-cyber-boardroom.startups.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/the-cyber-boardroom-phone.jpg"><img src="/shots/the-cyber-boardroom.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>The Cyber Boardroom</b><span class="m">the-cyber-boardroom.<wbr>startups.<wbr>sovereignweb.<wbr>site</span></a><a class="card" href="https://risk-mandate.startups.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/risk-mandate-phone.jpg"><img src="/shots/risk-mandate.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>RiskMandate</b><span class="m">risk-mandate.<wbr>startups.<wbr>sovereignweb.<wbr>site</span></a><a class="card" href="https://agentic-cells.startups.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/agentic-cells-phone.jpg"><img src="/shots/agentic-cells.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>AgentiCCells</b><span class="m">agentic-cells.<wbr>startups.<wbr>sovereignweb.<wbr>site</span></a><a class="card" href="https://sovereign-website.startups.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/sovereign-website-phone.jpg"><img src="/shots/sovereign-website.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Sovereign Website</b><span class="m">sovereign-website.<wbr>startups.<wbr>sovereignweb.<wbr>site</span></a></div></section>
+<section class="side" id="l-s-providers" aria-labelledby="l-h-s-providers"><h2 id="l-h-s-providers">Providers</h2><p>Independent guides to the AI providers a sovereign website can use, cited, with browser demos that use your own key.</p>
+<div class="row"><a class="card" href="https://mistral.provider.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/mistral-phone.jpg"><img src="/shots/mistral.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Mistral</b><span class="m">mistral.<wbr>provider.<wbr>sovereignweb.<wbr>site</span></a></div></section>
+<section class="side" id="l-s-businesses" aria-labelledby="l-h-s-businesses"><h2 id="l-h-s-businesses">Businesses</h2><p>Sites for businesses: two made-up examples, labelled as such, and a redesign proposal made with the company&#x27;s agreement.</p>
+<div class="row"><a class="card" href="https://sustain-nobility.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/sustain-nobility-phone.jpg"><img src="/shots/sustain-nobility.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>SUSTAIN-NOBILITY</b><span class="m">sustain-nobility.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://algarve-holiday-homes.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/algarve-holiday-homes-phone.jpg"><img src="/shots/algarve-holiday-homes.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Algarve holiday homes</b><span class="m">algarve-holiday-homes.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://algarve-orange-grower.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/algarve-orange-grower-phone.jpg"><img src="/shots/algarve-orange-grower.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Algarve orange grower</b><span class="m">algarve-orange-grower.<wbr>agenticcells.<wbr>site</span></a></div></section>
+<section class="side" id="l-s-promptugal-news" aria-labelledby="l-h-s-promptugal-news"><h2 id="l-h-s-promptugal-news">PrompTugal.news</h2><p>The parts of PrompTugal.news that are live: Portugal&#x27;s public data, gathered and explained by agent teams.</p>
+<div class="row"><a class="card" href="https://data.promptugal.news/"><picture><source media="(max-width:40rem)" srcset="/shots/data-promptugal-news-phone.jpg"><img src="/shots/data-promptugal-news.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>PrompTugal.news Data</b><span class="m">data.<wbr>promptugal.<wbr>news</span></a><a class="card" href="https://weather.promptugal.news/"><picture><source media="(max-width:40rem)" srcset="/shots/weather-promptugal-news-phone.jpg"><img src="/shots/weather-promptugal-news.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>PrompTugal.news Weather</b><span class="m">weather.<wbr>promptugal.<wbr>news</span></a><a class="card" href="https://travel.promptugal.news/"><picture><source media="(max-width:40rem)" srcset="/shots/travel-promptugal-news-phone.jpg"><img src="/shots/travel-promptugal-news.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>PrompTugal.news Travel</b><span class="m">travel.<wbr>promptugal.<wbr>news</span></a><a class="card" href="https://startups.promptugal.news/"><picture><source media="(max-width:40rem)" srcset="/shots/startups-promptugal-news-phone.jpg"><img src="/shots/startups-promptugal-news.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>PrompTugal.news Startups</b><span class="m">startups.<wbr>promptugal.<wbr>news</span></a><a class="card" href="https://civic.promptugal.news/"><picture><source media="(max-width:40rem)" srcset="/shots/civic-promptugal-news-phone.jpg"><img src="/shots/civic-promptugal-news.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>PrompTugal.news Civic</b><span class="m">civic.<wbr>promptugal.<wbr>news</span></a></div></section>
+<section class="side" id="l-s-demos" aria-labelledby="l-h-s-demos"><h2 id="l-h-s-demos">Demos</h2><p>Demonstrations: what an agent team builds from public data, and how a site is made from one request. Built the same way. <a href="https://pipeline-demo.demo.sovereignweb.site/">See it run: the pipeline demo</a>.</p>
+<div class="row"><a class="card" href="https://pipeline-demo.demo.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/pipeline-demo-phone.jpg"><img src="/shots/pipeline-demo.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>A site from one request</b><span class="m">pipeline-demo.<wbr>demo.<wbr>sovereignweb.<wbr>site</span></a><a class="card" href="https://london-billboard.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/london-billboard-phone.jpg"><img src="/shots/london-billboard.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>A London billboard, live from the Algarve</b><span class="m">london-billboard.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://weather-demo.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/weather-demo-phone.jpg"><img src="/shots/weather-demo.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Weather, from our data</b><span class="m">weather-demo.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://events-demo.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/events-demo-phone.jpg"><img src="/shots/events-demo.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Events, from our data</b><span class="m">events-demo.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://cyber-demo.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/cyber-demo-phone.jpg"><img src="/shots/cyber-demo.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Cyber, from our data</b><span class="m">cyber-demo.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://ipma-data.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/ipma-data-phone.jpg"><img src="/shots/ipma-data.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>IPMA data, drawn</b><span class="m">ipma-data.<wbr>agenticcells.<wbr>site</span></a><a class="card" href="https://riskmandate-at-websummit.agenticcells.site/"><picture><source media="(max-width:40rem)" srcset="/shots/riskmandate-at-websummit-phone.jpg"><img src="/shots/riskmandate-at-websummit.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>RiskMandate at Web Summit</b><span class="m">riskmandate-at-websummit.<wbr>agenticcells.<wbr>site</span></a></div></section>
+<section class="side" id="l-s-tools" aria-labelledby="l-h-s-tools"><h2 id="l-h-s-tools">Tools</h2><p>Small working tools.</p>
+<div class="row"><a class="card" href="https://whois.tool.sovereignweb.site/"><picture><source media="(max-width:40rem)" srcset="/shots/whois-phone.jpg"><img src="/shots/whois.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Whois: who holds a domain or IP address</b><span class="m">whois.<wbr>tool.<wbr>sovereignweb.<wbr>site</span></a><a class="card off" href="https://google-maps.sovereignwebsite.site/"><picture><source media="(max-width:40rem)" srcset="/shots/google-maps-phone.jpg"><img src="/shots/google-maps.jpg" width="1280" height="800" alt="" loading="lazy" decoding="async"></picture><b>Directions, and the cameras on the way</b><span class="m">Not switched on yet: not switched on yet: waiting for the owner&#x27;s Maps key.</span></a></div></section>
+</main>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. Design 5 of 5, The Line; the lead design is <a href="/">The Register</a>.</footer>
+<script>document.addEventListener('keydown',function(ev){if(ev.key==='Escape')document.querySelector('.chooser').open=false;});</script>
+</body>
+</html>

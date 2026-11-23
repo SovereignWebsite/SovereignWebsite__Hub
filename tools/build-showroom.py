@@ -46,7 +46,7 @@ handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
 # The five designs, numbered as design.b's round 5 prototypes. The Register (2) is the lead and the home page;
 # a design that is its own page links there, a design that is still a skin of the home page is a #design-N address.
-DESIGNS = [(1, 'The Gallery', '/gallery/'), (2, 'The Register', '/'), (3, 'Contact Sheet', '/contact-sheet/'), (4, 'The Street', '/street/'), (5, 'Studio', '/#design-5')]
+DESIGNS = [(1, 'The Gallery', '/gallery/'), (2, 'The Register', '/'), (3, 'Contact Sheet', '/contact-sheet/'), (4, 'The Street', '/street/'), (5, 'The Line', '/line/')]
 names = [n for _, n, _ in DESIGNS]
 LEAD = 2
 # Designs that are pages of their own; an old #design-N address on the home page forwards to them.
@@ -279,12 +279,6 @@ section[id]{scroll-margin-top:4rem}
 .d-2 .steps li::before{border-radius:0}
 @media print{.d-2 .bar,.d-2 nav.family,.d-2 footer{display:none}.d-2 .site{break-inside:avoid}}
 
-/* 5 Studio: gradient stage, tilted frames */
-.d-5{--bg:#14112b;--fg:#fff;--muted:#c9c3ef;--accent:#ffcf5c;--fill:#ffcf5c;--on-fill:#14112b;--line:#3a3466;--card:#201b45;--stage:radial-gradient(1200px 600px at 10% -10%,#5b3fd1 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#d13f8f 0,transparent 55%),#14112b}
-@media (prefers-color-scheme:light){.d-5{--bg:#f7f5ff;--fg:#1b1640;--muted:#4b4570;--accent:#5a3fd1;--fill:#5a3fd1;--on-fill:#fff;--line:#ddd7f5;--card:#fff;--stage:radial-gradient(1200px 600px at 10% -10%,#e3dbff 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#ffd9ec 0,transparent 55%),#f7f5ff}}
-.d-5 body{background:var(--stage)}.d-5 .bar{background:transparent;backdrop-filter:blur(12px)}
-.d-5 .frame{border-radius:18px;transform:perspective(1200px) rotateX(4deg);box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}.d-5 .frame:hover{transform:perspective(1200px) rotateX(0) translateY(-4px)}
-.d-5 .site{text-align:center}.d-5 .chips{justify-content:center}
 '''
 
 hero_note = hero.get('note') or ''
@@ -322,7 +316,7 @@ page = f'''<!doctype html>
 </div></section>''' + (made if n == 'People' else '') for k, (n, intro) in enumerate((n, i) for n, i in SECTIONS if by_section[n]))}
 <p class="how">Each entry comes from <a href="/sites.json">sites.json</a>, in the <a href="/schema/hub-site.schema.json">hub-site format</a>, and is added when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
-{footer('The design you pick lives only in the address.')}
+{footer('Design 2 of 5, The Register, the lead design; the other four are a tap away in the chooser.')}
 <script>
 (function(){{
   var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm={json.dumps(names)};
@@ -567,4 +561,87 @@ alt_page(4, 'street/', STREET_CSS, f'''<main id="main">
 <div class="row">{''.join(shop(s, k == 0 and i < 2) for i, s in enumerate(by_section[n]))}</div></section>
 <div class="kerb" aria-hidden="true"></div>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites. {f'<a href="{e(demo["address"]["url"])}">See how a site is made: the pipeline demo</a>.' if demo else ''}</p>
+</main>''', scheme='light dark')
+
+
+# ---- Design 5, The Line: one request in, a handed-over site out, each person's site at its station (design.b round 5, prototype 5). ----
+LINE_CSS = r'''
+:root{--bg:#fafafa;--fg:#111;--muted:#4a4a4a;--accent:#0040c1;--fill:#111;--on-fill:#fff;--line:#d4d4d4;--card:#fff;--belt:#111;--hi:#ffd60a;--hi-ink:#111;--done:#0b7a43;--focus:#e4002b}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0b0b;--fg:#f2f2f2;--muted:#b8b8b8;--accent:#8fb4ff;--fill:#f2f2f2;--on-fill:#0b0b0b;--line:#2e2e2e;--card:#151515;--belt:#f2f2f2;--hi:#ffd60a;--hi-ink:#111;--done:#4fd18b;--focus:#ff6b81}}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+main{max-width:80rem;margin:0 auto;padding:0 1rem}
+.k{font-weight:800;font-size:.875rem;letter-spacing:.16em;text-transform:uppercase;margin:1.6rem 0 0}
+main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035em;margin:.3rem 0 .8rem;font-weight:900;max-width:14ch}
+.lede{max-width:40rem;font-size:1.1rem}
+.counts{display:flex;gap:.6rem;flex-wrap:wrap;list-style:none;padding:0;margin:1rem 0 0}
+.counts li{border:2px solid var(--fg);padding:.3rem .7rem;font-weight:700}
+.line{list-style:none;margin:2.8rem 0;padding:0 0 0 1.3rem;display:grid;gap:0;counter-reset:st}
+@media(min-width:60rem){.line{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}}
+.st{position:relative;padding:1rem 1rem 1.2rem 2.2rem;border-left:4px solid var(--belt);counter-increment:st;min-width:0}
+@media(min-width:60rem){.st{border-left:0;border-top:4px solid var(--belt);padding:2.4rem .8rem 1rem}}
+.st::before{content:counter(st);position:absolute;left:-1.35rem;top:.9rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--bg);border:4px solid var(--belt);display:grid;place-items:center;font-weight:900}
+@media(min-width:60rem){.st::before{left:.8rem;top:-1.35rem}}
+.st h2{font-size:1.1rem;margin:0 0 .6rem;line-height:1.2}
+.st.end{border-color:var(--done)}
+.st.end::before{background:var(--done);color:var(--bg);border-color:var(--done)}
+.here{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.card{display:block;color:var(--fg);text-decoration:none;border:2px solid var(--fg);background:var(--bg);min-width:0}
+.card img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.card img{aspect-ratio:4/3}}
+.card b{display:block;padding:.45rem .6rem 0}
+.card .m{display:block;padding:0 .6rem .5rem;font-size:.9rem;color:var(--muted);overflow-wrap:break-word}
+.card:hover,.card:focus-visible{background:var(--hi);color:var(--hi-ink)}
+.card:hover .m,.card:focus-visible .m{color:var(--hi-ink)}
+.card.big{border-width:3px;border-color:var(--done)}
+.card.big b{font-size:1.2rem}
+.card .tag{display:inline-block;background:var(--hi);color:var(--hi-ink);font-weight:800;font-size:.8rem;padding:.05rem .4rem;margin:0 .6rem .5rem}
+.empty{font-size:.9rem;color:var(--muted);margin:0 0 .6rem}
+.side{border-top:4px solid var(--belt);padding-top:1rem;margin-top:2.4rem;scroll-margin-top:4rem}
+.side h2{font-size:1.4rem;margin:0 0 .4rem}
+.side p{margin:0;max-width:44rem}
+.side .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:1rem;margin-top:1rem}
+.card.off{border-style:dashed}
+.card.off img{filter:grayscale(1)}
+.side a:not(.card){color:var(--accent)}
+'''
+
+
+def lcard(s, eager, pic=True, big=False):
+    sh = s.get('shot') if pic else None
+    img = (f'<picture><source media="(max-width:40rem)" srcset="/{e(sh)}-phone.jpg"><img src="/{e(sh)}.jpg" width="1280" height="800" alt=""'
+           + ('' if eager else ' loading="lazy" decoding="async"') + '></picture>') if sh else ''
+    line2 = ('Not switched on yet: ' + s['waiting'][:1].lower() + s['waiting'][1:]) if s.get('waiting') else soft(host_of(s))
+    line2 = e(line2) if s.get('waiting') else line2
+    tags = ''.join(f'<span class="tag">{e(x)}</span>' for x in s.get('chips', []))
+    cls = 'card' + (' big' if big else '') + (' off' if s.get('waiting') else '')
+    return f'<a class="{cls}" href="{e(s["address"]["url"])}">{img}<b>{e(s["name"])}</b><span class="m">{line2}</span>' + (f'<span>{tags}</span>' if tags else '') + '</a>'
+
+
+# Each person's site at the station its record shows: handed over at the end, five designs at station 3, the rest built and live at 2.
+at_end = [s for s in people if s.get('handed_over')]
+at_five = [s for s in people if not s.get('handed_over') and 'Five designs' in s.get('chips', [])]
+at_built = [s for s in people if s not in at_end and s not in at_five]
+STATIONS = [
+    (steps[0], [], 'Every site starts here: one request, from its owner.'),
+    (steps[1], at_built, 'Built and live, open to visit.'),
+    (steps[2], at_five, ''),
+    (steps[3], [], 'The owner picks the design they want to keep.'),
+    (steps[4], at_end, ''),
+]
+
+
+def station(i, title, here, note):
+    cards = ''.join(f'<li>{lcard(s, i == 4, pic=(i != 1), big=(i == 4))}</li>' for s in here)
+    return (f'<li class="st{" end" if i == 4 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{e(note)}</p>' if note else '')
+            + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
+
+
+others = [(n, i) for n, i in shown if n != 'People']
+alt_page(5, 'line/', LINE_CSS, f'''<main id="main">
+<p class="k">The showroom</p><h1>Websites their owners own.</h1>
+<p class="lede">Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
+<ul class="counts"><li>{working} sites working</li><li>{len(people)} people's sites</li><li>{handed} handed over</li></ul>
+<ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
+{chr(10).join(f"""<section class="side" id="l-{sid(n)}" aria-labelledby="l-h-{sid(n)}"><h2 id="l-h-{sid(n)}">{e(n)}</h2><p>{e(intro)}""" + (f""" Built the same way. <a href="{e(demo['address']['url'])}">See it run: the pipeline demo</a>.""" if demo and n == 'Demos' else '') + f"""</p>
+<div class="row">{''.join(lcard(s, False) for s in by_section[n])}</div></section>""" for n, intro in others)}
 </main>''', scheme='light dark')

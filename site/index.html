@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Sovereign Website Hub: websites their owners own">
 <meta name="twitter:description" content="Built by agent teams, then handed over. Every site here is public and live.">
 <meta name="twitter:image" content="https://hub.sovereignweb.site/og.jpg">
-<script>var P={"1": "/gallery/", "3": "/contact-sheet/", "4": "/street/"},d=(location.hash.match(/design-([1-5])/)||[])[1];if(P[d])location.replace(P[d]);else if(d)document.documentElement.className='d-'+d;</script>
+<script>var P={"1": "/gallery/", "3": "/contact-sheet/", "4": "/street/", "5": "/line/"},d=(location.hash.match(/design-([1-5])/)||[])[1];if(P[d])location.replace(P[d]);else if(d)document.documentElement.className='d-'+d;</script>
 <style>
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg)}
@@ -127,12 +127,6 @@ section[id]{scroll-margin-top:4rem}
 .d-2 .steps li::before{border-radius:0}
 @media print{.d-2 .bar,.d-2 nav.family,.d-2 footer{display:none}.d-2 .site{break-inside:avoid}}
 
-/* 5 Studio: gradient stage, tilted frames */
-.d-5{--bg:#14112b;--fg:#fff;--muted:#c9c3ef;--accent:#ffcf5c;--fill:#ffcf5c;--on-fill:#14112b;--line:#3a3466;--card:#201b45;--stage:radial-gradient(1200px 600px at 10% -10%,#5b3fd1 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#d13f8f 0,transparent 55%),#14112b}
-@media (prefers-color-scheme:light){.d-5{--bg:#f7f5ff;--fg:#1b1640;--muted:#4b4570;--accent:#5a3fd1;--fill:#5a3fd1;--on-fill:#fff;--line:#ddd7f5;--card:#fff;--stage:radial-gradient(1200px 600px at 10% -10%,#e3dbff 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#ffd9ec 0,transparent 55%),#f7f5ff}}
-.d-5 body{background:var(--stage)}.d-5 .bar{background:transparent;backdrop-filter:blur(12px)}
-.d-5 .frame{border-radius:18px;transform:perspective(1200px) rotateX(4deg);box-shadow:0 30px 80px -30px rgba(0,0,0,.6)}.d-5 .frame:hover{transform:perspective(1200px) rotateX(0) translateY(-4px)}
-.d-5 .site{text-align:center}.d-5 .chips{justify-content:center}
 
 .family{--fam-fg:var(--family-fg,#454545);--fam-strong:var(--family-fg-strong,#111);font-size:.875rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
 @media (prefers-color-scheme:dark){.family{--fam-fg:var(--family-fg,#cfcfcf);--fam-strong:var(--family-fg-strong,#fff)}}
@@ -184,7 +178,7 @@ section[id]{scroll-margin-top:4rem}
   </details>
 </nav>
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
-<details class="chooser"><summary>Design <span class="cur">2</span><span class="nm">: The Register</span></summary><nav class="opts" aria-label="Designs of this page"><a href="/gallery/" data-d="1"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Gallery</span></a><a href="/" data-d="2" data-skin aria-current="true"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/contact-sheet/" data-d="3"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Contact Sheet</span></a><a href="/street/" data-d="4"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. The Street</span></a><a href="/#design-5" data-d="5" data-skin><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. Studio</span></a></nav></details></header>
+<details class="chooser"><summary>Design <span class="cur">2</span><span class="nm">: The Register</span></summary><nav class="opts" aria-label="Designs of this page"><a href="/gallery/" data-d="1"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Gallery</span></a><a href="/" data-d="2" data-skin aria-current="true"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/contact-sheet/" data-d="3"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Contact Sheet</span></a><a href="/street/" data-d="4"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. The Street</span></a><a href="/line/" data-d="5"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Line</span></a></nav></details></header>
 <main id="main">
 <header class="hero">
   <div class="hero-text">
@@ -638,12 +632,12 @@ section[id]{scroll-margin-top:4rem}
 </div></section>
 <p class="how">Each entry comes from <a href="/sites.json">sites.json</a>, in the <a href="/schema/hub-site.schema.json">hub-site format</a>, and is added when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
-<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. The design you pick lives only in the address.</footer>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. Design 2 of 5, The Register, the lead design; the other four are a tap away in the chooser.</footer>
 <script>
 (function(){
-  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm=["The Gallery", "The Register", "Contact Sheet", "The Street", "Studio"];
+  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm=["The Gallery", "The Register", "Contact Sheet", "The Street", "The Line"];
   function set(d){document.documentElement.className='d-'+d;cur.textContent=d;cnm.textContent=': '+nm[d-1];as.forEach(function(a){a.setAttribute('aria-current',a.dataset.d===d?'true':'false');});}
-  function fromHash(){var m=location.hash.match(/design-([1-5])/);var P={"1": "/gallery/", "3": "/contact-sheet/", "4": "/street/"};if(m&&P[m[1]]){location.replace(P[m[1]]);return;}set(m?m[1]:'2');}
+  function fromHash(){var m=location.hash.match(/design-([1-5])/);var P={"1": "/gallery/", "3": "/contact-sheet/", "4": "/street/", "5": "/line/"};if(m&&P[m[1]]){location.replace(P[m[1]]);return;}set(m?m[1]:'2');}
   as.forEach(function(a){if(a.hasAttribute('data-skin'))a.onclick=function(ev){ev.preventDefault();history.replaceState(null,'',a.dataset.d==='2'?location.pathname:'#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;};});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){if(ev.key==='Escape')ch.open=false;});
