@@ -39,3 +39,5 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 .st.get-st{border-color:var(--hi)}
 .st.get-st::before{background:var(--hi);color:var(--hi-ink);border-color:var(--hi)}
 .st.get-st .empty{color:var(--fg);font-weight:600}
+.here .more>summary{margin:.2rem 0 .6rem;font-size:.9rem}
+.here .more .here{margin-top:.2rem}

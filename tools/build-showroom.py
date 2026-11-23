@@ -225,6 +225,14 @@ def fold(n, render, box, where):
     return f'<div class="{box}">{first}</div><details class="more"><summary>{summary}</summary><div class="{box}">{inner}</div></details>'
 
 
+def phone_fold(items, box, summary):
+    # Wide screens show every item; a phone shows two and folds the rest into "Show all" (each item read once).
+    if len(items) <= 2:
+        return f'<div class="{box}">{"".join(items)}</div>'
+    return (f'<div class="{box}">{"".join(items[:2])}{"".join(f"<div class=wide-only>{x}</div>" for x in items[2:])}</div>'
+            f'<details class="more phone-only"><summary>{summary}</summary><div class="{box}">{"".join(items[2:])}</div></details>')
+
+
 def entries(n, k):
     # Each part shows its first three entries; the rest fold into a disclosure that works without script.
     es = rest(n)
@@ -299,7 +307,7 @@ page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main
 <p class="counts">{e(COUNTS)}</p><p class="want">{WANT}</p>
 <nav aria-label="Strips"><ul class="rolls">{''.join(f'<li><a href="#c-{sid(n)}">{k + 1}. {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></section>
 {chr(10).join(f"""<section class="sheet" id="c-{sid(n)}" aria-labelledby="c-h-{sid(n)}"><h2 id="c-h-{sid(n)}">Strip {k + 1}: {e(n)}</h2><p class="sub">{e(intro)}</p>
-<div class="strip">{''.join(frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n]))}</div></section>""" for k, (n, intro) in enumerate(shown))}
+{phone_fold([frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n])], 'strip', f'Show all {len(by_section[n])} frames in strip {k + 1}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 {GET}
 </main>''', scheme='dark', cur=3, note=design_note(3))
@@ -350,7 +358,12 @@ STATIONS = [(steps[0], [], WANT), (steps[1], at_built, 'Built and live, open to 
 
 
 def station(i, title, here, note):
-    cards = ''.join(f'<li>{lcard(s, i == 4, img=(len(here) <= 3), big=(i == 4))}</li>' for s in here)
+    li = [f'<li>{lcard(s, i == 4, img=(len(here) <= 3), big=(i == 4))}</li>' for s in here]
+    cards = ''.join(li[:2])
+    # A busy station shows two sites; the rest fold into "Show all", in a list of their own.
+    if len(li) > 2:
+        cards += (f'<li class="fold"><details class="more"><summary>Show all {len(li)} at this step</summary>'
+                  f'<ul class="here">{"".join(li[2:])}</ul></details></li>')
     return (f'<li class="st{" end" if i == 4 else ""}{" get-st" if i == 5 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{note if i in (0, 5) else e(note)}</p>' if note else '')
             + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
 
@@ -361,7 +374,7 @@ page('line/', 'The Line', css('line'), f'''<main id="main">
 <p class="counts">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
 {chr(10).join(f"""<section class="side" id="l-{sid(n)}" aria-labelledby="l-h-{sid(n)}"><h2 id="l-h-{sid(n)}">{e(n)}</h2><p>{e(intro)}""" + (f""" Built the same way.{DEMO_LINK}""" if n == 'Demos' else '') + f"""</p>
-<div class="row">{''.join(lcard(s, False) for s in by_section[n])}</div></section>""" for n, intro in shown if n != 'People')}
+{phone_fold([lcard(s, False) for s in by_section[n]], 'row', f'Show all {len(by_section[n])} in {e(n)}')}</section>""" for n, intro in shown if n != 'People')}
 </main>''', cur=5, note=design_note(5))
 
 
