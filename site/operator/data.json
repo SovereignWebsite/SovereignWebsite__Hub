@@ -1,8 +1,12 @@
 {
- "built": "2026-11-23 11:47 UTC",
- "status_updated": "2026-11-23T11:42Z",
+ "built": "2026-11-23 23:21 UTC",
+ "status_updated": "2026-11-23T23:14Z",
  "state": null,
  "waiting_on_dinis": [
+  {
+   "line": "All open asks were sent to decisions.b at 15:36 UTC 23 Nov, as Dinis directed; it signs records as he answers",
+   "url": "https://claude.ai/code/session_01Kw9UwEVSYcMDgNqrPVfCtZ"
+  },
   {
    "line": "Yes to accountant.agents.sovereignweb.site",
    "url": "https://claude.ai/code/session_01Kw9UwBqEqrxrSBwvLEVJY6"
@@ -14,10 +18,6 @@
   {
    "line": "Who keeps sovereignwebsite.ai, .org and .site",
    "url": "https://claude.ai/code/session_01Kw9UwBucXVUaNYRMcWwk67"
-  },
-  {
-   "line": "Install the sovereignwebsite-transfer App on SovereignWebsite (every transfer gets 403)",
-   "url": "https://github.com/organizations/SovereignWebsite/settings/installations"
   },
   {
    "line": "Say \"push\" for 544ecbc",
@@ -32,13 +32,36 @@
    "url": "https://claude.ai/code/session_01Kw9UwDCS5Px4dXRJUGP9Qu"
   },
   {
-   "line": "Yes in mistral.conductor's session to its signing key file, or conductor.mistral pushes its stashed roster update",
-   "url": "https://claude.ai/code/session_01Kw9UwB4akPeq6twCVg9hVT"
+   "line": "Strategy.b's decisions: which segment leads (it recommends A, with B as proof), where \"I want one\" leads (call or email, and which address), one price for personal sites before anything is sent, and the first ten contacts for A",
+   "url": "https://claude.ai/code/session_01Kw9UwDF1rJD6h9xEsVg5bx"
   },
   {
-   "line": "Kate's site pipeline: Dinis's or Kate's yes in kate-curtis-evans.b's session",
-   "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json",
-   "tag": "held"
+   "line": "One yes to start the decisions system: factory.b pushes 8ee995a, 68565f8, 933d92a and the checker 90677bb, with decisions.b's policy entry",
+   "url": "https://claude.ai/code/session_01Kw9UwBqEqrxrSBwvLEVJY6"
+  },
+  {
+   "line": "Add SovereignWebsite__Website to the fresh conductor.b session; add_repo was refused by the permission check",
+   "url": "https://claude.ai/code/session_01Kw9UwFkKH5CkDmV8nhSfUD"
+  },
+  {
+   "line": "Start the weather-demo transfer: Actions, Transfer apply, Run workflow, request 2026-11-20__weather-demo, then approve the apply job in the transfer environment (factory.b reads the run)",
+   "url": "https://claude.ai/code/session_01Kw9UwBqEqrxrSBwvLEVJY6"
+  },
+  {
+   "line": "Make the IaC push grant for strategy.b, grace.b and strategy.d (agreed in ask 2, record 2026-11-23__asks-2-to-21); it is an organisation change only he makes or merges",
+   "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
+  },
+  {
+   "line": "Yes in factory.b's session to 0048389, a wording fix to policy/abp.json saying sovereignweb.site is already on the DNS role (docs fix 7ce3f14 goes with it)",
+   "url": "https://claude.ai/code/session_01Kw9UwBqEqrxrSBwvLEVJY6"
+  },
+  {
+   "line": "Create the four agreed wake tasks (ask 24 agreed 23:12 UTC), and decide the old conductor task trig_015LDYEmyDkQNBjbiWuPnBc9 - board/2026-11-23__wake-schedule.md",
+   "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
+  },
+  {
+   "line": "Allow mistral.conductor to write its signing key file in its own session (ask 5 agreed; its safety check refused the step)",
+   "url": "https://claude.ai/code/session_01Kw9UwB4akPeq6twCVg9hVT"
   },
   {
    "line": "keeper for sovereignwebsite.ai, .org, .site",
@@ -79,19 +102,94 @@
    "run": "https://github.com/SovereignWebsite/Site__Agent__Studio/actions/runs/45106101590"
   },
   {
-   "line": "AWS Platform Sovereign Website: v0.1.59 · 518b114 · 2026-11-23",
+   "line": "AWS Platform Sovereign Website: v0.1.86 · fb86475 · 2026-11-23",
    "url": "https://aws.platform.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Platform__AWS/actions/runs/45163590335"
+   "run": "https://github.com/SovereignWebsite/Site__Platform__AWS/actions/runs/45287052079"
   },
   {
-   "line": "GitHub: v0.1.4 · 5e9653a · 2026-11-23",
-   "url": "https://github.platform.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Platform__GitHub/actions/runs/45141824550"
+   "line": "YouTube: v0.1.7 · b1927f1 · 2026-11-23",
+   "url": "https://youtube.platform.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Platform__YouTube/actions/runs/45242701654"
   },
   {
-   "line": "Instagram: v0.1.34 · cbbceec · 2026-11-23",
+   "line": "Instagram: v0.1.64 · c6f2abc · 2026-11-23",
    "url": "https://instagram.platform.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Platform__Instagram/actions/runs/45168108925"
+   "run": "https://github.com/SovereignWebsite/Site__Platform__Instagram/actions/runs/45287129516"
+  },
+  {
+   "line": "design.b: v0.1.60 · 8a8e9cf · 2026-11-23",
+   "url": "https://design.agents.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Agent__Design/actions/runs/45287472043"
+  },
+  {
+   "line": "Emily Cruz: v0.1.6 · c826878 · 2026-11-23",
+   "url": "https://emily-cruz.artist.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz/actions/runs/45287505930"
+  },
+  {
+   "line": "The hub: v0.1.53 · 940810b · 2026-11-23",
+   "url": "https://hub.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/actions/runs/45287699870"
+  },
+  {
+   "line": "Sarah Cruz: v0.1.5 · 0cb1a11 · 2026-11-23",
+   "url": "https://sarah-cruz.designer.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz/actions/runs/45287460719"
+  },
+  {
+   "line": "GitHub: v0.1.5 · bef3191 · 2026-11-23",
+   "url": "https://github.platform.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Platform__GitHub/actions/runs/45220608478"
+  },
+  {
+   "line": "Sovereign Website: v0.1.40 · 272d7b0 · 2026-11-23",
+   "url": "https://sovereign-website.startups.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website/actions/runs/45286766879"
+  },
+  {
+   "line": "The vault: v0.1.4 · 9e0eebe · 2026-11-23",
+   "url": "https://vault.sovereignwebsite.site/",
+   "run": "https://github.com/SovereignWebsite/SovereignWebsite__Vault/actions/runs/45216808899"
+  },
+  {
+   "line": "Directions, and the cameras on the way: v0.1.4 · ba0ebd8 · 2026-11-23",
+   "url": "https://google-maps.sovereignwebsite.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Google-Maps/actions/runs/45217075010"
+  },
+  {
+   "line": "Whois: v0.1.4 · 6dd0a78 · 2026-11-23",
+   "url": "https://whois.tool.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Tool__Whois/actions/runs/45216585150"
+  },
+  {
+   "line": "Grace Farrell: v0.1.39 · 62c7d93 · 2026-11-23",
+   "url": "https://grace-farrell.artist.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell/actions/runs/45283242033"
+  },
+  {
+   "line": "RiskMandate: v0.1.36 · f0f3143 · 2026-11-23",
+   "url": "https://risk-mandate.startups.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Startups__Risk-Mandate/actions/runs/45286755053"
+  },
+  {
+   "line": "AgentiCCells: v0.1.35 · 7916918 · 2026-11-23",
+   "url": "https://agentic-cells.startups.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells/actions/runs/45286761167"
+  },
+  {
+   "line": "sgit: v0.1.35 · 8a34f23 · 2026-11-23",
+   "url": "https://sgit.startups.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Startups__Sgit/actions/runs/45286732422"
+  },
+  {
+   "line": "The Cyber Boardroom: v0.1.35 · aad0430 · 2026-11-23",
+   "url": "https://the-cyber-boardroom.startups.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Startups__The-Cyber-Boardroom/actions/runs/45286745817"
+  },
+  {
+   "line": "Decisions: v0.1.34 · 6693bd4 · 2026-11-23",
+   "url": "https://decisions.agents.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Agent__Decisions/actions/runs/45287707075"
   },
   {
    "line": "DNS: v0.1.3 · cf243dd · 2026-11-23",
@@ -99,9 +197,9 @@
    "run": "https://github.com/SovereignWebsite/Site__Tool__DNS/actions/runs/45127256128"
   },
   {
-   "line": "YouTube: v0.1.3 · 1cc6426 · 2026-11-23",
-   "url": "https://youtube.platform.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Platform__YouTube/actions/runs/45150890009"
+   "line": "Strategy: v0.1.2 · 56ff8b3 · 2026-11-23",
+   "url": "https://strategy.agents.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Agent__Strategy/actions/runs/45287792630"
   },
   {
    "line": "WordPress: v0.1.2 · 7ebc4ae · 2026-11-23",
@@ -109,59 +207,49 @@
    "run": "https://github.com/SovereignWebsite/Site__Tool__Wordpress/actions/runs/45114463657"
   },
   {
-   "line": "The hub: v0.1.17 · fc79158 · 2026-11-23",
-   "url": "https://hub.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/actions/runs/45168139951"
+   "line": "Car buyer: a toolkit for buying a used car in the UK: v0.1.14 · dc21ac3 · 2026-11-23",
+   "url": "https://car-buyer.tool.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Tool__Car-Buyer/actions/runs/45287828070"
   },
   {
-   "line": "Sovereign Website: v0.1.15 · 61bea70 · 2026-11-23",
-   "url": "https://sovereign-website.startups.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website/actions/runs/45167210699"
+   "line": "South Beacon: v0.1.13 · 6abc7a4 · 2026-11-23",
+   "url": "https://south-beacon.talent.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Talent__South-Beacon/actions/runs/45287420385"
   },
   {
-   "line": "The SWS library: v0.1.11 · 37e1f83 · 2026-11-23",
+   "line": "The SWS library: v0.1.12 · c079ecc · 2026-11-23",
    "url": "https://library.agents.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Agent__Library/actions/runs/45114406629"
+   "run": "https://github.com/SovereignWebsite/Site__Agent__Library/actions/runs/45221642822"
+  },
+  {
+   "line": "A site from one request: v0.1.12 · afc60d6 · 2026-11-23",
+   "url": "https://pipeline-demo.demo.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo/actions/runs/45223331999"
+  },
+  {
+   "line": "Suno, our songs (unofficial): v0.1.11 · a1535ed · 2026-11-23",
+   "url": "https://suno.platform.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Platform__Suno/actions/runs/45287230201"
+  },
+  {
+   "line": "Synthetic-Users: v0.1.1 · 51d2503 · 2026-11-23",
+   "url": "https://synthetic-users.agents.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Agent__Synthetic-Users/actions/runs/45217007724"
+  },
+  {
+   "line": "IaC: v0.1.0 · ce1596e · 2026-11-23",
+   "url": "https://iac.agents.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Agent__IaC/actions/runs/45216889847"
+  },
+  {
+   "line": "Presentations: v0.1.0 · ab0f6fa · 2026-11-23",
+   "url": "https://presentations.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Presentations/actions/runs/45213235787"
   },
   {
    "line": "Mistral: v0.1.50 · b20d3bb · 2026-11-22",
    "url": "https://mistral.provider.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Provider__Mistral/actions/runs/45051157809"
-  },
-  {
-   "line": "Emily Cruz: v0.1.5 · ae87584 · 2026-11-22",
-   "url": "https://emily-cruz.artist.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz/actions/runs/45044894660"
-  },
-  {
-   "line": "The vault: v0.1.4 · 9e0eebe · 2026-11-22",
-   "url": "https://vault.sovereignwebsite.site/",
-   "run": "https://github.com/SovereignWebsite/SovereignWebsite__Vault/actions/runs/45044859452"
-  },
-  {
-   "line": "A site from one request: v0.1.4 · b4e5bc5 · 2026-11-22",
-   "url": "https://pipeline-demo.demo.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo/actions/runs/45044931805"
-  },
-  {
-   "line": "Sarah Cruz: v0.1.4 · 54696e2 · 2026-11-22",
-   "url": "https://sarah-cruz.designer.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz/actions/runs/45044938789"
-  },
-  {
-   "line": "Grace Farrell: v0.1.30 · da4410b · 2026-11-22",
-   "url": "https://grace-farrell.artist.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell/actions/runs/45044905151"
-  },
-  {
-   "line": "Directions, and the cameras on the way: v0.1.3 · b0bd8e5 · 2026-11-22",
-   "url": "https://google-maps.sovereignwebsite.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Google-Maps/actions/runs/45044901313"
-  },
-  {
-   "line": "Whois: v0.1.3 · b5bd677 · 2026-11-22",
-   "url": "https://whois.tool.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Tool__Whois/actions/runs/45044959330"
   },
   {
    "line": "Donna Freed: v0.1.3 · 3bee275 · 2026-11-22",
@@ -174,31 +262,6 @@
    "run": "https://github.com/SovereignWebsite/Site__Tool__Streaming/actions/runs/45044966234"
   },
   {
-   "line": "AgentiCCells: v0.1.14 · 2c94372 · 2026-11-22",
-   "url": "https://agentic-cells.startups.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells/actions/runs/45044874525"
-  },
-  {
-   "line": "RiskMandate: v0.1.14 · fb15a0d · 2026-11-22",
-   "url": "https://risk-mandate.startups.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Startups__Risk-Mandate/actions/runs/45044935276"
-  },
-  {
-   "line": "sgit: v0.1.14 · 99b6090 · 2026-11-22",
-   "url": "https://sgit.startups.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Startups__Sgit/actions/runs/45044942411"
-  },
-  {
-   "line": "The Cyber Boardroom: v0.1.14 · 5656d1e · 2026-11-22",
-   "url": "https://the-cyber-boardroom.startups.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Startups__The-Cyber-Boardroom/actions/runs/45044956588"
-  },
-  {
-   "line": "South Beacon: v0.1.12 · fc3db5e · 2026-11-22",
-   "url": "https://south-beacon.talent.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Talent__South-Beacon/actions/runs/45044963145"
-  },
-  {
    "line": "Cartographer: v0.1.1 · 934e33c · 2026-11-22",
    "url": "https://cartographer.agents.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Agents__Cartographer/actions/runs/45044969056"
@@ -207,11 +270,6 @@
    "line": "Counsel: v0.1.1 · 315ff94 · 2026-11-22",
    "url": "https://counsel.agents.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Agents__Counsel/actions/runs/45044972398"
-  },
-  {
-   "line": "Decisions: v0.1.1 · f2a557d · 2026-11-22",
-   "url": "https://decisions.agents.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Agents__Decisions/actions/runs/45044976219"
   },
   {
    "line": "Helm: v0.1.1 · 7936a59 · 2026-11-22",
@@ -237,21 +295,6 @@
    "line": "Sherpa: v0.1.1 · 46e1e96 · 2026-11-22",
    "url": "https://sherpa.agents.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Agents__Sherpa/actions/runs/45044996133"
-  },
-  {
-   "line": "Strategy: v0.1.1 · a3aea43 · 2026-11-22",
-   "url": "https://strategy.agents.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Agents__Strategy/actions/runs/45044999802"
-  },
-  {
-   "line": "Synthetic-Users: v0.1.1 · 51d2503 · 2026-11-22",
-   "url": "https://synthetic-users.agents.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Agents__Synthetic-Users/actions/runs/45045006467"
-  },
-  {
-   "line": "IaC: v0.1.0 · ce1596e · 2026-11-22",
-   "url": "https://iac.agents.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Agent__IaC/actions/runs/45077506867"
   },
   {
    "line": "Odoo: v0.1.0 · 2dd4d9b · 2026-11-22",
@@ -287,86 +330,81 @@
    "line": "Wikipedia: v0.1.0 · b51b218 · 2026-11-22",
    "url": "https://wikipedia.platform.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Platform__Wikipedia/actions/runs/45045552676"
-  },
-  {
-   "line": "design.b: v0.1.28 · 308a8d8 · 2026-11-21",
-   "url": "https://design.agents.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Agents__Design/actions/runs/44925750221"
   }
  ],
  "done_recently": [
   {
-   "line": "Board note: an Agent Behaviour Policy on every site (8e47f58)",
+   "line": "Dinis answered asks 22 to 32 (record 2026-11-23__asks-22-to-32, 23:12 UTC): wakes agreed; customers pay by Stripe, for now by email to agent@withmandate.ai; 5 or 6 WordPress reference sites first; songs on the existing Suno account within its limits; the Road atlas as a real map first. Routed to the agents",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "Onboarding prompts for hub.b and sites.b on the board for their account-D twins (02862c1)",
+   "line": "Design: RiskMandate brochure approved and rated M5; a site owner placed at M2 from the history, what is unknown said plainly; docs/maturity.md now says \"Never block on the owner\" (design.b, 2e58498)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "librarian.b key published (68aa84f); library live at https://library.agents.sovereignweb.site",
+   "line": "AWS is not blocked: DNS apply run 45211861879 (16:02 UTC 23 Nov) assumed the role through OIDC and wrote all four zones, sovereignweb.site included (factory.b, from the run log)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "Per-site Agent Behaviour Policies (Dinis, 21 Nov): /policy/ and policy/abp.json live on 14 sites: South Beacon, Grace Farrell, Sarah Cruz, Emily Cruz, pipeline-demo, whois, google-maps, Hub, Vault and the five startups; Mistral and the five organisation repositories to follow",
+   "line": "conductor.b handed over to a fresh session at Dinis's word (22:45 UTC 23 Nov): old key retired (34e2b08), new key published (14e9243)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "outreach.b started (key 30e7e64)",
+   "line": "Car Buyer tool site live: https://car-buyer.tool.sovereignweb.site (fc3266d), from request to live in about two hours",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "South Beacon: all four go-live conditions met (security.b review 025 closed PASS, Dinis and the candidate approved, sealed form tested live)",
+   "line": "Suno platform site live: https://suno.platform.sovereignweb.site/ (v0.1.1, record 2026-11-23__suno-site)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "South Beacon live at https://south-beacon.talent.sovereignweb.site/ (v0.1.1, 53ed671): the first anonymised talent profile, talent area, sealed introduction form, security.b review 025 applied",
+   "line": "design.agents.sovereignweb.site /policy/ live (v0.1.29); every listed site now publishes its policy",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "mistral.conductor sent the signing recipe inline (it cannot reach the Factory)",
+   "line": "The workflow in one page, nine steps with Car Buyer as the example: https://pipeline-demo.demo.sovereignweb.site/workflow/ (461a834)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "Mistral site live with Studio and in-browser demos (c504c82); keys for mistral.workflows (641caa5) and mistral.conductor (f892560), the overnight loop until 09:00 UTC",
+   "line": "sovereignwebsite.ai: decided launch offer on home and all designs; address and agent-policy lines made accurate (Website 7773632, 7303c87)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "factory.b: check-signatures refuses retired keys (pushed as 97f302f; waits on Dinis's merge)",
+   "line": "Dinis signed 12 decision records via decisions.b (15:54 UTC), incl. segment A leads with B as proof; records usable once committed in IaC decisions/",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "Mistral team keys: mistral.local (renamed from local.mistral), mistral.promptugal, mistral.design published; evals, swarm and team.mistral retired (be55a3a)",
+   "line": "design.b's maturity model M0 to M8; 61 unrated live sites now recorded in ratings",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "feedback.b inbox read key and key store backed up with the conductor, sealed and unopened, outside every repository (Dinis, 21 Nov)",
+   "line": "RiskMandate startup site rated 4, maturity M4; all five startups under 8,000 px on a phone",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "grace.b key published (d3a59df); Site__Artist__Grace-Farrell made by Org apply (b99f5a5); her name cleared (9fe303f)",
+   "line": "Hub v0.1.32 to v0.1.46: the case for buying on every design, I want one, own versus rent, /features/; The Line is home; 'Would you want one?' 1/5 to 4/5",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "startups area and its five sites (a49005f)",
+   "line": "Launch offer £50 or €50 live on sovereignwebsite.ai/pricing.html (Website 73d6630), Dinis confirmed",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   },
   {
-   "line": "owners may push to dev and their live branch (Dinis); security.b review 002 pass-with-changes",
+   "line": "Grace Farrell's tour in six views live at https://grace-farrell.artist.sovereignweb.site/tour/views/ (9a2ee6a)",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/status.json"
   }
  ],
  "next": [
+  {
+   "line": "Ask 40, \"super critical\" (Dinis, 23:17 UTC): one shared navigation component so every site can reach home, up, down and its agent; sites.b leads with hub.b and design.b, to Dinis through decisions.b before his next review round",
+   "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/board/operator.json"
+  },
   {
    "line": "Design.b: guidelines and a design pass on pipeline-demo, then emily-cruz",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/board/operator.json"
   },
   {
    "line": "The vault as the approval step before a site goes live (Dinis, in sites.b's session), when he says build it",
-   "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/board/operator.json"
-  },
-  {
-   "line": "Transfers, once TRANSFER_USER_TOKEN is set",
    "url": "https://github.com/SovereignWebsite/SovereignWebsite__IaC/blob/dev/board/operator.json"
   },
   {
@@ -408,10 +446,6 @@
    "url": "https://hub.agents.sovereignweb.site/"
   },
   {
-   "line": "Kate Curtis-Evans: live, its version.json names no version",
-   "url": "https://kate-curtis-evans.founder.sovereignweb.site/"
-  },
-  {
    "line": "migration.b: live, no version yet (not on the site pipeline)",
    "url": "https://migration.agents.sovereignweb.site/"
   },
@@ -420,5 +454,5 @@
    "url": "https://sites.agents.sovereignweb.site/"
   }
  ],
- "active_agents": 57
+ "active_agents": 74
 }

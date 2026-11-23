@@ -27,6 +27,10 @@ strip_link = lambda text: re.sub(r'\s*-?\s*https://\S+\s*$', '', text).strip()
 cap = lambda s: s[:1].upper() + s[1:]
 
 
+# The first handed-over site's owner is not named on our sites (ask 31): lines naming her are left out too.
+terms |= {'kate', 'curtis-evans', 'curtis evans'}
+
+
 def public(text):
     low = str(text).lower()
     return not any(t in low for t in terms)
@@ -47,7 +51,7 @@ nxt = [{'line': cap(strip_link(x)), 'url': link_of(x) or IAC_WEB + 'board/operat
 # The organisation's own sites, then every public request.
 OWN = [('sovereignwebsite.ai', 'Sovereign Website'), ('sovereignwebsite.org', 'The principles'), ('sovereignwebsite.site', 'Hosted'),
        ('hub.sovereignweb.site', 'The hub'), ('vault.sovereignwebsite.site', 'The vault')]
-sites = [{'host': h, 'title': t} for h, t in OWN] + [{'host': r['host'], 'title': r['title']} for r in reqs if not r['private'] and r['made']]
+sites = [{'host': h, 'title': t} for h, t in OWN] + [{'host': r['host'], 'title': r['title']} for r in reqs if not r['private'] and r['made'] and public(r['title']) and public(r['host'])]
 
 def probe(s):
     url = f"https://{s['host']}/"

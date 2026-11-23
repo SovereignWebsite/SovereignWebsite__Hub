@@ -41,7 +41,8 @@ if DESIGN and (DESIGN / 'docs' / 'reviews' / 'hub').is_dir():
         t = f.read_text()
         title = re.search(r'^# (.+)$', t, re.M)
         rating = re.search(r'Rat(?:ed|ing)[^0-9\n]{0,20}\**\s*(\d)(?:\s*of 5)?', t, re.I)
-        rounds.append({'title': title.group(1).strip() if title else f.stem, 'date': f.name[:10],
+        # The first handed-over site's owner is not named on our sites (Dinis, record 2026-11-23__asks-2-8-31-revised, ask 31).
+        rounds.append({'title': re.sub(r"\bKate( Curtis-Evans)?('s)?\b", lambda m: 'the first owner' + (m.group(2) or ''), title.group(1).strip()) if title else f.stem, 'date': f.name[:10],
                        'rating': int(rating.group(1)) if rating else None, 'url': DESIGN_WEB + f.name})
 
 now = datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC')

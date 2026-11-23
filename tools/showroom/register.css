@@ -68,7 +68,7 @@ footer{max-width:62rem}
 .status-line{margin:0 0 .3rem;font-weight:700}
 @media (max-width:40rem){.title:not(.lead) .sum{display:block;-webkit-line-clamp:unset;overflow:visible}.title:not(.lead) .s2{display:none}.title:not(.lead) .status-line{grid-column:1/-1}}
 .cover .case h1{text-align:center;margin:.3rem auto 1rem}.cover .case-note,.cover .case-act{justify-content:center;text-align:center;margin-left:auto;margin-right:auto}
-.cover .kate5 a{border:1px solid var(--rule)}.cover .kate5 span{font-family:Georgia,serif}
+.cover .five5 a{border:1px solid var(--rule)}.cover .five5 span{font-family:Georgia,serif}
 .cover .lede{margin-top:1.2rem}
 @media (max-width:40rem){.cover .lede{font-size:0}.cover .lede .tally{font-size:.9rem;display:block}}
 @media (max-width:40rem){.lead .shot picture{display:none}.lead .shot .credit{display:none}.lead .seal{position:static;transform:rotate(-8deg);margin:0 0 .4rem;width:3.8rem;height:3.8rem}.sealed .shot{margin-bottom:0}}

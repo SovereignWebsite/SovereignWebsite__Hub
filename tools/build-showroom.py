@@ -26,13 +26,15 @@ family = family.group(0) if family else ''
 family_css = family_css.group(0) if family_css else ''
 
 e = lambda x: html.escape(str(x), quote=True)
-host_of = lambda s: re.sub(r'^https?://|/$', '', s['address']['url'])
+# The first handed-over site is listed without naming its owner (ask 31): its address is shown as words; the link stays.
+UNNAMED = {'first-handover'}
+host_of = lambda s: "its owner's address" if s.get('slug') in UNNAMED else re.sub(r'^https?://|/$', '', s['address']['url'])
 css = lambda name: (CSS / f'{name}.css').read_text()
 sites = [s for s in data['sites'] if s.get('status') == 'live']
 # Featured (hand-picked rank) first; a site still waiting on something goes last.
 sites.sort(key=lambda s: (bool(s.get('waiting')), s.get('featured', 10**6)))
 SECTIONS = [
-    ('People', 'Personal sites for real people. Kate Curtis-Evans was the first to take hers over and edit it herself.'),
+    ('People', 'Personal sites for real people. The first has been handed over, and its owner now changes it herself.'),
     ('Startups', 'Independent brochures about the startups in the family, each made from the company\'s own public pages.'),
     ('Providers', 'Independent guides to the AI providers a sovereign website can use, cited, with browser demos that use your own key.'),
     ('Businesses', 'Sites for businesses: two made-up examples, labelled as such, and a redesign proposal made with the company\'s agreement.'),
@@ -44,8 +46,9 @@ by_section = {n: [s for s in sites if s.get('section', 'Demos') == n] for n, _ i
 shown = [(n, i) for n, i in SECTIONS if by_section[n]]
 people = by_section['People']
 sid = lambda n: 's-' + re.sub(r'[^a-z0-9]+', '-', n.lower()).strip('-')
-# The lead entry: the first site handed over to its owner (Kate's), shown first in every design.
-lead = next((s for s in people if s.get('handed_over')), people[0] if people else sites[0])
+# The lead entry: the first person's site with a picture, shown first in every design. The first handed-over site is
+# listed without naming its owner and without pictures, and is never featured (Dinis, record 2026-11-23__asks-2-8-31-revised, ask 31).
+lead = next((s for s in people if s.get('shot')), people[0] if people else sites[0])
 rest = lambda n: [s for s in by_section[n] if s is not lead]
 handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
@@ -232,24 +235,22 @@ def own_rent():
 
 
 # The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
-KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
-
-
-KATE_DESIGNS = ['The Transcript', 'The Edit Window', 'The Workflow Board', 'Foundations', 'The Brief']  # titles of her designs/1 to 5
-KATE_CHOICE = 3  # her home page
+# The case shows one of our own sites in its five designs: Car buyer, our tool, so no person is featured without consent.
+CASE_URL = 'https://car-buyer.tool.sovereignweb.site/'
+CASE_DESIGNS = ['Forecourt', 'Logbook', 'MOT certificate', 'Windscreen card', 'Road atlas']  # its designs 1 to 5 (?design=N)
 
 
 def case():
     items = []
     for d in range(1, 6):
         lazy = '' if d < 3 else ' loading="lazy"'
-        items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
-                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site, {KATE_DESIGNS[d - 1]}"{lazy}></picture>'
-                     f'<span>{d} {KATE_DESIGNS[d - 1]}{" (her choice)" if d == KATE_CHOICE else ""}</span></a></li>')
+        items.append(f'<li><a href="{CASE_URL}?design={d}"><picture><source type="image/webp" srcset="/shots/car-buyer-design-{d}.webp">'
+                     f'<img src="/shots/car-buyer-design-{d}.jpg" width="640" height="400" alt="Car buyer in design {d}, {CASE_DESIGNS[d - 1]}"{lazy}></picture>'
+                     f'<span>{d} {CASE_DESIGNS[d - 1]}</span></a></li>')
     return ('<section class="case" aria-labelledby="case-h">\n'
             '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
-            f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
-            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
+            f'<ul class="five5" aria-label="Car buyer, one of our own sites, in its five designs">{"".join(items)}</ul>\n'
+            f'<p class="case-note"><a href="{CASE_URL}">Car buyer</a>, one of our own tools, in its five designs. A site for you is made the same way: you choose the design you keep, then change it on GitHub or by talking to your AI.</p>\n'
             '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + e(OFFER_NOTE) + '</span></p>\n'
             '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
@@ -305,7 +306,7 @@ def fold(n, render, box, where):
 
 
 def street_people():
-    # Wide screens show the first two people's shops beside Kate's in the sky, so their street starts at the
+    # Wide screens show the first two people's shops beside the lead's in the sky, so their street starts at the
     # fourth; a phone shows them here. Each copy is display:none where it does not apply, so each is read once.
     es = rest('People')
     summary = f'Show all {len(by_section["People"])} in People'
@@ -478,10 +479,10 @@ def station(i, title, here, note):
 # What you get: five items, each with a live example (design.b's hub-sells brief, item 2).
 GETS = [
     ('A site about you, at an address you can make your own', 'Your work, your story and how to reach you, made from your CV, photos and links.', "Emily Cruz's site", 'https://emily-cruz.artist.sovereignweb.site/'),
-    ('Five designs to choose from', 'Five real ideas of the same site; you keep the one you like.', "Kate's five designs", KATE + 'designs/index.html'),
-    ('Your files, on your own GitHub', 'Plain files you hold and can move to any host. No platform subscription.', "Kate's repository", 'https://github.com/SovereignWebsite/Site__Founder__Kate-Curtis-Evans'),
-    ('Changes by talking to your AI', 'Tell your AI what to change; the site says how, for you and for it.', "Kate's \"Use with your AI\"", KATE + 'agents/'),
-    ('A start page and your own numbers', 'How to take it over, and an admin page with what has changed.', "Kate's admin page", KATE + 'admin/'),
+    ('Five designs to choose from', 'Five real ideas of the same site; you keep the one you like.', "Car buyer's five designs", CASE_URL + 'designs/'),
+    ('Your files, on your own GitHub', 'Plain files you hold and can move to any host. No platform subscription.', "Car buyer's repository", 'https://github.com/SovereignWebsite/Site__Tool__Car-Buyer'),
+    ('Changes by talking to your AI', 'Tell your AI what to change; the site says how, for you and for it.', "Car buyer's \"Use with your AI\"", CASE_URL + 'agents/'),
+    ('A start page and your own numbers', 'How to take it over, and an admin page with what has changed.', "Car buyer's admin page", CASE_URL + 'admin/'),
 ]
 
 

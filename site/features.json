@@ -74,8 +74,8 @@
       "today": "Each person's site is made in five designs (two in six); the owner picks one.",
       "examples": [
         [
-          "Kate Curtis-Evans",
-          "https://kate-curtis-evans.founder.sovereignweb.site/designs/index.html"
+          "Car buyer, one of our own tools",
+          "https://car-buyer.tool.sovereignweb.site/designs/"
         ],
         [
           "Emily Cruz",
@@ -96,8 +96,8 @@
       "today": "The site is plain files in a GitHub repository handed over to the owner, who can move it to any host.",
       "examples": [
         [
-          "Kate Curtis-Evans edits hers herself",
-          "https://kate-curtis-evans.founder.sovereignweb.site/"
+          "Car buyer's repository",
+          "https://github.com/SovereignWebsite/Site__Tool__Car-Buyer"
         ]
       ],
       "agent": "Each site's keeper does the handover.",
@@ -122,12 +122,7 @@
       "keywords": "contact, form, feedback, message, enquiry, email, contact us, get in touch, form",
       "status": "live",
       "today": "A feedback box on a site, with replies, and no GitHub needed for the visitor.",
-      "examples": [
-        [
-          "Kate Curtis-Evans's site",
-          "https://kate-curtis-evans.founder.sovereignweb.site/"
-        ]
-      ],
+      "examples": [],
       "agent": "feedback.b.",
       "bottleneck": "None recorded."
     },

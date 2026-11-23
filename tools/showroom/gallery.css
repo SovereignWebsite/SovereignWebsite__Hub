@@ -69,7 +69,7 @@ footer{max-width:80rem}
 @media(max-width:40rem){.wall:not(.lead-wall) .frame img{aspect-ratio:2/1;object-position:left top}}
 .intro .case h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;margin:.3rem auto 1.2rem}
 .intro .case-note,.intro .case-act{justify-content:center;margin-left:auto;margin-right:auto}
-.intro .kate5 a{border:8px solid #3b2f22;background:#0e0d0b;color:#f3efe6}.intro .kate5 span{background:var(--label);color:var(--label-ink);font-family:Georgia,serif;font-weight:400}
+.intro .five5 a{border:8px solid #3b2f22;background:#0e0d0b;color:#f3efe6}.intro .five5 span{background:var(--label);color:var(--label-ink);font-family:Georgia,serif;font-weight:400}
 .intro .case-note a,.intro .can{color:var(--gold)}
 @media(max-width:40rem){.intro .lede{font-size:0}.intro .lede .tally{font-size:.88rem;display:block}}
 @media(max-width:40rem){.lead-wall{padding-top:.6rem}.lead-wall .spot{display:none}}

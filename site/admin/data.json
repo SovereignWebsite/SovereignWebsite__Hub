@@ -1,18 +1,18 @@
 {
- "built": "2026-11-23 12:52 UTC",
- "commits": 59,
- "tags": 34,
- "last_release": "v0.1.33",
- "last_release_date": "2026-11-23 12:51 UTC",
+ "built": "2026-11-23 23:21 UTC",
+ "commits": 85,
+ "tags": 54,
+ "last_release": "v0.1.53",
+ "last_release_date": "2026-11-23 23:18 UTC",
  "designs": 5,
- "sites_listed": 34,
+ "sites_listed": 33,
  "handed_over": 1,
  "commits_by_day": {
   "2026-11-19": 5,
   "2026-11-20": 32,
   "2026-11-21": 3,
   "2026-11-22": 1,
-  "2026-11-23": 18
+  "2026-11-23": 44
  },
  "sites_by_section": {
   "People": 11,
@@ -20,12 +20,12 @@
   "Providers": 1,
   "Businesses": 3,
   "PrompTugal.news": 5,
-  "Demos": 7,
+  "Demos": 6,
   "Tools": 2
  },
  "design_rounds": [
   {
-   "title": "Hub, round 7: each idea now opens its page; crop to Kate, not her menu",
+   "title": "Hub, round 7: each idea now opens its page; crop to the first owner, not her menu",
    "date": "2026-11-23",
    "rating": 3,
    "url": "https://github.com/SovereignWebsite/Site__Agents__Design/blob/dev/docs/reviews/hub/2026-11-23-round-7.md"

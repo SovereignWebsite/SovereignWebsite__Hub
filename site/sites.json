@@ -100,9 +100,9 @@
     },
     {
       "schema": "hub-site/1",
-      "slug": "kate-curtis-evans",
-      "name": "Kate Curtis-Evans",
-      "summary": "Kate Curtis-Evans, practising legal transcriber and founder of Audio Genius, legal transcription and workflow built by a transcriber, for transcription professionals.",
+      "slug": "first-handover",
+      "name": "A founder's site, handed over",
+      "summary": "The first site handed over: made by an agent team, then given to its owner, who now changes it herself. Listed without naming its owner.",
       "kind": "Founder",
       "group": "Founder",
       "owner": {
@@ -113,16 +113,11 @@
         "url": "https://kate-curtis-evans.founder.sovereignweb.site/",
         "domain": "sovereignweb.site"
       },
-      "repository": {
-        "url": "https://github.com/SovereignWebsite/Site__Founder__Kate-Curtis-Evans",
-        "branch": "dev"
-      },
       "vault": null,
       "licence": null,
       "status": "live",
-      "shot": "shots/kate-curtis-evans",
       "featured": 1,
-      "note": "Handed over: Kate edits it herself on GitHub, since 20 Nov 2026.",
+      "note": "Handed over: its owner edits it herself on GitHub, since 20 Nov 2026.",
       "handed_over": "2026-11-20",
       "chips": [
         "Five designs"
