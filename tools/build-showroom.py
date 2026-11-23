@@ -46,7 +46,7 @@ handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
 # The five designs, numbered as design.b's round 5 prototypes. The Register (2) is the lead and the home page;
 # a design that is its own page links there, a design that is still a skin of the home page is a #design-N address.
-DESIGNS = [(1, 'The Gallery', '/gallery/'), (2, 'The Register', '/'), (3, 'Contact Sheet', '/contact-sheet/'), (4, 'Paper', '/#design-4'), (5, 'Studio', '/#design-5')]
+DESIGNS = [(1, 'The Gallery', '/gallery/'), (2, 'The Register', '/'), (3, 'Contact Sheet', '/contact-sheet/'), (4, 'The Street', '/street/'), (5, 'Studio', '/#design-5')]
 names = [n for _, n, _ in DESIGNS]
 LEAD = 2
 # Designs that are pages of their own; an old #design-N address on the home page forwards to them.
@@ -279,12 +279,6 @@ section[id]{scroll-margin-top:4rem}
 .d-2 .steps li::before{border-radius:0}
 @media print{.d-2 .bar,.d-2 nav.family,.d-2 footer{display:none}.d-2 .site{break-inside:avoid}}
 
-/* 4 Paper: warm, bookish, sections ruled off */
-.d-4{--bg:#f6efe3;--fg:#2b211a;--muted:#6f5e50;--accent:#9c4421;--fill:#9c4421;--on-fill:#fff;--line:#e2d3bf;--card:#fffaf2}
-@media (prefers-color-scheme:dark){.d-4{--bg:#1e1813;--fg:#f3e9dc;--muted:#c8b8a6;--accent:#e8a07a;--fill:#e8a07a;--on-fill:#1e1813;--line:#3b3027;--card:#261f19}}
-.d-4 h1,.d-4 .site h3,.d-4 .sec-h{font-family:"Palatino Linotype",Palatino,Georgia,serif}
-.d-4 section{border-top:2px solid var(--line);padding-top:2rem}.d-4 .sec-h{color:var(--accent)}
-
 /* 5 Studio: gradient stage, tilted frames */
 .d-5{--bg:#14112b;--fg:#fff;--muted:#c9c3ef;--accent:#ffcf5c;--fill:#ffcf5c;--on-fill:#14112b;--line:#3a3466;--card:#201b45;--stage:radial-gradient(1200px 600px at 10% -10%,#5b3fd1 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#d13f8f 0,transparent 55%),#14112b}
 @media (prefers-color-scheme:light){.d-5{--bg:#f7f5ff;--fg:#1b1640;--muted:#4b4570;--accent:#5a3fd1;--fill:#5a3fd1;--on-fill:#fff;--line:#ddd7f5;--card:#fff;--stage:radial-gradient(1200px 600px at 10% -10%,#e3dbff 0,transparent 60%),radial-gradient(900px 500px at 110% 10%,#ffd9ec 0,transparent 55%),#f7f5ff}}
@@ -504,3 +498,73 @@ alt_page(3, 'contact-sheet/', SHEET_CSS, f'''<main id="main">
 <div class="strip">{''.join(frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n]))}</div></section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(steps_line)}. {f'<a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''}</p>
 </main>''')
+
+
+# ---- Design 4, The Street: every site a shopfront, its address over the door (design.b round 5, prototype 4). ----
+STREET_CSS = r'''
+:root{--bg:#e9eef2;--fg:#15202b;--muted:#46525e;--accent:#0b4f8a;--fill:#0f6e4f;--on-fill:#fff;--line:#b9c3cc;--card:#f7f3ec;--sky:#cfe0ee;--road:#2d333a;--road-ink:#f3f4f6;--awning1:#0f6e4f;--awning2:#fff;--brick:#f7f3ec;--sign:#15202b;--sign-ink:#fff;--focus:#c2410c}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1218;--fg:#e8edf2;--muted:#aab4be;--accent:#8cc8ff;--fill:#1f8a64;--on-fill:#fff;--line:#2c3742;--card:#17202a;--sky:#141d27;--road:#05080b;--road-ink:#e8edf2;--awning1:#1f8a64;--awning2:#0d1218;--brick:#17202a;--sign:#e8edf2;--sign-ink:#0d1218;--focus:#ffa76b}}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.sky{background:linear-gradient(var(--sky),var(--bg));padding:2rem 1rem 1.4rem}
+.sky>div{max-width:80rem;margin:0 auto}
+.sky .k{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.875rem;margin:0;color:var(--muted)}
+.sky h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1;letter-spacing:-.02em;margin:.4rem 0 .7rem;font-weight:800;max-width:16ch}
+.sky p{max-width:40rem}
+.streets{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:1rem 0 0}
+.streets a{display:inline-block;padding:.3rem .8rem;border:2px solid var(--fg);border-radius:999px;color:var(--fg);text-decoration:none;font-weight:600;font-size:.9rem}
+.streets a:hover{background:var(--fg);color:var(--bg)}
+.road{background:var(--road);color:var(--road-ink);padding:1.2rem 1rem;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;background:repeating-linear-gradient(90deg,#f4c542 0 40px,#0000 40px 80px);opacity:.9}
+.road ul{list-style:none;margin:0 auto;padding:0;max-width:80rem;display:flex;flex-wrap:wrap;gap:1rem 2.4rem;position:relative}
+.road li{background:var(--road);padding:0 .5rem;font-size:.95rem}
+.road b{font-size:1.6rem;margin-right:.3rem}
+.street{max-width:80rem;margin:0 auto;padding:0 1rem;scroll-margin-top:4rem}
+.street h2{font-size:1rem;letter-spacing:.14em;text-transform:uppercase;margin:2.4rem 0 0;color:var(--muted)}
+.street .sub{margin:.3rem 0 0;color:var(--muted);max-width:44rem}
+.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,22rem),1fr));gap:0 1rem;align-items:end}
+.shop{display:block;text-decoration:none;color:var(--fg);margin-top:1.6rem;min-width:0}
+.sign{display:block;background:var(--sign);color:var(--sign-ink);font:700 clamp(.85rem,2.4vw,.95rem)/1.2 ui-monospace,Menlo,Consolas,monospace;padding:.55rem .7rem;text-align:center;overflow-wrap:break-word;border-radius:4px 4px 0 0}
+.awning{display:block;height:22px;background:repeating-linear-gradient(90deg,var(--awning1) 0 24px,var(--awning2) 24px 48px);clip-path:polygon(0 0,100% 0,97% 100%,3% 100%);border-bottom:2px solid var(--awning1)}
+.front{background:var(--brick);border:2px solid var(--line);border-top:0;padding:12px;display:grid;gap:.7rem}
+.window{display:block;border:6px solid var(--fg);border-radius:2px;background:#000;position:relative}
+.window::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgb(255 255 255/.22),#0000 35%);pointer-events:none}
+.window img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.window img{aspect-ratio:4/3}}
+.plate b{display:block;font-size:1.15rem}
+.plate span{color:var(--muted);font-size:.95rem}
+.door{display:inline-flex;align-items:center;min-height:44px;padding:.4rem .9rem;border:2px solid var(--fg);border-radius:999px;font-weight:700;justify-self:start}
+.shop:hover .door,.shop:focus-visible .door{background:var(--fg);color:var(--bg)}
+.board{display:inline-block;background:#0f6e4f;color:#fff;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;padding:.15rem .5rem;margin:0 .3rem .3rem 0}
+.board.alt{background:var(--fg);color:var(--bg)}
+.shut .window img{filter:grayscale(1) brightness(.6)}
+.shut .awning{background:repeating-linear-gradient(90deg,#6b7480 0 24px,var(--awning2) 24px 48px);border-color:#6b7480}
+.shut .door{border-style:dashed}
+.kerb{height:10px;background:#9aa3ab;margin-top:2rem}
+.how{max-width:80rem;margin:0 auto;padding:1.6rem 1rem 0;color:var(--muted);font-size:.92rem}
+.how a{color:var(--accent)}
+'''
+
+
+def shop(s, eager):
+    sh = s.get('shot')
+    pic = (f'<picture><source media="(max-width:40rem)" srcset="/{e(sh)}-phone.jpg"><img src="/{e(sh)}.jpg" width="1280" height="800" alt=""'
+           + ('' if eager else ' loading="lazy" decoding="async"') + '></picture>') if sh else ''
+    boards = (['<span class="board">Handed over</span>'] if s.get('handed_over') else []) + [f'<span class="board alt">{e(x)}</span>' for x in s.get('chips', [])]
+    words = ('Not switched on yet: ' + s['waiting'][:1].lower() + s['waiting'][1:]) if s.get('waiting') else s['summary']
+    return (f'<a class="shop{" shut" if s.get("waiting") else ""}" href="{e(s["address"]["url"])}"><span class="sign">{soft(host_of(s))}</span>'
+            f'<span class="awning" aria-hidden="true"></span><span class="front"><span class="window">{pic}</span>'
+            f'<span class="plate"><b>{e(s["name"])}</b><span>{e(s.get("group") or s["kind"])}. {e(words)}</span></span>'
+            + (f'<span>{"".join(boards)}</span>' if boards else '')
+            + f'<span class="door">{"Not switched on yet" if s.get("waiting") else "Walk in &rarr;"}</span></span></a>')
+
+
+alt_page(4, 'street/', STREET_CSS, f'''<main id="main">
+<section class="sky" aria-labelledby="st-h"><div><p class="k">The showroom</p><h1 id="st-h">Websites their owners own.</h1>
+<p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
+<nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></section>
+<section class="road" aria-label="On this street"><ul><li><b>{working}</b>sites working</li><li><b>{len(people)}</b>people's sites</li><li><b>{handed}</b>handed over</li></ul></section>
+{chr(10).join(f"""<section class="street" id="st-{sid(n)}" aria-labelledby="st-h-{sid(n)}"><h2 id="st-h-{sid(n)}">{e(n)}</h2><p class="sub">{e(intro)}</p>
+<div class="row">{''.join(shop(s, k == 0 and i < 2) for i, s in enumerate(by_section[n]))}</div></section>
+<div class="kerb" aria-hidden="true"></div>""" for k, (n, intro) in enumerate(shown))}
+<p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites. {f'<a href="{e(demo["address"]["url"])}">See how a site is made: the pipeline demo</a>.' if demo else ''}</p>
+</main>''', scheme='light dark')
