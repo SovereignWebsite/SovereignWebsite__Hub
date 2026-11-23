@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6e4f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <title>Contact Sheet: Sovereign Website Hub</title>
 <link rel="canonical" href="https://hub.sovereignweb.site/">
@@ -95,6 +95,11 @@ figcaption .m{color:var(--muted);overflow-wrap:break-word}
 footer{max-width:80rem}
 .want{color:var(--muted);margin-top:.4rem!important}.want a{color:var(--edge)}
 @media(max-width:40rem){.sheet{margin:1.2rem 0}.sheet .sub{font-size:.85rem;margin-bottom:.5rem}.frame{padding:10px 12px}}
+/* Light mode: a light table; each sheet of film stays black with its own light text. */
+@media (prefers-color-scheme:light){
+ :root{--bg:#f1efe9;--fg:#141414;--muted:#3f3f3c;--accent:#8a4b00;--fill:#141414;--on-fill:#fff;--line:#c9c6bd;--card:#fff;--edge:#8a4b00;--family-fg:#3f3f3c;--family-fg-strong:#000}
+ .sheet{--fg:#f2f2f0;--muted:#c4c4c0;--edge:#ffb000;color:var(--fg)}
+}
 
 .family{--fam-fg:var(--family-fg,#454545);--fam-strong:var(--family-fg-strong,#111);font-size:.875rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
 @media (prefers-color-scheme:dark){.family{--fam-fg:var(--family-fg,#cfcfcf);--fam-strong:var(--family-fg-strong,#fff)}}
@@ -146,7 +151,7 @@ footer{max-width:80rem}
   </details>
 </nav>
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
-<details class="chooser"><summary><span class="dw">Design </span><span class="cur">4</span><span class="dw">:</span> Contact Sheet</summary><nav class="opts" aria-label="Designs of this page"><a href="/"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Line (home)</span></a><a href="/register/"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/gallery/"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. The Gallery (dark)</span></a><a href="/contact-sheet/" aria-current="page"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. Contact Sheet (dark)</span></a><a href="/street/"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Street</span></a><a href="/designs/"><span>All five, side by side</span></a></nav></details></header>
+<details class="chooser"><summary><span class="dw">Design </span><span class="cur">4</span><span class="dw">:</span> Contact Sheet</summary><nav class="opts" aria-label="Designs of this page"><a href="/"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Line (home)</span></a><a href="/register/"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/gallery/"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. The Gallery</span></a><a href="/contact-sheet/" aria-current="page"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. Contact Sheet</span></a><a href="/street/"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Street</span></a><a href="/designs/"><span>All five, side by side</span></a></nav></details></header>
 <main id="main">
 <section class="head" aria-labelledby="c-h"><div><p class="k">ROLL 01 · THE SHOWROOM</p><h1 id="c-h">Websites their owners own.</h1></div>
 <div><p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public; open one to see it working.</p>

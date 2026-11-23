@@ -58,3 +58,9 @@ footer{max-width:80rem}
 @media(max-width:40rem){.intro .lede{font-size:.88rem}.about{margin-top:.6rem}.room-intro{font-size:.88rem}.wall:not(.lead-wall){gap:1.6rem}}
 @media(max-width:40rem){.room-intro{margin-bottom:0}.room small{font-size:.8rem}.how{margin-top:1.4rem;font-size:.88rem}}
 @media(max-width:40rem){.wall:not(.lead-wall){gap:1.4rem;padding-top:1.2rem}.room-intro{font-size:.85rem}}
+/* Light mode: a white-walled gallery; the frames and paper labels stay as they are. */
+@media (prefers-color-scheme:light){
+ :root{--bg:#f3efe7;--fg:#1c1a17;--muted:#4d473d;--accent:#7a4f00;--fill:#1c1a17;--on-fill:#fff;--line:#d6cfc2;--card:#fffdf8;--gold:#7a4f00;--family-fg:#4d473d;--family-fg-strong:#000}
+ .spot::after{background:radial-gradient(closest-side,rgb(255 220 150/.35),#0000)}
+ .frame{box-shadow:0 2px 0 #574634 inset,0 24px 40px -18px rgb(0 0 0/.45)}
+}

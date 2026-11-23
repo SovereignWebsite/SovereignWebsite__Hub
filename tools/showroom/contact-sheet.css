@@ -37,3 +37,8 @@ figcaption .m{color:var(--muted);overflow-wrap:break-word}
 footer{max-width:80rem}
 .want{color:var(--muted);margin-top:.4rem!important}.want a{color:var(--edge)}
 @media(max-width:40rem){.sheet{margin:1.2rem 0}.sheet .sub{font-size:.85rem;margin-bottom:.5rem}.frame{padding:10px 12px}}
+/* Light mode: a light table; each sheet of film stays black with its own light text. */
+@media (prefers-color-scheme:light){
+ :root{--bg:#f1efe9;--fg:#141414;--muted:#3f3f3c;--accent:#8a4b00;--fill:#141414;--on-fill:#fff;--line:#c9c6bd;--card:#fff;--edge:#8a4b00;--family-fg:#3f3f3c;--family-fg-strong:#000}
+ .sheet{--fg:#f2f2f0;--muted:#c4c4c0;--edge:#ffb000;color:var(--fg)}
+}

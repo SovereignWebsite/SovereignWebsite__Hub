@@ -125,7 +125,7 @@ def pic(s, eager=False, sizes='(min-width:52rem) 40vw, 100vw', alt='', lead=Fals
 
 def chooser(cur):
     opts = ''.join(f'<a href="{h}"' + (' aria-current="page"' if d == cur else '')
-                   + f'><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><span>{d}. {e(n)}{" (home)" if h == "/" else ""}{" (dark)" if dark else ""}</span></a>'
+                   + f'><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><span>{d}. {e(n)}{" (home)" if h == "/" else ""}</span></a>'
                    for d, n, h, _, dark in DESIGNS)
     label = (f'<span class="dw">Design </span><span class="cur">{cur}</span><span class="dw">:</span> {e(names[cur - 1])}') if cur else 'Five designs'
     return (f'<details class="chooser"><summary>{label}</summary>'
@@ -313,7 +313,7 @@ page('gallery/', 'The Gallery', css('gallery'), f'''<main id="main">
 {fold(n, piece, 'wall', f'Room {ROOMS[k]}, {n}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">Each label comes from the hub's <a href="/sites.json">sites.json</a> and is hung when the site goes live; the pictures are taken from the live sites. How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 {GET}
-</main>''', scheme='dark', cur=3, note=design_note(3))
+</main>''', cur=3, note=design_note(3))
 
 
 # ---- 3 Contact Sheet ----
@@ -337,7 +337,7 @@ page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main
 {phone_fold([frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n])], 'strip', f'Show all {len(by_section[n])} frames in strip {k + 1}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 {GET}
-</main>''', scheme='dark', cur=4, note=design_note(4))
+</main>''', cur=4, note=design_note(4))
 
 
 # ---- 4 The Street ----
@@ -521,7 +521,7 @@ page('more/', 'More sites', css('line'), f'''<main id="main">
 page('designs/', 'The five designs', css('designs'), f'''<main id="main">
 <h1>The five designs</h1>
 <p class="lede">The same register of {len(sites)} public sites, five ways. Each is a real idea, not a colour change; The Line is the lead and the home page.</p>
-<ul class="five">{''.join(f"""<li><a href="{h}"{' class="lead"' if d == 1 else ''}><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><b>{d}. {e(n)}</b><span>{e(idea)}{' Dark only.' if dark else ' Light and dark.'}</span></a></li>""" for d, n, h, idea, dark in DESIGNS)}</ul>
+<ul class="five">{''.join(f"""<li><a href="{h}"{' class="lead"' if d == 1 else ''}><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><b>{d}. {e(n)}</b><span>{e(idea)}{' Light and dark.'}</span></a></li>""" for d, n, h, idea, dark in DESIGNS)}</ul>
 <p class="how">Designed by design.b (rounds 5 and 6) and built by hub.b from <a href="/sites.json">sites.json</a>.</p>
 </main>''', cur=0, note='')
 
