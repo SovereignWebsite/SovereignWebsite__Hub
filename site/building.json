@@ -1,0 +1,239 @@
+{
+  "about": "Sites being built and sites coming, from sites.b's register (https://sites.agents.sovereignweb.site/register/), checked 23 Nov 2026 12:00 UTC. Building: live, not finished, not yet in the showroom. Coming: requested, not live yet. Private (vault) sites are never listed; sites still on the Factory's seed page are left out.",
+  "checked": "2026-11-23",
+  "source": "https://sites.agents.sovereignweb.site/register/",
+  "sites": [
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "cartographer.agents.sovereignweb.site",
+      "name": "Cartographer",
+      "summary": "The Cartographer agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No cartographer agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "counsel.agents.sovereignweb.site",
+      "name": "Counsel",
+      "summary": "The Counsel agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No counsel agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "decisions.agents.sovereignweb.site",
+      "name": "Decisions",
+      "summary": "The Decisions agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No decisions agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "helm.agents.sovereignweb.site",
+      "name": "Helm",
+      "summary": "The Helm agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No helm agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "holacracy.agents.sovereignweb.site",
+      "name": "Holacracy",
+      "summary": "The Holacracy agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No holacracy agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "landscape.agents.sovereignweb.site",
+      "name": "Landscape",
+      "summary": "The Landscape agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No landscape agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "maestro.agents.sovereignweb.site",
+      "name": "Maestro",
+      "summary": "The Maestro agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No maestro agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "sherpa.agents.sovereignweb.site",
+      "name": "Sherpa",
+      "summary": "The Sherpa agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No sherpa agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "slides.agents.sovereignweb.site",
+      "name": "Slides",
+      "summary": "The Slides agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No slides agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "strategy.agents.sovereignweb.site",
+      "name": "Strategy",
+      "summary": "The Strategy agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No strategy agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Agents' own sites",
+      "host": "studio.agents.sovereignweb.site",
+      "name": "Studio",
+      "summary": "The Studio agents' own site: their pages and published keys, each account's pages under /accounts/<x>/. No studio agent has a key in the Factory's team/keys.json yet.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "People",
+      "host": "donna-freed.author.sovereignweb.site",
+      "name": "Donna Freed",
+      "summary": "Writer and translator. Her books, her writing and her podcast.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Guides",
+      "host": "wardley-maps.frameworks.sovereignweb.site",
+      "name": "Wardley Maps",
+      "summary": "Wardley Maps explained: the tools past and present, an editor and player, and narrated animations. An unofficial site, not made or endorsed by Simon Wardley.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "aws.platform.sovereignweb.site",
+      "name": "AWS Platform Sovereign Website",
+      "summary": "Run your AWS accounts from your own browser: sign in with Google, one-hour credentials, read-only by default, and every change a plan you approve. An unofficial site, not made or endorsed by Amazon Web Services.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "github.platform.sovereignweb.site",
+      "name": "GitHub",
+      "summary": "Manage your GitHub access and repositories from your own browser: who can reach what, and what changed. An unofficial site, not made or endorsed by GitHub.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "instagram.platform.sovereignweb.site",
+      "name": "Instagram",
+      "summary": "The Instagram agent of the Sovereign Website team: what it is, its mandate, the roles around it and what it has done, post by post. Unofficial, not made or endorsed by Instagram or Meta.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "odoo.platform.sovereignweb.site",
+      "name": "Odoo",
+      "summary": "What Odoo offers and how to use it, from its public material. An unofficial site, not made or endorsed by Odoo.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "openrouter.platform.sovereignweb.site",
+      "name": "OpenRouter",
+      "summary": "What OpenRouter offers and how to use it, from its public material. An unofficial site, not made or endorsed by OpenRouter.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "owasp.platform.sovereignweb.site",
+      "name": "OWASP",
+      "summary": "What OWASP offers and how to use it, from its public material. An unofficial site, not made or endorsed by OWASP.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "wikipedia.platform.sovereignweb.site",
+      "name": "Wikipedia",
+      "summary": "What Wikipedia offers and how to use it, from its public material. An unofficial site, not made or endorsed by Wikipedia.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "youtube.platform.sovereignweb.site",
+      "name": "YouTube",
+      "summary": "Manage, monitor and publish to your YouTube channel from your own browser, with YouTube's official API. An unofficial site, not made or endorsed by YouTube or Google.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "People",
+      "host": "south-beacon.talent.sovereignweb.site",
+      "name": "South Beacon",
+      "summary": "An anonymised profile of a senior technology and security leader. Introductions through the talent agent.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Tools",
+      "host": "dns.tool.sovereignweb.site",
+      "name": "DNS",
+      "summary": "Check a name's DNS records from resolvers and regions around the world, in your browser, without ads or tracking.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Tools",
+      "host": "streaming.tool.sovereignweb.site",
+      "name": "Streaming",
+      "summary": "Your own watchlist, notes and preferences for streaming in the UK and Portugal. Kept in your browser, no account.",
+      "five_designs": true
+    },
+    {
+      "state": "building",
+      "group": "Tools",
+      "host": "wordpress.tool.sovereignweb.site",
+      "name": "WordPress",
+      "summary": "What any WordPress site can give you, as data you can use. For owners and users.",
+      "five_designs": false
+    },
+    {
+      "state": "coming",
+      "group": "Agents' own sites",
+      "host": "agents.agents.sovereignweb.site",
+      "name": "Agents",
+      "summary": "",
+      "five_designs": false
+    },
+    {
+      "state": "coming",
+      "group": "People",
+      "host": "dinis-cruz.cv.sovereignweb.site",
+      "name": "Dinis Cruz",
+      "summary": "",
+      "five_designs": false
+    },
+    {
+      "state": "coming",
+      "group": "Demos",
+      "host": "weather-demo.demo.sovereignweb.site",
+      "name": "Weather Demo",
+      "summary": "",
+      "five_designs": false
+    },
+    {
+      "state": "coming",
+      "group": "Tools",
+      "host": "pybot.tool.sovereignweb.site",
+      "name": "Pybot",
+      "summary": "",
+      "five_designs": false
+    }
+  ]
+}

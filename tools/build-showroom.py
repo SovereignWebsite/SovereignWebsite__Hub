@@ -486,7 +486,8 @@ def people_room():
             f'<p>{len(people)} people\'s own sites, each made the same way. Open one to see it working.</p>'
             '<p class="range">Founders, artists, singers, composers, designers, AI builders and project managers so far. Your work is different? Each site is made around its owner.</p>'
             + phone_fold([person(s) for s in people], 'pgrid', f'Show all {len(people)} people', keep=4)
-            + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a></p></section>')
+            + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a>. '
+            + f'<a href="/building/">{len(json.loads((SITE / "building.json").read_text())["sites"])} more being built or coming</a>.</p></section>')
 
 
 # Own, not rent (design.b's brief, item 5): strategy.b's facts, each checked on 23 Nov 2026 against the source linked.
@@ -531,7 +532,7 @@ page('', 'Sovereign Website Hub', css('line'), LINE_MAIN, cur=1, note=design_not
 page('line/', 'The Line', css('line'), LINE_MAIN, cur=1, note=design_note(1))
 page('more/', 'More sites', css('line'), f'''<main id="main">
 <p class="k">More from the factory</p><h1>Startups, guides, businesses, news, demos and tools</h1>
-<p class="lede">Made the same way as the people's sites on <a href="/">the home page</a>: by agent teams, from one request each.</p>
+<p class="lede">Made the same way as the people's sites on <a href="/">the home page</a>: by agent teams, from one request each. Sites not finished yet are on <a href="/building/">Being built</a>.</p>
 {sides()}
 {GET}
 </main>''', cur=0, note='The people\'s sites are on <a href="/">the home page</a>.')
@@ -570,5 +571,35 @@ page('features/', 'What it can do', css('features'), f'''<main id="main">
 <ul class="feats">{"".join(feature(f) for f in FEAT["features"])}</ul>
 {GET}
 </main>''', cur=0, script='\n' + FEATURES_JS)
+
+
+# ---- /building/: sites being built and coming (sites.b's register; Dinis wants them shown as well as finished ones) ----
+BUILD = json.loads((SITE / 'building.json').read_text())
+B_ORDER = ['People', 'Platforms', 'Tools', 'Guides', 'Demos', "Agents' own sites"]
+
+
+def bsite(b):
+    state = 'Being built' if b['state'] == 'building' else 'Coming'
+    name = f'<a href="https://{e(b["host"])}/">{e(b["name"])}</a>' if b['state'] == 'building' else e(b['name'])
+    return (f'<li class="b-{e(b["state"])}"><b>{name}</b> <span class="badge">{state}</span>'
+            + (' <span class="badge">Five designs</span>' if b.get('five_designs') else '')
+            + f'<span class="host">{soft(b["host"])}</span>' + (f'<span class="what">{e(b["summary"])}</span>' if b['summary'] else '') + '</li>')
+
+
+def building_main():
+    groups = sorted({b['group'] for b in BUILD['sites']}, key=lambda g: B_ORDER.index(g) if g in B_ORDER else 99)
+    nb = sum(1 for b in BUILD['sites'] if b['state'] == 'building')
+    nc = len(BUILD['sites']) - nb
+    secs = ''.join(f'<section class="bgroup" aria-labelledby="b-{sid(g)}"><h2 id="b-{sid(g)}">{e(g)}</h2><ul class="blist">'
+                   + ''.join(bsite(b) for b in BUILD['sites'] if b['group'] == g) + '</ul></section>' for g in groups)
+    return f'''<main id="main">
+<p class="k">From the factory floor</p><h1>Being built, and coming</h1>
+<p class="lede">{nb} sites are live but not finished, and {nc} are requested and not live yet. They join the showroom when they are done. From <a href="{e(BUILD["source"])}">sites.b's register</a>, checked {e(BUILD["checked"])}; the list is <a href="/building.json">building.json</a>.</p>
+{secs}
+{GET}
+</main>'''
+
+
+page('building/', 'Being built', css('line') + css('building'), building_main(), cur=0, note='Finished sites are on <a href="/">the home page</a> and <a href="/more/">/more/</a>.')
 
 print(f'showroom: {len(sites)} live public sites ({len(people)} people, {handed} handed over); 5 designs and /designs/ written')

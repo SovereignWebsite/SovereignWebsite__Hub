@@ -1,0 +1,8 @@
+.bgroup{margin-top:2rem;border-top:4px solid var(--belt);padding-top:.8rem}.bgroup h2{font-size:1.3rem;margin:0 0 .6rem}
+.blist{list-style:none;padding:0;margin:0;display:grid;gap:.7rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.blist li{border:2px solid var(--fg);padding:.6rem .8rem;background:var(--bg)}
+.blist li.b-coming{border-style:dashed}
+.blist b{font-size:1.05rem}.blist b a{color:var(--fg)}
+.blist .badge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;border:2px solid currentColor;padding:0 .35rem;margin-left:.2rem}
+.blist .host{display:block;font-size:.85rem;color:var(--muted);margin-top:.2rem}
+.blist .what{display:block;font-size:.92rem;margin-top:.3rem}

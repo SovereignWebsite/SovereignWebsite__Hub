@@ -720,7 +720,7 @@
       },
       "vault": null,
       "licence": null,
-      "status": "live",
+      "status": "planned",
       "shot": "shots/weather-demo",
       "repository": {
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Weather-Demo",

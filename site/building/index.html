@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f6e4f'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<title>Being built: Sovereign Website Hub</title>
+<link rel="canonical" href="https://hub.sovereignweb.site/">
+<meta name="description" content="Websites their owners own: built by agent teams, then handed over. Every site here is public and live.">
+<meta property="og:title" content="Being built: Sovereign Website Hub: websites their owners own">
+<meta property="og:description" content="Built by agent teams, then handed over. Every site here is public and live.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hub.sovereignweb.site/building/">
+<meta property="og:image" content="https://hub.sovereignweb.site/og.jpg">
+<meta property="og:site_name" content="Sovereign Website Hub">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sovereign Website Hub: websites their owners own, with screenshots of three people's sites">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Being built: Sovereign Website Hub: websites their owners own">
+<meta name="twitter:description" content="Built by agent teams, then handed over. Every site here is public and live.">
+<meta name="twitter:image" content="https://hub.sovereignweb.site/og.jpg">
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg)}
+a{color:inherit}img{display:block;width:100%;height:auto}
+.bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.55rem 1rem;background:var(--bg);border-bottom:1px solid var(--line);font-size:.9rem}
+.brand{font-weight:700;text-decoration:none;white-space:nowrap}
+.chooser summary{list-style:none;cursor:pointer;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.chooser summary::-webkit-details-marker{display:none}.chooser summary::after{content:" \25BE"}
+@media (max-width:40rem){.chooser .dw{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+.chooser[open] summary{background:var(--fill);color:var(--on-fill);border-color:var(--fill)}
+.opts{position:absolute;right:1rem;top:calc(100% + .4rem);width:min(60rem,calc(100vw - 2rem));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;padding:.9rem;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -24px rgba(0,0,0,.45)}
+.opts a{text-decoration:none;font-size:.82rem;border-radius:8px;padding:.3rem;border:2px solid transparent}.opts a[aria-current=true]{border-color:var(--fill)}
+.opts img{border-radius:6px;border:1px solid var(--line);aspect-ratio:16/10;object-fit:cover;object-position:top}.opts span{display:block;margin-top:.35rem}
+@media (max-width:700px){.opts{grid-template-columns:repeat(2,minmax(0,1fr));max-height:75vh;overflow:auto}}
+.skip{position:absolute;left:1rem;top:-3rem;z-index:9;padding:.5rem 1rem;background:var(--fill);color:var(--on-fill);border-radius:8px}.skip:focus{top:.5rem}
+footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+footer a{color:var(--accent)}
+.nw{white-space:nowrap}
+.want a,.how a{text-underline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;min-height:44px;padding:.3rem 1rem;margin:1rem 0;border:1.5px solid currentColor;border-radius:999px;font-weight:650}
+.more>summary::-webkit-details-marker{display:none}.more>summary::after{content:" \25BE";margin-left:.4rem}.more[open]>summary::after{content:" \25B4"}
+/* Phones show two per group and fold the third into "Show all"; wider screens show three. */
+.wide-only,div.phone-only{display:contents}
+@media (min-width:40.01rem){.phone-only{display:none!important}}
+@media (max-width:40rem){.wide-only{display:none!important}}
+.get{max-width:44rem;margin:2.6rem auto 0;padding:1rem 1.2rem;border:2px solid currentColor;border-radius:4px}
+.get h2{margin:0 0 .3rem;font-size:1.3rem}.get p{margin:0}.get a{color:var(--accent);font-weight:650}
+main>.get:last-child{margin-bottom:0}
+.credit{display:block;font-size:.75rem;opacity:.85;margin-top:.25rem}
+.want-btn{display:inline-flex;align-items:center;min-height:48px;margin-top:.8rem;padding:.6rem 1.4rem;background:var(--fill);color:var(--on-fill);border:3px solid var(--fill);font-weight:800;font-size:1.1rem;text-decoration:none}
+.want-btn:hover,.want-btn:focus-visible{background:transparent;color:inherit}
+.get .want-btn{color:var(--on-fill)}.get .want-btn:hover,.get .want-btn:focus-visible{color:inherit}
+/* The case: shared by every design, each restyling it in its own idiom. */
+.case{padding:.4rem 0 .6rem}
+.case h1{font-size:clamp(1.8rem,5vw,3.2rem);line-height:1.04;margin:0 0 1rem;max-width:24ch}
+.kate5{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;grid-template-columns:repeat(5,minmax(0,1fr))}
+.kate5 a{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);background:var(--card)}
+.kate5 img{height:220px;object-fit:cover;object-position:left top}
+.kate5 span{display:block;padding:.3rem .5rem;font-weight:700;font-size:.85rem}
+.kate5 a:hover span,.kate5 a:focus-visible span{text-decoration:underline}
+@media(max-width:40rem){.kate5{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem}.kate5 li{flex:0 0 70%;scroll-snap-align:start}.kate5 img{height:200px}}
+.case-note{margin:.8rem 0 0;max-width:44rem}.case-note a,.can{color:var(--accent);font-weight:600}
+.case-act{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin:.7rem 0 0}.case-act .want-btn{margin-top:0}
+@media(max-width:40rem){.case h1{font-size:1.65rem}.kate5 img{height:170px}.case-note{font-size:.92rem}}
+
+:root{--bg:#fafafa;--fg:#111;--muted:#4a4a4a;--accent:#0040c1;--fill:#111;--on-fill:#fff;--line:#d4d4d4;--card:#fff;--belt:#111;--hi:#ffd60a;--hi-ink:#111;--done:#0b7a43;--focus:#e4002b}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0b0b;--fg:#f2f2f2;--muted:#b8b8b8;--accent:#8fb4ff;--fill:#f2f2f2;--on-fill:#0b0b0b;--line:#2e2e2e;--card:#151515;--belt:#f2f2f2;--hi:#ffd60a;--hi-ink:#111;--done:#4fd18b;--focus:#ff6b81}}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+main{max-width:80rem;margin:0 auto;padding:0 1rem}
+.k{font-weight:800;font-size:.875rem;letter-spacing:.16em;text-transform:uppercase;margin:1.6rem 0 0}
+main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035em;margin:.3rem 0 .8rem;font-weight:900;max-width:14ch}
+.lede{max-width:40rem;font-size:1.1rem}
+.counts{font-weight:700;border-left:4px solid var(--belt);padding-left:.7rem;margin:1rem 0 0;max-width:44rem}
+.line{list-style:none;margin:2.8rem 0;padding:0 0 0 1.3rem;display:grid;gap:0;counter-reset:st}
+@media(min-width:60rem){.line{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}}
+.st{position:relative;padding:1rem 1rem 1.2rem 2.2rem;border-left:4px solid var(--belt);counter-increment:st;min-width:0}
+@media(min-width:60rem){.st{border-left:0;border-top:4px solid var(--belt);padding:2.4rem .8rem 1rem}}
+.st::before{content:counter(st);position:absolute;left:-1.35rem;top:.9rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--bg);border:4px solid var(--belt);display:grid;place-items:center;font-weight:900}
+@media(min-width:60rem){.st::before{left:.8rem;top:-1.35rem}}
+.st h2{font-size:1.1rem;margin:0 0 .6rem;line-height:1.2}
+.st.end{border-color:var(--done)}
+.st.end::before{background:var(--done);color:var(--bg);border-color:var(--done)}
+.here{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.card{display:block;color:var(--fg);text-decoration:none;border:2px solid var(--fg);background:var(--bg);min-width:0}
+.card img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.card img{aspect-ratio:4/3}}
+.card b{display:block;padding:.45rem .6rem 0}
+.card .m{display:block;padding:0 .6rem .5rem;font-size:.9rem;color:var(--muted);overflow-wrap:break-word}
+.card:hover,.card:focus-visible{background:var(--hi);color:var(--hi-ink)}
+.card:hover .m,.card:focus-visible .m{color:var(--hi-ink)}
+.card.big{border-width:3px;border-color:var(--done)}
+.card.big b{font-size:1.2rem}
+.card .tag{display:inline-block;background:var(--hi);color:var(--hi-ink);font-weight:800;font-size:.8rem;padding:.05rem .4rem;margin:0 .6rem .5rem}
+.empty{font-size:.9rem;color:var(--muted);margin:0 0 .6rem}
+.side{border-top:4px solid var(--belt);padding-top:1rem;margin-top:2.4rem;scroll-margin-top:4rem}
+.side h2{font-size:1.4rem;margin:0 0 .4rem}
+.side p{margin:0;max-width:44rem}
+.side .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr));gap:1rem;margin-top:1rem}
+.card.off{border-style:dashed}
+.card.off img{filter:grayscale(1)}
+.side a:not(.card){color:var(--accent)}
+.empty a{color:var(--accent)}
+.st.get-st{border-color:var(--hi)}
+.st.get-st::before{background:var(--hi);color:var(--hi-ink);border-color:var(--hi)}
+.st.get-st .empty{color:var(--fg);font-weight:600}
+.here .more>summary{margin:.2rem 0 .6rem;font-size:.9rem}
+.here .more .here{margin-top:.2rem}
+@media(max-width:40rem){.st{padding-top:.8rem;padding-bottom:.9rem}.side{margin-top:1.8rem}.side p{font-size:.92rem}}
+/* The case: the home page's first screen. */
+.case{padding:1.6rem 0 1rem}
+.case h1{font-size:clamp(1.9rem,5vw,3.6rem);line-height:1.02;letter-spacing:-.03em;font-weight:900;max-width:22ch;margin:0 0 1.2rem}
+.kate5{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;grid-template-columns:repeat(5,minmax(0,1fr))}
+.kate5 a{display:block;text-decoration:none;color:var(--fg);border:2px solid var(--fg);background:var(--bg)}
+.kate5 a:hover,.kate5 a:focus-visible{background:var(--hi);color:var(--hi-ink)}
+.kate5 img{aspect-ratio:16/10;object-fit:cover;object-position:top}
+.kate5 span{display:block;padding:.25rem .5rem;font-weight:700;font-size:.85rem}
+@media(max-width:40rem){.kate5{grid-template-columns:repeat(2,minmax(0,1fr))}.kate5 li:first-child{grid-column:1/-1}}
+.case-note{margin:.8rem 0 0;max-width:44rem}.case-note a{color:var(--accent)}
+.want-btn{display:inline-flex;align-items:center;min-height:48px;margin-top:.9rem;padding:.6rem 1.4rem;background:var(--hi);color:var(--hi-ink);border:3px solid var(--fg);font-weight:900;font-size:1.15rem;text-decoration:none}
+.want-btn:hover,.want-btn:focus-visible{background:var(--fg);color:var(--bg)}
+.case+.lede{margin-top:1.6rem}
+@media(max-width:40rem){
+ .case{padding-top:1rem}.case h1{font-size:1.75rem;margin-bottom:.8rem}
+ .kate5{grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem}.kate5 li:first-child{grid-column:auto}
+ .kate5 img{aspect-ratio:4/5}.kate5 span{font-size:.75rem;padding:.15rem .35rem}
+ .case-note{font-size:.92rem}.want-btn{margin-top:.5rem}
+ .case+.lede{font-size:.92rem;margin-top:1rem}
+}
+@media(max-width:40rem){.kate5 img{aspect-ratio:1/1;object-position:left top}.counts{font-size:.92rem}.line{margin:1.6rem 0}.side{margin-top:1.4rem;padding-top:.7rem}.side h2{font-size:1.25rem}.get{margin-top:1.6rem}}
+@media(max-width:40rem){.st .card:not(.big) picture{display:none}}
+/* What you get */
+.gets{margin:2rem 0 0;border-top:4px solid var(--belt);padding-top:1rem}
+.gets h2{font-size:1.6rem;margin:0 0 .8rem;font-weight:900}
+.gets ol{list-style:none;padding:0;margin:0;display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,14rem),1fr));counter-reset:g}
+.gets li{border:2px solid var(--fg);padding:.8rem;counter-increment:g;background:var(--bg)}
+.gets li::before{content:counter(g);display:inline-grid;place-items:center;width:1.8rem;height:1.8rem;border-radius:50%;background:var(--hi);color:var(--hi-ink);font-weight:900;margin-bottom:.4rem}
+.gets h3{font-size:1.05rem;margin:0 0 .3rem;line-height:1.2}.gets p{margin:0 0 .4rem;font-size:.95rem}
+.gets a{color:var(--accent);font-weight:700}
+.more-q{margin:.8rem 0 0}
+@media(max-width:40rem){.gets li{padding:.6rem .7rem}.gets p{font-size:.9rem}}
+@media(max-width:40rem){.gets ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}.gets li:last-child{grid-column:1/-1}.gets p{display:none}.gets h3{font-size:.95rem}.gets a{font-size:.85rem}.gets li::before{width:1.5rem;height:1.5rem;margin-bottom:.2rem}}
+/* The people: the showroom */
+.people{margin-top:2.4rem;border-top:4px solid var(--belt);padding-top:1rem}
+.people h2{font-size:1.6rem;margin:0 0 .3rem;font-weight:900}
+.pgrid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,13rem),1fr));margin-top:.8rem}
+.pcard{display:block;text-decoration:none;color:var(--fg);border:2px solid var(--fg);background:var(--bg)}
+.pcard img{aspect-ratio:4/3;object-fit:cover;object-position:top}
+.pcard b{display:block;padding:.45rem .6rem 0}.pcard span{display:block;padding:0 .6rem .55rem;font-size:.9rem;color:var(--muted)}
+.pcard:hover,.pcard:focus-visible{background:var(--hi);color:var(--hi-ink)}.pcard:hover span,.pcard:focus-visible span{color:var(--hi-ink)}
+.to-more{margin-top:1rem;font-weight:700}.to-more a,.lede a{color:var(--accent)}
+@media(max-width:40rem){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}.pcard img{aspect-ratio:1/1}.pcard span{font-size:.8rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+.pcard img{object-position:left top}.pcard span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.get .want-btn{color:var(--hi-ink)}.get .want-btn:hover,.get .want-btn:focus-visible{color:var(--bg)}
+/* Kate's five designs, large enough to read as five real designs */
+.kate5 img{aspect-ratio:auto;height:260px;object-fit:cover;object-position:left top}
+.kate5 span{font-size:.9rem}
+@media(max-width:40rem){
+ .kate5{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:.6rem;padding-bottom:.4rem;-webkit-overflow-scrolling:touch}
+ .kate5 li{flex:0 0 70%;scroll-snap-align:start}
+ .kate5 img{height:220px;aspect-ratio:auto}
+ .kate5 span{font-size:.85rem}
+}
+.case-act{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem}.case-act .want-btn{margin-top:0}
+.can{color:var(--accent);font-weight:700}
+.how-line{margin-top:2.4rem;border-top:4px solid var(--belt);padding-top:1rem}
+.how-line h2{font-size:1.6rem;margin:0 0 .3rem;font-weight:900}
+.one-line{margin:0 0 .4rem;color:var(--muted);max-width:52rem}
+.how-line .line{margin-top:2.2rem}
+/* Own it, do not rent it */
+.rent{margin-top:2.4rem;border-top:4px solid var(--belt);padding-top:1rem}
+.rent h2{font-size:1.6rem;margin:0 0 .3rem;font-weight:900}.rent>p{max-width:52rem}
+.rent table{width:100%;border-collapse:collapse;margin-top:.8rem;font-size:.95rem}
+.rent th,.rent td{text-align:left;vertical-align:top;padding:.55rem .6rem;border-bottom:2px solid var(--line)}
+.rent thead th{border-bottom:3px solid var(--fg);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+.rent .ours th,.rent .ours td{background:var(--hi);color:var(--hi-ink);font-weight:700}.rent .ours a{color:var(--hi-ink)}
+.rent a{color:var(--accent)}.blank{color:var(--muted);font-style:italic}
+.honest{font-size:.9rem;color:var(--muted)}
+@media(max-width:46rem){
+ .rent table,.rent tbody,.rent tr,.rent th,.rent td{display:block}.rent thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+ .rent tr{border:2px solid var(--fg);margin-bottom:.6rem}.rent th[scope=row]{font-size:1.05rem;border-bottom:2px solid var(--line)}
+ .rent td{border-bottom:0;padding:.3rem .6rem}.rent td::before{content:attr(data-h);display:block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+ .rent .ours td::before{color:var(--hi-ink)}
+}
+.who{margin:.9rem 0 0;max-width:52rem}.who a{color:var(--accent)}
+.range{font-weight:700;max-width:52rem}
+.bgroup{margin-top:2rem;border-top:4px solid var(--belt);padding-top:.8rem}.bgroup h2{font-size:1.3rem;margin:0 0 .6rem}
+.blist{list-style:none;padding:0;margin:0;display:grid;gap:.7rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.blist li{border:2px solid var(--fg);padding:.6rem .8rem;background:var(--bg)}
+.blist li.b-coming{border-style:dashed}
+.blist b{font-size:1.05rem}.blist b a{color:var(--fg)}
+.blist .badge{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;border:2px solid currentColor;padding:0 .35rem;margin-left:.2rem}
+.blist .host{display:block;font-size:.85rem;color:var(--muted);margin-top:.2rem}
+.blist .what{display:block;font-size:.92rem;margin-top:.3rem}
+
+.family{--fam-fg:var(--family-fg,#454545);--fam-strong:var(--family-fg-strong,#111);font-size:.875rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
+@media (prefers-color-scheme:dark){.family{--fam-fg:var(--family-fg,#cfcfcf);--fam-strong:var(--family-fg-strong,#fff)}}
+.family ul{list-style:none;margin:0 auto;padding:.1rem 1rem;display:flex;flex-wrap:wrap;gap:0 1rem;max-width:72rem}
+.family .family-narrow{display:none}
+.family a{color:var(--fam-fg);text-decoration:none;display:inline-block;padding:.2rem 0;min-height:24px}
+.family a:hover,.family a:focus-visible{color:var(--fam-strong);text-decoration:underline}
+.family a[aria-current="true"]{color:var(--fam-strong);font-weight:600}
+.family .family-sep{margin-left:auto}
+/* Phones: the same links folded into one line (a details/summary), instead of three wrapped lines above the
+   site's own header. Two copies in the markup, one shown per width: CSS only, so no script and no CSP issue. */
+@media (max-width:40rem){
+  .family .family-wide{display:none}
+  .family .family-narrow{display:block}
+  .family summary{cursor:pointer;padding:.3rem 1rem;min-height:24px;color:var(--fam-fg)}
+  .family summary:hover,.family summary:focus-visible{color:var(--fam-strong)}
+  .family .family-narrow ul{flex-direction:column;gap:0;padding:0 1rem .4rem}
+  .family .family-sep{margin-left:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the sites</a>
+<nav class="family" aria-label="The Sovereign Website family">
+  <ul class="family-wide">
+    <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+    <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+    <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+    <li><a href="https://hub.sovereignweb.site/" aria-current="true">Hub</a></li>
+    <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+    <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+    <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+    <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+    <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+  </ul>
+  <details class="family-narrow">
+    <summary>Sovereign Website family</summary>
+    <ul>
+      <li><a href="https://sovereignwebsite.ai/">Sovereign Website</a></li>
+      <li><a href="https://sovereignwebsite.org/">Principles</a></li>
+      <li><a href="https://sovereignwebsite.site/">Hosted</a></li>
+      <li><a href="https://hub.sovereignweb.site/" aria-current="true">Hub</a></li>
+      <li><a href="https://agents.sovereignweb.site/">Agents</a></li>
+      <li><a href="https://vault.sovereignwebsite.site/">Vault</a></li>
+      <li class="family-sep"><a href="https://agenticcells.ai/">AgentiCCells</a></li>
+      <li><a href="https://riskmandate.ai/">RiskMandate</a></li>
+      <li><a href="https://newsroom.sgit.ai/">Newsroom</a></li>
+    </ul>
+  </details>
+</nav>
+<header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
+<details class="chooser"><summary>Five designs</summary><nav class="opts" aria-label="Designs of this page"><a href="/"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Line (home)</span></a><a href="/register/"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/gallery/"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. The Gallery</span></a><a href="/contact-sheet/"><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. Contact Sheet</span></a><a href="/street/"><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. The Street</span></a><a href="/designs/" aria-current="page"><span>All five, side by side</span></a></nav></details></header>
+<main id="main">
+<p class="k">From the factory floor</p><h1>Being built, and coming</h1>
+<p class="lede">25 sites are live but not finished, and 4 are requested and not live yet. They join the showroom when they are done. From <a href="https://sites.agents.sovereignweb.site/register/">sites.b's register</a>, checked 2026-11-23; the list is <a href="/building.json">building.json</a>.</p>
+<section class="bgroup" aria-labelledby="b-s-people"><h2 id="b-s-people">People</h2><ul class="blist"><li class="b-building"><b><a href="https://donna-freed.author.sovereignweb.site/">Donna Freed</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">donna-freed.</span><wbr><span class="nw">author.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Writer and translator. Her books, her writing and her podcast.</span></li><li class="b-building"><b><a href="https://south-beacon.talent.sovereignweb.site/">South Beacon</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">south-beacon.</span><wbr><span class="nw">talent.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">An anonymised profile of a senior technology and security leader. Introductions through the talent agent.</span></li><li class="b-coming"><b>Dinis Cruz</b> <span class="badge">Coming</span><span class="host"><span class="nw">dinis-cruz.</span><wbr><span class="nw">cv.</span><wbr><span class="nw">sovereignweb.site</span></span></li></ul></section><section class="bgroup" aria-labelledby="b-s-platforms"><h2 id="b-s-platforms">Platforms</h2><ul class="blist"><li class="b-building"><b><a href="https://aws.platform.sovereignweb.site/">AWS Platform Sovereign Website</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">aws.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Run your AWS accounts from your own browser: sign in with Google, one-hour credentials, read-only by default, and every change a plan you approve. An unofficial site, not made or endorsed by Amazon Web Services.</span></li><li class="b-building"><b><a href="https://github.platform.sovereignweb.site/">GitHub</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">github.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Manage your GitHub access and repositories from your own browser: who can reach what, and what changed. An unofficial site, not made or endorsed by GitHub.</span></li><li class="b-building"><b><a href="https://instagram.platform.sovereignweb.site/">Instagram</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">instagram.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Instagram agent of the Sovereign Website team: what it is, its mandate, the roles around it and what it has done, post by post. Unofficial, not made or endorsed by Instagram or Meta.</span></li><li class="b-building"><b><a href="https://odoo.platform.sovereignweb.site/">Odoo</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">odoo.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">What Odoo offers and how to use it, from its public material. An unofficial site, not made or endorsed by Odoo.</span></li><li class="b-building"><b><a href="https://openrouter.platform.sovereignweb.site/">OpenRouter</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">openrouter.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">What OpenRouter offers and how to use it, from its public material. An unofficial site, not made or endorsed by OpenRouter.</span></li><li class="b-building"><b><a href="https://owasp.platform.sovereignweb.site/">OWASP</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">owasp.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">What OWASP offers and how to use it, from its public material. An unofficial site, not made or endorsed by OWASP.</span></li><li class="b-building"><b><a href="https://wikipedia.platform.sovereignweb.site/">Wikipedia</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">wikipedia.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">What Wikipedia offers and how to use it, from its public material. An unofficial site, not made or endorsed by Wikipedia.</span></li><li class="b-building"><b><a href="https://youtube.platform.sovereignweb.site/">YouTube</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">youtube.</span><wbr><span class="nw">platform.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Manage, monitor and publish to your YouTube channel from your own browser, with YouTube&#x27;s official API. An unofficial site, not made or endorsed by YouTube or Google.</span></li></ul></section><section class="bgroup" aria-labelledby="b-s-tools"><h2 id="b-s-tools">Tools</h2><ul class="blist"><li class="b-building"><b><a href="https://dns.tool.sovereignweb.site/">DNS</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">dns.</span><wbr><span class="nw">tool.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Check a name&#x27;s DNS records from resolvers and regions around the world, in your browser, without ads or tracking.</span></li><li class="b-building"><b><a href="https://streaming.tool.sovereignweb.site/">Streaming</a></b> <span class="badge">Being built</span> <span class="badge">Five designs</span><span class="host"><span class="nw">streaming.</span><wbr><span class="nw">tool.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Your own watchlist, notes and preferences for streaming in the UK and Portugal. Kept in your browser, no account.</span></li><li class="b-building"><b><a href="https://wordpress.tool.sovereignweb.site/">WordPress</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">wordpress.</span><wbr><span class="nw">tool.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">What any WordPress site can give you, as data you can use. For owners and users.</span></li><li class="b-coming"><b>Pybot</b> <span class="badge">Coming</span><span class="host"><span class="nw">pybot.</span><wbr><span class="nw">tool.</span><wbr><span class="nw">sovereignweb.site</span></span></li></ul></section><section class="bgroup" aria-labelledby="b-s-guides"><h2 id="b-s-guides">Guides</h2><ul class="blist"><li class="b-building"><b><a href="https://wardley-maps.frameworks.sovereignweb.site/">Wardley Maps</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">wardley-maps.</span><wbr><span class="nw">frameworks.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">Wardley Maps explained: the tools past and present, an editor and player, and narrated animations. An unofficial site, not made or endorsed by Simon Wardley.</span></li></ul></section><section class="bgroup" aria-labelledby="b-s-demos"><h2 id="b-s-demos">Demos</h2><ul class="blist"><li class="b-coming"><b>Weather Demo</b> <span class="badge">Coming</span><span class="host"><span class="nw">weather-demo.</span><wbr><span class="nw">demo.</span><wbr><span class="nw">sovereignweb.site</span></span></li></ul></section><section class="bgroup" aria-labelledby="b-s-agents-own-sites"><h2 id="b-s-agents-own-sites">Agents&#x27; own sites</h2><ul class="blist"><li class="b-building"><b><a href="https://cartographer.agents.sovereignweb.site/">Cartographer</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">cartographer.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Cartographer agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No cartographer agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://counsel.agents.sovereignweb.site/">Counsel</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">counsel.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Counsel agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No counsel agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://decisions.agents.sovereignweb.site/">Decisions</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">decisions.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Decisions agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No decisions agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://helm.agents.sovereignweb.site/">Helm</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">helm.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Helm agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No helm agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://holacracy.agents.sovereignweb.site/">Holacracy</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">holacracy.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Holacracy agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No holacracy agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://landscape.agents.sovereignweb.site/">Landscape</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">landscape.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Landscape agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No landscape agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://maestro.agents.sovereignweb.site/">Maestro</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">maestro.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Maestro agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No maestro agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://sherpa.agents.sovereignweb.site/">Sherpa</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">sherpa.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Sherpa agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No sherpa agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://slides.agents.sovereignweb.site/">Slides</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">slides.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Slides agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No slides agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://strategy.agents.sovereignweb.site/">Strategy</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">strategy.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Strategy agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No strategy agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-building"><b><a href="https://studio.agents.sovereignweb.site/">Studio</a></b> <span class="badge">Being built</span><span class="host"><span class="nw">studio.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span><span class="what">The Studio agents&#x27; own site: their pages and published keys, each account&#x27;s pages under /accounts/&lt;x&gt;/. No studio agent has a key in the Factory&#x27;s team/keys.json yet.</span></li><li class="b-coming"><b>Agents</b> <span class="badge">Coming</span><span class="host"><span class="nw">agents.</span><wbr><span class="nw">agents.</span><wbr><span class="nw">sovereignweb.site</span></span></li></ul></section>
+<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2><p>Every site here began with one request and was handed over to its owner. <a href="/start/#get-one">Start here: how to get a site like these</a>.</p><p><a class="want-btn" href="/start/#get-one">I want one</a></p></section>
+</main>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/designs/">The five designs</a> · <a href="/features/">What it can do</a> · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. Finished sites are on <a href="/">the home page</a> and <a href="/more/">/more/</a>.</footer>
+<script>document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var c=document.querySelector('.chooser');if(c)c.open=false;}});</script>
+</body>
+</html>
