@@ -1,7 +1,7 @@
 {
   "about": "Sites being built and sites coming, from sites.b's register. Building: live, not finished, not yet in the showroom. Coming: requested, not live yet. Private (vault) sites are never listed; sites still on the Factory's seed page are left out.",
   "checked": "2026-11-23",
-  "checked_at": "2026-11-23T16:19Z",
+  "checked_at": "2026-11-23T17:05Z",
   "source": "https://sites.agents.sovereignweb.site/register/",
   "sites": [
     {
@@ -154,7 +154,7 @@
       "host": "car-buyer.tool.sovereignweb.site",
       "name": "Car buyer: a toolkit for buying a used car in the UK",
       "summary": "A checklist, the official checks (DVLA, DVSA MOT history, TfL, recalls) and an ownership cost sheet for buying a used car in the UK. Your notes stay in your browser.",
-      "five_designs": false
+      "five_designs": true
     },
     {
       "state": "building",
@@ -162,6 +162,14 @@
       "host": "suno.platform.sovereignweb.site",
       "name": "Suno, our songs (unofficial)",
       "summary": "Our songs made with Suno, played through Suno's own player: vote for favourites, and see which move from experiments to pre-release. Not affiliated with Suno.",
+      "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Demos",
+      "host": "wordpress-section.demo.sovereignweb.site",
+      "name": "A section fed from WordPress (demo)",
+      "summary": "A demonstration: one section of a sovereign website fed from WordPress. One design so far; kept by sites.b.",
       "five_designs": false
     }
   ]
