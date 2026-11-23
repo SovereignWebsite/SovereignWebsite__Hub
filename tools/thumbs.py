@@ -29,4 +29,14 @@ for p in sorted(SHOTS.glob('*.jpg')):
         small = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
         small.save(out, quality=q, optimize=True, progressive=True) if ext == 'jpg' else small.save(out, quality=q, method=6)
         n += 1
+# Portrait crops for lead entries (tools/showroom/crops.json), for phones.
+import json
+for slug, c in json.loads((SHOTS.parent.parent / 'tools' / 'showroom' / 'crops.json').read_text()).items():
+    src = SHOTS / f'{slug}.jpg'
+    if not isinstance(c, dict) or not src.exists():
+        continue
+    part = Image.open(src).convert('RGB').crop(tuple(c['box']))
+    part.save(SHOTS / f'{slug}-portrait.jpg', quality=80, optimize=True, progressive=True)
+    part.save(SHOTS / f'{slug}-portrait.webp', quality=74, method=6)
+    n += 2
 print(f'thumbs: {n} made')

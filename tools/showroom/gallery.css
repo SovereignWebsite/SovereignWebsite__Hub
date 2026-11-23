@@ -52,3 +52,8 @@ footer{max-width:80rem}
 @media(max-width:40rem){.wall:not(.lead-wall){padding-top:1.4rem;gap:1.8rem}.wall:not(.lead-wall) .frame::before{display:none}.wall:not(.lead-wall) .piece{gap:.7rem}.room-intro{margin-top:.2rem}.more>summary{margin:.6rem 0}}
 @media(max-width:40rem){.wall:not(.lead-wall) .label .sum{-webkit-line-clamp:1}.wall:not(.lead-wall) .label .tags{margin-top:.3rem}.room{font-size:1.4rem}}
 @media(max-width:40rem){.room{margin-top:1.1rem;padding-top:.9rem}.lead-wall{padding-top:2rem}.how{margin-top:2rem}}
+.intro .lede{max-width:40rem;margin:.6rem auto 0;color:var(--muted)}.intro .lede .tally{display:block;color:var(--fg);margin-top:.2rem}
+@media(max-width:40rem){.intro .lede{font-size:.92rem}}
+.hero .spot .credit{text-align:center;color:var(--muted)}
+@media(max-width:40rem){.intro .lede{font-size:.88rem}.about{margin-top:.6rem}.room-intro{font-size:.88rem}.wall:not(.lead-wall){gap:1.6rem}}
+@media(max-width:40rem){.room-intro{margin-bottom:0}.room small{font-size:.8rem}.how{margin-top:1.4rem;font-size:.88rem}}

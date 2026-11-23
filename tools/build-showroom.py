@@ -100,14 +100,24 @@ def waiting_line(s):
     return w if w.lower().startswith('not switched on yet') else 'Not switched on yet: ' + w[:1].lower() + w[1:]
 
 
-def pic(s, eager=False, sizes='(min-width:52rem) 40vw, 100vw', alt=''):
+CROPS = json.loads((CSS / 'crops.json').read_text())
+
+
+def credit(s):
+    c = CROPS.get(s['slug'])
+    return f'<span class="credit">{e(c["credit"])}</span>' if isinstance(c, dict) and c.get('credit') and (SITE / 'shots' / f'{s["slug"]}-portrait.jpg').exists() else ''
+
+
+def pic(s, eager=False, sizes='(min-width:52rem) 40vw, 100vw', alt='', lead=False):
     # Phones get the phone crop; wider screens a 480 or 960 WebP (JPEG 640 or 1280 where WebP is not supported).
     sh = s.get('shot')
     if not sh:
         return ''
     lazy = '' if eager else ' loading="lazy" decoding="async"'
-    return (f'<picture><source media="(max-width:40rem)" type="image/webp" srcset="/{e(sh)}-phone.webp">'
-            f'<source media="(max-width:40rem)" srcset="/{e(sh)}-phone.jpg">'
+    # A lead entry with a portrait crop shows the person on a phone, not their site's menu bar.
+    phone = f'{sh}-portrait' if lead and credit(s) else f'{sh}-phone'
+    return (f'<picture><source media="(max-width:40rem)" type="image/webp" srcset="/{e(phone)}.webp">'
+            f'<source media="(max-width:40rem)" srcset="/{e(phone)}.jpg">'
             f'<source type="image/webp" srcset="/{e(sh)}-480.webp 480w, /{e(sh)}-960.webp 960w" sizes="{sizes}">'
             f'<img src="/{e(sh)}-640.jpg" srcset="/{e(sh)}-640.jpg 640w, /{e(sh)}.jpg 1280w" sizes="{sizes}" width="1280" height="800" alt="{e(alt)}"{lazy}></picture>')
 
@@ -198,7 +208,7 @@ def entry(s, is_lead=False):
     seal = '<span class="seal" aria-hidden="true">Handed<br>over</span>' if s.get('handed_over') else ''
     hid = 't-' + s['slug']
     hn = 'h2' if is_lead else 'h3'
-    return (f'<article class="{cls}" aria-labelledby="{hid}"><div class="shot">{seal}{pic(s, is_lead, "(min-width:46rem) 22rem, 7rem" if is_lead else "(min-width:46rem) 15rem, 7rem")}</div>'
+    return (f'<article class="{cls}" aria-labelledby="{hid}"><div class="shot">{seal}{pic(s, is_lead, "(min-width:46rem) 22rem, 7rem" if is_lead else "(min-width:46rem) 15rem, 7rem", lead=is_lead)}{credit(s) if is_lead else ""}</div>'
             f'<div class="meta"><p class="no">Entry {entry_no[s["slug"]]:02d}</p><{hn} id="{hid}"><a href="{e(s["address"]["url"])}">{e(s["name"])}</a></{hn}>'
             f'<p class="sum">{e(s["summary"])}</p>'
             f'<details class="deed"{" open" if is_lead else ""}><summary>The register entry</summary>{deed(s)}</details>'
@@ -246,8 +256,9 @@ def entries(n, k):
 
 register_main = f'''<main id="main">
 <section class="cover" aria-labelledby="r-h"><p class="k">The register of title</p><h1 id="r-h">Websites their owners own.</h1>
+<p class="lede">{e(ABOUT)} <span class="tally">{e(COUNTS)}</span></p>
 {entry(lead, True)}
-<div class="about"><p>{e(ABOUT)}</p><p class="tally">{e(COUNTS)}</p><p class="want">{WANT}</p>
+<div class="about"><p class="want">{WANT}</p>
 <nav aria-label="Parts of the register"><ul class="parts">{''.join(f'<li><a href="#{sid(n)}">Part {PARTS[k]}: {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></section>
 {chr(10).join(f"""<section class="part" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 id="h-{sid(n)}"><span>Part {PARTS[k]}: {e(n)}</span><small>{len(by_section[n])} {'entry' if len(by_section[n]) == 1 else 'entries'}{', Entry 01 above' if lead in by_section[n] else ''}</small></h2>
 <p class="intro">{e(intro)}</p>
@@ -271,15 +282,16 @@ def piece(s, is_lead=False):
     cls = 'piece' + (' hero' if is_lead else '') + (' waiting' if s.get('waiting') else '')
     acq = s['note'] if s.get('handed_over') and s.get('note') else waiting_line(s) if s.get('waiting') else 'Live, open to visit.'
     tags = ''.join(f'<span>{e(x)}</span>' for x in (['Handed over'] if s.get('handed_over') else []) + s.get('chips', []))
-    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><span class="spot"><span class="frame">{pic(s, is_lead, "(min-width:52rem) 62rem, 100vw" if is_lead else "(min-width:52rem) 38rem, 100vw")}</span></span>'
+    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><span class="spot"><span class="frame">{pic(s, is_lead, "(min-width:52rem) 62rem, 100vw" if is_lead else "(min-width:52rem) 38rem, 100vw", lead=is_lead)}</span>{credit(s) if is_lead else ""}</span>'
             f'<span class="label"><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span><span class="sum">{e(s["summary"])}</span>'
             f'<span class="acq">{e(acq)}</span>' + (f'<span class="tags">{tags}</span>' if tags else '') + '</span></a>')
 
 
 page('gallery/', 'The Gallery', css('gallery'), f'''<main id="main">
 <section class="intro" aria-labelledby="g-h"><p class="k">The showroom</p><h1 id="g-h">Websites their owners own.</h1>
+<p class="lede">{e(ABOUT)} <span class="tally">{e(COUNTS)}</span></p>
 <div class="wall lead-wall">{piece(lead, True)}</div>
-<div class="about"><p class="s">{e(ABOUT)}</p><p class="tally">{e(COUNTS)}</p><p class="want">{WANT}</p>
+<div class="about"><p class="want">{WANT}</p>
 <nav aria-label="Rooms"><ul class="rooms">{''.join(f'<li><a href="#g-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></section>
 {chr(10).join(f"""<section aria-labelledby="g-{sid(n)}"><h2 class="room" id="g-{sid(n)}"><small>Room {ROOMS[k]}</small>{e(n)}</h2>
 <p class="room-intro">{e(intro)}</p>
@@ -295,10 +307,10 @@ def frame_of(s, eager):
     cross = '<span class="cross" aria-hidden="true"></span>' if s.get('waiting') else ''
     mark = '<span class="mark">Handed over</span>' if s.get('handed_over') else '<span class="mark">Not switched on yet</span>' if s.get('waiting') else ''
     chip = ' · '.join(s.get('chips', []))
-    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><figure><span class="pic">{pic(s, eager, "(min-width:40rem) 20rem, 100vw")}{cross}</span>'
+    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><figure><span class="pic">{pic(s, eager, "(min-width:40rem) 20rem, 100vw", lead=s is lead)}{cross}</span>'
             f'<span class="rebate"><span class="num">{entry_no[s["slug"]]:02d}A</span>{mark}</span>'
             f'<figcaption><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])} · {soft(host_of(s))}</span>'
-            + (f'<br><span class="chip">{e(chip)}</span>' if chip else '') + '</figcaption></figure></a>')
+            + (f'<br><span class="chip">{e(chip)}</span>' if chip else '') + (credit(s) if s is lead else '') + '</figcaption></figure></a>')
 
 
 page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main">
@@ -318,7 +330,7 @@ def shop(s, is_lead=False):
     boards = (['<span class="board">Handed over</span>'] if s.get('handed_over') else []) + [f'<span class="board alt">{e(x)}</span>' for x in s.get('chips', [])]
     words = waiting_line(s) if s.get('waiting') else s['summary']
     return (f'<a class="shop{" shut" if s.get("waiting") else ""}{" lead" if is_lead else ""}" href="{e(s["address"]["url"])}"><span class="sign">{soft(host_of(s))}</span>'
-            f'<span class="awning" aria-hidden="true"></span><span class="front"><span class="window">{pic(s, is_lead, "(min-width:52rem) 26rem, 100vw")}</span>'
+            f'<span class="awning" aria-hidden="true"></span><span class="front"><span class="window">{pic(s, is_lead, "(min-width:52rem) 26rem, 100vw", lead=is_lead)}</span>{credit(s) if is_lead else ""}'
             f'<span class="plate"><b>{e(s["name"])}</b><span>{e(s.get("group") or s["kind"])}. {e(words)}</span></span>'
             + (f'<span>{"".join(boards)}</span>' if boards else '')
             + f'<span class="door">{"Not switched on yet" if s.get("waiting") else "Walk in &rarr;"}</span></span></a>')
@@ -326,7 +338,8 @@ def shop(s, is_lead=False):
 
 page('street/', 'The Street', css('street'), f'''<main id="main">
 <section class="sky" aria-labelledby="st-h"><div><p class="k">The showroom</p><h1 id="st-h">Websites their owners own.</h1>
-<div class="lead-row">{shop(lead, True)}<div class="about"><p>{e(ABOUT)}</p><p class="want">{WANT}</p>
+<p class="lede">{e(ABOUT)}</p>
+<div class="lead-row">{shop(lead, True)}<div class="about"><p class="want">{WANT}</p>
 <nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></div></section>
 <section class="road" aria-label="On this street"><p>{e(COUNTS)}</p></section>
 {chr(10).join(f"""<section class="street" id="st-{sid(n)}" aria-labelledby="st-h-{sid(n)}"><h2 id="st-h-{sid(n)}">{e(n)}</h2><p class="sub">{e(intro)}</p>
@@ -342,7 +355,7 @@ def lcard(s, eager, img=True, big=False):
     line2 = e(waiting_line(s)) if s.get('waiting') else soft(host_of(s))
     tags = ''.join(f'<span class="tag">{e(x)}</span>' for x in s.get('chips', []))
     cls = 'card' + (' big' if big else '') + (' off' if s.get('waiting') else '')
-    return (f'<a class="{cls}" href="{e(s["address"]["url"])}">{pic(s, eager, "(min-width:60rem) 15rem, 100vw") if img else ""}<b>{e(s["name"])}</b>'
+    return (f'<a class="{cls}" href="{e(s["address"]["url"])}">{pic(s, eager, "(min-width:60rem) 15rem, 100vw", lead=big) if img else ""}{credit(s) if big else ""}<b>{e(s["name"])}</b>'
             f'<span class="m">{line2}</span>' + (f'<span>{tags}</span>' if tags else '') + '</a>')
 
 
