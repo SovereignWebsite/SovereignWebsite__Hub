@@ -83,6 +83,10 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
    - Still to do:
      - readability: the Register's HANDED OVER stamp covers its sentence, the Contact Sheet's red ring crosses "01A", and the Gallery's body text is thin and pale;
      - on the Register, Gallery and Contact Sheet, add the own-versus-rent table and one example that is not an artist or a startup.
-3. **Each design tells the case in its own way.** This was held until The Line kept 4 of 5 a second time, which it did in round 11. It can start once round 12 confirms on v0.1.57.
+3. **Each design tells the case in its own way.** This was held until The Line kept 4 of 5 a second time, which it did in round 11. It can start now (design.b, round 11).
+   - Do one design per tag, and design.b.rounds judges each.
+   - Start with the Contact Sheet: a contact sheet of real sites, with "yours" as the empty frame.
+   - Then the Register, then the Gallery.
+   - Each tells the case in its own form, not the Line's screen restyled.
 4. **The operator page:** add "Decisions, open and acted" once decisions.b publishes its list; ask decisions.b for the format.
 5. **Wakes:** Dinis creates the scheduled task (hub.b every 2 hours, ending before 22:00 UTC; ask 24).
