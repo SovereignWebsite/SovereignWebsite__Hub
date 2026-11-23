@@ -71,7 +71,7 @@ names = [d[1] for d in DESIGNS]
 # The same words in every design.
 COUNTS = (f"{working} sites working, {people_working} of them people's own; {handed} handed over to its owner so far."
           + (f" Plus {waiting} not switched on yet." if waiting else ''))
-ABOUT = 'Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public; open one to see it working.'
+ABOUT = 'Built by agent teams, then handed over: the owner keeps the files and the history, and the address too with their own domain. Every site here is public; open one to see it working.'
 # There is no request form yet; say so, and point to how it works.
 WANT = ('Want one? It starts with one request. There is no request form yet: '
         '<a href="/start/#get-one">here is how to start</a>.')
@@ -215,7 +215,7 @@ def own_rent():
     rows = ''.join(f'<tr><th scope="row">{e(n)}</th><td data-h="Who holds the files">{e(f) or "<span class=blank>Not stated</span>"}</td>'
                    f'<td data-h="Can you leave with the site">{e(l)}</td><td data-h="Price a month">{e(p) or "<span class=blank>No price found</span>"}</td>'
                    f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
-    ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "The files, the history and the address are yours"</td>'
+    ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "the files and the history are yours, and so is the address if you bring your own domain"</td>'
             '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
             '<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Ask us</a> for the price</td>'
             '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
@@ -472,7 +472,7 @@ def station(i, title, here, note):
 
 # What you get: five items, each with a live example (design.b's hub-sells brief, item 2).
 GETS = [
-    ('A site about you, at its own address', 'Your work, your story and how to reach you, made from your CV, photos and links.', "Emily Cruz's site", 'https://emily-cruz.artist.sovereignweb.site/'),
+    ('A site about you, at an address you can make your own', 'Your work, your story and how to reach you, made from your CV, photos and links.', "Emily Cruz's site", 'https://emily-cruz.artist.sovereignweb.site/'),
     ('Five designs to choose from', 'Five real ideas of the same site; you keep the one you like.', "Kate's five designs", KATE + 'designs/index.html'),
     ('Your files, on your own GitHub', 'Plain files you hold and can move to any host. No platform subscription.', "Kate's repository", 'https://github.com/SovereignWebsite/Site__Founder__Kate-Curtis-Evans'),
     ('Changes by talking to your AI', 'Tell your AI what to change; the site says how, for you and for it.', "Kate's \"Use with your AI\"", KATE + 'agents/'),

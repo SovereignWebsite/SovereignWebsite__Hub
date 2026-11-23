@@ -1,6 +1,6 @@
 # Sovereign Website Hub
 
-> The showroom of public sovereign websites: sites built by agent teams and handed over to the people they are for, who keep the files, the history and the address. Every site listed is public and live.
+> The showroom of public sovereign websites: sites built by agent teams and handed over to the people they are for, who keep the files and the history, and the address too with their own domain. Every site listed is public and live.
 
 This file is for AI agents and the people using them. The site is https://hub.sovereignweb.site/, static files in the public repository https://github.com/SovereignWebsite/SovereignWebsite__Hub (served from site/ on the dev branch). Pick the section that matches who you are acting for, read it in full, then follow it.
 
