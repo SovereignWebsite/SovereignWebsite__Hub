@@ -42,3 +42,11 @@ footer{max-width:80rem}
  :root{--bg:#f1efe9;--fg:#141414;--muted:#3f3f3c;--accent:#8a4b00;--fill:#141414;--on-fill:#fff;--line:#c9c6bd;--card:#fff;--edge:#8a4b00;--family-fg:#3f3f3c;--family-fg-strong:#000}
  .sheet{--fg:#f2f2f0;--muted:#c4c4c0;--edge:#ffb000;color:var(--fg)}
 }
+.head{grid-template-columns:minmax(0,1fr)!important}
+.head-case .case h1{font-weight:800;letter-spacing:-.03em}
+.head-case .kate5{background:#050505;padding:14px 10px}.head-case .kate5 a{border:0;background:transparent;color:#f2f2f0}.head-case .kate5 span{font-family:ui-monospace,Menlo,Consolas,monospace;color:#ffb000;font-weight:700}
+.head-case .case-note a,.head-case .can{color:var(--edge)}
+@media(max-width:40rem){.about-p{display:none}}
+@media(max-width:40rem){.counts{font-size:.82rem}.rolls{font-size:.78rem;margin-top:.5rem}.head{padding:1rem 0 .8rem}}
+@media(max-width:40rem){.sheet{margin:.8rem 0}.frame{padding:8px 10px}figcaption{font-size:.88rem}.strip{padding:18px 0}.head-case .kate5{padding:10px 8px}}
+.head-case .case h1{margin-bottom:1.3rem;line-height:1.02}

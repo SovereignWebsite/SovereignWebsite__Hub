@@ -195,6 +195,28 @@ def design_note(d):
     return f'Design {d} of 5, {names[d - 1]}' + ('; the lead design is <a href="/">The Line</a>.' if d != 1 else ', the lead design. <a href="/designs/">See all five</a>.')
 
 
+# The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
+KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
+
+
+KATE_DESIGNS = ['The Transcript', 'The Edit Window', 'The Workflow Board', 'Foundations', 'The Brief']  # titles of her designs/1 to 5
+KATE_CHOICE = 3  # her home page
+
+
+def case():
+    items = []
+    for d in range(1, 6):
+        lazy = '' if d < 3 else ' loading="lazy"'
+        items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
+                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site, {KATE_DESIGNS[d - 1]}"{lazy}></picture>'
+                     f'<span>{d} {KATE_DESIGNS[d - 1]}{" (her choice)" if d == KATE_CHOICE else ""}</span></a></li>')
+    return ('<section class="case" aria-labelledby="case-h">\n'
+            '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
+            f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
+            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
+
+
 # ---- 1 The Register (home page) ----
 def deed(s):
     rows = [('Address', f'<a href="{e(s["address"]["url"])}">{soft(host_of(s))}</a>'), ('Kind', e(s.get('group') or s['kind']))]
@@ -284,11 +306,11 @@ def entries(n, k):
 
 
 register_main = f'''<main id="main">
-<section class="cover" aria-labelledby="r-h"><p class="k">The register of title</p><h1 id="r-h">Websites their owners own.</h1>
+<div class="cover"><p class="k">The register of title</p>{case()}
 <p class="lede">{e(ABOUT)} <span class="tally">{e(COUNTS)}</span></p>
 {entry(lead, True)}
 <div class="about"><p class="want">{WANT}</p>
-<nav aria-label="Parts of the register"><ul class="parts">{''.join(f'<li><a href="#{sid(n)}">Part {PARTS[k]}: {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></section>
+<nav aria-label="Parts of the register"><ul class="parts">{''.join(f'<li><a href="#{sid(n)}">Part {PARTS[k]}: {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></div>
 {chr(10).join(f"""<section class="part" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 id="h-{sid(n)}"><span>Part {PARTS[k]}: {e(n)}</span><small>{len(by_section[n])} {'entry' if len(by_section[n]) == 1 else 'entries'}{', Entry 01 above' if lead in by_section[n] else ''}</small></h2>
 <p class="intro">{e(intro)}</p>
 {entries(n, k)}</section>""" for k, (n, intro) in enumerate(shown))}
@@ -318,11 +340,11 @@ def piece(s, is_lead=False):
 
 
 page('gallery/', 'The Gallery', css('gallery'), f'''<main id="main">
-<section class="intro" aria-labelledby="g-h"><p class="k">The showroom</p><h1 id="g-h">Websites their owners own.</h1>
+<div class="intro"><p class="k">The showroom</p>{case()}
 <p class="lede">{e(ABOUT)} <span class="tally">{e(COUNTS)}</span></p>
 <div class="wall lead-wall">{piece(lead, True)}</div>
 <div class="about"><p class="want">{WANT}</p>
-<nav aria-label="Rooms"><ul class="rooms">{''.join(f'<li><a href="#g-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></section>
+<nav aria-label="Rooms"><ul class="rooms">{''.join(f'<li><a href="#g-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div>
 {chr(10).join(f"""<section aria-labelledby="g-{sid(n)}"><h2 class="room" id="g-{sid(n)}"><small>Room {ROOMS[k]}</small>{e(n)}</h2>
 <p class="room-intro">{e(intro)}</p>
 {fold(n, piece, 'wall', f'Room {ROOMS[k]}, {n}')}</section>""" for k, (n, intro) in enumerate(shown))}
@@ -344,37 +366,15 @@ def frame_of(s, eager):
 
 
 page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main">
-<section class="head" aria-labelledby="c-h"><div><p class="k">ROLL 01 · THE SHOWROOM</p><h1 id="c-h">Websites their owners own.</h1></div>
-<div><p>{e(ABOUT)}</p>
+<div class="head"><div class="head-case"><p class="k">ROLL 01 · THE SHOWROOM</p>{case()}</div>
+<div><p class="about-p">{e(ABOUT)}</p>
 <p class="counts">{e(COUNTS)}</p><p class="want">{WANT}</p>
-<nav aria-label="Strips"><ul class="rolls">{''.join(f'<li><a href="#c-{sid(n)}">{k + 1}. {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></section>
+<nav aria-label="Strips"><ul class="rolls">{''.join(f'<li><a href="#c-{sid(n)}">{k + 1}. {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></div>
 {chr(10).join(f"""<section class="sheet" id="c-{sid(n)}" aria-labelledby="c-h-{sid(n)}"><h2 id="c-h-{sid(n)}">Strip {k + 1}: {e(n)}</h2><p class="sub">{e(intro)}</p>
 {phone_fold([frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n])], 'strip', f'Show all {len(by_section[n])} frames in strip {k + 1}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 {GET}
 </main>''', cur=4, note=design_note(4))
-
-
-# The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
-KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
-
-
-KATE_DESIGNS = ['The Transcript', 'The Edit Window', 'The Workflow Board', 'Foundations', 'The Brief']  # titles of her designs/1 to 5
-KATE_CHOICE = 3  # her home page
-
-
-def case():
-    items = []
-    for d in range(1, 6):
-        lazy = '' if d < 3 else ' loading="lazy"'
-        items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
-                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site, {KATE_DESIGNS[d - 1]}"{lazy}></picture>'
-                     f'<span>{d} {KATE_DESIGNS[d - 1]}{" (her choice)" if d == KATE_CHOICE else ""}</span></a></li>')
-    return ('<section class="case" aria-labelledby="case-h">\n'
-            '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
-            f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
-            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
-            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
 
 # ---- 4 The Street ----

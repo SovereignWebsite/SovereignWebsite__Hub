@@ -60,6 +60,18 @@ main>.get:last-child{margin-bottom:0}
 .want-btn{display:inline-flex;align-items:center;min-height:48px;margin-top:.8rem;padding:.6rem 1.4rem;background:var(--fill);color:var(--on-fill);border:3px solid var(--fill);font-weight:800;font-size:1.1rem;text-decoration:none}
 .want-btn:hover,.want-btn:focus-visible{background:transparent;color:inherit}
 .get .want-btn{color:var(--on-fill)}.get .want-btn:hover,.get .want-btn:focus-visible{color:inherit}
+/* The case: shared by every design, each restyling it in its own idiom. */
+.case{padding:.4rem 0 .6rem}
+.case h1{font-size:clamp(1.8rem,5vw,3.2rem);line-height:1.04;margin:0 0 1rem;max-width:24ch}
+.kate5{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;grid-template-columns:repeat(5,minmax(0,1fr))}
+.kate5 a{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);background:var(--card)}
+.kate5 img{height:220px;object-fit:cover;object-position:left top}
+.kate5 span{display:block;padding:.3rem .5rem;font-weight:700;font-size:.85rem}
+.kate5 a:hover span,.kate5 a:focus-visible span{text-decoration:underline}
+@media(max-width:40rem){.kate5{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.4rem}.kate5 li{flex:0 0 70%;scroll-snap-align:start}.kate5 img{height:200px}}
+.case-note{margin:.8rem 0 0;max-width:44rem}.case-note a,.can{color:var(--accent);font-weight:600}
+.case-act{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin:.7rem 0 0}.case-act .want-btn{margin-top:0}
+@media(max-width:40rem){.case h1{font-size:1.65rem}.kate5 img{height:170px}.case-note{font-size:.92rem}}
 :root{--bg:#fafafa;--fg:#111;--muted:#4a4a4a;--accent:#0040c1;--fill:#111;--on-fill:#fff;--line:#d4d4d4;--card:#fff;--hi:#ffd60a;--hi-ink:#111;--ok:#0b7a43;--wait:#8a5a00;--no:#6b6b6b}
 @media(prefers-color-scheme:dark){:root{--bg:#0b0b0b;--fg:#f2f2f2;--muted:#b8b8b8;--accent:#8fb4ff;--fill:#f2f2f2;--on-fill:#0b0b0b;--line:#2e2e2e;--card:#151515;--ok:#4fd18b;--wait:#ffc857;--no:#a8a8a8}}
 a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
