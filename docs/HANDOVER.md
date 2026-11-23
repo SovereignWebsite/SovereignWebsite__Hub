@@ -64,7 +64,16 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 
 ## Open items
 
-0. **Navigation, Dinis's "super critical" item** (record `2026-11-23__navigation-and-review`; guidelines 2b in Site__Agents__Design 08c179c). sites.b leads one shared wayfinder for every site ("home", "up", next and previous, "find the agent, connect"). The hub's part is the registry: `site/registry.json` (schema "sws-registry/1", shape proposed to sites.b on 23 Nov 23:55 UTC). It holds home, groups with a hub URL and order, and sites with host, name, group, parent, order, state, agent and connect. Build it from sites.json, building.json and sites.b's register.json, public sites only, with the first handed-over site unnamed. Agree the final shape with sites.b, build it in `tools/`, and put the wayfinder on the hub's own pages.
+0. **Navigation, Dinis's "super critical" item** (record `2026-11-23__navigation-and-review`; guidelines 2b in Site__Agents__Design 08c179c). sites.b leads one shared wayfinder for every site ("home", "up", next and previous, "find the agent, connect"). The hub's part is the registry: `site/registry.json` (schema "sws-registry/1", shape proposed to sites.b on 23 Nov 23:55 UTC). It holds home, groups with a hub URL and order, and sites with host, name, group, parent, order, state, agent and connect. Build it from sites.json, building.json and sites.b's register.json, public sites only, with the first handed-over site unnamed. sites.b agreed the shape on 23 Nov at 23:24 UTC, with two additions:
+   - each site carries "repository" (owner/name);
+   - a top-level integer "version", raised on any schema change.
+   Sites copy the registry in at build time; nothing fetches it at run time. A fresh sites.b session builds the shared wayfinder against it.
+
+   design.b asked for the keeper chain too, citing record `2026-11-23__briefings-keepers-messages` (ask 40, "provenance and graphs", guidelines 2b in 1c1abb5). Run the five checks on that record before acting on it. Its two additions:
+   - each site's "agent" becomes {name, session or contact, reports_to};
+   - a top-level "keepers" list holds the domain keepers (ask 19), sites.b, conductor and maestro, each with its reports_to.
+
+   Build the registry in `tools/` and put the wayfinder on the hub's own pages.
 1. **Car buyer** is the case on every first screen, and is also on `/building/` until Dinis has seen it (its draft notice goes) and its design round passes.
 2. **Design round 11** runs on the tag that carries the price, the email route and the ask 31 change.
 3. **Held until The Line keeps 4 of 5 a second time:** each design tells the case in its own way.
