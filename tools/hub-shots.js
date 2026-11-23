@@ -7,7 +7,7 @@ const { chromium } = require('playwright');
   const c = await b.newContext({ viewport: { width: 1280, height: 800 }, colorScheme: 'light', deviceScaleFactor: 0.5 });
   const p = await c.newPage();
   for (let d = 1; d <= 5; d++) {
-    await p.goto(B + ({1:'/gallery/',2:'/'}[d] || '/#design-' + d)); await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(400);
+    await p.goto(B + ({1:'/gallery/',2:'/',3:'/contact-sheet/'}[d] || '/#design-' + d)); await p.reload({ waitUntil: 'networkidle' }); await p.waitForTimeout(400);
     await p.evaluate(() => { const f = document.querySelector('nav.family'); if (f) f.style.display = 'none'; });
     await p.screenshot({ path: S + 'shots/hub-design-' + d + '.jpg', type: 'jpeg', quality: 72 });
   }

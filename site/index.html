@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Sovereign Website Hub: websites their owners own">
 <meta name="twitter:description" content="Built by agent teams, then handed over. Every site here is public and live.">
 <meta name="twitter:image" content="https://hub.sovereignweb.site/og.jpg">
-<script>var d=(location.hash.match(/design-([1-5])/)||[])[1];if(d==='1')location.replace('/gallery/');else if(d)document.documentElement.className='d-'+d;</script>
+<script>var P={"1": "/gallery/", "3": "/contact-sheet/"},d=(location.hash.match(/design-([1-5])/)||[])[1];if(P[d])location.replace(P[d]);else if(d)document.documentElement.className='d-'+d;</script>
 <style>
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--fg)}
@@ -127,13 +127,6 @@ section[id]{scroll-margin-top:4rem}
 .d-2 .steps li::before{border-radius:0}
 @media print{.d-2 .bar,.d-2 nav.family,.d-2 footer{display:none}.d-2 .site{break-inside:avoid}}
 
-/* 3 Grid: bold, square, monospace labels */
-.d-3{--bg:#f4f1ea;--fg:#111;--muted:#333;--accent:#b3261e;--fill:#b3261e;--on-fill:#fff;--line:#111;--card:#fff;--hard:#111}
-@media (prefers-color-scheme:dark){.d-3{--bg:#141414;--fg:#f4f1ea;--muted:#d6d2c8;--accent:#ff8a7a;--fill:#ff8a7a;--on-fill:#141414;--line:#f4f1ea;--card:#1e1e1e;--hard:#f4f1ea}}
-.d-3 .hero h1,.d-3 .sec-h{text-transform:uppercase;font-weight:900;letter-spacing:-.03em}
-.d-3 .frame,.d-3 .chooser summary,.d-3 .chips span,.d-3 .opts,.d-3 .steps li::before{border-radius:0;border-width:2px}.d-3 .frame:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--hard)}
-.d-3 .chips,.d-3 .chrome,.d-3 .kind{font-family:ui-monospace,Menlo,Consolas,monospace}
-
 /* 4 Paper: warm, bookish, sections ruled off */
 .d-4{--bg:#f6efe3;--fg:#2b211a;--muted:#6f5e50;--accent:#9c4421;--fill:#9c4421;--on-fill:#fff;--line:#e2d3bf;--card:#fffaf2}
 @media (prefers-color-scheme:dark){.d-4{--bg:#1e1813;--fg:#f3e9dc;--muted:#c8b8a6;--accent:#e8a07a;--fill:#e8a07a;--on-fill:#1e1813;--line:#3b3027;--card:#261f19}}
@@ -197,7 +190,7 @@ section[id]{scroll-margin-top:4rem}
   </details>
 </nav>
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
-<details class="chooser"><summary>Design <span class="cur">2</span><span class="nm">: The Register</span></summary><nav class="opts" aria-label="Designs of this page"><a href="/gallery/" data-d="1"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Gallery</span></a><a href="/" data-d="2" data-skin aria-current="true"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/#design-3" data-d="3" data-skin><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Grid</span></a><a href="/#design-4" data-d="4" data-skin><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. Paper</span></a><a href="/#design-5" data-d="5" data-skin><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. Studio</span></a></nav></details></header>
+<details class="chooser"><summary>Design <span class="cur">2</span><span class="nm">: The Register</span></summary><nav class="opts" aria-label="Designs of this page"><a href="/gallery/" data-d="1"><img src="/shots/hub-design-1.jpg" alt="" width="640" height="400" loading="lazy"><span>1. The Gallery</span></a><a href="/" data-d="2" data-skin aria-current="true"><img src="/shots/hub-design-2.jpg" alt="" width="640" height="400" loading="lazy"><span>2. The Register</span></a><a href="/contact-sheet/" data-d="3"><img src="/shots/hub-design-3.jpg" alt="" width="640" height="400" loading="lazy"><span>3. Contact Sheet</span></a><a href="/#design-4" data-d="4" data-skin><img src="/shots/hub-design-4.jpg" alt="" width="640" height="400" loading="lazy"><span>4. Paper</span></a><a href="/#design-5" data-d="5" data-skin><img src="/shots/hub-design-5.jpg" alt="" width="640" height="400" loading="lazy"><span>5. Studio</span></a></nav></details></header>
 <main id="main">
 <header class="hero">
   <div class="hero-text">
@@ -654,9 +647,9 @@ section[id]{scroll-margin-top:4rem}
 <footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. The design you pick lives only in the address.</footer>
 <script>
 (function(){
-  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm=["The Gallery", "The Register", "Grid", "Paper", "Studio"];
+  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm=["The Gallery", "The Register", "Contact Sheet", "Paper", "Studio"];
   function set(d){document.documentElement.className='d-'+d;cur.textContent=d;cnm.textContent=': '+nm[d-1];as.forEach(function(a){a.setAttribute('aria-current',a.dataset.d===d?'true':'false');});}
-  function fromHash(){var m=location.hash.match(/design-([1-5])/);if(m&&m[1]==='1'){location.replace('/gallery/');return;}set(m?m[1]:'2');}
+  function fromHash(){var m=location.hash.match(/design-([1-5])/);var P={"1": "/gallery/", "3": "/contact-sheet/"};if(m&&P[m[1]]){location.replace(P[m[1]]);return;}set(m?m[1]:'2');}
   as.forEach(function(a){if(a.hasAttribute('data-skin'))a.onclick=function(ev){ev.preventDefault();history.replaceState(null,'',a.dataset.d==='2'?location.pathname:'#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;};});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){if(ev.key==='Escape')ch.open=false;});

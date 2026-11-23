@@ -46,9 +46,11 @@ handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
 # The five designs, numbered as design.b's round 5 prototypes. The Register (2) is the lead and the home page;
 # a design that is its own page links there, a design that is still a skin of the home page is a #design-N address.
-DESIGNS = [(1, 'The Gallery', '/gallery/'), (2, 'The Register', '/'), (3, 'Grid', '/#design-3'), (4, 'Paper', '/#design-4'), (5, 'Studio', '/#design-5')]
+DESIGNS = [(1, 'The Gallery', '/gallery/'), (2, 'The Register', '/'), (3, 'Contact Sheet', '/contact-sheet/'), (4, 'Paper', '/#design-4'), (5, 'Studio', '/#design-5')]
 names = [n for _, n, _ in DESIGNS]
 LEAD = 2
+# Designs that are pages of their own; an old #design-N address on the home page forwards to them.
+PAGES = {str(d): h for d, _, h in DESIGNS if not h.startswith('/#') and h != '/'}
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 long_date = lambda d: f"{int(d[8:10])} {MONTHS[int(d[5:7]) - 1]} {d[:4]}"
 # The register numbers every entry in the order the page shows them.
@@ -277,13 +279,6 @@ section[id]{scroll-margin-top:4rem}
 .d-2 .steps li::before{border-radius:0}
 @media print{.d-2 .bar,.d-2 nav.family,.d-2 footer{display:none}.d-2 .site{break-inside:avoid}}
 
-/* 3 Grid: bold, square, monospace labels */
-.d-3{--bg:#f4f1ea;--fg:#111;--muted:#333;--accent:#b3261e;--fill:#b3261e;--on-fill:#fff;--line:#111;--card:#fff;--hard:#111}
-@media (prefers-color-scheme:dark){.d-3{--bg:#141414;--fg:#f4f1ea;--muted:#d6d2c8;--accent:#ff8a7a;--fill:#ff8a7a;--on-fill:#141414;--line:#f4f1ea;--card:#1e1e1e;--hard:#f4f1ea}}
-.d-3 .hero h1,.d-3 .sec-h{text-transform:uppercase;font-weight:900;letter-spacing:-.03em}
-.d-3 .frame,.d-3 .chooser summary,.d-3 .chips span,.d-3 .opts,.d-3 .steps li::before{border-radius:0;border-width:2px}.d-3 .frame:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--hard)}
-.d-3 .chips,.d-3 .chrome,.d-3 .kind{font-family:ui-monospace,Menlo,Consolas,monospace}
-
 /* 4 Paper: warm, bookish, sections ruled off */
 .d-4{--bg:#f6efe3;--fg:#2b211a;--muted:#6f5e50;--accent:#9c4421;--fill:#9c4421;--on-fill:#fff;--line:#e2d3bf;--card:#fffaf2}
 @media (prefers-color-scheme:dark){.d-4{--bg:#1e1813;--fg:#f3e9dc;--muted:#c8b8a6;--accent:#e8a07a;--fill:#e8a07a;--on-fill:#1e1813;--line:#3b3027;--card:#261f19}}
@@ -305,7 +300,7 @@ made = '\n' + f'''<section class="made" aria-labelledby="h-made"><h2 class="sec-
 </section>'''
 page = f'''<!doctype html>
 <html lang="en" class="d-{LEAD}">
-{head('Sovereign Website Hub', '', extra='''<script>var d=(location.hash.match(/design-([1-5])/)||[])[1];if(d==='1')location.replace('/gallery/');else if(d)document.documentElement.className='d-'+d;</script>''')}
+{head('Sovereign Website Hub', '', extra=f'''<script>var P={json.dumps(PAGES)},d=(location.hash.match(/design-([1-5])/)||[])[1];if(P[d])location.replace(P[d]);else if(d)document.documentElement.className='d-'+d;</script>''')}
 <style>{BAR_CSS}{css}
 {family_css}
 </style>
@@ -338,7 +333,7 @@ page = f'''<!doctype html>
 (function(){{
   var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm={json.dumps(names)};
   function set(d){{document.documentElement.className='d-'+d;cur.textContent=d;cnm.textContent=': '+nm[d-1];as.forEach(function(a){{a.setAttribute('aria-current',a.dataset.d===d?'true':'false');}});}}
-  function fromHash(){{var m=location.hash.match(/design-([1-5])/);if(m&&m[1]==='1'){{location.replace('/gallery/');return;}}set(m?m[1]:'{LEAD}');}}
+  function fromHash(){{var m=location.hash.match(/design-([1-5])/);var P={json.dumps(PAGES)};if(m&&P[m[1]]){{location.replace(P[m[1]]);return;}}set(m?m[1]:'{LEAD}');}}
   as.forEach(function(a){{if(a.hasAttribute('data-skin'))a.onclick=function(ev){{ev.preventDefault();history.replaceState(null,'',a.dataset.d==='{LEAD}'?location.pathname:'#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;}};}});
   addEventListener('hashchange',fromHash);fromHash();
   document.addEventListener('keydown',function(ev){{if(ev.key==='Escape')ch.open=false;}});
@@ -406,10 +401,14 @@ def piece(s, eager):
 
 
 shown = [(n, i) for n, i in SECTIONS if by_section[n]]
-gallery = f'''<!doctype html>
+
+
+def alt_page(d, path, extra_css, main, scheme='dark'):
+    # A design that is a page of its own: same head, family bar, chooser and footer as the home page.
+    page = f'''<!doctype html>
 <html lang="en">
-{head('The Gallery: Sovereign Website Hub', 'gallery/', scheme='dark')}
-<style>{BAR_CSS}{GALLERY_CSS}
+{head(names[d - 1] + ': Sovereign Website Hub', path, scheme=scheme)}
+<style>{BAR_CSS}{extra_css}
 {family_css}
 </style>
 </head>
@@ -417,8 +416,19 @@ gallery = f'''<!doctype html>
 <a class="skip" href="#main">Skip to the sites</a>
 {family}
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
-{chooser(1)}</header>
-<main id="main">
+{chooser(d)}</header>
+{main}
+{footer(f'Design {d} of 5, {names[d - 1]}; the lead design is <a href="/">The Register</a>.')}
+<script>document.addEventListener('keydown',function(ev){{if(ev.key==='Escape')document.querySelector('.chooser').open=false;}});</script>
+</body>
+</html>
+'''
+    (SITE / path).mkdir(exist_ok=True)
+    (SITE / path / 'index.html').write_text(page)
+    print(f'design {d}, {names[d - 1]}: written to site/{path}')
+
+
+alt_page(1, 'gallery/', GALLERY_CSS, f'''<main id="main">
 <section class="intro" aria-labelledby="g-h"><p class="k">The showroom</p><h1 id="g-h">Websites their owners own.</h1>
 <p class="s">Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
 <ul class="counts"><li><b>{working}</b>sites working</li><li><b>{len(people)}</b>people's sites</li><li><b>{handed}</b>handed over</li></ul>
@@ -427,12 +437,70 @@ gallery = f'''<!doctype html>
 <p class="room-intro">{e(intro)}</p>
 <div class="wall">{''.join(piece(s, k == 0 and i < 1) for i, s in enumerate(by_section[n]))}</div></section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">Each label comes from the hub's <a href="/sites.json">sites.json</a> and is hung when the site goes live; the pictures are taken from the live sites. {f'<a href="{e(demo["address"]["url"])}">See how a site is made: the pipeline demo</a>.' if demo else ''}</p>
-</main>
-{footer('Design 1 of 5, The Gallery; the lead design is <a href="/">The Register</a>.')}
-<script>document.addEventListener('keydown',function(ev){{if(ev.key==='Escape')document.querySelector('.chooser').open=false;}});</script>
-</body>
-</html>
+</main>''')
+
+
+
+# ---- Design 3, Contact Sheet: a photographer's sheet of frames, the chosen one circled (design.b round 5, prototype 3). ----
+SHEET_CSS = r'''
+:root{--bg:#141414;--fg:#f2f2f0;--muted:#c4c4c0;--accent:#ffb000;--fill:#ffb000;--on-fill:#141414;--line:#3a3a38;--card:#1d1d1c;--sheet:#0a0a0a;--edge:#ffb000;--grease:#ff4d3d;--family-fg:#cfcfcb;--family-fg-strong:#fff}
+a:focus-visible,summary:focus-visible{outline:3px solid #ffd400;outline-offset:2px}
+main{max-width:80rem;margin:0 auto;padding:0 1rem}
+.head{display:grid;gap:1rem;padding:1.6rem 0 1.2rem;border-bottom:1px solid var(--line)}
+@media(min-width:56rem){.head{grid-template-columns:1.3fr 1fr;align-items:end}}
+.head .k{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--edge);font-size:.9rem;margin:0;letter-spacing:.08em}
+.head h1{font-size:clamp(2.4rem,7.5vw,5rem);line-height:.98;letter-spacing:-.03em;margin:.3rem 0 0;font-weight:800}
+.head p{margin:0;color:var(--muted)}
+.counts{font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--edge);margin-top:.6rem!important}
+.rolls{display:flex;flex-wrap:wrap;gap:.3rem 1rem;list-style:none;padding:0;margin:.8rem 0 0;font:.85rem ui-monospace,Menlo,Consolas,monospace}
+.rolls a{color:var(--muted)}.rolls a:hover{color:var(--fg)}
+.sheet{background:var(--sheet);margin:1.8rem 0;padding:1rem 0 1.2rem;border-radius:4px;scroll-margin-top:4rem}
+.sheet h2{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem;font-weight:600;color:var(--edge);margin:0 1rem .3rem;letter-spacing:.1em;text-transform:uppercase}
+.sheet .sub{margin:0 1rem .8rem;color:var(--muted);font-size:.9rem;max-width:44rem}
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,19rem),1fr));gap:0;padding:22px 0;position:relative;background:#050505}
+.strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:22px;background:radial-gradient(circle at 50% 50%,#2a2a28 0 4px,#0000 4.5px) 0 0/22px 22px repeat-x}
+.strip::before{top:0}.strip::after{bottom:0}
+.frame{position:relative;display:block;padding:14px;color:var(--fg);text-decoration:none;min-width:0}
+.frame figure{margin:0}
+.pic{position:relative;display:block}
+.pic img{border:1px solid #222;aspect-ratio:16/10;object-fit:cover;object-position:top}
+@media(max-width:40rem){.pic img{aspect-ratio:4/3}}
+.num{position:absolute;left:4px;bottom:4px;font:700 .8rem ui-monospace,Menlo,Consolas,monospace;color:var(--edge);background:#000c;padding:.1rem .35rem}
+figcaption{padding:.6rem .2rem 0;font-size:.95rem}
+figcaption b{display:block;font-size:1.05rem}
+figcaption .m{color:var(--muted);overflow-wrap:break-word}
+.pick .pic::before{content:"";position:absolute;inset:-10px -6px;border:4px solid var(--grease);border-radius:48% 52% 45% 55%/55% 45% 55% 45%;transform:rotate(-2deg);pointer-events:none;z-index:2}
+.mark{position:absolute;right:6px;top:4px;z-index:3;font:800 1rem/1 "Marker Felt","Comic Sans MS",cursive;color:#fff;background:#c9302c;padding:.25rem .5rem;transform:rotate(4deg)}
+.x img{filter:grayscale(1) contrast(.8) brightness(.6)}
+.x .cross{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to top right,#0000 calc(50% - 2px),var(--grease) calc(50% - 2px) calc(50% + 2px),#0000 calc(50% + 2px))}
+.x .mark{font:700 .85rem ui-monospace,monospace;background:#000;color:#fff;border:1px solid var(--grease);padding:.15rem .4rem;transform:none}
+.frame:hover figcaption b,.frame:focus-visible figcaption b{text-decoration:underline}
+.chip{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;color:var(--edge)}
+.how{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem;color:var(--muted);border-left:3px solid var(--edge);padding-left:1rem;max-width:44rem;margin:2rem 0}
+.how a{color:var(--edge)}
+footer{max-width:80rem}
 '''
-(SITE / 'gallery').mkdir(exist_ok=True)
-(SITE / 'gallery' / 'index.html').write_text(gallery)
-print('gallery: design 1 written to site/gallery/')
+
+
+def frame_of(s, eager):
+    cls = 'frame' + (' pick' if s.get('handed_over') else '') + (' x' if s.get('waiting') else '')
+    sh = s.get('shot')
+    pic = (f'<picture><source media="(max-width:40rem)" srcset="/{e(sh)}-phone.jpg"><img src="/{e(sh)}.jpg" width="1280" height="800" alt=""'
+           + ('' if eager else ' loading="lazy" decoding="async"') + '></picture>') if sh else ''
+    mark = ('<span class="mark">Handed over</span>' if s.get('handed_over') else '') + ('<span class="cross" aria-hidden="true"></span><span class="mark">Not switched on yet</span>' if s.get('waiting') else '')
+    chip = ' · '.join(s.get('chips', []))
+    return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><figure><span class="pic">{pic}<span class="num" aria-hidden="true">{entry_no[s["slug"]]:02d}A</span>{mark}</span>'
+            f'<figcaption><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])} · {soft(host_of(s))}</span>'
+            + (f'<br><span class="chip">{e(chip)}</span>' if chip else '') + '</figcaption></figure></a>')
+
+
+steps_line = '; '.join(x[:1].lower() + x[1:] if i else x for i, x in enumerate(steps))
+alt_page(3, 'contact-sheet/', SHEET_CSS, f'''<main id="main">
+<section class="head" aria-labelledby="c-h"><div><p class="k">ROLL 01 · THE SHOWROOM</p><h1 id="c-h">Websites their owners own.</h1></div>
+<div><p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
+<p class="counts">{working} sites working · {len(people)} people's sites · {handed} handed over</p>
+<nav aria-label="Strips"><ul class="rolls">{''.join(f'<li><a href="#c-{sid(n)}">{k + 1}. {e(n)}</a></li>' for k, (n, _) in enumerate(shown))}</ul></nav></div></section>
+{chr(10).join(f"""<section class="sheet" id="c-{sid(n)}" aria-labelledby="c-h-{sid(n)}"><h2 id="c-h-{sid(n)}">Strip {k + 1}: {e(n)}</h2><p class="sub">{e(intro)}</p>
+<div class="strip">{''.join(frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n]))}</div></section>""" for k, (n, intro) in enumerate(shown))}
+<p class="how">How a site is made: {e(steps_line)}. {f'<a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''}</p>
+</main>''')
