@@ -1,23 +1,4 @@
 {
   "about": "Sites sites.b has sent hub.b directly that its register.json does not list yet. tools/build-building.py adds them to /building/; once the register lists a site, the register's entry is used and this one is ignored.",
-  "sites": [
-    {
-      "state": "building",
-      "group": "Tools",
-      "host": "car-buyer.tool.sovereignweb.site",
-      "name": "Car buyer: a toolkit for buying a used car in the UK",
-      "summary": "A checklist, the official checks (DVLA, DVSA MOT history, TfL, recalls) and an ownership cost sheet for buying a used car in the UK. Your notes stay in your browser.",
-      "five_designs": false,
-      "sent": "sites.b, 23 Nov 2026 16:17 UTC (keeper sites.b; one design so far)"
-    },
-    {
-      "state": "building",
-      "group": "Platforms",
-      "host": "suno.platform.sovereignweb.site",
-      "name": "Suno, our songs (unofficial)",
-      "summary": "Our songs made with Suno, played through Suno's own player: vote for favourites, and see which move from experiments to pre-release. Not affiliated with Suno.",
-      "five_designs": false,
-      "sent": "sites.b, 23 Nov 2026 16:19 UTC (keeper suno.b; record 2026-11-23__suno-site; one design so far)"
-    }
-  ]
+  "sites": []
 }

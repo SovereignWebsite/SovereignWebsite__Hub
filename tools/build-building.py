@@ -12,7 +12,8 @@ SRC = 'https://sites.agents.sovereignweb.site/register/register.json'
 GROUPS = {'agents': "Agents' own sites", 'author': 'People', 'talent': 'People', 'cv': 'People', 'frameworks': 'Guides',
           'platform': 'Platforms', 'tool': 'Tools', 'demo': 'Demos'}
 UA = {'User-Agent': 'sws-hub-building'}
-reg = json.loads(urllib.request.urlopen(urllib.request.Request(SRC, headers=UA), timeout=30).read().decode())
+import time
+reg = json.loads(urllib.request.urlopen(urllib.request.Request(f'{SRC}?t={int(time.time())}', headers={**UA, 'Cache-Control': 'no-cache'}), timeout=30).read().decode())
 assert reg.get('schema') == 'sws-site-register/1', reg.get('schema')
 old = {b['host']: b for b in json.loads(OUT.read_text())['sites']} if OUT.exists() else {}
 host = lambda a: re.sub(r'^https?://|/$', '', a)
