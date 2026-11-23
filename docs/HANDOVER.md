@@ -10,7 +10,7 @@ For the next hub.b session (hub.b@SovereignWebsite.dinis). The previous session 
 
 ## The hub today
 
-- **Home, design 1, The Line** (`/`, also `/line/`). It opens with the case: "Your own website, made for you by an agent team, in five designs. Yours to keep.", Kate Curtis-Evans's five designs, and "I want one" beside the launch offer. Then come "What you get", "Own it, do not rent it" (strategy.b's sourced table), "How you get one" (the Line's stations), "The people so far" (eleven people's sites) and "Get one".
+- **Home, design 1, The Line** (`/`, also `/line/`). It opens with the case: "Your own website, made for you by an agent team, in five designs. Yours to keep.", Car buyer's five designs (our own tool), and "I want one" beside the launch offer. Then come "What you get", "Own it, do not rent it" (strategy.b's sourced table), "How you get one" (the Line's stations), "The people so far" (eleven people's sites) and "Get one".
 - **The other designs** are 2 The Register (`/register/`), 3 The Gallery, 4 Contact Sheet and 5 The Street, all opening with the same case. `/designs/` shows all five.
 - **Other pages:**
   - `/more/`: startups, guides, businesses, news, demos and tools.
@@ -19,6 +19,8 @@ For the next hub.b session (hub.b@SovereignWebsite.dinis). The previous session 
   - `/start/`: the offer, and "To take it up, email agent@withmandate.ai".
   - `/agents/`, `/admin/` (dashboard), `/operator/` (for Dinis), `/policy/`.
 - **Price and route:** "Launch offer: £50 (€50 on European sites), one-off. No subscription from us." with "Editing it afterwards needs a Claude plan or a partner." Requests go by email to agent@withmandate.ai for now. Payment will be by Stripe, but no payment link exists yet, so show none. Sources: decision records `2026-11-23__hub-get-one-form` and `2026-11-23__asks-22-to-32` (ask 25).
+- **The first handed-over site** is listed as "A founder's site, handed over". Its owner is not named and it shows no pictures; only its link remains. Never feature her or name her on our sites (record `2026-11-23__asks-2-8-31-revised`, ask 31). `UNNAMED` in `tools/build-showroom.py` and the terms in `tools/build-operator.py` enforce this.
+- **No public form.** All feedback goes through QR codes (ask 8). The "I want one" route is email.
 - **Address wording:** the files and the history are the owner's, and the address only if they bring their own domain. Never say the address is theirs without that condition.
 - **Phones:** every design must stay under 8,000 px tall. The live build runs about 30 to 60 px taller than a local build.
 
@@ -32,7 +34,7 @@ For the next hub.b session (hub.b@SovereignWebsite.dinis). The previous session 
    - `tools/build-admin.py <Site__Agents__Design checkout>` builds `/admin/`.
    - `tools/build-operator.py <SovereignWebsite__IaC checkout>` builds `/operator/`.
    - `tools/refresh.sh` retakes screenshots (`take-shots.js`), makes the 640 px and WebP copies (`thumbs.py`), rebuilds `/building/` and retakes the design thumbnails (`hub-shots.js`).
-   - `tools/lead-designs.js` screenshots Kate's five designs.
+   - `tools/lead-designs.js <slug> <url> '?design=N'` screenshots a site's five designs for the case (Car buyer today).
 2. Local checks, as in the pipeline: `rm -rf _site; SITE_VERSION=v0.1.99 node .github/ci/build.mjs; node .github/ci/share-check.mjs _site; SWS_OWN_SITE=1 node .github/ci/quality.mjs _site; npx --yes html-validate@8.24.0 --config .github/ci/htmlvalidate.json "_site/**/*.html"`. Then serve with `python3 -m http.server 8766 -d site` and run `tools/checks/` (`views.js`, `axe-views.js` with axe-core installed, `first-screens.js`, `weight.js`).
 3. Sign every commit with `tools/sgit-ssh-sign.py` (git's `gpg.ssh.program` is set to it) and add the `Agent:` and `Claude-Session:` trailers. Push to `dev`. The pipeline tags `v0.1.N`; check with `git ls-remote --tags origin | grep <sha>`.
 4. Watch the link check: a cited page that moves fails the release (as Squarespace's short address did). Use each source's full address.
@@ -62,8 +64,8 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 
 ## Open items
 
-1. **The "I want one" form.** feedback.b's public hub lane waits on Dinis telling feedback.b, in its own session, to act on decisions.b's records (ask 8). The form then needs security.b's and design.b's review before it goes live (record `2026-11-23__hub-get-one-form`). It will contact dev.send.sgraph.ai and keep an IndexedDB key pair and a localStorage list; declare both on `/start/` and in `/policy/`.
-2. **Car buyer** (car-buyer.tool.sovereignweb.site) stays on `/building/` until Dinis has seen it (its draft notice goes) and its design round passes. Then it joins the showroom with screenshots.
-3. **Design round 11** runs on the tag that carries the price and route, which is 659cec1, pushed 23 Nov about 23:30 UTC.
-4. **Held until The Line keeps 4 of 5 a second time:** each design tells the case its own way. The Register as five ledger entries with "Chosen" stamped, The Gallery as one large framed piece with four smaller, Contact Sheet with her choice ringed, The Street with her chosen design as the window.
-5. **The operator page:** add "Decisions, open and acted" once decisions.b publishes its list; ask decisions.b for the format.
+1. **Car buyer** is the case on every first screen, and is also on `/building/` until Dinis has seen it (its draft notice goes) and its design round passes.
+2. **Design round 11** runs on the tag that carries the price, the email route and the ask 31 change.
+3. **Held until The Line keeps 4 of 5 a second time:** each design tells the case in its own way.
+4. **The operator page:** add "Decisions, open and acted" once decisions.b publishes its list; ask decisions.b for the format.
+5. **Wakes:** Dinis creates the scheduled task (hub.b every 2 hours, ending before 22:00 UTC; ask 24).
