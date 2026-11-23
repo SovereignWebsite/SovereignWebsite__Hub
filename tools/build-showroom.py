@@ -79,6 +79,9 @@ WANT = ('Want one? It starts with one request. There is no request form yet: '
 GET = ('<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2><p>Every site here began with one request '
        'and was handed over to its owner. <a href="/start/#get-one">Start here: how to get a site like these</a>.</p>'
        '<p><a class="want-btn" href="/start/#get-one">I want one</a></p></section>')
+# The price, as Dinis decided on 23 Nov 2026 (relayed by design.b): the launch offer only, labelled as an offer.
+OFFER = 'Launch offer: £50 or €50, one-off. No subscription from us.'
+OFFER_NOTE = 'Editing it afterwards needs a Claude plan or a partner.'
 STEPS_LINE = '; '.join(x[:1].lower() + x[1:] if i else x for i, x in enumerate(steps))
 DEMO_LINK = f' <a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''
 
@@ -374,7 +377,8 @@ def case():
             '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
             f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
             f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
-            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + e(OFFER_NOTE) + '</span></p>\n'
+            '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
 
 # ---- 4 The Street ----
@@ -506,13 +510,13 @@ def own_rent():
                    f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
     ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "The files, the history and the address are yours"</td>'
             '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
-            '<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Ask us</a> for the price</td>'
+            f'<td data-h="Price a month">No monthly fee from us. {e(OFFER)} <a href="/start/#get-one">I want one</a></td>'
             '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
     return (f'<section class="rent" aria-labelledby="rent-h"><h2 id="rent-h">Own it, do not rent it</h2>'
             f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
             f'<div class="rent-wrap"><table><thead><tr><th scope="col">Builder</th><th scope="col">Who holds the files</th><th scope="col">Can you leave with the site</th>'
             f'<th scope="col">Price a month</th><th scope="col">Sources</th></tr></thead><tbody>{rows}{ours}</tbody></table></div>'
-            '<p class="honest">To be fair: editing a sovereign website today needs a Claude plan or a partner, and nothing is sold yet. '
+            '<p class="honest">To be fair: editing a sovereign website today needs a Claude plan or a partner. '
             'Prices are as each page showed them to a reader outside the UK; Wix showed none we could confirm. Facts gathered by strategy.b.</p></section>')
 
 
