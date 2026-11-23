@@ -430,17 +430,55 @@ def what_you_get():
             '<p class="more-q"><a href="/features/">Can it do something else? Look it up</a></p></section>')
 
 
+def sides():
+    # Every section that is not people's own sites: on /more/ (design.b's brief, item 3).
+    out = []
+    for n, intro in shown:
+        if n == 'People':
+            continue
+        demo_line = f' Built the same way.{DEMO_LINK}' if n == 'Demos' else ''
+        rows = phone_fold([lcard(s, False) for s in by_section[n]], 'row', f'Show all {len(by_section[n])} in {e(n)}')
+        out.append(f'<section class="side" id="l-{sid(n)}" aria-labelledby="l-h-{sid(n)}"><h2 id="l-h-{sid(n)}">{e(n)}</h2><p>{e(intro)}{demo_line}</p>\n{rows}</section>')
+    return '\n'.join(out)
+
+
+def person(s):
+    # The showroom: a face, a name, one line, one tap.
+    one = s['summary']
+    plain = re.sub(r'\s*\(.*?\)', '', s['name'])
+    for lead_in in (s['name'] + ', ', plain + ', ', s['name'] + ': ', 'Personal site of ' + s['name'] + ', '):
+        if one.startswith(lead_in):
+            one = one[len(lead_in):]
+    one = one.split(':')[0].split('.')[0]
+    one = one[:1].upper() + one[1:]
+    return (f'<a class="pcard" href="{e(s["address"]["url"])}">{pic(s, False, "(min-width:60rem) 15rem, 50vw", lead=s is lead)}'
+            f'<b>{e(s["name"])}</b><span>{e(one)}</span></a>')
+
+
+def people_room():
+    others = sum(len(by_section[n]) for n, _ in shown if n != 'People')
+    return (f'<section class="people" aria-labelledby="p-h"><h2 id="p-h">The people so far</h2>'
+            f'<p>{len(people)} people\'s own sites, each made the same way. Open one to see it working.</p>'
+            + phone_fold([person(s) for s in people], 'pgrid', f'Show all {len(people)} people')
+            + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a></p></section>')
+
+
 LINE_MAIN = f'''<main id="main">
 {case()}
 {what_you_get()}
 <p class="lede">{e(ABOUT)}</p>
 <p class="counts">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
-{chr(10).join(f"""<section class="side" id="l-{sid(n)}" aria-labelledby="l-h-{sid(n)}"><h2 id="l-h-{sid(n)}">{e(n)}</h2><p>{e(intro)}""" + (f""" Built the same way.{DEMO_LINK}""" if n == 'Demos' else '') + f"""</p>
-{phone_fold([lcard(s, False) for s in by_section[n]], 'row', f'Show all {len(by_section[n])} in {e(n)}')}</section>""" for n, intro in shown if n != 'People')}
+{people_room()}
 </main>'''
 page('', 'Sovereign Website Hub', css('line'), LINE_MAIN, cur=1, note=design_note(1), script=HOME_SCRIPT)
 page('line/', 'The Line', css('line'), LINE_MAIN, cur=1, note=design_note(1))
+page('more/', 'More sites', css('line'), f'''<main id="main">
+<p class="k">More from the factory</p><h1>Startups, guides, businesses, news, demos and tools</h1>
+<p class="lede">Made the same way as the people's sites on <a href="/">the home page</a>: by agent teams, from one request each.</p>
+{sides()}
+{GET}
+</main>''', cur=0, note='The people\'s sites are on <a href="/">the home page</a>.')
 
 
 # ---- /designs/: the five side by side ----
