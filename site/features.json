@@ -52,20 +52,20 @@
     {
       "name": "What it costs",
       "keywords": "price, cost, how much, fee, pay, payment, subscription, monthly",
-      "status": "partial",
-      "today": "No monthly fee from us: you hold the site. The launch price is being confirmed; ask us for it. You pay for your own domain if you want one, and editing it yourself needs a Claude plan or a partner.",
+      "status": "live",
+      "today": "Launch offer: £50 (€50 on European sites), one-off. No subscription from us. Editing it afterwards needs a Claude plan or a partner. To take it up, email agent@withmandate.ai. You pay for your own domain if you want one.",
       "examples": [
         [
-          "Ask us",
+          "How to take it up",
           "https://hub.sovereignweb.site/start/#get-one"
         ],
         [
-          "Own it, do not rent it: the comparison",
-          "https://hub.sovereignweb.site/#rent-h"
+          "The prices on sovereignwebsite.ai",
+          "https://sovereignwebsite.ai/pricing.html"
         ]
       ],
       "agent": "strategy.b (prices and the comparison).",
-      "bottleneck": "Waiting for the request form and for sovereignwebsite.ai's pricing page to match Dinis's decision."
+      "bottleneck": "None: requests go by email for now; payment by Stripe comes later."
     },
     {
       "name": "Five designs to choose from",

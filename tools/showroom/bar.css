@@ -60,3 +60,7 @@ main>.get:last-child{margin-bottom:0}
  .rent .ours td::before{color:var(--hi-ink,#111)}
 }@media(max-width:46rem){.rent td:nth-child(2){display:none}.rent td{padding:.2rem .6rem}.rent tr{margin-bottom:.45rem}.rent td::before{display:inline;margin-right:.35rem}.rent>p{font-size:.92rem}}
 .demo-flag{display:inline-block;margin:.25rem 0;padding:.05rem .45rem;font-size:.78rem;font-weight:800;letter-spacing:.02em;border:2px dashed currentColor}
+.offer{display:inline-block;max-width:36rem;font-size:.95rem;line-height:1.4}.offer b{display:block;font-size:1.05rem}
+.case-can{margin:.5rem 0 0}
+@media(max-width:40rem){.offer{font-size:.82rem;line-height:1.35}.offer b{font-size:.92rem}.case-act{gap:.4rem .8rem}.case-can{margin-top:.3rem;font-size:.9rem}}
+@media(max-width:40rem){.get{margin-top:1.4rem;padding:.8rem .9rem}.get h2{font-size:1.15rem}.want-btn{min-height:44px;padding:.5rem 1.1rem;font-size:1.05rem}}

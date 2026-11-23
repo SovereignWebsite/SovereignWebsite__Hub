@@ -79,6 +79,10 @@ WANT = ('Want one? It starts with one request. There is no request form yet: '
 GET = ('<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2><p>Every site here began with one request '
        'and was handed over to its owner. <a href="/start/#get-one">Start here: how to get a site like these</a>.</p>'
        '<p><a class="want-btn" href="/start/#get-one">I want one</a></p></section>')
+# The price and how to take it up, as Dinis decided on 23 Nov 2026 (decision records 2026-11-23__hub-get-one-form and
+# 2026-11-23__asks-22-to-32, ask 25: email for now; payment will be by Stripe, and no payment link is shown until one exists).
+OFFER = 'Launch offer: £50 (€50 on European sites), one-off. No subscription from us.'
+OFFER_NOTE = 'Editing it afterwards needs a Claude plan or a partner.'
 STEPS_LINE = '; '.join(x[:1].lower() + x[1:] if i else x for i, x in enumerate(steps))
 DEMO_LINK = f' <a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''
 
@@ -201,7 +205,7 @@ def design_note(d):
 
 
 # Own, not rent (design.b's brief, item 5): strategy.b's facts, each checked on 23 Nov 2026 against the source linked.
-# A blank cell means no published fact was found. Our own price stays "Ask us" until Dinis confirms it.
+# A blank cell means no published fact was found. Our own price: the launch offer (Dinis, record 2026-11-23__hub-get-one-form; route, record 2026-11-23__asks-22-to-32, ask 25).
 RENT_CHECKED = '23 November 2026'
 RENT = [
     ('Wix', '"Your site must run on Wix\'s servers"', 'No', '', 'https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere', ''),
@@ -217,7 +221,7 @@ def own_rent():
                    f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
     ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "the files and the history are yours, and so is the address if you bring your own domain"</td>'
             '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
-            '<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Ask us</a> for the price</td>'
+            f'<td data-h="Price a month">No monthly fee from us. {e(OFFER)} <a href="/start/#get-one">I want one</a></td>'
             '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
     return (f'<section class="rent" aria-labelledby="rent-h"><h2 id="rent-h">Own it, do not rent it</h2>'
             f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
@@ -246,7 +250,8 @@ def case():
             '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
             f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
             f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
-            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + e(OFFER_NOTE) + '</span></p>\n'
+            '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
 
 # ---- 1 The Register (home page) ----
