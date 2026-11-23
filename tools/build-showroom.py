@@ -249,12 +249,12 @@ def street_people():
             + (f'<div class="wide-only"><details class="more"><summary>{summary}</summary><div class="row">{wide_more}</div></details></div>' if wide_more else ''))
 
 
-def phone_fold(items, box, summary):
-    # Wide screens show every item; a phone shows two and folds the rest into "Show all" (each item read once).
-    if len(items) <= 2:
+def phone_fold(items, box, summary, keep=2):
+    # Wide screens show every item; a phone shows the first few and folds the rest into "Show all" (each item read once).
+    if len(items) <= keep:
         return f'<div class="{box}">{"".join(items)}</div>'
-    return (f'<div class="{box}">{"".join(items[:2])}{"".join(f"<div class=wide-only>{x}</div>" for x in items[2:])}</div>'
-            f'<details class="more phone-only"><summary>{summary}</summary><div class="{box}">{"".join(items[2:])}</div></details>')
+    return (f'<div class="{box}">{"".join(items[:keep])}{"".join(f"<div class=wide-only>{x}</div>" for x in items[keep:])}</div>'
+            f'<details class="more phone-only"><summary>{summary}</summary><div class="{box}">{"".join(items[keep:])}</div></details>')
 
 
 def entries(n, k):
@@ -381,19 +381,20 @@ many = lambda s: any(c in ('Five designs', 'Six designs') for c in s.get('chips'
 at_end = [s for s in people if s.get('handed_over')]
 at_five = [s for s in people if not s.get('handed_over') and many(s)]
 at_built = [s for s in people if s not in at_end and s not in at_five]
-STATIONS = [(steps[0], [], WANT), (steps[1], at_built, 'Built and live, open to visit.'), (steps[2], at_five, ''),
-            (steps[3], [], 'The owner picks the design they want to keep. None at this step today.'), (steps[4], at_end, ''),
+# Steps 3 and 4 are one station: a site waits at "five designs" while its owner picks (no station is left empty).
+STATIONS = [(steps[0], [], WANT), (steps[1], at_built, 'Built and live, open to visit.'), ('Five designs; the owner picks one', at_five, ''),
+            (steps[4], at_end, ''),
             ('Get one', [], '<a href="/start/#get-one">Start here: how to get a site like these</a>.')]
 
 
 def station(i, title, here, note):
-    li = [f'<li>{lcard(s, i == 4, img=(len(here) <= 3), big=(i == 4))}</li>' for s in here]
+    li = [f'<li>{lcard(s, i == 3, img=(len(here) <= 3), big=(i == 3))}</li>' for s in here]
     cards = ''.join(li[:2])
     # A busy station shows two sites; the rest fold into "Show all", in a list of their own.
     if len(li) > 2:
         cards += (f'<li class="fold"><details class="more"><summary>Show all {len(li)} at this step</summary>'
                   f'<ul class="here">{"".join(li[2:])}</ul></details></li>')
-    return (f'<li class="st{" end" if i == 4 else ""}{" get-st" if i == 5 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{note if i in (0, 5) else e(note)}</p>' if note else '')
+    return (f'<li class="st{" end" if i == 3 else ""}{" get-st" if i == 4 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{note if i in (0, 4) else e(note)}</p>' if note else '')
             + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
 
 
@@ -401,18 +402,22 @@ def station(i, title, here, note):
 KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
 
 
+KATE_DESIGNS = ['The Transcript', 'The Edit Window', 'The Workflow Board', 'Foundations', 'The Brief']  # titles of her designs/1 to 5
+KATE_CHOICE = 3  # her home page
+
+
 def case():
     items = []
     for d in range(1, 6):
         lazy = '' if d < 3 else ' loading="lazy"'
         items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
-                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site"{lazy}></picture>'
-                     f'<span>Design {d}</span></a></li>')
+                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site, {KATE_DESIGNS[d - 1]}"{lazy}></picture>'
+                     f'<span>{d} {KATE_DESIGNS[d - 1]}{" (her choice)" if d == KATE_CHOICE else ""}</span></a></li>')
     return ('<section class="case" aria-labelledby="case-h">\n'
             '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
             f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
-            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose one of her five and now edits her site herself on GitHub.</p>\n'
-            '<p><a class="want-btn" href="/start/#get-one">I want one</a></p>\n</section>')
+            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
 
 # What you get: five items, each with a live example (design.b's hub-sells brief, item 2).
@@ -460,16 +465,17 @@ def people_room():
     others = sum(len(by_section[n]) for n, _ in shown if n != 'People')
     return (f'<section class="people" aria-labelledby="p-h"><h2 id="p-h">The people so far</h2>'
             f'<p>{len(people)} people\'s own sites, each made the same way. Open one to see it working.</p>'
-            + phone_fold([person(s) for s in people], 'pgrid', f'Show all {len(people)} people')
+            + phone_fold([person(s) for s in people], 'pgrid', f'Show all {len(people)} people', keep=4)
             + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a></p></section>')
 
 
 LINE_MAIN = f'''<main id="main">
 {case()}
 {what_you_get()}
-<p class="lede">{e(ABOUT)}</p>
-<p class="counts">{e(COUNTS)}</p>
+<section class="how-line" aria-labelledby="hl-h"><h2 id="hl-h">How you get one</h2>
+<p class="one-line">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
+</section>
 {people_room()}
 {GET}
 </main>'''

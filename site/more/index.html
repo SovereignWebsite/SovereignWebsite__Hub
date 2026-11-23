@@ -66,7 +66,7 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 .lede{max-width:40rem;font-size:1.1rem}
 .counts{font-weight:700;border-left:4px solid var(--belt);padding-left:.7rem;margin:1rem 0 0;max-width:44rem}
 .line{list-style:none;margin:2.8rem 0;padding:0 0 0 1.3rem;display:grid;gap:0;counter-reset:st}
-@media(min-width:60rem){.line{grid-template-columns:repeat(6,minmax(0,1fr));padding:0}}
+@media(min-width:60rem){.line{grid-template-columns:repeat(5,minmax(0,1fr));padding:0}}
 .st{position:relative;padding:1rem 1rem 1.2rem 2.2rem;border-left:4px solid var(--belt);counter-increment:st;min-width:0}
 @media(min-width:60rem){.st{border-left:0;border-top:4px solid var(--belt);padding:2.4rem .8rem 1rem}}
 .st::before{content:counter(st);position:absolute;left:-1.35rem;top:.9rem;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--bg);border:4px solid var(--belt);display:grid;place-items:center;font-weight:900}
@@ -145,6 +145,21 @@ main h1{font-size:clamp(2.4rem,8vw,5.4rem);line-height:.95;letter-spacing:-.035e
 @media(max-width:40rem){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem}.pcard img{aspect-ratio:1/1}.pcard span{font-size:.8rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
 .pcard img{object-position:left top}.pcard span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .get .want-btn{color:var(--hi-ink)}.get .want-btn:hover,.get .want-btn:focus-visible{color:var(--bg)}
+/* Kate's five designs, large enough to read as five real designs */
+.kate5 img{aspect-ratio:auto;height:260px;object-fit:cover;object-position:left top}
+.kate5 span{font-size:.9rem}
+@media(max-width:40rem){
+ .kate5{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:.6rem;padding-bottom:.4rem;-webkit-overflow-scrolling:touch}
+ .kate5 li{flex:0 0 70%;scroll-snap-align:start}
+ .kate5 img{height:220px;aspect-ratio:auto}
+ .kate5 span{font-size:.85rem}
+}
+.case-act{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem}.case-act .want-btn{margin-top:0}
+.can{color:var(--accent);font-weight:700}
+.how-line{margin-top:2.4rem;border-top:4px solid var(--belt);padding-top:1rem}
+.how-line h2{font-size:1.6rem;margin:0 0 .3rem;font-weight:900}
+.one-line{margin:0 0 .4rem;color:var(--muted);max-width:52rem}
+.how-line .line{margin-top:2.2rem}
 
 .family{--fam-fg:var(--family-fg,#454545);--fam-strong:var(--family-fg-strong,#111);font-size:.875rem;border-bottom:1px solid rgba(127,127,127,.25);background:rgba(127,127,127,.06)}
 @media (prefers-color-scheme:dark){.family{--fam-fg:var(--family-fg,#cfcfcf);--fam-strong:var(--family-fg-strong,#fff)}}
