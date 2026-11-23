@@ -1,7 +1,7 @@
 {
- "built": "2026-11-23 11:39 UTC",
- "status_updated": "2026-11-23T01:28Z",
- "state": "18 site requests; all main sites, the agents area (agents, design, library), whois.tool and the people's sites answer over HTTPS; one company site still waits on its certificate",
+ "built": "2026-11-23 11:44 UTC",
+ "status_updated": "2026-11-23T11:42Z",
+ "state": null,
  "waiting_on_dinis": [
   {
    "line": "Yes to accountant.agents.sovereignweb.site",
@@ -89,9 +89,9 @@
    "run": "https://github.com/SovereignWebsite/Site__Platform__GitHub/actions/runs/45141824550"
   },
   {
-   "line": "Instagram: v0.1.31 · 767ebb5 · 2026-11-23",
+   "line": "Instagram: v0.1.32 · 4f99cfe · 2026-11-23",
    "url": "https://instagram.platform.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Platform__Instagram/actions/runs/45162277547"
+   "run": "https://github.com/SovereignWebsite/Site__Platform__Instagram/actions/runs/45167567801"
   },
   {
    "line": "DNS: v0.1.3 · cf243dd · 2026-11-23",
@@ -107,6 +107,16 @@
    "line": "WordPress: v0.1.2 · 7ebc4ae · 2026-11-23",
    "url": "https://wordpress.tool.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Tool__Wordpress/actions/runs/45114463657"
+  },
+  {
+   "line": "The hub: v0.1.16 · 5006e8e · 2026-11-23",
+   "url": "https://hub.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/actions/runs/45167184913"
+  },
+  {
+   "line": "Sovereign Website: v0.1.15 · 61bea70 · 2026-11-23",
+   "url": "https://sovereign-website.startups.sovereignweb.site/",
+   "run": "https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website/actions/runs/45167210699"
   },
   {
    "line": "The SWS library: v0.1.11 · 37e1f83 · 2026-11-23",
@@ -164,11 +174,6 @@
    "run": "https://github.com/SovereignWebsite/Site__Tool__Streaming/actions/runs/45044966234"
   },
   {
-   "line": "The hub: v0.1.15 · 208ad96 · 2026-11-22",
-   "url": "https://hub.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/actions/runs/45044855311"
-  },
-  {
    "line": "AgentiCCells: v0.1.14 · 2c94372 · 2026-11-22",
    "url": "https://agentic-cells.startups.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells/actions/runs/45044874525"
@@ -182,11 +187,6 @@
    "line": "sgit: v0.1.14 · 99b6090 · 2026-11-22",
    "url": "https://sgit.startups.sovereignweb.site/",
    "run": "https://github.com/SovereignWebsite/Site__Startups__Sgit/actions/runs/45044942411"
-  },
-  {
-   "line": "Sovereign Website: v0.1.14 · 63a6c70 · 2026-11-22",
-   "url": "https://sovereign-website.startups.sovereignweb.site/",
-   "run": "https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website/actions/runs/45044953350"
   },
   {
    "line": "The Cyber Boardroom: v0.1.14 · 5656d1e · 2026-11-22",

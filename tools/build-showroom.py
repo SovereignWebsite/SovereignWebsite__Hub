@@ -44,7 +44,12 @@ sid = lambda n: 's-' + re.sub(r'[^a-z0-9]+', '-', n.lower()).strip('-')
 hero = next((s for s in people if s.get('handed_over')), people[0] if people else sites[0])
 handed = sum(1 for s in sites if s.get('handed_over'))
 working = sum(1 for s in sites if not s.get('waiting'))
-names = ['Editorial', 'Night gallery', 'Grid', 'Paper', 'Studio']
+names = ['The Register', 'Night gallery', 'Grid', 'Paper', 'Studio']
+MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+long_date = lambda d: f"{int(d[8:10])} {MONTHS[int(d[5:7]) - 1]} {d[:4]}"
+# The register numbers every entry in the order the page shows them.
+entry_no = {s['slug']: i + 1 for i, s in enumerate(x for n, _ in SECTIONS for x in by_section[n])}
+PARTS = 'ABCDEFGHIJ'
 SITE_URL = 'https://hub.sovereignweb.site/'
 
 
@@ -70,6 +75,28 @@ def chips(s):
     return '<p class="chips">' + ''.join(f'<span class="{k}">{e(t)}</span>' for k, t in c) + '</p>'
 
 
+# Break opportunities in long addresses, so a phone wraps them at a dot or a slash, not mid-word.
+soft = lambda x: re.sub(r'([./]|__)', r'\1<wbr>', e(x))
+
+
+def register(s):
+    # The register's own lines: shown in The Register design, hidden in the others (which say the same in chips).
+    rows = [('Address', f'<a href="{e(s["address"]["url"])}">{soft(host_of(s))}</a>'), ('Kind', e(s.get('group') or s['kind']))]
+    if s.get('handed_over'):
+        rows.append(('Held', f"By its owner, since {e(long_date(s['handed_over']))}"))
+    elif s.get('section') == 'People':
+        rows.append(('Held', 'SovereignWebsite, until handed over'))
+    else:
+        rows.append(('Held', e(s['owner']['name'])))
+    rows.append(('Status', 'Handed over' if s.get('handed_over') else 'Not switched on yet' if s.get('waiting') else 'Live'))
+    repo = (s.get('repository') or {}).get('url')
+    if repo:
+        rows.append(('Files', f'<a href="{e(repo)}">{soft(re.sub(r"^https://github.com/", "", repo))}</a>'))
+    if 'Five designs' in s.get('chips', []):
+        rows.append(('Designs', 'Five designs'))
+    return '<dl class="reg">' + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows) + '</dl>'
+
+
 def card(s, i, small=False):
     # A handed-over site says so in its chip (and in the hero), so the note is not repeated.
     note = f'<p class="note">{e(s["note"])}</p>' if s.get('note') and not s.get('handed_over') else ''
@@ -79,11 +106,16 @@ def card(s, i, small=False):
         cls += ' is-hero'
     if s.get('waiting'):
         cls += ' waiting'
+    if s.get('handed_over'):
+        cls += ' sealed'
+    seal = '<span class="seal" aria-hidden="true">Handed<br>over</span>' if s.get('handed_over') else ''
     return f'''<article class="{cls}">
-  {frame(s, i < 3 and not small)}
+  {seal}{frame(s, i < 3 and not small)}
   <div class="meta">
+    <p class="no">Entry {entry_no[s['slug']]:02d}</p>
     <p class="kind">{e(s.get('group') or s['kind'])}</p>
     <h3><a href="{e(s['address']['url'])}">{e(s['name'])}</a></h3>
+    {register(s)}
     <p class="sum">{e(s['summary'])}</p>{note}{wait}
     {chips(s)}
     <p class="go"><a href="{e(s['address']['url'])}">{e(host_of(s))} <span aria-hidden="true">&rarr;</span></a></p>
@@ -104,6 +136,7 @@ a{color:inherit}img{display:block;width:100%;height:auto}
 .brand{font-weight:700;text-decoration:none;white-space:nowrap}
 .chooser summary{list-style:none;cursor:pointer;padding:.35rem .9rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
 .chooser summary::-webkit-details-marker{display:none}.chooser summary::after{content:" \25BE"}
+@media (max-width:40rem){.chooser .nm{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 .chooser[open] summary{background:var(--fill);color:var(--on-fill);border-color:var(--fill)}
 .opts{position:absolute;right:1rem;top:calc(100% + .4rem);width:min(60rem,calc(100vw - 2rem));display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.75rem;padding:.9rem;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px -24px rgba(0,0,0,.45)}
 .opts a{text-decoration:none;font-size:.82rem;border-radius:8px;padding:.3rem;border:2px solid transparent}.opts a[aria-current=true]{border-color:var(--fill)}
@@ -141,6 +174,8 @@ section{margin-top:4.5rem}.sec-h{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0
 @media (max-width:640px){.is-hero .frame{display:none}}
 .skip{position:absolute;left:1rem;top:-3rem;z-index:9;padding:.5rem 1rem;background:var(--fill);color:var(--on-fill);border-radius:8px}.skip:focus{top:.5rem}
 .waiting .frame{border-style:dashed}.waiting .frame img{filter:grayscale(1) contrast(.85)}
+/* Lines only The Register shows. */
+.no,.reg,.seal,.part,.tally-n{display:none}
 .go{margin:0}.go a{font-weight:600;color:var(--accent);text-decoration:none;overflow-wrap:anywhere}.go a:hover{text-decoration:underline}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:1rem;counter-reset:s}
 .steps li{position:relative;padding-left:3rem;min-height:2.2rem;display:flex;align-items:center;font-weight:600}
@@ -161,10 +196,40 @@ footer{max-width:78rem;margin:0 auto;padding:1.5rem 1rem 3rem;color:var(--muted)
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Each design has a light and a dark palette; the visitor's setting chooses. --accent is for text, --fill for fills. */
-/* 1 Editorial: serif, calm */
-.d-1{--bg:#fbfaf7;--fg:#1d1d1b;--muted:#5d5c57;--accent:#2f6b4f;--fill:#2f6b4f;--on-fill:#fff;--line:#e4e1d8;--card:#fff}
-@media (prefers-color-scheme:dark){.d-1{--bg:#141513;--fg:#ecebe6;--muted:#a8a69e;--accent:#86c9a8;--fill:#86c9a8;--on-fill:#141513;--line:#2c2d29;--card:#1c1d1a}}
-.d-1 h1,.d-1 .site h3,.d-1 .sec-h{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+/* 1 The Register: a register of title. Who holds each address, and since when. The lead design. */
+.d-1{--bg:#f4f0e6;--fg:#1d2a24;--muted:#4b544f;--accent:#0d5a3f;--fill:#0d5a3f;--on-fill:#fff;--line:#c9c1ae;--card:#fbf8f1;--seal:#9e2a1f;--rule:#1d2a24}
+@media (prefers-color-scheme:dark){.d-1{--bg:#121714;--fg:#e9e5da;--muted:#b4b9b3;--accent:#7fd6ae;--fill:#7fd6ae;--on-fill:#121714;--line:#39423d;--card:#18201c;--seal:#ff8a7a;--rule:#e9e5da}}
+.d-1 main{max-width:62rem}
+.d-1 h1,.d-1 .site h3,.d-1 .sec-h,.d-1 .count b{font-family:Georgia,"Times New Roman",serif}
+.d-1 .hero{display:block;border:3px double var(--rule);background:var(--card);padding:clamp(1.2rem,4vw,2.6rem);text-align:center}
+.d-1 .hero-shot{display:none}
+.d-1 .kicker{font-variant:small-caps;text-transform:none;letter-spacing:.18em;font-size:1rem;font-weight:400;color:var(--fg)}
+.d-1 .hero h1{font-weight:700;letter-spacing:0;font-size:clamp(2.2rem,6.5vw,3.8rem);line-height:1.06}
+.d-1 .hero-text>p{margin:0 auto 1rem;color:var(--fg)}
+.d-1 .count{display:inline-grid;grid-auto-flow:column;gap:1.6rem;border-top:1px solid var(--line);padding-top:.8rem;margin-top:.4rem}
+.d-1 .sections{text-align:center}.d-1 .sections ul{justify-content:center}.d-1 .sections a{border-radius:0}
+.d-1 section{margin-top:3rem}
+.d-1 .sec-h{font-size:1.5rem;font-weight:700;border-bottom:2px solid var(--rule);padding-bottom:.3rem;margin-bottom:1rem;display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.d-1 .part{display:inline}.d-1 .tally-n{display:inline;font:400 .9rem system-ui,sans-serif;color:var(--muted);margin-left:auto}
+.d-1 .sec-intro{margin:0 0 1rem}
+.d-1 .grid,.d-1 .people .grid,.d-1 .tools .grid{grid-template-columns:minmax(0,1fr);gap:0}
+.d-1 .site{position:relative;display:grid;gap:1rem;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--rule);padding:1.1rem;margin:0 0 1rem}
+@media (min-width:46rem){.d-1 .site{grid-template-columns:15rem minmax(0,1fr)}}
+.d-1 .frame{border-radius:0;align-self:start}.d-1 .frame:hover{transform:none;box-shadow:none}.d-1 .chrome{display:none}
+.d-1 .is-hero .frame{display:block}
+.d-1 .no{display:block;margin:0;font:.875rem ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.d-1 .kind,.d-1 .chips{display:none}
+.d-1 .site h3,.d-1 .small h3{font-size:1.35rem;font-weight:700;margin:.1rem 0 .5rem}
+.d-1 .reg{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.25rem .9rem;margin:0 0 .6rem;font-size:.95rem}
+.d-1 .reg dt{color:var(--muted);font-variant:small-caps;letter-spacing:.06em}.d-1 .reg dd{margin:0;overflow-wrap:break-word;min-width:0}.d-1 .reg a{color:var(--accent)}
+.d-1 .sum,.d-1 .small .sum{color:var(--fg);font-size:1rem}
+.d-1 .go a{display:inline-flex;align-items:center;min-height:44px}
+.d-1 .seal{display:grid;position:absolute;right:.8rem;top:.8rem;z-index:1;width:5.2rem;height:5.2rem;border:3px solid var(--seal);color:var(--seal);border-radius:50%;place-items:center;text-align:center;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;line-height:1.15;transform:rotate(-12deg);background:var(--card)}
+.d-1 .sealed h3{padding-right:5.6rem}
+@media (min-width:46rem){.d-1 .sealed h3{padding-right:0}.d-1 .sealed .meta{padding-right:5.6rem}}
+.d-1 .waiting{border-left-style:dashed}
+.d-1 .steps li::before{border-radius:0}
+@media print{.d-1 .bar,.d-1 nav.family,.d-1 footer{display:none}.d-1 .site{break-inside:avoid}}
 
 /* 2 Night gallery: dark, glowing frames */
 .d-2{--bg:#0d0f12;--fg:#eef1f4;--muted:#9aa3ad;--accent:#7cf0c4;--fill:#7cf0c4;--on-fill:#0d0f12;--line:#262b31;--card:#151920;--glow:#7cf0c4}
@@ -230,11 +295,11 @@ page = f'''<!doctype html>
 <a class="skip" href="#main">Skip to the sites</a>
 {family}
 <header class="bar"><a class="brand" href="./">Sovereign Website Hub</a>
-<details class="chooser"><summary>Choose a design</summary><nav class="opts" aria-label="Designs of this page">{opts}</nav></details></header>
+<details class="chooser"><summary>Design <span class="cur">1</span><span class="nm">: The Register</span></summary><nav class="opts" aria-label="Designs of this page">{opts}</nav></details></header>
 <main id="main">
 <header class="hero">
   <div class="hero-text">
-    <p class="kicker">The showroom</p>
+    <p class="kicker">The register of title</p>
     <h1>Websites their owners own.</h1>
     <p>Built by agent teams, then handed over: the owner keeps the files, the history and the address. Every site here is public and live; open one to see it working.</p>
     <ul class="count"><li><b>{working}</b>sites working</li><li><b>{len(people)}</b>people's sites</li><li><b>{handed}</b>handed over</li></ul>
@@ -242,18 +307,18 @@ page = f'''<!doctype html>
   <a class="hero-shot frame" href="{e(hero['address']['url'])}" aria-label="Open {e(hero['name'])}"><span class="chrome"><i></i><i></i><i></i><b>{e(host_of(hero))}</b></span><picture><source media="(max-width:640px)" srcset="{e(hero['shot'])}-phone.jpg"><img src="{e(hero['shot'])}.jpg" alt="Screenshot of {e(hero['name'])}" width="1280" height="800" loading="eager"></picture>{f'<span class="badge">{e(hero_note)}</span>' if hero_note else ''}</a>
 </header>
 <nav class="sections" aria-label="Sections"><ul>{''.join(f'<li><a href="#{sid(n)}">{e(n)} <span>{len(by_section[n])}</span></a></li>' for n, _ in SECTIONS if by_section[n])}</ul></nav>
-{chr(10).join(f'''<section class="{'people' if n == 'People' else 'tools'}" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 class="sec-h" id="h-{sid(n)}">{e(n)}</h2>
+{chr(10).join(f'''<section class="{'people' if n == 'People' else 'tools'}" id="{sid(n)}" aria-labelledby="h-{sid(n)}"><h2 class="sec-h" id="h-{sid(n)}"><span><span class="part">Part {PARTS[k]}: </span>{e(n)}</span><small class="tally-n"> {len(by_section[n])} {'entry' if len(by_section[n]) == 1 else 'entries'}</small></h2>
 <p class="sec-intro">{e(intro)}</p>
 <div class="grid">
 {chr(10).join(card(s, i, small=(n != 'People')) for i, s in enumerate(by_section[n]))}
-</div></section>''' + (made if n == 'People' else '') for n, intro in SECTIONS if by_section[n])}
+</div></section>''' + (made if n == 'People' else '') for k, (n, intro) in enumerate((n, i) for n, i in SECTIONS if by_section[n]))}
 <p class="how">Each entry comes from <a href="sites.json">sites.json</a>, in the <a href="schema/hub-site.schema.json">hub-site format</a>, and is added when the site goes live. Screenshots are taken from the live sites. Source: <a href="https://github.com/SovereignWebsite/SovereignWebsite__Hub">SovereignWebsite__Hub</a>.</p>
 </main>
 <footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="policy/">How this site is governed</a> · <a href="operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser; the design you pick lives only in the address (#design-1 to #design-5).</footer>
 <script>
 (function(){{
-  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser');
-  function set(d){{document.documentElement.className='d-'+d;as.forEach(function(a){{a.setAttribute('aria-current',a.dataset.d===d?'true':'false');}});}}
+  var as=document.querySelectorAll('.opts a'),ch=document.querySelector('.chooser'),cur=document.querySelector('.chooser .cur'),cnm=document.querySelector('.chooser .nm'),nm={json.dumps(names)};
+  function set(d){{document.documentElement.className='d-'+d;cur.textContent=d;cnm.textContent=': '+nm[d-1];as.forEach(function(a){{a.setAttribute('aria-current',a.dataset.d===d?'true':'false');}});}}
   function fromHash(){{var m=location.hash.match(/design-([1-5])/);set(m?m[1]:(document.documentElement.className.match(/d-([1-5])/)||[0,'1'])[1]);}}
   as.forEach(function(a){{a.onclick=function(ev){{ev.preventDefault();history.replaceState(null,'','#design-'+a.dataset.d);set(a.dataset.d);ch.open=false;}};}});
   addEventListener('hashchange',fromHash);fromHash();

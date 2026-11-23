@@ -307,7 +307,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Silvio-Switha",
         "branch": "dev"
       },
-      "featured": 4
+      "featured": 5
     },
     {
       "schema": "hub-site/1",
@@ -333,7 +333,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Gabriel-DaCruz",
         "branch": "dev"
       },
-      "featured": 5
+      "featured": 6
     },
     {
       "schema": "hub-site/1",
@@ -359,7 +359,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Yiheng-Wang",
         "branch": "dev"
       },
-      "featured": 6
+      "featured": 7
     },
     {
       "schema": "hub-site/1",
@@ -385,7 +385,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Marc-Noah",
         "branch": "dev"
       },
-      "featured": 7
+      "featured": 8
     },
     {
       "schema": "hub-site/1",
@@ -411,7 +411,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Indi-Gupte",
         "branch": "dev"
       },
-      "featured": 8
+      "featured": 9
     },
     {
       "schema": "hub-site/1",
@@ -437,7 +437,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Mondweep-Chakravorty",
         "branch": "dev"
       },
-      "featured": 9
+      "featured": 10
     },
     {
       "schema": "hub-site/1",
@@ -463,7 +463,7 @@
         "url": "https://github.com/AgentiCCells/AgentiCCells__Site__Jose-Bota",
         "branch": "dev"
       },
-      "featured": 10
+      "featured": 11
     },
     {
       "schema": "hub-site/1",
@@ -855,7 +855,7 @@
       "kind": "Portfolio",
       "group": "Artist",
       "section": "People",
-      "featured": 11,
+      "featured": 4,
       "owner": {
         "name": "SovereignWebsite",
         "url": "https://github.com/SovereignWebsite"
