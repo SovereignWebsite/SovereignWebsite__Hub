@@ -173,7 +173,7 @@ def page(path, title, style, main, scheme='light dark', cur=0, note='', script='
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
 {chooser(cur)}</header>
 {main}
-<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/designs/">The five designs</a> · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. {note}</footer>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/designs/">The five designs</a> · <a href="/features/">What it can do</a> · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. {note}</footer>
 <script>document.addEventListener('keydown',function(ev){{if(ev.key==='Escape'){{var c=document.querySelector('.chooser');if(c)c.open=false;}}}});</script>
 </body>
 </html>
@@ -433,5 +433,31 @@ page('designs/', 'The five designs', css('designs'), f'''<main id="main">
 <ul class="five">{''.join(f"""<li><a href="{h}"{' class="lead"' if d == 1 else ''}><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><b>{d}. {e(n)}</b><span>{e(idea)}{' Dark only.' if dark else ' Light and dark.'}</span></a></li>""" for d, n, h, idea, dark in DESIGNS)}</ul>
 <p class="how">Designed by design.b (rounds 5 and 6) and built by hub.b from <a href="/sites.json">sites.json</a>.</p>
 </main>''', cur=0, note='')
+
+
+# ---- /features/: what a sovereign website can do, feature by feature, searchable ----
+FEAT = json.loads((SITE / 'features.json').read_text())
+
+
+def feature(f):
+    ex = ''.join(f'<li><a href="{e(u)}">{e(t)}</a></li>' for t, u in f['examples'])
+    words = ' '.join([f['name'], f['keywords'], f['today']]).lower()
+    return (f'<li class="feat st-{e(f["status"])}" data-words="{e(words)}"><h2>{e(f["name"])} <span class="badge">{e(FEAT["statuses"][f["status"]])}</span></h2>'
+            f'<p>{e(f["today"])}</p>' + (f'<ul class="ex">{ex}</ul>' if ex else '')
+            + f'<dl><dt>Who is on it</dt><dd>{e(f["agent"])}</dd><dt>What holds it up</dt><dd>{e(f["bottleneck"])}</dd></dl></li>')
+
+
+FEATURES_JS = '''<script>addEventListener('DOMContentLoaded',function(){var q=document.getElementById('q'),fs=[].slice.call(document.querySelectorAll('.feat')),n=document.getElementById('none'),nq=document.getElementById('nq'),c=document.getElementById('count');
+function run(){var v=q.value.trim().toLowerCase(),k=0;fs.forEach(function(f){var s=!v||f.dataset.words.indexOf(v)>-1;f.hidden=!s;if(s)k++;});
+n.hidden=k>0;nq.textContent=q.value.trim();c.textContent=v?k+' of '+fs.length+' match':fs.length+' features';}
+q.addEventListener('input',run);var m=location.hash.match(/^#q=(.+)$/);if(m){q.value=decodeURIComponent(m[1]);}run();});</script>'''
+page('features/', 'What it can do', css('features'), f'''<main id="main">
+<h1>What can a sovereign website do?</h1>
+<p class="lede">Look up a feature: whether it works today, where to see it live, which agent is on it and what is holding it up. Checked {e(FEAT["checked"])}; the list is <a href="/features.json">features.json</a>.</p>
+<form class="find" role="search" onsubmit="return false"><label for="q">Find a feature</label><input id="q" type="search" placeholder="Spotify, a shop, a contact form..." autocomplete="off"><span id="count" aria-live="polite"></span></form>
+<p id="none" class="none" hidden>Nothing here matches "<span id="nq"></span>" yet. <a href="/start/#get-one">Ask for it</a>: every feature on this list started as a request.</p>
+<ul class="feats">{"".join(feature(f) for f in FEAT["features"])}</ul>
+{GET}
+</main>''', cur=0, script='\n' + FEATURES_JS)
 
 print(f'showroom: {len(sites)} live public sites ({len(people)} people, {handed} handed over); 5 designs and /designs/ written')
