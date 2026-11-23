@@ -60,11 +60,11 @@ SITE_URL = 'https://hub.sovereignweb.site/'
 
 # The five designs: number, name, page, the idea in a line, and whether it is dark only.
 DESIGNS = [
-    (1, 'The Register', '/', 'A register of title: who holds each address, and since when.', False),
-    (2, 'The Gallery', '/gallery/', 'Each site hung on a wall with a museum label.', True),
-    (3, 'Contact Sheet', '/contact-sheet/', "A photographer's sheet of frames, the chosen one circled.", True),
-    (4, 'The Street', '/street/', 'Every site a shopfront, its address over the door.', False),
-    (5, 'The Line', '/line/', 'One request in, a handed-over site out, each site at its station.', False),
+    (1, 'The Line', '/', 'One request in, a handed-over site out, each site at its station.', False),
+    (2, 'The Register', '/register/', 'A register of title: who holds each address, and since when.', False),
+    (3, 'The Gallery', '/gallery/', 'Each site hung on a wall with a museum label.', True),
+    (4, 'Contact Sheet', '/contact-sheet/', "A photographer's sheet of frames, the chosen one circled.", True),
+    (5, 'The Street', '/street/', 'Every site a shopfront, its address over the door.', False),
 ]
 names = [d[1] for d in DESIGNS]
 
@@ -183,7 +183,7 @@ def page(path, title, style, main, scheme='light dark', cur=0, note='', script='
 
 
 def design_note(d):
-    return f'Design {d} of 5, {names[d - 1]}' + ('; the lead design is <a href="/">The Register</a>.' if d != 1 else ', the lead design. <a href="/designs/">See all five</a>.')
+    return f'Design {d} of 5, {names[d - 1]}' + ('; the lead design is <a href="/">The Line</a>.' if d != 1 else ', the lead design. <a href="/designs/">See all five</a>.')
 
 
 # ---- 1 The Register (home page) ----
@@ -282,9 +282,10 @@ register_main = f'''<main id="main">
 # Old #design-N addresses on the home page (the skins it used to carry) forward to the page that design now is.
 FORWARD = json.dumps({str(d): h for d, _, h, _, _ in DESIGNS if h != '/'})
 # Wide screens open each register entry; on a phone they stay folded so the page is short.
-REG_SCRIPT = (f"\n<script>var F={FORWARD},m=location.hash.match(/^#design-([1-5])$/);if(m&&F[m[1]])location.replace(F[m[1]]);"
+HOME_SCRIPT = f"\n<script>var F={FORWARD},m=location.hash.match(/^#design-([1-5])$/);if(m&&F[m[1]])location.replace(F[m[1]]);</script>"
+REG_SCRIPT = ("\n<script>"
               "addEventListener('DOMContentLoaded',function(){if(matchMedia('(min-width:46rem)').matches)document.querySelectorAll('details.deed').forEach(function(d){d.open=true;});});</script>")
-page('', 'Sovereign Website Hub', css('register'), register_main, cur=1, note=design_note(1), script=REG_SCRIPT)
+page('register/', 'The Register', css('register'), register_main, cur=2, note=design_note(2), script=REG_SCRIPT)
 
 
 # ---- 2 The Gallery ----
@@ -311,7 +312,7 @@ page('gallery/', 'The Gallery', css('gallery'), f'''<main id="main">
 {fold(n, piece, 'wall', f'Room {ROOMS[k]}, {n}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">Each label comes from the hub's <a href="/sites.json">sites.json</a> and is hung when the site goes live; the pictures are taken from the live sites. How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 {GET}
-</main>''', scheme='dark', cur=2, note=design_note(2))
+</main>''', scheme='dark', cur=3, note=design_note(3))
 
 
 # ---- 3 Contact Sheet ----
@@ -335,7 +336,7 @@ page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main
 {phone_fold([frame_of(s, k == 0 and i < 2) for i, s in enumerate(by_section[n])], 'strip', f'Show all {len(by_section[n])} frames in strip {k + 1}')}</section>""" for k, (n, intro) in enumerate(shown))}
 <p class="how">How a site is made: {e(STEPS_LINE)}.{DEMO_LINK}</p>
 {GET}
-</main>''', scheme='dark', cur=3, note=design_note(3))
+</main>''', scheme='dark', cur=4, note=design_note(4))
 
 
 # ---- 4 The Street ----
@@ -361,7 +362,7 @@ page('street/', 'The Street', css('street'), f'''<main id="main">
 <div class="kerb" aria-hidden="true"></div>""" for n, intro in shown)}
 <p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites.{DEMO_LINK}</p>
 {GET}
-</main>''', cur=4, note=design_note(4))
+</main>''', cur=5, note=design_note(5))
 
 
 # ---- 5 The Line ----
@@ -395,20 +396,40 @@ def station(i, title, here, note):
             + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
 
 
-page('line/', 'The Line', css('line'), f'''<main id="main">
-<p class="k">The showroom</p><h1>Websites their owners own.</h1>
+# The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
+KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
+
+
+def case():
+    items = []
+    for d in range(1, 6):
+        lazy = '' if d < 3 else ' loading="lazy"'
+        items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
+                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site"{lazy}></picture>'
+                     f'<span>Design {d}</span></a></li>')
+    return ('<section class="case" aria-labelledby="case-h">\n'
+            '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
+            f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
+            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose one of her five and now edits her site herself on GitHub.</p>\n'
+            '<p><a class="want-btn" href="/start/#get-one">I want one</a></p>\n</section>')
+
+
+LINE_MAIN = f'''<main id="main">
+{case()}
 <p class="lede">{e(ABOUT)}</p>
 <p class="counts">{e(COUNTS)}</p>
 <ol class="line" aria-label="How a site is made, with each person's site where it stands">{''.join(station(i, *x) for i, x in enumerate(STATIONS))}</ol>
 {chr(10).join(f"""<section class="side" id="l-{sid(n)}" aria-labelledby="l-h-{sid(n)}"><h2 id="l-h-{sid(n)}">{e(n)}</h2><p>{e(intro)}""" + (f""" Built the same way.{DEMO_LINK}""" if n == 'Demos' else '') + f"""</p>
 {phone_fold([lcard(s, False) for s in by_section[n]], 'row', f'Show all {len(by_section[n])} in {e(n)}')}</section>""" for n, intro in shown if n != 'People')}
-</main>''', cur=5, note=design_note(5))
+</main>'''
+page('', 'Sovereign Website Hub', css('line'), LINE_MAIN, cur=1, note=design_note(1), script=HOME_SCRIPT)
+page('line/', 'The Line', css('line'), LINE_MAIN, cur=1, note=design_note(1))
 
 
 # ---- /designs/: the five side by side ----
 page('designs/', 'The five designs', css('designs'), f'''<main id="main">
 <h1>The five designs</h1>
-<p class="lede">The same register of {len(sites)} public sites, five ways. Each is a real idea, not a colour change; The Register is the lead and the home page.</p>
+<p class="lede">The same register of {len(sites)} public sites, five ways. Each is a real idea, not a colour change; The Line is the lead and the home page.</p>
 <ul class="five">{''.join(f"""<li><a href="{h}"{' class="lead"' if d == 1 else ''}><img src="/shots/hub-design-{d}.jpg" alt="" width="640" height="400" loading="lazy"><b>{d}. {e(n)}</b><span>{e(idea)}{' Dark only.' if dark else ' Light and dark.'}</span></a></li>""" for d, n, h, idea, dark in DESIGNS)}</ul>
 <p class="how">Designed by design.b (rounds 5 and 6) and built by hub.b from <a href="/sites.json">sites.json</a>.</p>
 </main>''', cur=0, note='')
