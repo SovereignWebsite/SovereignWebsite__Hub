@@ -96,6 +96,14 @@ def soft_path(text):
     return '<wbr>'.join(f'<span class="nw">{e(p)}</span>' for p in parts if p)
 
 
+def sentences(text):
+    # The first sentence whole, and the rest in a span a phone can hide (instead of cutting a sentence with "...").
+    m = re.match(r'(.+?[.!?])(\s+.+)?$', text)
+    if not m or not m.group(2):
+        return e(text)
+    return f'{e(m.group(1))}<span class="s2">{e(m.group(2))}</span>'
+
+
 def waiting_line(s):
     w = s['waiting']
     return w if w.lower().startswith('not switched on yet') else 'Not switched on yet: ' + w[:1].lower() + w[1:]
@@ -204,14 +212,15 @@ def deed(s):
     return '<dl>' + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows) + '</dl>'
 
 
-def entry(s, is_lead=False):
+def entry(s, is_lead=False, copy=''):
     cls = 'title' + (' lead' if is_lead else '') + (' sealed' if s.get('handed_over') else '') + (' pending' if s.get('waiting') else '')
     seal = '<span class="seal" aria-hidden="true">Handed<br>over</span>' if s.get('handed_over') else ''
-    hid = 't-' + s['slug']
+    hid = 't-' + s['slug'] + copy
     hn = 'h2' if is_lead else 'h3'
     return (f'<article class="{cls}" aria-labelledby="{hid}"><div class="shot">{seal}{pic(s, is_lead, "(min-width:46rem) 22rem, 7rem" if is_lead else "(min-width:46rem) 15rem, 7rem", lead=is_lead)}{credit(s) if is_lead else ""}</div>'
             f'<div class="meta"><p class="no">Entry {entry_no[s["slug"]]:02d}</p><{hn} id="{hid}"><a href="{e(s["address"]["url"])}">{e(s["name"])}</a></{hn}>'
-            f'<p class="sum">{e(s["summary"])}</p>'
+            f'<p class="sum">{sentences(s["summary"])}</p>'
+            + (f'<p class="status-line">{e(waiting_line(s))}</p>' if s.get('waiting') else '') +
             f'<details class="deed"{" open" if is_lead else ""}><summary>The register entry</summary>{deed(s)}</details>'
             f'<p class="go"><a href="{e(s["address"]["url"])}">Visit <span class="sr">{e(s["name"])} at </span>{soft(host_of(s))}&nbsp;&rarr;</a></p></div></article>')
 
@@ -259,13 +268,19 @@ def phone_fold(items, box, summary, keep=2):
 
 def entries(n, k):
     # Each part shows its first three entries; the rest fold into a disclosure that works without script.
+    # A phone shows two: the third is a wide-only copy here and a phone-only copy inside the disclosure
+    # (each with its own id; display:none on the one that does not apply, so each entry is read once).
     es = rest(n)
-    more = es[SHOW:]
-    out = ''.join(entry(s) for s in es[:SHOW])
-    if more:
-        out += (f'<details class="more"><summary>Show all {len(by_section[n])} entries in Part {PARTS[k]}, {e(n)} '
-                f'<span class="sr">({len(more)} more)</span></summary>{"".join(entry(s) for s in more)}</details>')
-    return out
+    out = ''.join(entry(s) for s in es[:2])
+    if len(es) <= 2:
+        return out
+    third = es[2:SHOW]
+    out += ''.join(f'<div class="wide-only">{entry(s, copy="-w")}</div>' for s in third)
+    summary = f'Show all {len(by_section[n])} entries in Part {PARTS[k]}, {e(n)}'
+    phone = ''.join(f'<div class="phone-only">{entry(s, copy="-p")}</div>' for s in third) + ''.join(entry(s) for s in es[SHOW:])
+    if len(es) <= SHOW:
+        return out + f'<details class="more phone-only"><summary>{summary}</summary>{phone}</details>'
+    return out + f'<details class="more"><summary>{summary}</summary>{phone}</details>'
 
 
 register_main = f'''<main id="main">
@@ -298,7 +313,7 @@ def piece(s, is_lead=False):
     acq = s['note'] if s.get('handed_over') and s.get('note') else waiting_line(s) if s.get('waiting') else 'Live, open to visit.'
     tags = ''.join(f'<span>{e(x)}</span>' for x in (['Handed over'] if s.get('handed_over') else []) + s.get('chips', []))
     return (f'<a class="{cls}" href="{e(s["address"]["url"])}"><span class="spot"><span class="frame">{pic(s, is_lead, "(min-width:52rem) 62rem, 100vw" if is_lead else "(min-width:52rem) 38rem, 100vw", lead=is_lead)}</span>{credit(s) if is_lead else ""}</span>'
-            f'<span class="label"><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span><span class="sum">{e(s["summary"])}</span>'
+            f'<span class="label"><b>{e(s["name"])}</b><span class="m">{e(s.get("group") or s["kind"])}, {soft(host_of(s))}</span><span class="sum">{sentences(s["summary"])}</span>'
             f'<span class="acq">{e(acq)}</span>' + (f'<span class="tags">{tags}</span>' if tags else '') + '</span></a>')
 
 

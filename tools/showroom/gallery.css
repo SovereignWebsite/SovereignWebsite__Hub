@@ -64,3 +64,6 @@ footer{max-width:80rem}
  .spot::after{background:radial-gradient(closest-side,rgb(255 220 150/.35),#0000)}
  .frame{box-shadow:0 2px 0 #574634 inset,0 24px 40px -18px rgb(0 0 0/.45)}
 }
+@media(max-width:40rem){.wall:not(.lead-wall) .label .sum{display:block;-webkit-line-clamp:unset;overflow:visible}.wall:not(.lead-wall) .label .s2{display:none}}
+@media(max-width:40rem){.wall:not(.lead-wall) .label .tags{display:none}.wall:not(.lead-wall) .label{padding:.5rem .7rem}.room-intro{font-size:.82rem;line-height:1.45}}
+@media(max-width:40rem){.wall:not(.lead-wall) .frame img{aspect-ratio:2/1;object-position:left top}}
