@@ -355,6 +355,28 @@ page('contact-sheet/', 'Contact Sheet', css('contact-sheet'), f'''<main id="main
 </main>''', cur=4, note=design_note(4))
 
 
+# The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
+KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
+
+
+KATE_DESIGNS = ['The Transcript', 'The Edit Window', 'The Workflow Board', 'Foundations', 'The Brief']  # titles of her designs/1 to 5
+KATE_CHOICE = 3  # her home page
+
+
+def case():
+    items = []
+    for d in range(1, 6):
+        lazy = '' if d < 3 else ' loading="lazy"'
+        items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
+                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site, {KATE_DESIGNS[d - 1]}"{lazy}></picture>'
+                     f'<span>{d} {KATE_DESIGNS[d - 1]}{" (her choice)" if d == KATE_CHOICE else ""}</span></a></li>')
+    return ('<section class="case" aria-labelledby="case-h">\n'
+            '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
+            f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
+            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
+
+
 # ---- 4 The Street ----
 def shop(s, is_lead=False):
     boards = (['<span class="board">Handed over</span>'] if s.get('handed_over') else []) + [f'<span class="board alt">{e(x)}</span>' for x in s.get('chips', [])]
@@ -367,15 +389,17 @@ def shop(s, is_lead=False):
 
 
 page('street/', 'The Street', css('street'), f'''<main id="main">
-<section class="sky" aria-labelledby="st-h"><div><p class="k">The showroom</p><h1 id="st-h">Websites their owners own.</h1>
+<div class="sky"><div>{case()}
 <p class="lede">{e(ABOUT)}</p>
 <div class="lead-row">{shop(lead, True)}{''.join(f'<div class="wide-only">{shop(s)}</div>' for s in rest('People')[:2])}</div>
 <div class="about"><p class="want">{WANT}</p>
-<nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></section>
+<nav aria-label="Streets"><ul class="streets">{''.join(f'<li><a href="#st-{sid(n)}">{e(n)}</a></li>' for n, _ in shown)}</ul></nav></div></div></div>
 <section class="road" aria-label="On this street"><p>{e(COUNTS)}</p></section>
 {chr(10).join(f"""<section class="street" id="st-{sid(n)}" aria-labelledby="st-h-{sid(n)}"><h2 id="st-h-{sid(n)}">{e(n)}</h2><p class="sub">{e(intro)}</p>
 {street_people() if n == 'People' else fold(n, shop, 'row', n)}</section>
 <div class="kerb" aria-hidden="true"></div>""" for n, intro in shown)}
+<section class="street plot-row" aria-labelledby="plot-h"><h2 id="plot-h">The next plot</h2>
+<a class="plot" href="/start/#get-one"><span class="sign">Yours</span><span class="awning" aria-hidden="true"></span><span class="front"><span class="empty-lot">An empty plot on the street, waiting for your site.</span><span class="door">I want one &rarr;</span></span></a></section>
 <p class="how">Every shop's details come from the hub's <a href="/sites.json">sites.json</a>; the windows are screenshots of the live sites.{DEMO_LINK}</p>
 {GET}
 </main>''', cur=5, note=design_note(5))
@@ -411,28 +435,6 @@ def station(i, title, here, note):
                   f'<ul class="here">{"".join(li[2:])}</ul></details></li>')
     return (f'<li class="st{" end" if i == 3 else ""}{" get-st" if i == 4 else ""}"><h2>{e(title)}</h2>' + (f'<p class="empty">{note if i in (0, 4) else e(note)}</p>' if note else '')
             + (f'<ul class="here">{cards}</ul>' if cards else '') + '</li>')
-
-
-# The case, on the home page's first screen: one sentence, one real site in its five designs, one action.
-KATE = 'https://kate-curtis-evans.founder.sovereignweb.site/'
-
-
-KATE_DESIGNS = ['The Transcript', 'The Edit Window', 'The Workflow Board', 'Foundations', 'The Brief']  # titles of her designs/1 to 5
-KATE_CHOICE = 3  # her home page
-
-
-def case():
-    items = []
-    for d in range(1, 6):
-        lazy = '' if d < 3 else ' loading="lazy"'
-        items.append(f'<li><a href="{KATE}designs/{d}.html"><picture><source type="image/webp" srcset="/shots/kate-curtis-evans-design-{d}.webp">'
-                     f'<img src="/shots/kate-curtis-evans-design-{d}.jpg" width="640" height="400" alt="Design {d} of Kate Curtis-Evans\'s site, {KATE_DESIGNS[d - 1]}"{lazy}></picture>'
-                     f'<span>{d} {KATE_DESIGNS[d - 1]}{" (her choice)" if d == KATE_CHOICE else ""}</span></a></li>')
-    return ('<section class="case" aria-labelledby="case-h">\n'
-            '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
-            f'<ul class="kate5" aria-label="Kate Curtis-Evans\'s site in its five designs">{"".join(items)}</ul>\n'
-            f'<p class="case-note"><a href="{KATE}">Kate Curtis-Evans</a> chose The Workflow Board, and now changes her site herself: on GitHub, or <a href="{KATE}agents/">by talking to her AI</a>.</p>\n'
-            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
 
 # What you get: five items, each with a live example (design.b's hub-sells brief, item 2).
