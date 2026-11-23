@@ -243,6 +243,14 @@
       "name": "Car buyer: a toolkit for buying a used car in the UK",
       "summary": "A checklist, the official checks (DVLA, DVSA MOT history, TfL, recalls) and an ownership cost sheet for buying a used car in the UK. Your notes stay in your browser.",
       "five_designs": false
+    },
+    {
+      "state": "building",
+      "group": "Platforms",
+      "host": "suno.platform.sovereignweb.site",
+      "name": "Suno, our songs (unofficial)",
+      "summary": "Our songs made with Suno, played through Suno's own player: vote for favourites, and see which move from experiments to pre-release. Not affiliated with Suno.",
+      "five_designs": false
     }
   ]
 }

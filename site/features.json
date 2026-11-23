@@ -32,6 +32,24 @@
       "bottleneck": "No one has asked for more yet: there is no request for a Spotify feature."
     },
     {
+      "name": "Your music, played on the page",
+      "keywords": "music, songs, audio, player, suno, tracks, listen, album",
+      "status": "live",
+      "today": "Songs played on your page through the service's own player (Suno, Spotify), with no upload of your own needed.",
+      "examples": [
+        [
+          "Suno: our songs, 30 tracks (being built)",
+          "https://suno.platform.sovereignweb.site/"
+        ],
+        [
+          "Marc Noah's album",
+          "https://marc-noah.agenticcells.site/"
+        ]
+      ],
+      "agent": "suno.b keeps the Suno site; each site's keeper adds the rest.",
+      "bottleneck": "Voting on the Suno site waits for feedback.b's lane."
+    },
+    {
       "name": "What it costs",
       "keywords": "price, cost, how much, fee, pay, payment, subscription, monthly",
       "status": "partial",
