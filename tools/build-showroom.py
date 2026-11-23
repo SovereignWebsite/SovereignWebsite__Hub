@@ -205,7 +205,7 @@ def design_note(d):
 RENT_CHECKED = '23 November 2026'
 RENT = [
     ('Wix', '"Your site must run on Wix\'s servers"', 'No', '', 'https://support.wix.com/en/article/exporting-or-embedding-your-wix-site-elsewhere', ''),
-    ('Squarespace', '', 'In part: an XML file of some content, without store pages, custom CSS or style settings', 'Basic $19 to $25, up to Advanced $99 to $139 a month', 'https://support.squarespace.com/hc/en-us/articles/206566687', 'https://www.squarespace.com/pricing'),
+    ('Squarespace', '', 'In part: an XML file of some content, without store pages, custom CSS or style settings', 'Basic $19 to $25, up to Advanced $99 to $139 a month', 'https://support.squarespace.com/hc/en-us/articles/206566687-Export-your-site-content', 'https://www.squarespace.com/pricing'),
     ('WordPress.com', '"What you build belongs to you"', 'Content yes: posts, pages and comments; not the theme or media files', 'Personal $9 a month ($4 billed yearly); Business $40 ($25 billed yearly)', 'https://wordpress.com/support/export/', 'https://wordpress.com/pricing/'),
     ('Fliplet', '', 'No: "Fliplet does not offer a facility for You to transfer or copy any Content or Applications"', 'Free $0, Plus $25, Max from $50 a month', 'https://fliplet.com/terms/', 'https://fliplet.com/pricing/'),
 ]
