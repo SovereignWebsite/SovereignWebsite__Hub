@@ -81,6 +81,13 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 
 ## Open items
 
+**From the morning sync (maestro.b, 24 Nov; Site__Agent__Maestro briefs/2026-11-24-morning-sync.md):**
+- The hub is where people and agents find every agent's two repositories: the agent itself, and its work.
+- It also lists the Email Cell with mail.dev.a and mail.conductor.a (a.maestro's open ask since 23 Nov).
+- Build this from a source list: ask b.factory for its list of agents and repositories, or read each maestro's area. Never guess a repository name.
+- Put the directory beside the navigation registry (item 0) and link it from /agents/.
+- No scheduled wakes until Dinis re-enables them.
+
 **Status, round 12 (v0.1.57, design.b.rounds, review 9a7d554):**
 - The hub is rated 4 and reaches M4. It keeps the 4 unless a measured check fails, or The Line falls below 4 of 5 in two runs in a row.
 - The Line got 4 of 5 for the third run, The Street 3 of 5, and the others 1 of 5 each.
