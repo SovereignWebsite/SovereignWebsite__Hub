@@ -84,8 +84,8 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 **From the morning sync (maestro.b, 24 Nov; Site__Agent__Maestro briefs/2026-11-24-morning-sync.md):**
 - The hub is where people and agents find every agent's two repositories: the agent itself, and its work.
 - It also lists the Email Cell with mail.dev.a and mail.conductor.a (a.maestro's open ask since 23 Nov).
-- Build this from a source list: ask b.factory for its list of agents and repositories, or read each maestro's area. Never guess a repository name.
-- Put the directory beside the navigation registry (item 0) and link it from /agents/.
+- Done for now: /agents/#team links maestro.b's lists of agents and keepers' areas, and the Email Cell.
+  Once b.factory publishes the list of each agent's two repositories, link it there too. Do not copy names onto the hub.
 - No scheduled wakes until Dinis re-enables them.
 
 **Status, round 12 (v0.1.57, design.b.rounds, review 9a7d554):**
