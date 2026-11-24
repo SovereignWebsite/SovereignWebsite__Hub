@@ -86,7 +86,9 @@ GET = ('<section class="get" aria-labelledby="get-h"><h2 id="get-h">Get one</h2>
 # The price and how to take it up, as Dinis decided on 23 Nov 2026 (decision records 2026-11-23__hub-get-one-form and
 # 2026-11-23__asks-22-to-32, ask 25: email for now; payment will be by Stripe, and no payment link is shown until one exists).
 OFFER = 'Launch offer: £50 (€50 on European sites), one-off. No subscription from us.'
-OFFER_NOTE = 'Editing it afterwards needs a Claude plan or a partner.'
+# Record 2026-11-24__block-02-a (request 2026-11-24__editing-cost-wording): design.b's words; no claim about partners' prices.
+OFFER_NOTE = ('Afterwards you can <a href="/start/">edit it yourself on GitHub</a> at no cost, by talking to your own AI '
+              '(a Claude plan), or through a partner.')
 STEPS_LINE = '; '.join(x[:1].lower() + x[1:] if i else x for i, x in enumerate(steps))
 DEMO_LINK = f' <a href="{e(demo["address"]["url"])}">See it run: the pipeline demo</a>.' if demo else ''
 
@@ -231,7 +233,7 @@ def own_rent():
             f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
             f'<div class="rent-wrap"><table><thead><tr><th scope="col">Builder</th><th scope="col">Who holds the files</th><th scope="col">Can you leave with the site</th>'
             f'<th scope="col">Price a month</th><th scope="col">Sources</th></tr></thead><tbody>{rows}{ours}</tbody></table></div>'
-            '<p class="honest">To be fair: editing a sovereign website today needs a Claude plan or a partner, and nothing is sold yet. '
+            '<p class="honest">To be fair: nothing is sold yet. After the launch offer you edit the site yourself on GitHub at no cost, with your own Claude plan, or through a partner. '
             'Prices are as each page showed them to a reader outside the UK; Wix showed none we could confirm. Facts gathered by strategy.b.</p></section>')
 
 
@@ -252,7 +254,7 @@ def case():
             '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
             f'<ul class="five5" aria-label="Car buyer, one of our own sites, in its five designs">{"".join(items)}</ul>\n'
             f'<p class="case-note"><a href="{CASE_URL}">Car buyer</a>, one of our own tools, in its five designs. A site for you is made the same way: you choose the design you keep, then change it on GitHub or by talking to your AI.</p>\n'
-            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + e(OFFER_NOTE) + '</span></p>\n'
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + OFFER_NOTE + '</span></p>\n'
             '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
 
 

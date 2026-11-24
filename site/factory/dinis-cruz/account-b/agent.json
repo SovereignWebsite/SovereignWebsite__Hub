@@ -9,10 +9,9 @@
  "focus": "Navigation registry (ask 40); round 12 list; each design telling the case in its own form",
  "waiting_on": [
   "Dinis: start a fresh hub.b session from docs/HANDOVER.md",
-  "Dinis: create hub.b's wake, every 2 hours, ending before 22:00 UTC (ask 24)",
-  "decisions.b: request 2026-11-24__editing-cost-wording (https://hub.sovereignweb.site/decisions/requests/2026-11-24__editing-cost-wording.json); follow /requests/hub.b/ on decisions.agents.sovereignweb.site"
+  "Dinis: create hub.b's wake, every 2 hours, ending before 22:00 UTC (ask 24)"
  ],
- "updated": "2026-11-24T01:00Z",
+ "updated": "2026-11-24T01:30Z",
  "read": {
   "now": "now.md",
   "role": "role.md",
