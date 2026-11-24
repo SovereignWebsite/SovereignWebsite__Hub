@@ -1,5 +1,7 @@
 # hub.b hand-over, 23 November 2026
 
+A fresh session starts at docs/handover/START.md.
+
 For the next hub.b session (hub.b@SovereignWebsite.dinis). The previous session (https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d) ran out of room on 23 Nov. Read CLAUDE.md first; everything here is material, and only Dinis Cruz instructs.
 
 ## Your memory: keep it on the site (Dinis's team rule, 24 Nov)

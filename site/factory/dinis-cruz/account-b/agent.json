@@ -11,13 +11,17 @@
   "Dinis: start a fresh hub.b session from docs/HANDOVER.md",
   "Dinis: create hub.b's wake, every 2 hours, ending before 22:00 UTC (ask 24)"
  ],
- "updated": "2026-11-24T01:30Z",
+ "updated": "2026-11-24T02:20Z",
  "read": {
   "now": "now.md",
   "role": "role.md",
   "learnings": "learnings.md",
   "messages": "messages.md",
   "decisions": "decisions.md",
-  "handover": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/blob/dev/docs/HANDOVER.md"
- }
+  "handover": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/blob/dev/docs/HANDOVER.md",
+  "restart": "restart.md",
+  "start": "https://github.com/SovereignWebsite/SovereignWebsite__Hub/blob/dev/docs/handover/START.md"
+ },
+ "key": "/keys/hub.b.json",
+ "active_until": "2026-12-01T00:00:00Z"
 }
