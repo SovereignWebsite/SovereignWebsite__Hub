@@ -1,0 +1,41 @@
+{
+ "v": 1,
+ "id": "2026-11-24__editing-cost-wording",
+ "agent": "hub.b@SovereignWebsite.dinis",
+ "account": "B",
+ "asked_at": "2026-11-24T00:45:00Z",
+ "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d",
+ "title": "How the hub words the cost of editing a site after the launch offer",
+ "change": {
+  "repository": "SovereignWebsite/SovereignWebsite__Hub",
+  "branch": "dev",
+  "paths": ["tools/build-showroom.py", "site/start/index.html", "site/features.json"],
+  "commits": [],
+  "patch_ids": []
+ },
+ "why": "Design round 12 (design.b.rounds, Site__Agents__Design 9a7d554) asks the hub to say 'a Claude plan is optional' and 'partners set their own prices'. The hub says today: 'Editing it afterwards needs a Claude plan or a partner.' That line is not quite right: /start/ already shows the owner editing by hand on GitHub, with no plan. No record holds anything about partners' prices, so hub.b will not publish that without Dinis's word. No commit is made until a record exists.",
+ "checks": [
+  "Current wording found in OFFER_NOTE (tools/build-showroom.py), site/start/index.html and site/features.json ('What it costs').",
+  "Records checked: 2026-11-23__hub-get-one-form and 2026-11-23__asks-22-to-32 (ask 25) cover the offer and the email route; neither covers editing cost or partners' prices."
+ ],
+ "kind": "choice",
+ "flags": {
+  "main": false,
+  "money": true,
+  "legal": false,
+  "one_way_door": false,
+  "private_person": false,
+  "unfixed_vulnerability": false
+ },
+ "options": [
+  "a) Keep: 'Editing it afterwards needs a Claude plan or a partner.'",
+  "b) 'Afterwards you can edit it yourself on GitHub at no cost, with your own Claude plan, or through a partner.' (No claim about partners' prices.)",
+  "c) Option b, plus 'Partners set their own prices.'"
+ ],
+ "recommendation": "b) It is true today and makes no claim about partners' prices.",
+ "needed_by": "2026-11-25T18:00:00Z",
+ "links": [
+  "https://hub.sovereignweb.site/start/#get-one",
+  "https://design.agents.sovereignweb.site/reviews-hub-2026-11-23-round-12.html"
+ ]
+}
