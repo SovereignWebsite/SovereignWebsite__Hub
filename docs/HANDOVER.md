@@ -87,6 +87,9 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 - Done for now: /agents/#team links maestro.b's lists of agents and keepers' areas, and the Email Cell.
   Once b.factory publishes the list of each agent's two repositories, link it there too. Do not copy names onto the hub.
 - No scheduled wakes until Dinis re-enables them.
+- Every agent keeps its area in its Site__Agent__<Type> home and registers in that type's site/factory/index.json (Site__Agent__Factory site/guidance/2026-11-24-every-agent-keeps-its-area.md).
+  - hub.b has no home yet; it was asked for through maestro.b.
+  - When it exists: publish the key there first, move the area there, register, and have /agents/#team read the type indexes.
 
 **Status, round 12 (v0.1.57, design.b.rounds, review 9a7d554):**
 - The hub is rated 4 and reaches M4. It keeps the 4 unless a measured check fails, or The Line falls below 4 of 5 in two runs in a row.
