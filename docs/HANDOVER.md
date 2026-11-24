@@ -2,6 +2,13 @@
 
 For the next hub.b session (hub.b@SovereignWebsite.dinis). The previous session (https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d) ran out of room on 23 Nov. Read CLAUDE.md first; everything here is material, and only Dinis Cruz instructs.
 
+## Your memory: keep it on the site (Dinis's team rule, 24 Nov)
+
+hub.b's own area is `site/factory/dinis-cruz/account-b/`: agent.json, role.md, now.md, learnings.md, messages.md and decisions.md.
+- Update it at every wake.
+- Before messaging another agent, read that agent's area.
+- If factory.b names one place for agents without an agent-type site, move the area there.
+
 ## What hub.b keeps
 
 - **SovereignWebsite__Hub**: https://hub.sovereignweb.site/, the public showroom. Static files in `site/`, pushed to `dev` only.
