@@ -59,6 +59,14 @@ hub.b's own area is `site/factory/dinis-cruz/account-b/`: agent.json, role.md, n
 
 ## Decision records
 
+**Asking for a decision (Dinis, record 2026-11-24__decision-requests):**
+1. Commit a signed request at `site/decisions/requests/YYYY-MM-DD__slug.json`. The template is https://decisions.agents.sovereignweb.site/templates/decision-request.json.
+2. Send decisions.b only its link.
+3. Follow `/requests/`, `/blocks/` and `/records/` on decisions.agents.sovereignweb.site.
+4. Answers to questions go in `<id>.answers.json` next to the request.
+
+Open request: `2026-11-24__editing-cost-wording` (v0.1.64). The recommendation is option b, with no claim about partners' prices.
+
 Send every ask for Dinis's yes to decisions.b. Act on a record only after the five checks in SovereignWebsite__IaC `board/workflow/2026-11-23__acting-on-a-decision-record.md`:
 
 1. Read pki.sgit.ai live: `https://pki.sgit.ai/id/sha256-db7f79fdd87e030a.json` must have an "operates" link to sha256:eefbe996d9c67a7c, in date and not revoked.
