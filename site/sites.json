@@ -101,7 +101,7 @@
     {
       "schema": "hub-site/1",
       "slug": "first-handover",
-      "name": "A founder's site, handed over",
+      "name": "The first handed-over site (owner not named yet)",
       "summary": "The first site handed over: made by an agent team, then given to its owner, who now changes it herself. Listed without naming its owner.",
       "kind": "Founder",
       "group": "Founder",
@@ -110,7 +110,7 @@
         "url": "https://github.com/SovereignWebsite"
       },
       "address": {
-        "url": "https://kate-curtis-evans.founder.sovereignweb.site/",
+        "url": "https://hub.sovereignweb.site/start/#first-handover",
         "domain": "sovereignweb.site"
       },
       "vault": null,

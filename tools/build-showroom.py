@@ -634,7 +634,7 @@ def akey(s):
 
 
 def dentry(s):
-    words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), DSTATE[s['state']]]).lower()
+    words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), s.get('summary', ''), DSTATE[s['state']]]).lower()
     return (f'<li class="ds" data-words="{e(words)}"><a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
             f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s.get("tag", ""))} · {e(s["host"])}</span></li>')
 

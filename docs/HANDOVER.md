@@ -28,10 +28,10 @@ hub.b's own area is `site/factory/dinis-cruz/account-b/`: agent.json, role.md, n
   - `/start/`: the offer, and "To take it up, email agent@withmandate.ai".
   - `/agents/`, `/admin/` (dashboard), `/operator/` (for Dinis), `/policy/`.
 - **Price and route:** "Launch offer: £50 (€50 on European sites), one-off. No subscription from us." with "Afterwards you can edit it yourself on GitHub at no cost, by talking to your own AI (a Claude plan), or through a partner." (record 2026-11-24__block-02-a; no claim about partners' prices) Requests go by email to agent@withmandate.ai for now. Payment will be by Stripe, but no payment link exists yet, so show none. Sources: decision records `2026-11-23__hub-get-one-form` and `2026-11-23__asks-22-to-32` (ask 25).
-- **The first handed-over site** is listed as "A founder's site, handed over". Its owner is not named and it shows no pictures; only its link remains. Never feature her or name her on our sites (record `2026-11-23__asks-2-8-31-revised`, ask 31). `UNNAMED` in `tools/build-showroom.py` and the terms in `tools/build-operator.py` enforce this.
+- **The first handed-over site** (since 25 Nov, design.b round 13) is listed as "The first handed-over site (owner not named yet)", with no address: its link goes to /start/#first-handover. It is left out of /directory/ and registry.json until she, or Dinis, says the address may be shown. Before that it was listed as "A founder's site, handed over". Its owner is not named and it shows no pictures; only its link remains. Never feature her or name her on our sites (record `2026-11-23__asks-2-8-31-revised`, ask 31). `UNNAMED` in `tools/build-showroom.py` and the terms in `tools/build-operator.py` enforce this.
 - **No public form.** All feedback goes through QR codes (ask 8). The "I want one" route is email.
 - **Address wording:** the files and the history are the owner's, and the address only if they bring their own domain. Never say the address is theirs without that condition.
-- **Phones:** every design must stay under 8,000 px tall. The live build runs about 30 to 60 px taller than a local build.
+- **Phones:** every hub page must stay under 8,000 px tall (The Street is 7,903 px locally on 25 Nov: tight). The live build runs about 30 to 60 px taller than a local build.
 
 ## How to build, check and ship
 
@@ -113,7 +113,7 @@ Round 12's list, in order:
 
 0. **Done on 25 Nov:** `/directory/` (every public site that answers, an A to Z of the agents, a map by group, searchable) and `site/registry.json` (sws-registry/1, version 1, without agent, connect or the keeper chain yet). Both are built by `tools/build-directory.py` (sites.b's pipeline.json plus sites.json), then `tools/build-showroom.py`. Rerun both at each wake. design.b's brief for the visual pass is https://design.agents.sovereignweb.site/briefs/hub-map.html (1ffcf43).
    - design.b's review of /directory/ (873b6dd) replaces the brief's six groups: keep the finer groups as a closed list, People first and Agents last.
-   - Done in this tag: nine groups, AI providers folded into Guides, the news joining our own sites under The family.
+   - design.b then confirmed the six (after round 13). Done: six groups, People first and Agents last.
      - Each site keeps its finer label as a tag, and the build fails if a site has no group.
      - Each group folds behind a details element, so the phone page is 2,453 px closed.
      - Search opens the matching groups, and a tile link opens its group.

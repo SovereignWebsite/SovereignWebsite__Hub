@@ -11,7 +11,9 @@ import json, pathlib, time, urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
 SRC = 'https://sites.agents.sovereignweb.site/pipeline/pipeline.json'
-UNNAMED = {'kate-curtis-evans.founder.sovereignweb.site': "A founder's site, handed over"}
+# Left out of the directory and the registry until its owner, or Dinis, says its address may be shown (design.b, round 13).
+HIDDEN = {'kate-curtis-evans.founder.sovereignweb.site', 'hub.sovereignweb.site/start/#first-handover'}
+UNNAMED = {}
 # The pipeline's groups, folded into the groups a visitor looks for.
 GROUP = {'agents': 'agents', 'tool': 'tools', 'platform': 'platforms', 'demo': 'demos', 'startups': 'startups',
          'provider': 'providers', 'frameworks': 'guides', 'presentations': 'guides',
@@ -38,7 +40,7 @@ assert pipe.get('schema') == 'sws-pipeline/1', pipe.get('schema')
 
 sites = {}
 for p in pipe['sites']:
-    if p.get('http') != 200:
+    if p.get('http') != 200 or p['address'].strip('/').replace('https://', '') in HIDDEN:
         continue
     h = p['address'].strip('/').replace('https://', '')
     sites[h] = {'host': h, 'name': UNNAMED.get(h, p['title']), 'group': HOST_GROUP.get(h) or GROUP.get(p['group']) or ('demos' if p.get('kind') == 'demo' else 'people'),
@@ -47,30 +49,36 @@ for s in json.loads((SITE / 'sites.json').read_text())['sites']:
     if s.get('status') != 'live':
         continue
     h = s['address']['url'].split('/')[2]
+    if s.get('slug') == 'first-handover' or h in HIDDEN:
+        continue
     item = sites.setdefault(h, {'host': h, 'name': s['name'], 'group': SECTION.get(s.get('section'), 'demos'), 'state': 'live',
                                 'repository': None})
     item['name'] = UNNAMED.get(h, s['name'])
     item['group'] = SECTION.get(s.get('section'), item['group'])
     item['state'] = 'live'
     item['showroom'] = True
+    if s.get('group'):
+        item['label'] = s['group']
+    if s.get('summary'):
+        item['summary'] = s['summary']
     if s.get('repository') and h not in UNNAMED:
         item['repository'] = s['repository'] if '/' in s['repository'] else f"SovereignWebsite/{s['repository']}"
 for h in UNNAMED:
     if h in sites:
         sites[h]['repository'] = None
 
-# Groups: design.b's review of /directory/ (873b6dd) keeps the finer groups as a closed list, People first and Agents last,
-# with AI providers folded into Guides; the brief's "The family" holds our own sites and the news.
-NINE = [('people', 'People', "People's own sites, made for them and handed over."),
-        ('tools', 'Tools', 'Tools that run in your browser.'),
-        ('startups', 'Startups', 'Startups and their sites.'),
-        ('businesses', 'Businesses and organisations', 'Companies and organisations.'),
-        ('platforms', 'Platforms', 'Guides and consoles for the platforms we use.'),
-        ('guides', 'Guides, talks and AI providers', 'Frameworks, presentations, and guides to AI providers with demos on your own key.'),
-        ('demos', 'Demos', 'Demonstrations, not real businesses.'),
-        ('family', 'The family', 'Our own sites: Sovereign Website, its principles, hosting, this hub, the vault and the news.'),
-        ('agents', 'Agents', 'Each agent of the team has a site of its own: what it does, what it is working on, how to reach it.')]
-TO_NINE = {'providers': 'guides', 'news': 'family'}
+# Groups: design.b's brief hub-map (1ffcf43), six fixed groups (confirmed by design.b after round 13), in the order
+# of its review (873b6dd): People first, Agents last. Each site keeps its finer label as a tag.
+SIX = [('people', 'People', "Founders, artists, designers, musicians and other people's own sites."),
+       ('tools', 'Tools', 'Tools and platform consoles that run in your browser.'),
+       ('startups', 'Startups', 'The startup brochures.'),
+       ('businesses-demos', 'Businesses and demos', 'Made-up companies, demonstrations, AI providers and guides.'),
+       ('family', 'The family', 'Our own sites: Sovereign Website, its principles, hosting, this hub, the vault and the news.'),
+       ('agents', 'Agents', 'Each agent of the team has a site of its own: what it does, what it is working on, how to reach it.')]
+TO_SIX = {'people': 'people', 'startups': 'startups', 'businesses': 'businesses-demos', 'demos': 'businesses-demos',
+          'providers': 'businesses-demos', 'guides': 'businesses-demos', 'tools': 'tools', 'platforms': 'tools',
+          'news': 'family', 'agents': 'agents'}
+HOST_SIX = {'dinis-cruz.presentations.sovereignweb.site': 'people'}
 FINE = {g: n for g, n, _ in GROUPS}
 # Our own family of sites, checked live at build time; listed only if they answer.
 FAMILY = [('sovereignwebsite.ai', 'Sovereign Website'), ('sovereignwebsite.org', 'The principles'),
@@ -84,10 +92,10 @@ for h, n in FAMILY:
     if ok:
         sites.setdefault(h, {'host': h, 'name': n, 'group': 'family', 'state': 'live', 'repository': None})
 for s in sites.values():
-    s['tag'] = FINE.get(s['group'], 'Our own')
-    s['group'] = TO_NINE.get(s['group'], s['group'])
-assert all(s['group'] in {g for g, _, _ in NINE} for s in sites.values()), 'a site with no group fails the build'
-GROUPS = NINE
+    s['tag'] = s.pop('label', None) or FINE.get(s['group'], 'Our own')
+    s['group'] = HOST_SIX.get(s['host']) or TO_SIX.get(s['group'], s['group'])
+assert all(s['group'] in {g for g, _, _ in SIX} for s in sites.values()), 'a site with no group fails the build'
+GROUPS = SIX
 
 out = {'about': 'Every public site that answered when checked, from sites.b\'s pipeline and the hub\'s sites.json. Built by tools/build-directory.py; private sites are never listed.',
        'checked': pipe.get('checked'), 'source': SRC, 'groups': [{'id': g, 'name': n, 'about': a} for g, n, a in GROUPS],
