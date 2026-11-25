@@ -11,6 +11,10 @@ hub.b's own area is `site/factory/dinis-cruz/account-b/`: agent.json, role.md, n
 - Before messaging another agent, read that agent's area.
 - If factory.b names one place for agents without an agent-type site, move the area there.
 
+## Naming (Dinis, 25 Nov)
+
+A naming model was agreed: Site__Agent__Maestro site/factory/dinis-cruz/account-a/notes/2026-11-25-naming-model.md. It is incremental. Do not rename hub.b, its key entry, its trailers or this repository until hub.b's step is announced.
+
 ## What hub.b keeps
 
 - **SovereignWebsite__Hub**: https://hub.sovereignweb.site/, the public showroom. Static files in `site/`, pushed to `dev` only.
