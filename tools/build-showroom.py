@@ -625,7 +625,7 @@ print(f'showroom: {len(sites)} live public sites ({len(people)} people, {handed}
 # they are also easy to find on the hub ... all the agents should be linked there". The registry is the hub's part of
 # the shared wayfinder (record 2026-11-23__navigation-and-review, ask 40; shape sws-registry/1 agreed with sites.b).
 DIR = json.loads((SITE / 'directory.json').read_text())
-DSTATE = {'live': 'Live', 'setting-up': 'Being set up', 'building': 'Being built', 'coming': 'Coming'}
+DSTATE = {'live': 'Live', 'setting-up': 'Being set up', 'building': 'Being built', 'coming': 'Coming', 'pending': 'Coming soon (https pending)'}
 
 
 # Search words a visitor types for a site's own label (round 15: "music" missed the Composer and the Songwriter).
@@ -641,7 +641,8 @@ def akey(s):
 
 def dentry(s):
     words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), LABEL_WORDS.get(s.get('tag', '').lower(), ''), s.get('summary', ''), DSTATE[s['state']]]).lower()
-    return (f'<li class="ds" data-words="{e(words)}"><a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
+    name = f'<b>{e(s["name"])}</b>' if s['state'] == 'pending' else f'<a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
+    return (f'<li class="ds" data-words="{e(words)}">{name}'
             f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s.get("tag", ""))} · {e(s["host"])}</span></li>')
 
 

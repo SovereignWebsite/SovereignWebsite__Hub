@@ -32,19 +32,39 @@ GROUPS = [('agents', 'Agents', 'Each agent of the team has a site of its own: wh
           ('demos', 'Demos', 'Demonstrations, not real businesses.')]
 # Hosts whose pipeline group is empty or too broad.
 HOST_GROUP = {'agents.sovereignweb.site': 'agents', 'presentations.sovereignweb.site': 'guides'}
-STAGE = {'live': 'live', 'seeded': 'setting-up', 'building': 'building', 'approved': 'coming', 'asked': 'coming'}
+STAGE = {'live': 'live', 'seeded': 'setting-up', 'building': 'setting-up', 'approved': 'setting-up', 'asked': 'setting-up'}
 
 req = urllib.request.Request(f'{SRC}?t={int(time.time())}', headers={'User-Agent': 'sws-hub-directory', 'Cache-Control': 'no-cache'})
 pipe = json.loads(urllib.request.urlopen(req, timeout=30).read().decode())
 assert pipe.get('schema') == 'sws-pipeline/1', pipe.get('schema')
 
+# Each pipeline site is re-read live over https at build time (sites.a, 25 Nov): one that answers is linked; one still being
+# built that does not answer yet is listed as "coming soon (https pending)", with no link.
+import concurrent.futures
+
+
+def answers(h):
+    try:
+        return urllib.request.urlopen(urllib.request.Request(f'https://{h}/', headers={'User-Agent': 'sws-hub-directory'}), timeout=20).status == 200
+    except Exception:
+        return False
+
+
+hosts = {p['address'].strip('/').replace('https://', '').replace('http://', ''): p for p in pipe['sites']}
+with concurrent.futures.ThreadPoolExecutor(16) as ex:
+    live = dict(zip(hosts, ex.map(answers, hosts)))
 sites = {}
-for p in pipe['sites']:
-    if p.get('http') != 200 or p['address'].strip('/').replace('https://', '') in HIDDEN:
+for h, p in hosts.items():
+    if h in HIDDEN:
         continue
-    h = p['address'].strip('/').replace('https://', '')
+    if live[h]:
+        state = 'setting-up' if p['stage'] in ('building', 'approved', 'asked') else STAGE.get(p['stage'], 'setting-up')
+    elif p['stage'] in ('building', 'approved', 'asked'):
+        state = 'pending'
+    else:
+        continue
     sites[h] = {'host': h, 'name': UNNAMED.get(h, p['title']), 'group': HOST_GROUP.get(h) or GROUP.get(p['group']) or ('demos' if p.get('kind') == 'demo' else 'people'),
-                'state': STAGE.get(p['stage'], 'setting-up'), 'repository': f"SovereignWebsite/{p['repository']}" if p.get('repository') else None}
+                'state': state, 'repository': f"SovereignWebsite/{p['repository']}" if p.get('repository') else None}
 for s in json.loads((SITE / 'sites.json').read_text())['sites']:
     if s.get('status') != 'live':
         continue

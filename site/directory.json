@@ -1,6 +1,6 @@
 {
  "about": "Every public site that answered when checked, from sites.b's pipeline and the hub's sites.json. Built by tools/build-directory.py; private sites are never listed.",
- "checked": "2026-11-25T00:09Z",
+ "checked": "2026-11-25T01:38Z",
  "source": "https://sites.agents.sovereignweb.site/pipeline/pipeline.json",
  "groups": [
   {
@@ -41,6 +41,14 @@
    "group": "agents",
    "state": "live",
    "repository": "SovereignWebsite/Site__Agent__Accountant",
+   "tag": "Agents"
+  },
+  {
+   "host": "aws.agents.sovereignweb.site",
+   "name": "AWS Platform agents",
+   "group": "agents",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Agent__AWS",
    "tag": "Agents"
   },
   {
@@ -169,6 +177,14 @@
    "group": "agents",
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Agent__Maestro",
+   "tag": "Agents"
+  },
+  {
+   "host": "mail.agents.sovereignweb.site",
+   "name": "Mail agents",
+   "group": "agents",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Agent__Mail",
    "tag": "Agents"
   },
   {
@@ -350,6 +366,14 @@
    "tag": "Demos"
   },
   {
+   "host": "domain-registrars.services.sovereignweb.site",
+   "name": "Domain registrars: how buying a domain works, and the good options",
+   "group": "businesses-demos",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Services__Domain-Registrars",
+   "tag": "Demos"
+  },
+  {
    "host": "events-demo.agenticcells.site",
    "name": "Events, from our data",
    "group": "businesses-demos",
@@ -419,7 +443,7 @@
    "host": "tauguard.company.sovereignweb.site",
    "name": "TauGuard and RiskMandate: working together",
    "group": "businesses-demos",
-   "state": "setting-up",
+   "state": "live",
    "repository": "SovereignWebsite/Site__Company__TauGuard",
    "tag": "Businesses and organisations"
   },
@@ -543,6 +567,14 @@
    "group": "people",
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Manager__Ben-Fung",
+   "tag": "People"
+  },
+  {
+   "host": "dinis-cruz.cv.sovereignweb.site",
+   "name": "Dinis Cruz",
+   "group": "people",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__CV__Dinis-Cruz",
    "tag": "People"
   },
   {
@@ -720,6 +752,14 @@
    "tag": "Startups"
   },
   {
+   "host": "apple.platform.sovereignweb.site",
+   "name": "Apple as a platform (unofficial)",
+   "group": "tools",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Platform__Apple",
+   "tag": "Platforms"
+  },
+  {
    "host": "aws.platform.sovereignweb.site",
    "name": "AWS Platform Sovereign Website",
    "group": "tools",
@@ -770,6 +810,22 @@
    "tag": "Platforms"
   },
   {
+   "host": "github.tool.sovereignweb.site",
+   "name": "GitHub in the browser (unofficial)",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__GitHub",
+   "tag": "Tools"
+  },
+  {
+   "host": "calendar.google.tool.sovereignweb.site",
+   "name": "Google Calendar tool",
+   "group": "tools",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Tool__Google__Calendar",
+   "tag": "Tools"
+  },
+  {
    "host": "instagram.platform.sovereignweb.site",
    "name": "Instagram",
    "group": "tools",
@@ -818,6 +874,14 @@
    "tag": "Tools"
   },
   {
+   "host": "startup-grants.tool.sovereignweb.site",
+   "name": "Startup grants in Europe and the UK",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__Startup-Grants",
+   "tag": "Tools"
+  },
+  {
    "host": "streaming.tool.sovereignweb.site",
    "name": "Streaming",
    "group": "tools",
@@ -832,6 +896,22 @@
    "state": "live",
    "repository": "SovereignWebsite/Site__Platform__Suno",
    "tag": "Platforms"
+  },
+  {
+   "host": "theatre.tool.sovereignweb.site",
+   "name": "Theatre",
+   "group": "tools",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Tool__Theatre",
+   "tag": "Tools"
+  },
+  {
+   "host": "uk-driving-test.tool.sovereignweb.site",
+   "name": "UK driving theory test: learn and practise",
+   "group": "tools",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Tool__UK-Driving-Test",
+   "tag": "Tools"
   },
   {
    "host": "whois.tool.sovereignweb.site",
