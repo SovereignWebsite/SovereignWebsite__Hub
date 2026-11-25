@@ -634,9 +634,9 @@ def akey(s):
 
 
 def dentry(s):
-    words = ' '.join([s['name'], s['host'], s['group'], DSTATE[s['state']]]).lower()
+    words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), DSTATE[s['state']]]).lower()
     return (f'<li class="ds" data-words="{e(words)}"><a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
-            f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s["host"])}</span></li>')
+            f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s.get("tag", ""))} · {e(s["host"])}</span></li>')
 
 
 def directory_main():
@@ -659,7 +659,7 @@ def directory_main():
 <h2 id="map-h">The map, by group</h2>
 <ul class="map" aria-labelledby="map-h">{tiles}</ul>
 <section class="grp" id="g-agents" aria-labelledby="gh-agents"><h2 id="gh-agents">Agents, A to Z ({len(agents)})</h2>
-<p class="about">{e(by["agents"] and DIR["groups"][0]["about"])} The whole team, with their areas, is also on <a href="/agents/#team">Use with your AI</a>.</p>
+<p class="about">{e(next(g["about"] for g in DIR["groups"] if g["id"] == "agents"))} The whole team, with their areas, is also on <a href="/agents/#team">Use with your AI</a>.</p>
 <nav aria-label="Agents by letter"><ul class="az">{az}</ul></nav>{alist}</section>
 {secs}
 {GET}

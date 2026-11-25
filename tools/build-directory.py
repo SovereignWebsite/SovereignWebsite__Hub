@@ -59,6 +59,35 @@ for h in UNNAMED:
     if h in sites:
         sites[h]['repository'] = None
 
+# design.b's brief hub-map (1ffcf43): six fixed groups, so the map cannot sprawl; each site keeps its finer label as a tag.
+SIX = [('people', 'People', "Founders, artists, designers, musicians and other people's own sites."),
+       ('startups', 'Startups', 'The startup brochures.'),
+       ('businesses-demos', 'Businesses and demos', 'Made-up companies, demonstrations, AI providers and guides.'),
+       ('tools', 'Tools', 'Tools and platform consoles that run in your browser.'),
+       ('family', 'The family', 'Our own sites: Sovereign Website, its principles, hosting, this hub, the vault and the news.'),
+       ('agents', 'Agents', 'Each agent of the team has a site of its own: what it does, what it is working on, how to reach it.')]
+TO_SIX = {'people': 'people', 'startups': 'startups', 'businesses': 'businesses-demos', 'demos': 'businesses-demos',
+          'providers': 'businesses-demos', 'guides': 'businesses-demos', 'tools': 'tools', 'platforms': 'tools',
+          'news': 'family', 'agents': 'agents'}
+FINE = {g: n for g, n, _ in GROUPS}
+HOST_SIX = {'dinis-cruz.presentations.sovereignweb.site': 'people'}
+# Our own family of sites, checked live at build time; listed only if they answer.
+FAMILY = [('sovereignwebsite.ai', 'Sovereign Website'), ('sovereignwebsite.org', 'The principles'),
+          ('sovereignwebsite.site', 'Hosted sovereign websites'), ('hub.sovereignweb.site', 'This hub'),
+          ('vault.sovereignwebsite.site', 'The vault'), ('promptugal.news', 'PrompTugal.news')]
+for h, n in FAMILY:
+    try:
+        ok = urllib.request.urlopen(urllib.request.Request(f'https://{h}/', headers={'User-Agent': 'sws-hub-directory'}), timeout=20).status == 200
+    except Exception:
+        ok = False
+    if ok:
+        sites.setdefault(h, {'host': h, 'name': n, 'group': 'family', 'state': 'live', 'repository': None})
+for s in sites.values():
+    s['tag'] = FINE.get(s['group'], 'Our own')
+    s['group'] = HOST_SIX.get(s['host']) or TO_SIX.get(s['group'], s['group'])
+assert all(s['group'] in {g for g, _, _ in SIX} for s in sites.values()), 'a site with no group fails the build'
+GROUPS = SIX
+
 out = {'about': 'Every public site that answered when checked, from sites.b\'s pipeline and the hub\'s sites.json. Built by tools/build-directory.py; private sites are never listed.',
        'checked': pipe.get('checked'), 'source': SRC, 'groups': [{'id': g, 'name': n, 'about': a} for g, n, a in GROUPS],
        'sites': sorted(sites.values(), key=lambda s: (s['group'], s['name'].lower()))}

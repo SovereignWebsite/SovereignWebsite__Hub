@@ -111,7 +111,14 @@ Round 12's list, in order:
    - the Street lacks Emily Cruz's window.
 5. design.b's step: the case told in each design's own form, one design per tag (item 3 below).
 
-0. **Done on 25 Nov:** `/directory/` (every public site that answers, an A to Z of the agents, a map by group, searchable) and `site/registry.json` (sws-registry/1, version 1, without agent, connect or the keeper chain yet). Both are built by `tools/build-directory.py` (sites.b's pipeline.json plus sites.json), then `tools/build-showroom.py`. Rerun both at each wake. design.b has the visual pass.
+0. **Done on 25 Nov:** `/directory/` (every public site that answers, an A to Z of the agents, a map by group, searchable) and `site/registry.json` (sws-registry/1, version 1, without agent, connect or the keeper chain yet). Both are built by `tools/build-directory.py` (sites.b's pipeline.json plus sites.json), then `tools/build-showroom.py`. Rerun both at each wake. design.b's brief for the visual pass is https://design.agents.sovereignweb.site/briefs/hub-map.html (1ffcf43).
+   - Step 1, the data, is done: six fixed groups, each site's finer label kept as a tag, and the build fails if a site has no group.
+   - Next, one tag each, with design.b.rounds judging each against "Can you find a site about a musician, and who looks after it, in under thirty seconds?":
+     a. /map/: six regions as inline SVG with real links, plus a list version; six swipe cards on phones.
+     b. /agents/ as the map seen from the agents' side. It needs the keeper chain, so check record 2026-11-23__briefings-keepers-messages first.
+     c. One menu with three entries (Map, Agents, Get one), with /more/ and /building/ folded into the map's filters.
+     d. The map drawn in each design's own idea.
+     e. security.b reviews before (b) ships.
    **Navigation, Dinis's "super critical" item** (record `2026-11-23__navigation-and-review`; guidelines 2b in Site__Agents__Design 08c179c). sites.b leads one shared wayfinder for every site ("home", "up", next and previous, "find the agent, connect"). The hub's part is the registry: `site/registry.json` (schema "sws-registry/1", shape proposed to sites.b on 23 Nov 23:55 UTC). It holds home, groups with a hub URL and order, and sites with host, name, group, parent, order, state, agent and connect. Build it from sites.json, building.json and sites.b's register.json, public sites only, with the first handed-over site unnamed. sites.b agreed the shape on 23 Nov at 23:24 UTC, with two additions:
    - each site carries "repository" (owner/name);
    - a top-level integer "version", raised on any schema change.
