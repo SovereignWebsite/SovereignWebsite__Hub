@@ -649,7 +649,8 @@ def directory_main():
     az = ''.join(f'<li><a href="#a-{L}">{L}</a></li>' for L in letters)
     alist = ''.join(f'<h3 class="letter" id="a-{L}">{L}</h3><ul class="dir">' + ''.join(dentry(s) for s in agents if akey(s)[0].upper() == L) + '</ul>' for L in letters)
     def gfold(g, body):
-        return (f'<details class="grp" id="g-{e(g["id"])}"><summary><h2>{e(g["name"])} <span class="c">{len(by[g["id"]])}</span></h2>'
+        return (f'<details class="grp" id="g-{e(g["id"])}"' + (' open' if g['id'] == 'people' else '') + '><summary>'
+                f'<h2>{e(g["name"])} <span class="c">{len(by[g["id"]])}</span></h2>'
                 f'<span class="about">{e(g["about"])}</span></summary>{body}</details>')
     secs = ''.join(gfold(g, f'<ul class="dir">{"".join(dentry(s) for s in by[g["id"]])}</ul>') for g in groups if g['id'] != 'agents')
     agent_g = next(g for g in groups if g['id'] == 'agents')
@@ -670,7 +671,7 @@ def directory_main():
 
 
 DIR_JS = FEATURES_JS.replace(".feat'", ".ds'").replace("' features'", "' sites'").replace("q.addEventListener('input',run);",
-    "q.addEventListener('input',function(){run();var v=q.value.trim();document.querySelectorAll('details.grp').forEach(function(d){d.open=!!v&&!!d.querySelector('.ds:not([hidden])');});});"
+    "q.addEventListener('input',function(){run();var v=q.value.trim();document.querySelectorAll('details.grp').forEach(function(d){d.open=v?!!d.querySelector('.ds:not([hidden])'):d.id==='g-people';});});"
     "function op(){var d=location.hash&&document.getElementById(location.hash.slice(1));if(!d)return;var p=d.tagName==='DETAILS'?d:d.closest('details');if(p)p.open=true;}addEventListener('hashchange',op);op();")
 page('directory/', 'Every site', css('features') + css('directory'), directory_main(), cur=0, script='\n' + DIR_JS)
 
