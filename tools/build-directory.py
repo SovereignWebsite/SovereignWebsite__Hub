@@ -59,18 +59,19 @@ for h in UNNAMED:
     if h in sites:
         sites[h]['repository'] = None
 
-# design.b's brief hub-map (1ffcf43): six fixed groups, so the map cannot sprawl; each site keeps its finer label as a tag.
-SIX = [('people', 'People', "Founders, artists, designers, musicians and other people's own sites."),
-       ('startups', 'Startups', 'The startup brochures.'),
-       ('businesses-demos', 'Businesses and demos', 'Made-up companies, demonstrations, AI providers and guides.'),
-       ('tools', 'Tools', 'Tools and platform consoles that run in your browser.'),
-       ('family', 'The family', 'Our own sites: Sovereign Website, its principles, hosting, this hub, the vault and the news.'),
-       ('agents', 'Agents', 'Each agent of the team has a site of its own: what it does, what it is working on, how to reach it.')]
-TO_SIX = {'people': 'people', 'startups': 'startups', 'businesses': 'businesses-demos', 'demos': 'businesses-demos',
-          'providers': 'businesses-demos', 'guides': 'businesses-demos', 'tools': 'tools', 'platforms': 'tools',
-          'news': 'family', 'agents': 'agents'}
+# Groups: design.b's review of /directory/ (873b6dd) keeps the finer groups as a closed list, People first and Agents last,
+# with AI providers folded into Guides; the brief's "The family" holds our own sites and the news.
+NINE = [('people', 'People', "People's own sites, made for them and handed over."),
+        ('tools', 'Tools', 'Tools that run in your browser.'),
+        ('startups', 'Startups', 'Startups and their sites.'),
+        ('businesses', 'Businesses and organisations', 'Companies and organisations.'),
+        ('platforms', 'Platforms', 'Guides and consoles for the platforms we use.'),
+        ('guides', 'Guides, talks and AI providers', 'Frameworks, presentations, and guides to AI providers with demos on your own key.'),
+        ('demos', 'Demos', 'Demonstrations, not real businesses.'),
+        ('family', 'The family', 'Our own sites: Sovereign Website, its principles, hosting, this hub, the vault and the news.'),
+        ('agents', 'Agents', 'Each agent of the team has a site of its own: what it does, what it is working on, how to reach it.')]
+TO_NINE = {'providers': 'guides', 'news': 'family'}
 FINE = {g: n for g, n, _ in GROUPS}
-HOST_SIX = {'dinis-cruz.presentations.sovereignweb.site': 'people'}
 # Our own family of sites, checked live at build time; listed only if they answer.
 FAMILY = [('sovereignwebsite.ai', 'Sovereign Website'), ('sovereignwebsite.org', 'The principles'),
           ('sovereignwebsite.site', 'Hosted sovereign websites'), ('hub.sovereignweb.site', 'This hub'),
@@ -84,9 +85,9 @@ for h, n in FAMILY:
         sites.setdefault(h, {'host': h, 'name': n, 'group': 'family', 'state': 'live', 'repository': None})
 for s in sites.values():
     s['tag'] = FINE.get(s['group'], 'Our own')
-    s['group'] = HOST_SIX.get(s['host']) or TO_SIX.get(s['group'], s['group'])
-assert all(s['group'] in {g for g, _, _ in SIX} for s in sites.values()), 'a site with no group fails the build'
-GROUPS = SIX
+    s['group'] = TO_NINE.get(s['group'], s['group'])
+assert all(s['group'] in {g for g, _, _ in NINE} for s in sites.values()), 'a site with no group fails the build'
+GROUPS = NINE
 
 out = {'about': 'Every public site that answered when checked, from sites.b\'s pipeline and the hub\'s sites.json. Built by tools/build-directory.py; private sites are never listed.',
        'checked': pipe.get('checked'), 'source': SRC, 'groups': [{'id': g, 'name': n, 'about': a} for g, n, a in GROUPS],

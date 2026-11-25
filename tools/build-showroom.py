@@ -648,8 +648,13 @@ def directory_main():
     letters = sorted({akey(s)[0].upper() for s in agents})
     az = ''.join(f'<li><a href="#a-{L}">{L}</a></li>' for L in letters)
     alist = ''.join(f'<h3 class="letter" id="a-{L}">{L}</h3><ul class="dir">' + ''.join(dentry(s) for s in agents if akey(s)[0].upper() == L) + '</ul>' for L in letters)
-    secs = ''.join(f'<section class="grp" id="g-{e(g["id"])}" aria-labelledby="gh-{e(g["id"])}"><h2 id="gh-{e(g["id"])}">{e(g["name"])} ({len(by[g["id"]])})</h2>'
-                   f'<p class="about">{e(g["about"])}</p><ul class="dir">{"".join(dentry(s) for s in by[g["id"]])}</ul></section>' for g in groups if g['id'] != 'agents')
+    def gfold(g, body):
+        return (f'<details class="grp" id="g-{e(g["id"])}"><summary><h2>{e(g["name"])} <span class="c">{len(by[g["id"]])}</span></h2>'
+                f'<span class="about">{e(g["about"])}</span></summary>{body}</details>')
+    secs = ''.join(gfold(g, f'<ul class="dir">{"".join(dentry(s) for s in by[g["id"]])}</ul>') for g in groups if g['id'] != 'agents')
+    agent_g = next(g for g in groups if g['id'] == 'agents')
+    secs += gfold(agent_g, '<p class="about">The whole team, with their areas, is also on <a href="/agents/#team">Use with your AI</a>.</p>'
+                  f'<nav aria-label="Agents by letter"><ul class="az">{az}</ul></nav>{alist}')
     n = len(DIR['sites'])
     return f'''<main id="main">
 <h1>Every site, and every agent</h1>
@@ -658,15 +663,15 @@ def directory_main():
 <p id="none" class="none" hidden>Nothing matches "<span id="nq"></span>". Try part of a name, or <a href="/features/">look up a feature</a>.</p>
 <h2 id="map-h">The map, by group</h2>
 <ul class="map" aria-labelledby="map-h">{tiles}</ul>
-<section class="grp" id="g-agents" aria-labelledby="gh-agents"><h2 id="gh-agents">Agents, A to Z ({len(agents)})</h2>
-<p class="about">{e(next(g["about"] for g in DIR["groups"] if g["id"] == "agents"))} The whole team, with their areas, is also on <a href="/agents/#team">Use with your AI</a>.</p>
-<nav aria-label="Agents by letter"><ul class="az">{az}</ul></nav>{alist}</section>
+<p class="about">Open a group to see its sites, or search above.</p>
 {secs}
 {GET}
 </main>'''
 
 
-DIR_JS = FEATURES_JS.replace(".feat'", ".ds'").replace("' features'", "' sites'").replace(" match'", " match'")
+DIR_JS = FEATURES_JS.replace(".feat'", ".ds'").replace("' features'", "' sites'").replace("q.addEventListener('input',run);",
+    "q.addEventListener('input',function(){run();var v=q.value.trim();document.querySelectorAll('details.grp').forEach(function(d){d.open=!!v&&!!d.querySelector('.ds:not([hidden])');});});"
+    "function op(){var d=location.hash&&document.getElementById(location.hash.slice(1));if(!d)return;var p=d.tagName==='DETAILS'?d:d.closest('details');if(p)p.open=true;}addEventListener('hashchange',op);op();")
 page('directory/', 'Every site', css('features') + css('directory'), directory_main(), cur=0, script='\n' + DIR_JS)
 
 GROUP_URL = {g['id']: f'{SITE_URL}directory/#g-{g["id"]}' for g in DIR['groups']}
