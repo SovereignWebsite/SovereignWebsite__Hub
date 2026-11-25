@@ -628,13 +628,19 @@ DIR = json.loads((SITE / 'directory.json').read_text())
 DSTATE = {'live': 'Live', 'setting-up': 'Being set up', 'building': 'Being built', 'coming': 'Coming'}
 
 
+# Search words a visitor types for a site's own label (round 15: "music" missed the Composer and the Songwriter).
+LABEL_WORDS = {'composer': 'music musician songs', 'songwriter': 'music musician songs', 'musician': 'music songs',
+               'singer': 'music musician songs', 'artist': 'art', 'designer': 'design', 'author': 'writer books writing',
+               'founder': 'startup business', 'founders': 'startup business'}
+
+
 def akey(s):
     n = s['name'].lower()
     return n[4:] if n.startswith('the ') else n
 
 
 def dentry(s):
-    words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), s.get('summary', ''), DSTATE[s['state']]]).lower()
+    words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), LABEL_WORDS.get(s.get('tag', '').lower(), ''), s.get('summary', ''), DSTATE[s['state']]]).lower()
     return (f'<li class="ds" data-words="{e(words)}"><a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
             f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s.get("tag", ""))} · {e(s["host"])}</span></li>')
 
