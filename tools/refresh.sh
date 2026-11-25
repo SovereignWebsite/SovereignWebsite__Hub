@@ -5,7 +5,8 @@ set -u
 cd "$(dirname "$0")/.."
 node tools/take-shots.js; shots=$?
 python3 tools/thumbs.py
-python3 tools/build-building.py || echo "building: register not read, old list kept"
+python3 tools/build-building.py
+python3 tools/build-directory.py || echo "building: register not read, old list kept"
 python3 tools/build-showroom.py || exit 1
 python3 -m http.server 8766 -d site >/dev/null 2>&1 & srv=$!
 sleep 1; node tools/hub-shots.js; kill $srv

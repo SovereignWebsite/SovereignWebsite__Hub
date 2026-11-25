@@ -1,0 +1,15 @@
+.map{list-style:none;padding:0;margin:1rem 0 2rem;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,9.5rem),1fr))}
+.map a{display:flex;flex-direction:column;justify-content:space-between;min-height:5.5rem;padding:.8rem;border:2px solid var(--fg);background:var(--card);color:var(--fg);text-decoration:none}
+.map a:hover,.map a:focus-visible{background:var(--fill);color:var(--on-fill)}
+.map b{font-size:1.05rem;line-height:1.2}.map .n{font-size:2rem;font-weight:800;line-height:1}
+.az{display:flex;flex-wrap:wrap;gap:.3rem;margin:.6rem 0 1rem;padding:0;list-style:none}
+.az a{display:inline-block;min-width:44px;min-height:44px;line-height:44px;text-align:center;border:1px solid var(--line);color:var(--fg);text-decoration:none;font-weight:700}
+.az a:hover,.az a:focus-visible{border-color:var(--fg)}
+.dir{list-style:none;padding:0;margin:.4rem 0 1.6rem;display:grid;gap:.1rem 1.5rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,18rem),1fr))}
+.dir li{padding:.45rem 0;border-bottom:1px solid var(--line)}
+.dir a{color:var(--fg);font-weight:700;text-decoration:none}.dir a:hover,.dir a:focus-visible{text-decoration:underline}
+.dir .h{display:block;color:var(--muted);font-size:.85rem;overflow-wrap:anywhere}
+.dir .st{font-size:.75rem;font-weight:700;padding:0 .4rem;border:1px solid var(--muted);border-radius:999px;color:var(--muted);margin-left:.3rem;white-space:nowrap}
+.dir .st-live{border-color:var(--ok);color:var(--ok)}
+.letter{font-size:1.1rem;margin:1rem 0 0}
+.grp h2{margin:2rem 0 .2rem}.grp p.about{color:var(--muted);margin:0}

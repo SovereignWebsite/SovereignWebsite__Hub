@@ -1,0 +1,729 @@
+{
+ "about": "Every public site that answered when checked, from sites.b's pipeline and the hub's sites.json. Built by tools/build-directory.py; private sites are never listed.",
+ "checked": "2026-11-25T00:09Z",
+ "source": "https://sites.agents.sovereignweb.site/pipeline/pipeline.json",
+ "groups": [
+  {
+   "id": "agents",
+   "name": "Agents",
+   "about": "Each agent of the team has a site of its own: what it does, what it is working on, how to reach it."
+  },
+  {
+   "id": "people",
+   "name": "People",
+   "about": "People's own sites, made for them and handed over."
+  },
+  {
+   "id": "tools",
+   "name": "Tools",
+   "about": "Tools that run in your browser."
+  },
+  {
+   "id": "platforms",
+   "name": "Platforms",
+   "about": "Guides and consoles for the platforms we use."
+  },
+  {
+   "id": "startups",
+   "name": "Startups",
+   "about": "Startups and their sites."
+  },
+  {
+   "id": "businesses",
+   "name": "Businesses and organisations",
+   "about": "Companies and organisations."
+  },
+  {
+   "id": "providers",
+   "name": "AI providers",
+   "about": "Guides to AI providers, with demos on your own key."
+  },
+  {
+   "id": "guides",
+   "name": "Guides and talks",
+   "about": "Frameworks, guides and presentations."
+  },
+  {
+   "id": "news",
+   "name": "News",
+   "about": "News sites."
+  },
+  {
+   "id": "demos",
+   "name": "Demos",
+   "about": "Demonstrations, not real businesses."
+  }
+ ],
+ "sites": [
+  {
+   "host": "accountant.agents.sovereignweb.site",
+   "name": "accountant.b",
+   "group": "agents",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Agent__Accountant"
+  },
+  {
+   "host": "cartographer.agents.sovereignweb.site",
+   "name": "Cartographer",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Cartographer"
+  },
+  {
+   "host": "conductor.agents.sovereignweb.site",
+   "name": "conductor.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Conductor"
+  },
+  {
+   "host": "counsel.agents.sovereignweb.site",
+   "name": "Counsel",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Counsel"
+  },
+  {
+   "host": "crm.agents.sovereignweb.site",
+   "name": "CRM agents",
+   "group": "agents",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Agent__CRM"
+  },
+  {
+   "host": "decisions.agents.sovereignweb.site",
+   "name": "Decisions",
+   "group": "agents",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Agent__Decisions"
+  },
+  {
+   "host": "design.agents.sovereignweb.site",
+   "name": "design.b",
+   "group": "agents",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Agent__Design"
+  },
+  {
+   "host": "devops.agents.sovereignweb.site",
+   "name": "DevOps agents",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__DevOps"
+  },
+  {
+   "host": "factory.agents.sovereignweb.site",
+   "name": "factory.b",
+   "group": "agents",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Agent__Factory"
+  },
+  {
+   "host": "feedback.agents.sovereignweb.site",
+   "name": "feedback.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Feedback"
+  },
+  {
+   "host": "helm.agents.sovereignweb.site",
+   "name": "Helm",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Helm"
+  },
+  {
+   "host": "holacracy.agents.sovereignweb.site",
+   "name": "Holacracy",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Holacracy"
+  },
+  {
+   "host": "hub.agents.sovereignweb.site",
+   "name": "hub.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Hub"
+  },
+  {
+   "host": "iac.agents.sovereignweb.site",
+   "name": "IaC",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__IaC"
+  },
+  {
+   "host": "instagram.agents.sovereignweb.site",
+   "name": "Instagram agents",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Instagram"
+  },
+  {
+   "host": "landscape.agents.sovereignweb.site",
+   "name": "Landscape",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Landscape"
+  },
+  {
+   "host": "maestro.agents.sovereignweb.site",
+   "name": "Maestro",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Maestro"
+  },
+  {
+   "host": "migration.agents.sovereignweb.site",
+   "name": "migration.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Migration"
+  },
+  {
+   "host": "observability.agents.sovereignweb.site",
+   "name": "observability.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Observability"
+  },
+  {
+   "host": "outreach.agents.sovereignweb.site",
+   "name": "outreach.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Outreach"
+  },
+  {
+   "host": "router.agents.sovereignweb.site",
+   "name": "router.a",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Router"
+  },
+  {
+   "host": "security.agents.sovereignweb.site",
+   "name": "security.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Security"
+  },
+  {
+   "host": "sherpa.agents.sovereignweb.site",
+   "name": "Sherpa",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Sherpa"
+  },
+  {
+   "host": "sites.agents.sovereignweb.site",
+   "name": "sites.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Sites"
+  },
+  {
+   "host": "slides.agents.sovereignweb.site",
+   "name": "Slides",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Slides"
+  },
+  {
+   "host": "startups.agents.sovereignweb.site",
+   "name": "startups.b",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Startups"
+  },
+  {
+   "host": "strategy.agents.sovereignweb.site",
+   "name": "Strategy",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Strategy"
+  },
+  {
+   "host": "studio.agents.sovereignweb.site",
+   "name": "Studio",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Studio"
+  },
+  {
+   "host": "synthetic-users.agents.sovereignweb.site",
+   "name": "Synthetic-Users",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agent__Synthetic-Users"
+  },
+  {
+   "host": "agents.sovereignweb.site",
+   "name": "The SWS agents",
+   "group": "agents",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Agents"
+  },
+  {
+   "host": "library.agents.sovereignweb.site",
+   "name": "The SWS library",
+   "group": "agents",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Agent__Library"
+  },
+  {
+   "host": "algarve-holiday-homes.agenticcells.site",
+   "name": "Algarve holiday homes",
+   "group": "businesses",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Algarve-Holiday-Homes', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "algarve-orange-grower.agenticcells.site",
+   "name": "Algarve orange grower",
+   "group": "businesses",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Algarve-Orange-Grower', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "london.agentics-foundation.organisation.sovereignweb.site",
+   "name": "London Agentics Foundation",
+   "group": "businesses",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Organisation__Agentics-Foundation__London"
+  },
+  {
+   "host": "sustain-nobility.agenticcells.site",
+   "name": "SUSTAIN-NOBILITY",
+   "group": "businesses",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Sustain-Nobility', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "tauguard.company.sovereignweb.site",
+   "name": "TauGuard and RiskMandate: working together",
+   "group": "businesses",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Company__TauGuard"
+  },
+  {
+   "host": "london-billboard.agenticcells.site",
+   "name": "A London billboard, live from the Algarve",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__London-Billboard', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "wordpress-section.demo.sovereignweb.site",
+   "name": "A section fed from WordPress (demo)",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Demo__WordPress-Section"
+  },
+  {
+   "host": "pipeline-demo.demo.sovereignweb.site",
+   "name": "A site from one request",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "cyber-demo.agenticcells.site",
+   "name": "Cyber, from our data",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Cyber-Demo', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "review.sovereignweb.site",
+   "name": "Design review for sovereign websites",
+   "group": "demos",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Review"
+  },
+  {
+   "host": "events-demo.agenticcells.site",
+   "name": "Events, from our data",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Events-Demo', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "ipma-data.agenticcells.site",
+   "name": "IPMA data, drawn",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__IPMA-Data', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "riskmandate-at-websummit.agenticcells.site",
+   "name": "RiskMandate at Web Summit",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__RiskMandate-At-WebSummit', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "weather-demo.demo.sovereignweb.site",
+   "name": "Weather, from our data",
+   "group": "demos",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Demo__Weather-Demo"
+  },
+  {
+   "host": "dinis-cruz.presentations.sovereignweb.site",
+   "name": "Dinis Cruz: presentations",
+   "group": "guides",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Presentations__Dinis-Cruz"
+  },
+  {
+   "host": "presentations.sovereignweb.site",
+   "name": "Presentations",
+   "group": "guides",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Presentations"
+  },
+  {
+   "host": "wardley-maps.frameworks.sovereignweb.site",
+   "name": "Wardley Maps",
+   "group": "guides",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Frameworks__Wardley-Maps"
+  },
+  {
+   "host": "civic.promptugal.news",
+   "name": "PrompTugal.news Civic",
+   "group": "news",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/PrompTugal/PrompTugal__News__Civic', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "data.promptugal.news",
+   "name": "PrompTugal.news Data",
+   "group": "news",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/PrompTugal/PrompTugal__News__Data', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "startups.promptugal.news",
+   "name": "PrompTugal.news Startups",
+   "group": "news",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/PrompTugal/PrompTugal__News__Startups', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "travel.promptugal.news",
+   "name": "PrompTugal.news Travel",
+   "group": "news",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/PrompTugal/PrompTugal__News__Travel', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "weather.promptugal.news",
+   "name": "PrompTugal.news Weather",
+   "group": "news",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/PrompTugal/PrompTugal__News__Weather', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "kate-curtis-evans.founder.sovereignweb.site",
+   "name": "A founder's site, handed over",
+   "group": "people",
+   "state": "live",
+   "repository": null,
+   "showroom": true
+  },
+  {
+   "host": "ben-fung.manager.sovereignweb.site",
+   "name": "Ben Fung",
+   "group": "people",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Manager__Ben-Fung"
+  },
+  {
+   "host": "donna-freed.author.sovereignweb.site",
+   "name": "Donna Freed",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Author__Donna-Freed"
+  },
+  {
+   "host": "emily-cruz.artist.sovereignweb.site",
+   "name": "Emily Cruz",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "gabriel-dacruz.agenticcells.site",
+   "name": "Gabriel DaCruz",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Gabriel-DaCruz', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "grace-farrell.artist.sovereignweb.site",
+   "name": "Grace Farrell",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "indi-gupte.agenticcells.site",
+   "name": "Indi Gupte",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Indi-Gupte', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "jose-bota.agenticcells.site",
+   "name": "José Bota",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Jose-Bota', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "marc-noah.agenticcells.site",
+   "name": "Marc Noah",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Marc-Noah', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "mondweep-chakravorty.agenticcells.site",
+   "name": "Mondweep Chakravorty",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Mondweep-Chakravorty', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "sarah-cruz.designer.sovereignweb.site",
+   "name": "Sarah Cruz",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "silvio-switha.agenticcells.site",
+   "name": "Silvio Switha",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Silvio-Switha', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "south-beacon.talent.sovereignweb.site",
+   "name": "South Beacon",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Talent__South-Beacon"
+  },
+  {
+   "host": "yiheng-wang.agenticcells.site",
+   "name": "Yiheng (Vicky) Wang",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Yiheng-Wang', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "aws.platform.sovereignweb.site",
+   "name": "AWS Platform Sovereign Website",
+   "group": "platforms",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__AWS"
+  },
+  {
+   "host": "github.platform.sovereignweb.site",
+   "name": "GitHub",
+   "group": "platforms",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__GitHub"
+  },
+  {
+   "host": "instagram.platform.sovereignweb.site",
+   "name": "Instagram",
+   "group": "platforms",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__Instagram"
+  },
+  {
+   "host": "odoo.platform.sovereignweb.site",
+   "name": "Odoo",
+   "group": "platforms",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Platform__Odoo"
+  },
+  {
+   "host": "openrouter.platform.sovereignweb.site",
+   "name": "OpenRouter",
+   "group": "platforms",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Platform__Openrouter"
+  },
+  {
+   "host": "owasp.platform.sovereignweb.site",
+   "name": "OWASP",
+   "group": "platforms",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Platform__Owasp"
+  },
+  {
+   "host": "suno.platform.sovereignweb.site",
+   "name": "Suno, our songs (unofficial)",
+   "group": "platforms",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__Suno"
+  },
+  {
+   "host": "wikipedia.platform.sovereignweb.site",
+   "name": "Wikipedia",
+   "group": "platforms",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Platform__Wikipedia"
+  },
+  {
+   "host": "youtube.platform.sovereignweb.site",
+   "name": "YouTube",
+   "group": "platforms",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__YouTube"
+  },
+  {
+   "host": "mistral.provider.sovereignweb.site",
+   "name": "Mistral",
+   "group": "providers",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Provider__Mistral', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "agentic-cells.startups.sovereignweb.site",
+   "name": "AgentiCCells",
+   "group": "startups",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "risk-mandate.startups.sovereignweb.site",
+   "name": "RiskMandate",
+   "group": "startups",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Startups__Risk-Mandate', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "sgit.startups.sovereignweb.site",
+   "name": "sgit",
+   "group": "startups",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Startups__Sgit', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "sovereign-website.startups.sovereignweb.site",
+   "name": "Sovereign Website",
+   "group": "startups",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "the-cyber-boardroom.startups.sovereignweb.site",
+   "name": "The Cyber Boardroom",
+   "group": "startups",
+   "state": "live",
+   "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Startups__The-Cyber-Boardroom', 'branch': 'dev'}",
+   "showroom": true
+  },
+  {
+   "host": "car-buyer.tool.sovereignweb.site",
+   "name": "Car buyer: a toolkit for buying a used car in the UK",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__Car-Buyer"
+  },
+  {
+   "host": "crm.tool.sovereignweb.site",
+   "name": "CRM",
+   "group": "tools",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Tool__CRM"
+  },
+  {
+   "host": "google-maps.sovereignwebsite.site",
+   "name": "Directions, and the cameras on the way",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Google-Maps",
+   "showroom": true
+  },
+  {
+   "host": "dns.tool.sovereignweb.site",
+   "name": "DNS",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__DNS"
+  },
+  {
+   "host": "pybot.huggingface.tool.sovereignweb.site",
+   "name": "PyBot",
+   "group": "tools",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Tool__Huggingface__Pybot"
+  },
+  {
+   "host": "gmail.google.tool.sovereignweb.site",
+   "name": "Sovereign Website mail, a variation of Gmail",
+   "group": "tools",
+   "state": "setting-up",
+   "repository": "SovereignWebsite/Site__Tool__Google__Gmail"
+  },
+  {
+   "host": "streaming.tool.sovereignweb.site",
+   "name": "Streaming",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__Streaming"
+  },
+  {
+   "host": "whois.tool.sovereignweb.site",
+   "name": "Whois: who holds a domain or IP address",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__Whois",
+   "showroom": true
+  },
+  {
+   "host": "wordpress.tool.sovereignweb.site",
+   "name": "WordPress",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Tool__Wordpress"
+  }
+ ]
+}

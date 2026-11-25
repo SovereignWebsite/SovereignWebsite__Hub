@@ -4,7 +4,7 @@
 # plus /designs/, the five side by side. The designs are design.b's round 5 ideas; their CSS is in tools/showroom/.
 # Only public, live sites are listed; a private or vault-only site never appears, not by name or count.
 # Usage: python3 tools/build-showroom.py   (validates sites.json against the schema first; run tools/thumbs.py after new shots)
-import html, json, pathlib, re, sys
+import datetime, html, json, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
@@ -197,7 +197,7 @@ def page(path, title, style, main, scheme='light dark', cur=0, note='', script='
 <header class="bar"><a class="brand" href="/">Sovereign Website Hub</a>
 {chooser(cur)}</header>
 {main}
-<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/designs/">The five designs</a> · <a href="/features/">What it can do</a> · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. {note}</footer>
+<footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/directory/">Every site and agent</a> · <a href="/designs/">The five designs</a> · <a href="/features/">What it can do</a> · <a href="/policy/">How this site is governed</a> · <a href="/operator/">Operator</a> · No cookies, no tracking, nothing stored in your browser. {note}</footer>
 <script>document.addEventListener('keydown',function(ev){{if(ev.key==='Escape'){{var c=document.querySelector('.chooser');if(c)c.open=false;}}}});</script>
 </body>
 </html>
@@ -255,7 +255,7 @@ def case():
             f'<ul class="five5" aria-label="Car buyer, one of our own sites, in its five designs">{"".join(items)}</ul>\n'
             f'<p class="case-note"><a href="{CASE_URL}">Car buyer</a>, one of our own tools, in its five designs. A site for you is made the same way: you choose the design you keep, then change it on GitHub or by talking to your AI.</p>\n'
             '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + OFFER_NOTE + '</span></p>\n'
-            '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a></p>\n</section>')
+            '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a> <a class="can" href="/directory/">Find any site or agent</a></p>\n</section>')
 
 
 # ---- 1 The Register (home page) ----
@@ -528,7 +528,7 @@ def people_room():
             f'<p>{len(people)} people\'s own sites, each made the same way. Open one to see it working.</p>'
             '<p class="range">Founders, artists, singers, composers, designers, AI builders and project managers so far. Your work is different? Each site is made around its owner.</p>'
             + phone_fold([person(s) for s in people], 'pgrid', f'Show all {len(people)} people', keep=4)
-            + f'<p class="to-more"><a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a>. '
+            + f'<p class="to-more"><a href="/directory/">Every site and agent, A to Z</a>. <a href="/more/">And {others} more: startups, guides, businesses, news, demos and tools</a>. '
             + f'<a href="/building/">{len(json.loads((SITE / "building.json").read_text())["sites"])} more being built or coming</a>.</p></section>')
 
 
@@ -618,3 +618,70 @@ def building_main():
 page('building/', 'Being built', css('line') + css('building'), building_main(), cur=0, note='Finished sites are on <a href="/">the home page</a> and <a href="/more/">/more/</a>.')
 
 print(f'showroom: {len(sites)} live public sites ({len(people)} people, {handed} handed over); 5 designs and /designs/ written')
+
+
+# ---- /directory/: every public site that answers, an A to Z of the agents and a map by group; and /registry.json ----
+# From site/directory.json (tools/build-directory.py: sites.b's pipeline plus sites.json). Dinis, 25 Nov: "make sure
+# they are also easy to find on the hub ... all the agents should be linked there". The registry is the hub's part of
+# the shared wayfinder (record 2026-11-23__navigation-and-review, ask 40; shape sws-registry/1 agreed with sites.b).
+DIR = json.loads((SITE / 'directory.json').read_text())
+DSTATE = {'live': 'Live', 'setting-up': 'Being set up', 'building': 'Being built', 'coming': 'Coming'}
+
+
+def akey(s):
+    n = s['name'].lower()
+    return n[4:] if n.startswith('the ') else n
+
+
+def dentry(s):
+    words = ' '.join([s['name'], s['host'], s['group'], DSTATE[s['state']]]).lower()
+    return (f'<li class="ds" data-words="{e(words)}"><a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
+            f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s["host"])}</span></li>')
+
+
+def directory_main():
+    by = {g['id']: [s for s in DIR['sites'] if s['group'] == g['id']] for g in DIR['groups']}
+    groups = [g for g in DIR['groups'] if by[g['id']]]
+    tiles = ''.join(f'<li><a href="#g-{e(g["id"])}"><b>{e(g["name"])}</b><span class="n">{len(by[g["id"]])}</span>'
+                    '</a></li>' for g in groups)
+    agents = sorted(by['agents'], key=akey)
+    letters = sorted({akey(s)[0].upper() for s in agents})
+    az = ''.join(f'<li><a href="#a-{L}">{L}</a></li>' for L in letters)
+    alist = ''.join(f'<h3 class="letter" id="a-{L}">{L}</h3><ul class="dir">' + ''.join(dentry(s) for s in agents if akey(s)[0].upper() == L) + '</ul>' for L in letters)
+    secs = ''.join(f'<section class="grp" id="g-{e(g["id"])}" aria-labelledby="gh-{e(g["id"])}"><h2 id="gh-{e(g["id"])}">{e(g["name"])} ({len(by[g["id"]])})</h2>'
+                   f'<p class="about">{e(g["about"])}</p><ul class="dir">{"".join(dentry(s) for s in by[g["id"]])}</ul></section>' for g in groups if g['id'] != 'agents')
+    n = len(DIR['sites'])
+    return f'''<main id="main">
+<h1>Every site, and every agent</h1>
+<p class="lede">All {n} public sites that answered when sites.b last checked ({e(datetime.datetime.strptime(DIR["checked"], "%Y-%m-%dT%H:%MZ").strftime("%-d %b %Y, %H:%M UTC"))}), from <a href="https://sites.agents.sovereignweb.site/pipeline/pipeline.json">its pipeline</a> and this hub's own list. "Being set up" means the site answers but is still its first page. The data is <a href="/directory.json">directory.json</a>; agents and sites read <a href="/registry.json">registry.json</a>.</p>
+<form class="find" role="search" onsubmit="return false"><label for="q">Find a site or an agent</label><input id="q" type="search" placeholder="Instagram, CRM, Emily..." autocomplete="off"><span id="count" aria-live="polite"></span></form>
+<p id="none" class="none" hidden>Nothing matches "<span id="nq"></span>". Try part of a name, or <a href="/features/">look up a feature</a>.</p>
+<h2 id="map-h">The map, by group</h2>
+<ul class="map" aria-labelledby="map-h">{tiles}</ul>
+<section class="grp" id="g-agents" aria-labelledby="gh-agents"><h2 id="gh-agents">Agents, A to Z ({len(agents)})</h2>
+<p class="about">{e(by["agents"] and DIR["groups"][0]["about"])} The whole team, with their areas, is also on <a href="/agents/#team">Use with your AI</a>.</p>
+<nav aria-label="Agents by letter"><ul class="az">{az}</ul></nav>{alist}</section>
+{secs}
+{GET}
+</main>'''
+
+
+DIR_JS = FEATURES_JS.replace(".feat'", ".ds'").replace("' features'", "' sites'").replace(" match'", " match'")
+page('directory/', 'Every site', css('features') + css('directory'), directory_main(), cur=0, script='\n' + DIR_JS)
+
+GROUP_URL = {g['id']: f'{SITE_URL}directory/#g-{g["id"]}' for g in DIR['groups']}
+order = {}
+reg_sites = []
+for s in DIR['sites']:
+    order[s['group']] = order.get(s['group'], 0) + 1
+    r = {'host': s['host'], 'name': s['name'], 'group': s['group'], 'parent': s['group'], 'order': order[s['group']], 'state': s['state']}
+    if s.get('repository'):
+        r['repository'] = s['repository']
+    reg_sites.append(r)
+(SITE / 'registry.json').write_text(json.dumps({
+    'schema': 'sws-registry/1', 'version': 1, 'built_from': DIR['source'], 'checked': DIR['checked'], 'home': SITE_URL,
+    'groups': [{'id': g['id'], 'name': g['name'], 'url': GROUP_URL[g['id']], 'order': i + 1} for i, g in enumerate(DIR['groups'])],
+    'sites': reg_sites,
+    'note': 'Public sites only. "up" is the group url, "home" is the hub; next and previous follow order within a group. agent, connect and the keeper chain are added as each is confirmed.'},
+    indent=1, ensure_ascii=False) + '\n')
+print(f'directory: {len(DIR["sites"])} sites on /directory/; registry.json written')
