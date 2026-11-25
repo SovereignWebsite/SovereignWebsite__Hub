@@ -1,6 +1,6 @@
 {
  "about": "Every public site that answered when checked, from sites.b's pipeline and the hub's sites.json. Built by tools/build-directory.py; private sites are never listed.",
- "checked": "2026-11-25T01:38Z",
+ "checked": "2026-11-25T04:38Z",
  "source": "https://sites.agents.sovereignweb.site/pipeline/pipeline.json",
  "groups": [
   {
@@ -664,6 +664,22 @@
    "tag": "AI leader"
   },
   {
+   "host": "one-human-nine-agents.dinis.author.sovereignweb.site",
+   "name": "One Human, Nine Agents, Nineteen Hours",
+   "group": "people",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Author__Dinis__One-Human-Nine-Agents",
+   "tag": "People"
+  },
+  {
+   "host": "oscar.padel.sport.sovereignweb.site",
+   "name": "Oscar, padel coach",
+   "group": "people",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Sport__Padel__Oscar",
+   "tag": "People"
+  },
+  {
    "host": "sarah-cruz.designer.sovereignweb.site",
    "name": "Sarah Cruz",
    "group": "people",
@@ -834,6 +850,14 @@
    "tag": "Platforms"
   },
   {
+   "host": "nvidia.platform.sovereignweb.site",
+   "name": "NVIDIA hosted models from the browser",
+   "group": "tools",
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Platform__NVIDIA",
+   "tag": "Platforms"
+  },
+  {
    "host": "odoo.platform.sovereignweb.site",
    "name": "Odoo",
    "group": "tools",
@@ -855,6 +879,14 @@
    "group": "tools",
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Platform__Owasp",
+   "tag": "Platforms"
+  },
+  {
+   "host": "puter.platform.sovereignweb.site",
+   "name": "Puter: LLMs from the browser",
+   "group": "tools",
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__Puter",
    "tag": "Platforms"
   },
   {

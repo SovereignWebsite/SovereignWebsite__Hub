@@ -12,7 +12,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
 SRC = 'https://sites.agents.sovereignweb.site/pipeline/pipeline.json'
 # Left out of the directory and the registry until its owner, or Dinis, says its address may be shown (design.b, round 13).
-HIDDEN = {'kate-curtis-evans.founder.sovereignweb.site', 'hub.sovereignweb.site/start/#first-handover'}
+# Also held: a person's draft site, until she approves it (her keeper, b.site.lee-elle-horowitz, 25 Nov: "draft, not yet
+# approved by her"). Remove the host from HIDDEN when her keeper says she has approved it.
+HIDDEN = {'kate-curtis-evans.founder.sovereignweb.site', 'hub.sovereignweb.site/start/#first-handover',
+          'lee-elle-horowitz.artist.sovereignweb.site'}
 UNNAMED = {}
 # The pipeline's groups, folded into the groups a visitor looks for.
 GROUP = {'agents': 'agents', 'tool': 'tools', 'platform': 'platforms', 'demo': 'demos', 'startups': 'startups',

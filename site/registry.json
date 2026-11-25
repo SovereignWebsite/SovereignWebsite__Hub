@@ -2,7 +2,7 @@
  "schema": "sws-registry/1",
  "version": 1,
  "built_from": "https://sites.agents.sovereignweb.site/pipeline/pipeline.json",
- "checked": "2026-11-25T01:38Z",
+ "checked": "2026-11-25T04:38Z",
  "home": "https://hub.sovereignweb.site/",
  "groups": [
   {
@@ -695,11 +695,29 @@
    "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Mondweep-Chakravorty', 'branch': 'dev'}"
   },
   {
+   "host": "one-human-nine-agents.dinis.author.sovereignweb.site",
+   "name": "One Human, Nine Agents, Nineteen Hours",
+   "group": "people",
+   "parent": "people",
+   "order": 12,
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Author__Dinis__One-Human-Nine-Agents"
+  },
+  {
+   "host": "oscar.padel.sport.sovereignweb.site",
+   "name": "Oscar, padel coach",
+   "group": "people",
+   "parent": "people",
+   "order": 13,
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Sport__Padel__Oscar"
+  },
+  {
    "host": "sarah-cruz.designer.sovereignweb.site",
    "name": "Sarah Cruz",
    "group": "people",
    "parent": "people",
-   "order": 12,
+   "order": 14,
    "state": "live",
    "repository": "SovereignWebsite/{'url': 'https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz', 'branch': 'dev'}"
   },
@@ -708,7 +726,7 @@
    "name": "Silvio Switha",
    "group": "people",
    "parent": "people",
-   "order": 13,
+   "order": 15,
    "state": "live",
    "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Silvio-Switha', 'branch': 'dev'}"
   },
@@ -717,7 +735,7 @@
    "name": "South Beacon",
    "group": "people",
    "parent": "people",
-   "order": 14,
+   "order": 16,
    "state": "live",
    "repository": "SovereignWebsite/Site__Talent__South-Beacon"
   },
@@ -726,7 +744,7 @@
    "name": "Yiheng (Vicky) Wang",
    "group": "people",
    "parent": "people",
-   "order": 15,
+   "order": 17,
    "state": "live",
    "repository": "SovereignWebsite/{'url': 'https://github.com/AgentiCCells/AgentiCCells__Site__Yiheng-Wang', 'branch': 'dev'}"
   },
@@ -866,11 +884,20 @@
    "repository": "SovereignWebsite/Site__Platform__Instagram"
   },
   {
+   "host": "nvidia.platform.sovereignweb.site",
+   "name": "NVIDIA hosted models from the browser",
+   "group": "tools",
+   "parent": "tools",
+   "order": 11,
+   "state": "pending",
+   "repository": "SovereignWebsite/Site__Platform__NVIDIA"
+  },
+  {
    "host": "odoo.platform.sovereignweb.site",
    "name": "Odoo",
    "group": "tools",
    "parent": "tools",
-   "order": 11,
+   "order": 12,
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Platform__Odoo"
   },
@@ -879,7 +906,7 @@
    "name": "OpenRouter",
    "group": "tools",
    "parent": "tools",
-   "order": 12,
+   "order": 13,
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Platform__Openrouter"
   },
@@ -888,16 +915,25 @@
    "name": "OWASP",
    "group": "tools",
    "parent": "tools",
-   "order": 13,
+   "order": 14,
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Platform__Owasp"
+  },
+  {
+   "host": "puter.platform.sovereignweb.site",
+   "name": "Puter: LLMs from the browser",
+   "group": "tools",
+   "parent": "tools",
+   "order": 15,
+   "state": "live",
+   "repository": "SovereignWebsite/Site__Platform__Puter"
   },
   {
    "host": "pybot.huggingface.tool.sovereignweb.site",
    "name": "PyBot",
    "group": "tools",
    "parent": "tools",
-   "order": 14,
+   "order": 16,
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Tool__Huggingface__Pybot"
   },
@@ -906,7 +942,7 @@
    "name": "Sovereign Website mail, a variation of Gmail",
    "group": "tools",
    "parent": "tools",
-   "order": 15,
+   "order": 17,
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Tool__Google__Gmail"
   },
@@ -915,7 +951,7 @@
    "name": "Startup grants in Europe and the UK",
    "group": "tools",
    "parent": "tools",
-   "order": 16,
+   "order": 18,
    "state": "live",
    "repository": "SovereignWebsite/Site__Tool__Startup-Grants"
   },
@@ -924,7 +960,7 @@
    "name": "Streaming",
    "group": "tools",
    "parent": "tools",
-   "order": 17,
+   "order": 19,
    "state": "live",
    "repository": "SovereignWebsite/Site__Tool__Streaming"
   },
@@ -933,7 +969,7 @@
    "name": "Suno, our songs (unofficial)",
    "group": "tools",
    "parent": "tools",
-   "order": 18,
+   "order": 20,
    "state": "live",
    "repository": "SovereignWebsite/Site__Platform__Suno"
   },
@@ -942,7 +978,7 @@
    "name": "Theatre",
    "group": "tools",
    "parent": "tools",
-   "order": 19,
+   "order": 21,
    "state": "pending",
    "repository": "SovereignWebsite/Site__Tool__Theatre"
   },
@@ -951,7 +987,7 @@
    "name": "UK driving theory test: learn and practise",
    "group": "tools",
    "parent": "tools",
-   "order": 20,
+   "order": 22,
    "state": "pending",
    "repository": "SovereignWebsite/Site__Tool__UK-Driving-Test"
   },
@@ -960,7 +996,7 @@
    "name": "Whois: who holds a domain or IP address",
    "group": "tools",
    "parent": "tools",
-   "order": 21,
+   "order": 23,
    "state": "live",
    "repository": "SovereignWebsite/Site__Tool__Whois"
   },
@@ -969,7 +1005,7 @@
    "name": "Wikipedia",
    "group": "tools",
    "parent": "tools",
-   "order": 22,
+   "order": 24,
    "state": "setting-up",
    "repository": "SovereignWebsite/Site__Platform__Wikipedia"
   },
@@ -978,7 +1014,7 @@
    "name": "WordPress",
    "group": "tools",
    "parent": "tools",
-   "order": 23,
+   "order": 25,
    "state": "live",
    "repository": "SovereignWebsite/Site__Tool__Wordpress"
   },
@@ -987,7 +1023,7 @@
    "name": "YouTube",
    "group": "tools",
    "parent": "tools",
-   "order": 24,
+   "order": 26,
    "state": "live",
    "repository": "SovereignWebsite/Site__Platform__YouTube"
   }
