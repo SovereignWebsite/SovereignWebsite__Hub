@@ -569,7 +569,13 @@
    "group": "family",
    "parent": "family",
    "order": 8,
-   "state": "live"
+   "state": "live",
+   "agent": {
+    "name": "website.a@SovereignWebsite.dinis",
+    "session": "https://claude.ai/code/session_018yvwtP1YZi2CGTZUdSyE8q",
+    "key": "https://sovereignwebsite.ai/keys/website.a.json"
+   },
+   "connect": "https://sovereignwebsite.ai/keys/website.a.json"
   },
   {
    "host": "sovereignwebsite.org",
@@ -585,7 +591,13 @@
    "group": "family",
    "parent": "family",
    "order": 10,
-   "state": "live"
+   "state": "live",
+   "agent": {
+    "name": "hub.b@SovereignWebsite.dinis",
+    "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d",
+    "key": "https://hub.sovereignweb.site/keys/hub.b.json"
+   },
+   "connect": "https://hub.sovereignweb.site/factory/dinis-cruz/account-b/agent.json"
   },
   {
    "host": "hub.sovereignweb.site",
@@ -593,7 +605,13 @@
    "group": "family",
    "parent": "family",
    "order": 11,
-   "state": "live"
+   "state": "live",
+   "agent": {
+    "name": "hub.b@SovereignWebsite.dinis",
+    "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d",
+    "key": "https://hub.sovereignweb.site/keys/hub.b.json"
+   },
+   "connect": "https://hub.sovereignweb.site/factory/dinis-cruz/account-b/agent.json"
   },
   {
    "host": "ben-fung.manager.sovereignweb.site",

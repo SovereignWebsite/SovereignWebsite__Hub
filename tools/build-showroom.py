@@ -641,10 +641,11 @@ def akey(s):
 
 
 def dentry(s):
-    words = ' '.join([s['name'], s['host'], s['group'], s.get('tag', ''), LABEL_WORDS.get(s.get('tag', '').lower(), ''), s.get('summary', ''), DSTATE[s['state']]]).lower()
+    words = ' '.join([s['name'], s['host'], (s.get('keeper') or {}).get('name', ''), s['group'], s.get('tag', ''), LABEL_WORDS.get(s.get('tag', '').lower(), ''), s.get('summary', ''), DSTATE[s['state']]]).lower()
     name = f'<b>{e(s["name"])}</b>' if s['state'] == 'pending' else f'<a href="https://{e(s["host"])}/">{e(s["name"])}</a>'
     return (f'<li class="ds" data-words="{e(words)}">{name}'
-            f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s.get("tag", ""))} · {e(s["host"])}</span></li>')
+            f'<span class="st st-{e(s["state"])}">{e(DSTATE[s["state"]])}</span><span class="h">{e(s.get("tag", ""))} · {e(s["host"])}</span>'
+            + (f'<span class="h">Kept by <a href="{e(s["keeper"].get("area") or s["keeper"]["source"])}">{e(s["keeper"]["name"].split("@")[0])}</a></span>' if s.get('keeper') else '') + '</li>')
 
 
 def directory_main():
@@ -691,6 +692,9 @@ for s in DIR['sites']:
     r = {'host': s['host'], 'name': s['name'], 'group': s['group'], 'parent': s['group'], 'order': order[s['group']], 'state': s['state']}
     if s.get('repository'):
         r['repository'] = s['repository']
+    if s.get('keeper'):
+        r['agent'] = {'name': s['keeper']['name'], 'session': s['keeper']['session'], 'key': s['keeper']['source']}
+        r['connect'] = s['keeper'].get('area') or s['keeper']['source']
     reg_sites.append(r)
 (SITE / 'registry.json').write_text(json.dumps({
     'schema': 'sws-registry/1', 'version': 1, 'built_from': DIR['source'], 'checked': DIR['checked'], 'home': SITE_URL,

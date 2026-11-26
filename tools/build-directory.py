@@ -120,6 +120,19 @@ for s in sites.values():
 assert all(s['group'] in {g for g, _, _ in SIX} for s in sites.values()), 'a site with no group fails the build'
 GROUPS = SIX
 
+# Keepers, each confirmed from the keeper's own published key; add one only with its source.
+KEEPERS = {
+    'sovereignwebsite.ai': {'name': 'website.a@SovereignWebsite.dinis', 'session': 'https://claude.ai/code/session_018yvwtP1YZi2CGTZUdSyE8q',
+                            'source': 'https://sovereignwebsite.ai/keys/website.a.json'},
+    'hub.sovereignweb.site': {'name': 'hub.b@SovereignWebsite.dinis', 'session': 'https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d',
+                              'source': 'https://hub.sovereignweb.site/keys/hub.b.json', 'area': 'https://hub.sovereignweb.site/factory/dinis-cruz/account-b/agent.json'},
+    'vault.sovereignwebsite.site': {'name': 'hub.b@SovereignWebsite.dinis', 'session': 'https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d',
+                                    'source': 'https://hub.sovereignweb.site/keys/hub.b.json', 'area': 'https://hub.sovereignweb.site/factory/dinis-cruz/account-b/agent.json'},
+}
+for h, k in KEEPERS.items():
+    if h in sites:
+        sites[h]['keeper'] = k
+
 out = {'about': 'Every public site that answered when checked, from sites.b\'s pipeline and the hub\'s sites.json. Built by tools/build-directory.py; private sites are never listed.',
        'checked': pipe.get('checked'), 'source': SRC, 'groups': [{'id': g, 'name': n, 'about': a} for g, n, a in GROUPS],
        'sites': sorted(sites.values(), key=lambda s: (s['group'], s['name'].lower()))}
