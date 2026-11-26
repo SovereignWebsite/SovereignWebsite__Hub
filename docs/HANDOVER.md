@@ -92,7 +92,9 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
   - Visual language (Creative Brief, 24 Nov): landscape compositions; warm ivory, ink navy and cobalt; photographs and type carry the story; no flags, seals or security imagery.
   - Send b.outreach (session_01Kw9UwBGcnXLQ9m2BqD1Dwj) the copy before it goes live. Dev deploys straight to the live site, so send the text and the screenshots first.
   - Claims: no payment link until Stripe exists; Claude only; European hosting only where it is set up; no site counts until verified.
-  - The full brief was asked of maestro.b.
+  - The full brief arrived from maestro.b (26 Nov, 03:10 UTC). Most of it is for sovereignwebsite.ai (website.a). The hub's part is item 5: a strip of live sites that its new home page reuses. Build it as a standalone fragment in the hub's data (for example site/strip.json plus images) as well as on the hub's home.
+  - The home page's promises read: a team builds it; you own the files and history, and the address with your own domain; you change it on GitHub, with a Claude plan or a partner; you can move it anywhere.
+  - outreach.b checked v0.1.84 live: no £ or € on the front page. Keep "change it on GitHub or by talking to your AI" next to the "Who looks after it?" block, which says a Claude plan is needed.
 
 **From the morning sync (maestro.b, 24 Nov; Site__Agent__Maestro briefs/2026-11-24-morning-sync.md):**
 - The hub is where people and agents find every agent's two repositories: the agent itself, and its work.
