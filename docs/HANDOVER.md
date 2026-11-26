@@ -86,6 +86,14 @@ Wakes and other harness settings still need Dinis himself. On 23 Nov this sessio
 
 ## Open items
 
+**Outreach brief (b.outreach, at Dinis's word, 26 Nov, via maestro.b):**
+- Done in v0.1.84: the price is off the front page, with a small "Prices" link to /start/#get-one.
+- Next: a strip of live sites that sovereignwebsite.ai's new home page can reuse.
+  - Visual language (Creative Brief, 24 Nov): landscape compositions; warm ivory, ink navy and cobalt; photographs and type carry the story; no flags, seals or security imagery.
+  - Send b.outreach (session_01Kw9UwBGcnXLQ9m2BqD1Dwj) the copy before it goes live. Dev deploys straight to the live site, so send the text and the screenshots first.
+  - Claims: no payment link until Stripe exists; Claude only; European hosting only where it is set up; no site counts until verified.
+  - The full brief was asked of maestro.b.
+
 **From the morning sync (maestro.b, 24 Nov; Site__Agent__Maestro briefs/2026-11-24-morning-sync.md):**
 - The hub is where people and agents find every agent's two repositories: the agent itself, and its work.
 - It also lists the Email Cell with mail.dev.a and mail.conductor.a (a.maestro's open ask since 23 Nov).
