@@ -227,7 +227,7 @@ def own_rent():
                    f'<td data-h="Sources"><a href="{e(u)}">leaving</a>' + (f', <a href="{e(pu)}">prices</a>' if pu else '') + '</td></tr>' for n, f, l, p, u, pu in RENT)
     ours = ('<tr class="ours"><th scope="row">A sovereign website</th><td data-h="Who holds the files">You: a repository in your name. "the files and the history are yours, and so is the address if you bring your own domain"</td>'
             '<td data-h="Can you leave with the site">Yes: plain files any host can serve</td>'
-            f'<td data-h="Price a month">No monthly fee from us. {e(OFFER)} <a href="/start/#get-one">I want one</a></td>'
+            f'<td data-h="Price a month">No monthly fee from us. <a href="/start/#get-one">Prices</a></td>'
             '<td data-h="Sources"><a href="https://sovereignwebsite.ai/">leaving</a></td></tr>')
     return (f'<section class="rent" aria-labelledby="rent-h"><h2 id="rent-h">Own it, do not rent it</h2>'
             f'<p>Other builders rent you a site. Here is what each says about who holds it and whether you can leave with it, from its own pages, checked {e(RENT_CHECKED)}.</p>'
@@ -254,7 +254,8 @@ def case():
             '<h1 id="case-h">Your own website, made for you by an agent team, in five designs. Yours to keep.</h1>\n'
             f'<ul class="five5" aria-label="Car buyer, one of our own sites, in its five designs">{"".join(items)}</ul>\n'
             f'<p class="case-note"><a href="{CASE_URL}">Car buyer</a>, one of our own tools, in its five designs. A site for you is made the same way: you choose the design you keep, then change it on GitHub or by talking to your AI.</p>\n'
-            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <span class="offer"><b>' + e(OFFER) + '</b> ' + OFFER_NOTE + '</span></p>\n'
+            # Dinis, 26 Nov (via b.outreach): the price is not on the front page; it lives on the pricing page, linked small.
+            '<p class="case-act"><a class="want-btn" href="/start/#get-one">I want one</a> <a class="prices" href="/start/#get-one">Prices</a></p>\n'
             '<p class="case-can"><a class="can" href="/features/">Can it do X? Look it up</a> <a class="can" href="/directory/">Find any site or agent</a></p>\n</section>')
 
 
