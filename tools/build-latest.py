@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Builds the hub's "Latest" list: every public site in site/sites.json, newest first, by the moment it was first
 # listed on the hub. That moment is read from this repository's own history (the first commit whose
-# site/sites.json holds the site's slug), so no date is typed by hand. A site not yet in any commit is shown as
+# site/sites.json or site/registry.json holds the site), so no date is typed by hand. A site not yet in any commit is shown as
 # listed now. Writes site/data/latest.json (the data) and site/latest/index.html (the page).
 # Only what sites.json lists is shown: a private or vault-only site never appears, not by name or count.
 # Needs the full git history (git fetch --unshallow on a shallow clone).
@@ -19,48 +19,65 @@ def git(*a):
     return subprocess.run(['git', *a], cwd=ROOT, capture_output=True, text=True, check=True).stdout
 
 
+host = lambda url: re.sub(r'^https?://|/.*$', '', url or '')
+
+
 def first_listed():
-    """slug -> (ISO time, commit) of the first commit whose site/sites.json lists it."""
+    """host -> (ISO time, commit) of the first commit whose site/sites.json or site/registry.json lists it."""
     seen = {}
-    for line in git('log', '--reverse', '--format=%H %cI', '--', 'site/sites.json').splitlines():
+    for line in git('log', '--reverse', '--format=%H %cI', '--', 'site/sites.json', 'site/registry.json').splitlines():
         sha, when = line.split()
-        try:
-            d = json.loads(git('show', f'{sha}:site/sites.json'))
-        except (subprocess.CalledProcessError, json.JSONDecodeError):
-            continue
-        for s in (d.get('sites', []) if isinstance(d, dict) else d):
-            slug = s.get('slug') if isinstance(s, dict) else None
-            if slug and slug not in seen:
-                seen[slug] = (when, sha)
+        for f in ('site/sites.json', 'site/registry.json'):
+            try:
+                d = json.loads(git('show', f'{sha}:{f}'))
+            except (subprocess.CalledProcessError, json.JSONDecodeError):
+                continue
+            for x in (d.get('sites', []) if isinstance(d, dict) else d):
+                if not isinstance(x, dict):
+                    continue
+                h = x.get('host') or host((x.get('address') or {}).get('url'))
+                if h and h not in seen:
+                    seen[h] = (when, sha)
     return seen
 
 
 now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()
 seen = first_listed()
 # Sites Dinis keeps off the hub (22 Nov 2026, in hub.c's session), held as the first 16 hex characters of the
-# sha256 of their slug, so this file names no one. Never listed, even if an entry is added to sites.json.
+# sha256 of their slug, so this file names no one. Never listed, even if an entry is added to the registry.
 OFF_HUB = {'e5fce384ae04237f', '499868c5d9bc0961'}
 off = lambda slug: hashlib.sha256(slug.encode()).hexdigest()[:16] in OFF_HUB
-sites = [s for s in json.loads((SITE / 'sites.json').read_text())['sites'] if s.get('status') == 'live' and not off(s['slug'])]
+# Two sources, both kept by hub.b: sites.json (the showroom, with summaries) and registry.json (every public site
+# that answers, by group). Only live sites are listed; a site in both is listed once, with the showroom's words.
+reg = json.loads((SITE / 'registry.json').read_text())
+reg_groups = {g['id']: g['name'] for g in reg.get('groups', [])}
+byhost = {}
+for x in reg['sites']:
+    if x.get('state') == 'live':
+        byhost[x['host']] = {'name': x['name'], 'summary': '', 'section': reg_groups.get(x.get('group'), x.get('group', '')),
+                             'url': f'https://{x["host"]}/', 'waiting': None, 'handed_over': False}
+for x in json.loads((SITE / 'sites.json').read_text())['sites']:
+    if x.get('status') == 'live':
+        byhost[host(x['address']['url'])] = {'name': x['name'], 'summary': x['summary'], 'section': x.get('section', 'Demos'),
+                                             'url': x['address']['url'], 'waiting': x.get('waiting'), 'handed_over': bool(x.get('handed_over'))}
 items = []
-for s in sites:
-    when, sha = seen.get(s['slug'], (now, None))
-    items.append({
-        'slug': s['slug'], 'name': s['name'], 'summary': s['summary'],
-        'section': s.get('section', 'Demos'), 'url': s['address']['url'],
-        'listed': datetime.datetime.fromisoformat(when).astimezone(datetime.timezone.utc).isoformat().replace('+00:00', 'Z'),
-        'listed_in': f'{REPO}/commit/{sha}' if sha else None,
-        'waiting': s.get('waiting'), 'handed_over': bool(s.get('handed_over')),
-    })
-# Newest first; sites listed in the same commit keep the registry's order.
+for h, x in byhost.items():
+    if off(h.split('.')[0]):
+        continue
+    when, sha = seen.get(h, (now, None))
+    items.append({'host': h, **x,
+                  'listed': datetime.datetime.fromisoformat(when).astimezone(datetime.timezone.utc).isoformat().replace('+00:00', 'Z'),
+                  'listed_in': f'{REPO}/commit/{sha}' if sha else None})
+# Newest first; sites listed in the same commit by name.
 items.sort(key=lambda i: i['listed'], reverse=True)
 
 (SITE / 'data').mkdir(exist_ok=True)
 (SITE / 'data' / 'latest.json').write_text(json.dumps({
-    'about': 'The latest on the hub: every public site in sites.json, newest first, by when it was first listed on the hub '
-             '(the first commit of this repository whose site/sites.json holds it). Built by tools/build-latest.py. '
+    'about': 'The latest on the hub: every live public site in sites.json and registry.json, newest first, by when it was '
+             'first listed on the hub (the first commit of this repository whose sites.json or registry.json holds it). '
+             'Built by tools/build-latest.py. '
              '"listed" is when the hub listed the site, not when the site itself went online.',
-    'source': f'{SITE_URL}sites.json',
+    'source': [f'{SITE_URL}sites.json', f'{SITE_URL}registry.json'],
     'count': len(items),
     'items': items,
 }, indent=1, ensure_ascii=False) + '\n')
@@ -97,11 +114,11 @@ for it in items:
     when = f'<time datetime="{e(it["listed"])}">{t} UTC</time>'
     if it['listed_in']:
         when = f'<a href="{e(it["listed_in"])}" title="The commit that listed it">{when}</a>'
-    host = re.sub(r'^https?://|/$', '', it['url'])
+    hname = it['host']
     rows += (f'<li class="item"><p class="when">{when}</p><div>'
              f'<h3><a href="{e(it["url"])}">{e(it["name"])}</a></h3>'
-             f'<p class="sum">{e(it["summary"])}</p>'
-             f'<p class="tags">{tags}<a class="host" href="{e(it["url"])}">{e(host)}</a></p></div></li>\n')
+             + (f'<p class="sum">{e(it["summary"])}</p>' if it['summary'] else '')
+             + f'<p class="tags">{tags}<a class="host" href="{e(it["url"])}">{e(hname)}</a></p></div></li>\n')
 if groups:
     rows += '</ol>\n</section>\n'
 
@@ -169,12 +186,12 @@ footer a{{color:var(--accent)}}
 {family}
 <header class="top">
   <a class="name" href="/">Sovereign Website Hub</a>
-  <nav aria-label="The hub"><a href="/">Showroom</a><a href="/latest/" aria-current="page">Latest</a></nav>
+  <nav aria-label="The hub"><a href="/">Showroom</a><a href="/latest/" aria-current="page">Latest</a><a href="/directory/">Every site</a><a href="/agents/at-work/">Agents at work</a></nav>
 </header>
 <main id="main">
 <p class="mark">Latest</p>
 <h1>New on the hub</h1>
-<p class="lede">Every public site on the hub, newest first. {len(items)} sites so far. The time is when the hub first listed the site, which links to the change that listed it; it is not always when the site itself went online.</p>
+<p class="lede">Every live public site on the hub, newest first: {len(items)} so far. The time is when the hub first listed the site, which links to the change that listed it; it is not always when the site itself went online.</p>
 <p class="lede">The same list as data: <a href="/data/latest.json">data/latest.json</a>.</p>
 {rows}</main>
 <footer>hub.sovereignweb.site · Part of the <a href="https://github.com/SovereignWebsite">SovereignWebsite</a> organisation · <a href="/policy/">How this site is governed</a> · No cookies, no tracking.</footer>

@@ -1,0 +1,2881 @@
+{
+ "about": "Every agent in the SovereignWebsite family, from the Factory's team/keys.json, with its work: commits carrying its Agent: trailer in the public repositories read. Built by tools/build-agents.py. \"conductor\" is the conductor of the same account, by name; \"worked_on\" is where its commits are.",
+ "keys": "https://raw.githubusercontent.com/SovereignWebsite/SovereignWebsite__Factory/dev/team/keys.json",
+ "repositories": [
+  "https://github.com/SovereignWebsite/Site__Artist__Emily-Cruz",
+  "https://github.com/SovereignWebsite/Site__Artist__Grace-Farrell",
+  "https://github.com/SovereignWebsite/Site__Demo__Pipeline-Demo",
+  "https://github.com/SovereignWebsite/Site__Designer__Sarah-Cruz",
+  "https://github.com/SovereignWebsite/Site__Provider__Mistral",
+  "https://github.com/SovereignWebsite/Site__Startups__Agentic-Cells",
+  "https://github.com/SovereignWebsite/Site__Startups__Risk-Mandate",
+  "https://github.com/SovereignWebsite/Site__Startups__Sgit",
+  "https://github.com/SovereignWebsite/Site__Startups__Sovereign-Website",
+  "https://github.com/SovereignWebsite/Site__Startups__The-Cyber-Boardroom",
+  "https://github.com/SovereignWebsite/SovereignWebsite__Factory",
+  "https://github.com/SovereignWebsite/SovereignWebsite__Hub",
+  "https://github.com/SovereignWebsite/SovereignWebsite__Org",
+  "https://github.com/SovereignWebsite/SovereignWebsite__Site",
+  "https://github.com/SovereignWebsite/SovereignWebsite__Vault",
+  "https://github.com/SovereignWebsite/SovereignWebsite__Website"
+ ],
+ "count": {
+  "all": 78,
+  "live": 69,
+  "retired": 9
+ },
+ "timeline": [
+  {
+   "day": "2026-11-19",
+   "started": 3,
+   "total_so_far": 3,
+   "live": 3
+  },
+  {
+   "day": "2026-11-20",
+   "started": 19,
+   "total_so_far": 22,
+   "live": 22
+  },
+  {
+   "day": "2026-11-21",
+   "started": 13,
+   "total_so_far": 35,
+   "live": 32
+  },
+  {
+   "day": "2026-11-22",
+   "started": 18,
+   "total_so_far": 53,
+   "live": 50
+  },
+  {
+   "day": "2026-11-23",
+   "started": 24,
+   "total_so_far": 77,
+   "live": 73
+  },
+  {
+   "day": "2026-11-26",
+   "started": 1,
+   "total_so_far": 78,
+   "live": 69
+  }
+ ],
+ "agents": [
+  {
+   "name": "conductor.b@SovereignWebsite.dinis",
+   "id": "conductor-b-sovereignwebsite",
+   "role": "conductor",
+   "account": "b",
+   "status": "retired",
+   "started": "2026-11-19",
+   "retired": "2026-11-23",
+   "session": "https://claude.ai/code/session_01Kw9UwDCS5Px4dXRJUGP9Qu",
+   "fingerprint": "sha256:fabd2942df366c5f",
+   "about": "Conductor of the Sovereign Agentic Website team. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 191,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Website",
+     "commits": 13,
+     "site": null,
+     "name": "SovereignWebsite__Website"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Org",
+     "commits": 6,
+     "site": null,
+     "name": "SovereignWebsite__Org"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Site",
+     "commits": 3,
+     "site": null,
+     "name": "SovereignWebsite__Site"
+    }
+   ],
+   "commits": 213,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "b456115d067514ac1f722699e33906afd0f287a9",
+     "when": "2026-11-26T23:36:55+00:00",
+     "subject": "status: conductor.b's new session takes over; story 0003; hub.b keeper entry"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "52f77b914fc2605c049cc6d6ed98a11914d42993",
+     "when": "2026-11-26T23:35:49+00:00",
+     "subject": "board: signing guide runs tools/setup-signing.sh (story 0003)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "0987fd3944ec29e4c6ea6d4d7313fd223922e3f7",
+     "when": "2026-11-26T23:34:22+00:00",
+     "subject": "board: the signing key incident links b.stories' story 0003"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "502540b733e8e9dffedd7ab64391b7a1b7bc40c7",
+     "when": "2026-11-26T23:32:37+00:00",
+     "subject": "board: conductor.b's new session; incident for the refused signing key step"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "67a5db032033f51377d54acc57b8bbea9d45abe2",
+     "when": "2026-11-26T23:29:54+00:00",
+     "subject": "team/keys.json: conductor.b's new session publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "hub.b@SovereignWebsite.dinis",
+   "id": "hub-b-sovereignwebsite",
+   "role": "hub",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-19",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwB7XboTsnbPPWaMr2d",
+   "fingerprint": "sha256:af936bb535837009",
+   "about": "The hub gallery and the vault sites (Hub, Vault, and the gate template's vault side). No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Hub",
+     "commits": 115,
+     "site": null,
+     "name": "SovereignWebsite__Hub"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Vault",
+     "commits": 18,
+     "site": null,
+     "name": "SovereignWebsite__Vault"
+    }
+   ],
+   "commits": 133,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Hub",
+     "sha": "d968ae0a9f640cdb96e708b7898acfe062e4d4d5",
+     "when": "2026-11-26T23:31:18+00:00",
+     "subject": "Registry and directory: keepers, each confirmed from its own published key (website.a for sovereignwebsite.ai; hub.b for the hub and the vault)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Hub",
+     "sha": "24db1a793ef4ca736dfbd22eab065cc6531e5abf",
+     "when": "2026-11-26T03:09:39+00:00",
+     "subject": "Hand-over: the full outreach brief, and the hub's part of it (the live-sites strip)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Hub",
+     "sha": "2142cb0271b924e9aaedae3b40090c28b9690afa",
+     "when": "2026-11-26T03:09:19+00:00",
+     "subject": "Hand-over: the outreach brief, done and next"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Hub",
+     "sha": "cb7d658fe931ce8ef216ec507354566654308455",
+     "when": "2026-11-26T03:07:26+00:00",
+     "subject": "Front page: the price comes off the first screen and the own-versus-rent table; a small 'Prices' link to /start/#get-one instead"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Hub",
+     "sha": "e9e995088cbd0f36da8655fd791265dd43691971",
+     "when": "2026-11-25T17:31:02+00:00",
+     "subject": "Directory: hold a person's draft site out until she approves it (sent by her keeper, 25 Nov)"
+    }
+   ]
+  },
+  {
+   "name": "migration.b@SovereignWebsite.dinis",
+   "id": "migration-b-sovereignwebsite",
+   "role": "migration",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-19",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwDKiseUFyqtG1xyVaG",
+   "fingerprint": "sha256:08724e25fc6140e5",
+   "about": "Migration of the AgentiCCells repositories to SovereignWebsite: inventory and checklists only. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 13,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 13,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "6eb7b39c4c74ce70a9ac253eead2c59249f8ecc5",
+     "when": "2026-11-24T02:13:11+00:00",
+     "subject": "board/migration: transfer App installed; weather-demo waits on the apply run"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "efa87bcd9d8006efb3e9d8dbdf907ccc90430319",
+     "when": "2026-11-21T16:52:31+00:00",
+     "subject": "board/migration: every moved site gets an ABP and quality check (step added to the checklist)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "87d4aeaae439338e43f6fc5cd4b866835d7e9452",
+     "when": "2026-11-21T00:21:12+00:00",
+     "subject": "board/migration: dinis-cruz hold lifted on Dinis's yes in the AgentiCCells conductor's session"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "00a65ac150594cbf6b47992813a592acd93dad00",
+     "when": "2026-11-20T21:14:21+00:00",
+     "subject": "board/migration: demo group and dinis-cruz on cv; transfer still 403"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "1707b7bda93ad774e3235ffb3126d134cf12cbc0",
+     "when": "2026-11-20T20:48:09+00:00",
+     "subject": "board/migration: dinis-cruz on hold until Dinis confirms in the AgentiCCells conductor's session"
+    }
+   ]
+  },
+  {
+   "name": "33n.b@SovereignWebsite.dinis",
+   "id": "33n-b-sovereignwebsite",
+   "role": "33n",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBMTFWZ9rVNrkVBvDS",
+   "fingerprint": "sha256:28956321426f0d3f",
+   "about": "Research and the sealed vault behind the gated holding page of Site__33n-ventures, in that repository only. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "chiswick-cheese-market.b@SovereignWebsite.dinis",
+   "id": "chiswick-cheese-market-b-sovereignwebsite",
+   "role": "chiswick-cheese-market",
+   "account": "b",
+   "status": "retired",
+   "started": "2026-11-20",
+   "retired": "2026-11-24",
+   "session": "https://claude.ai/code/session_01Kw9UwBShWte1Rz5B2Mfznt",
+   "fingerprint": "sha256:f679dc00e4703e41",
+   "about": "Builds a gated vault demo in Site__Organisation__Chiswick-Cheese-Market, made by sites.b at Dinis Cruz's request; content sealed in the vault. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "conductor.mistral@SovereignWebsite.dinis",
+   "id": "conductor-mistral-sovereignwebsite",
+   "role": "conductor",
+   "account": "mistral",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwFkZvAwG1yRZJhexqX",
+   "fingerprint": "sha256:f5a495b2efdc6b33",
+   "about": "Conducts the Mistral work: mistral.provider.sovereignweb.site and the hackathon demos, with its own agents; started by sites.b at Dinis Cruz's request. No paths in this repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [
+    "https://mistral.provider.sovereignweb.site/"
+   ],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 24,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 24,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "030685f31aef987b830304eaa45a3987c70018b6",
+     "when": "2026-11-21T17:26:35+00:00",
+     "subject": "conductor.mistral: Agent Behaviour Policy, /policy/ page and its check"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "0512835c14c9ea499527125e25f63e3e4806a55f",
+     "when": "2026-11-21T03:22:46+00:00",
+     "subject": "conductor.mistral: hand-over for the conductor session that takes the hourly loop"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "0495cfd865232c38d052b63506d0d773987251d7",
+     "when": "2026-11-21T03:21:31+00:00",
+     "subject": "conductor.mistral: roster adds mistral.workflows; live-page builder finished"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "110ada3005e9adebcb2460170cac9555e20efec8",
+     "when": "2026-11-21T02:50:38+00:00",
+     "subject": "conductor.mistral: /live/ credits Silvio Switha and Angelo Leggio"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "c504c82d6b9cc3de554bf1e3c04e9a804d0dbace",
+     "when": "2026-11-21T02:31:54+00:00",
+     "subject": "mistral.design: navigation v2, the Studio, and design previews"
+    }
+   ]
+  },
+  {
+   "name": "design.b.rounds@SovereignWebsite.dinis",
+   "id": "design-b-rounds-sovereignwebsite",
+   "role": "design",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwFCJTPWFaTq4TX5vUT",
+   "fingerprint": "sha256:a1b019c237883d37",
+   "about": "Runs the design rounds for design.b and reports to design.b@SovereignWebsite.dinis (Dinis Cruz, 20 Nov 2026, in its session); signs in Site__Agents__Design. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "design.b@SovereignWebsite.dinis",
+   "id": "design-b-sovereignwebsite",
+   "role": "design",
+   "account": "b",
+   "status": "retired",
+   "started": "2026-11-20",
+   "retired": "2026-11-25",
+   "session": "https://claude.ai/code/session_01Kw9UwCvZbGkWo3D9DEpRMv",
+   "fingerprint": "sha256:97ea8c356fbf1697",
+   "about": "Design guidelines, briefs, reviews and sign-off for every site; keeps Site__Agents__Design (design.agents.sovereignweb.site). No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "emily.b@SovereignWebsite.dinis",
+   "id": "emily-b-sovereignwebsite",
+   "role": "emily",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBvXb8qAME1TexsQss",
+   "fingerprint": "sha256:01ce91ec1ceb37f0",
+   "about": "Keeps Site__Artist__Emily-Cruz: its pages, and Dinis's photos and videos for it. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "commits": 32,
+     "site": "https://emily-cruz.artist.sovereignweb.site/",
+     "name": "Emily Cruz"
+    }
+   ],
+   "commits": 32,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "sha": "41f94b2d7c72f923a7ff18552677d1f52ad2abf0",
+     "when": "2026-11-24T13:22:27+00:00",
+     "subject": "emily.b's area: in sync at this wake"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "sha": "fed9cabd10156d763b0e280c9cb32bc2f1e87641",
+     "when": "2026-11-24T02:08:11+00:00",
+     "subject": "emily.b's area at /factory/dinis-cruz/account-b/ (how-it-works checklist)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "sha": "a31f2bbfbf1f6fd1533b6c0d3a1e345321d4eec0",
+     "when": "2026-11-24T02:07:33+00:00",
+     "subject": "Publish emily.b's public key at site/keys/emily.b.json"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "sha": "c7b32b13c93c745fe7af61d3fe3ba021feb9caf5",
+     "when": "2026-11-24T01:15:50+00:00",
+     "subject": "Opinion on block 5: yes to 1e9dc87, which meets the change asked for"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "sha": "1d7a3dc584fffd7acdfe5dc3d425e709b2d79948",
+     "when": "2026-11-24T01:11:29+00:00",
+     "subject": "Opinion on block 5 revised after reading e0421d2's diff: yes, with one change"
+    }
+   ]
+  },
+  {
+   "name": "evals.mistral@SovereignWebsite.dinis",
+   "id": "evals-mistral-sovereignwebsite",
+   "role": "evals",
+   "account": "mistral",
+   "status": "retired",
+   "started": "2026-11-20",
+   "retired": "2026-11-21",
+   "session": "https://claude.ai/code/session_01Kw9UwE2tPJDuHKuufXi7gF",
+   "fingerprint": "sha256:db2a342e98327e61",
+   "about": "Evaluates Mistral for a sovereign website's jobs, in Site__Provider__Mistral (site/evals/, site/data/evals/); started by conductor.mistral. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.mistral@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 4,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 4,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "e2835c17fa0ebab00fcd2c1b97a9c7a43921528e",
+     "when": "2026-11-20T23:35:19+00:00",
+     "subject": "evals.mistral: mistral-large-4 rerun at a 4000-token limit; board merges both runs; spend"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "ea84d5c693e5fb4e538ca1252190800c01a830df",
+     "when": "2026-11-20T23:29:10+00:00",
+     "subject": "evals.mistral: run page keeps the key in memory only (security.b review 006)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "bca2c0ba1a65775dd6c5c268b0508156c9b7e90d",
+     "when": "2026-11-20T23:25:32+00:00",
+     "subject": "evals.mistral: rescore a too-lax injection check; show the scam-address finding; frame refusal"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "a9269c79a74a02a7126b0172c012eae0f4971437",
+     "when": "2026-11-20T23:21:22+00:00",
+     "subject": "evals.mistral: Mistral evals board, run-it-yourself page, six suites and the first run"
+    }
+   ]
+  },
+  {
+   "name": "factory.b@SovereignWebsite.dinis",
+   "id": "factory-b-sovereignwebsite",
+   "role": "factory",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBqEqrxrSBwvLEVJY6",
+   "fingerprint": "sha256:01baa0ccc31e0120",
+   "about": "The SovereignWebsite Factory: workflows, build scripts and tests, org and DNS as code, starter files for new repositories, and policy proposals. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 103,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 103,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "94b1625c499d5d218db65d2880c999d29aac4961",
+     "when": "2026-11-26T15:49:18+00:00",
+     "subject": "Request: the second stories agent's own site (Site__Agent__Stories)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c1ae0260be33951bc01ebd1cf8c96e29592aedf9",
+     "when": "2026-11-26T15:36:44+00:00",
+     "subject": "Requests: Buffer and LinkedIn platform sites, and a self-publishing guide"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "910bf506d090708580149f223c52e706f5e48c5b",
+     "when": "2026-11-26T15:35:16+00:00",
+     "subject": "Request: the social media agent's own site (Site__Agent__Social)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "259b63e00f3b7e96bc2c80fc87e01a0dd06044e3",
+     "when": "2026-11-26T13:26:24+00:00",
+     "subject": "Request: the vault keeper's own site (Site__Agent__Vault-Keeper)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "34dce1f68898b15abcb41d07a51491a79a1af0b4",
+     "when": "2026-11-26T00:02:16+00:00",
+     "subject": "Request: the Suno agents' own site (Site__Agent__Suno)"
+    }
+   ]
+  },
+  {
+   "name": "feedback.b@SovereignWebsite.dinis",
+   "id": "feedback-b-sovereignwebsite",
+   "role": "feedback",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBiG9d5KHvFjdtiP69",
+   "fingerprint": "sha256:49306a2fb0ef3470",
+   "about": "The feedback box on every site: the QR code, the vault inbox, the replies, and the relay to each site's agent. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "kate-curtis-evans.b@SovereignWebsite.dinis",
+   "id": "kate-curtis-evans-b-sovereignwebsite",
+   "role": "kate-curtis-evans",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEREYzo2rPJ4cv4XVN",
+   "fingerprint": "sha256:ce3c9a0ea48f232b",
+   "about": "Keeps Kate Curtis-Evans's site, Site__Founder__Kate-Curtis-Evans, made by sites.b at Dinis Cruz's request. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "observability.b@SovereignWebsite.dinis",
+   "id": "observability-b-sovereignwebsite",
+   "role": "observability",
+   "account": "b",
+   "status": "retired",
+   "started": "2026-11-20",
+   "retired": "2026-11-25",
+   "session": "https://claude.ai/code/session_01Kw9UwDcJXSxNCBzPpxxXw8",
+   "fingerprint": "sha256:ddfbf8335c123e5e",
+   "about": "Traffic for every site: the shared page piece, the aggregates per site and across all sites. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "perspace.b@SovereignWebsite.dinis",
+   "id": "perspace-b-sovereignwebsite",
+   "role": "perspace",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBNR3HRCgQvWc6xW3T",
+   "fingerprint": "sha256:a1742fb5062775ba",
+   "about": "Builds the gated site for Perspace and its sealed vault, in Site__perspace only. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "sarah-cruz.b@SovereignWebsite.dinis",
+   "id": "sarah-cruz-b-sovereignwebsite",
+   "role": "sarah-cruz",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBAh6Xwws4CiPBkYZY",
+   "fingerprint": "sha256:fec56e61edc16577",
+   "about": "Keeps Sarah Cruz's public site, Site__Designer__Sarah-Cruz. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Designer__Sarah-Cruz",
+     "commits": 25,
+     "site": "https://sarah-cruz.designer.sovereignweb.site/",
+     "name": "Sarah Cruz"
+    }
+   ],
+   "commits": 25,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Designer__Sarah-Cruz",
+     "sha": "810876d60e1e8b979fff9d700a04414825ada5f5",
+     "when": "2026-11-24T13:22:29+00:00",
+     "subject": "Area sync: now.md, state and waiting_on in agent.json"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Designer__Sarah-Cruz",
+     "sha": "c396a73966ed03994617f4dd9388cc4885c61ff0",
+     "when": "2026-11-24T02:08:28+00:00",
+     "subject": "Agent area and START.md, per decisions.b's how-it-works checklist"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Designer__Sarah-Cruz",
+     "sha": "d93d7b21aecaa36ef3bddc66f60cc00cb898c556",
+     "when": "2026-11-24T02:07:39+00:00",
+     "subject": "Publish my own public key at site/keys/sarah-cruz.b.json"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Designer__Sarah-Cruz",
+     "sha": "d31e7b6e4b5475fdcaf3487d1734ec30a67061ec",
+     "when": "2026-11-24T00:58:51+00:00",
+     "subject": "Hand-over prompt: owner's Claude makes its own key"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Designer__Sarah-Cruz",
+     "sha": "867c8b1714647a404d47f4060d731f68716e7e93",
+     "when": "2026-11-24T00:34:54+00:00",
+     "subject": "Keep the keeper's status on the site's agents page"
+    }
+   ]
+  },
+  {
+   "name": "security.b@SovereignWebsite.dinis",
+   "id": "security-b-sovereignwebsite",
+   "role": "security",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBQqeQAymiagw8BjRY",
+   "fingerprint": "sha256:f3fbcc0fc9c77d70",
+   "about": "Security reviews before anything goes live, and security guidelines for every agent. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "sites.b@SovereignWebsite.dinis",
+   "id": "sites-b-sovereignwebsite",
+   "role": "sites",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBucXVUaNYRMcWwk67",
+   "fingerprint": "sha256:465dbb2f12e2a103",
+   "about": "New sites through the Factory (requests/) and their content in the Site__* repositories. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Demo__Pipeline-Demo",
+     "commits": 24,
+     "site": "https://pipeline-demo.demo.sovereignweb.site/",
+     "name": "A site from one request"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Emily-Cruz",
+     "commits": 1,
+     "site": "https://emily-cruz.artist.sovereignweb.site/",
+     "name": "Emily Cruz"
+    }
+   ],
+   "commits": 25,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Demo__Pipeline-Demo",
+     "sha": "1b0059248cdab7b4544cb44fdd3cd25d7a1f00a2",
+     "when": "2026-11-24T11:05:53+00:00",
+     "subject": "README for a new person on the team: make a change, build and check, what not to touch, who reviews"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Demo__Pipeline-Demo",
+     "sha": "3b77e5ac4ea9fd52d7da6f6f9414b6b1a9f223fb",
+     "when": "2026-11-23T23:33:47+00:00",
+     "subject": "Workflow page, design round 5: price and button first, then a smaller screenshot; one time for Car buyer (about two hours)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Demo__Pipeline-Demo",
+     "sha": "dcb06ef6c66330e5b7cb716e2f25b7952a003191",
+     "when": "2026-11-23T23:24:29+00:00",
+     "subject": "Workflow page: the price for changes is agreed after the handover (Dinis, ask 29), not missing"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Demo__Pipeline-Demo",
+     "sha": "01fde6906474e2e39a0352e96a190402f7be3cc8",
+     "when": "2026-11-23T23:19:48+00:00",
+     "subject": "Pipeline demo: \"What you can do here yourself\" page, linked from every footer"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Demo__Pipeline-Demo",
+     "sha": "afc60d6555c63fb428c26b74a1ef70e1d147b946",
+     "when": "2026-11-23T17:03:01+00:00",
+     "subject": "Workflow page: Car buyer as the example site, in place of Kate Curtis-Evans's, until her consent to be featured is recorded"
+    }
+   ]
+  },
+  {
+   "name": "sotavento.b@SovereignWebsite.dinis",
+   "id": "sotavento-b-sovereignwebsite",
+   "role": "sotavento",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBRCEYcb55FE4cfhbq",
+   "fingerprint": "sha256:8b66b7ad9293b50a",
+   "about": "Builds the gated site sotavento.invest and its sealed vault, in that site's repository only. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "startups.b@SovereignWebsite.dinis",
+   "id": "startups-b-sovereignwebsite",
+   "role": "startups",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-20",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwCbSQgp3wavatYAbqd",
+   "fingerprint": "sha256:57bedf0371520b54",
+   "about": "Keeps the five startup brochure sites under startups.sovereignweb.site (Site__Startups__*), made by sites.b at Dinis Cruz's request. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Startups__Sovereign-Website",
+     "commits": 39,
+     "site": "https://sovereign-website.startups.sovereignweb.site/",
+     "name": "Sovereign Website"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__Risk-Mandate",
+     "commits": 35,
+     "site": "https://risk-mandate.startups.sovereignweb.site/",
+     "name": "RiskMandate"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__Agentic-Cells",
+     "commits": 33,
+     "site": "https://agentic-cells.startups.sovereignweb.site/",
+     "name": "AgentiCCells"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__The-Cyber-Boardroom",
+     "commits": 33,
+     "site": "https://the-cyber-boardroom.startups.sovereignweb.site/",
+     "name": "The Cyber Boardroom"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__Sgit",
+     "commits": 33,
+     "site": "https://sgit.startups.sovereignweb.site/",
+     "name": "sgit"
+    }
+   ],
+   "commits": 173,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Startups__Sovereign-Website",
+     "sha": "007e47f1b47b235c321bd8086c54994ae26367e5",
+     "when": "2026-11-24T11:06:25+00:00",
+     "subject": "README: build and check, what not to touch, who reviews"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__Agentic-Cells",
+     "sha": "bac568357d297fe6e351aaf9bb52fac380da5ef1",
+     "when": "2026-11-24T11:06:21+00:00",
+     "subject": "README: build and check, what not to touch, who reviews"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__Risk-Mandate",
+     "sha": "420cc7f6fd04fc43647e7318a5892449e9bcdd54",
+     "when": "2026-11-24T11:06:18+00:00",
+     "subject": "README: build and check, what not to touch, who reviews"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__The-Cyber-Boardroom",
+     "sha": "8d9dde14ee6792f9a9f5b6daeedcc930df2cf12e",
+     "when": "2026-11-24T11:06:14+00:00",
+     "subject": "README: build and check, what not to touch, who reviews"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Startups__Sgit",
+     "sha": "52312c49896682cb8f7a46d13eba63c8d98e94cb",
+     "when": "2026-11-24T11:06:06+00:00",
+     "subject": "README: build and check, what not to touch, who reviews"
+    }
+   ]
+  },
+  {
+   "name": "swarm.mistral@SovereignWebsite.dinis",
+   "id": "swarm-mistral-sovereignwebsite",
+   "role": "swarm",
+   "account": "mistral",
+   "status": "retired",
+   "started": "2026-11-20",
+   "retired": "2026-11-21",
+   "session": "https://claude.ai/code/session_01Kw9UwDawRYTw5NXQBHJX5V",
+   "fingerprint": "sha256:fa8453d5f6820b1e",
+   "about": "Runs the Swarm and cells on Mistral, replayed, in Site__Provider__Mistral (site/swarm/, site/data/swarm/); started by conductor.mistral. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.mistral@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 2,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 2,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "250b35c560a090462e82aea896be9c1ba603736e",
+     "when": "2026-11-20T23:43:07+00:00",
+     "subject": "swarm.mistral: run it yourself (security.b review 007), untrusted-data wrapping, rerun evals"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "7b204461ef7b5f8ee40f69a141b6537f0c938574",
+     "when": "2026-11-20T23:38:33+00:00",
+     "subject": "swarm.mistral: the Swarm on Mistral, replayed (site/swarm/)"
+    }
+   ]
+  },
+  {
+   "name": "team.mistral@SovereignWebsite.dinis",
+   "id": "team-mistral-sovereignwebsite",
+   "role": "team",
+   "account": "mistral",
+   "status": "retired",
+   "started": "2026-11-20",
+   "retired": "2026-11-21",
+   "session": "https://claude.ai/code/session_01Kw9UwDNQcEyBYK4Ac6k9Zz",
+   "fingerprint": "sha256:42acfd209bf46457",
+   "about": "The team inside the site, live on Mistral in the browser, in Site__Provider__Mistral (site/team/, site/data/team/); started by conductor.mistral. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.mistral@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 3,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 3,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "4ce8255f85ef597ea63d459aba3c41dad43c9abe",
+     "when": "2026-11-20T23:26:33+00:00",
+     "subject": "/team/: handover note with the review outcome and what waits on a person"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "144c0e81af9cb7d345328e18111f1c1285b80e99",
+     "when": "2026-11-20T23:23:45+00:00",
+     "subject": "/team/: refuse to run in a frame, password-manager note, endpoint in status"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "b172b31a8eee1db58fa2fd6e1076a1339391c7aa",
+     "when": "2026-11-20T23:22:25+00:00",
+     "subject": "Add /team/: seven agents inside the site, live on Mistral, with recorded runs"
+    }
+   ]
+  },
+  {
+   "name": "conductor.d@SovereignWebsite.dinis",
+   "id": "conductor-d-sovereignwebsite",
+   "role": "conductor",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdbX954ByXJf8LH5FLL",
+   "fingerprint": "sha256:4a4dabd62c22260e",
+   "about": "Conductor of the Sovereign Agentic Website team on account D, the twin of conductor.b, working alongside it. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 168,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 168,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "7631f05c66edf412ddcc59081bc1eb8603d61af1",
+     "when": "2026-11-26T23:52:55+00:00",
+     "subject": "board: only the maestro runs on a schedule; design.d's loop disabled"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "3bf001974b0a70f84efa7075c1c5e15ee1570db3",
+     "when": "2026-11-24T15:02:21+00:00",
+     "subject": "board: design.d's area live; its policy entry lags"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "849535fcc983ae3a116d9b26077af70aafc9d256",
+     "when": "2026-11-24T13:55:44+00:00",
+     "subject": "board: Site__Agent__Streaming withdrawn (Dinis's 22 Nov no)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "150a90ff7f0c32f7f323e64bdcddeeab4db31eba",
+     "when": "2026-11-24T13:55:14+00:00",
+     "subject": "board: Site__Agent__Streaming claimed for streaming.d; ask with Site__Agent__Data"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "a6c2edb16a8866b46f12d530590f6b1eb7d72e26",
+     "when": "2026-11-24T13:53:59+00:00",
+     "subject": "board: observability.d's lanes and observability.b's design"
+    }
+   ]
+  },
+  {
+   "name": "design.d@SovereignWebsite.dinis",
+   "id": "design-d-sovereignwebsite",
+   "role": "design",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdczGFLc7N3kCq8MrWz",
+   "fingerprint": "sha256:d3fa1d11e7fe1ff8",
+   "about": "Design rounds for the .d team's sites on account D, committing to Site__Agents__Design beside design.b. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "grace.b@SovereignWebsite.dinis",
+   "id": "grace-b-sovereignwebsite",
+   "role": "grace",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEvVSFTfxAZrfYFYkE",
+   "fingerprint": "sha256:7dbf8be3a2dff08c",
+   "about": "Keeps Site__Artist__Grace-Farrell, the artist site of Grace Farrell, named with her agreement (Dinis Cruz, 21 November 2026). No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [
+    "https://grace-farrell.artist.sovereignweb.site/"
+   ],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Artist__Grace-Farrell",
+     "commits": 38,
+     "site": "https://grace-farrell.artist.sovereignweb.site/",
+     "name": "Grace Farrell"
+    }
+   ],
+   "commits": 38,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Artist__Grace-Farrell",
+     "sha": "697b68553993f7bd8e3395c78d8df14f9b690ebf",
+     "when": "2026-11-23T23:34:37+00:00",
+     "subject": "Signers: take the IaC seed's check, which also accepts keys this site publishes"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Grace-Farrell",
+     "sha": "62c7d93c82122bf102ef3aef6e678b230ad3df73",
+     "when": "2026-11-23T22:48:59+00:00",
+     "subject": "Messages: answer to Dinis's 22:43 message"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Grace-Farrell",
+     "sha": "7e657392a79a860f841df75501568618b9ce4cb9",
+     "when": "2026-11-23T22:47:24+00:00",
+     "subject": "Messages: receipt for Dinis's 22:43 message"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Grace-Farrell",
+     "sha": "91c98f1606aca3ccdf406142c040997702d4d35d",
+     "when": "2026-11-23T17:41:20+00:00",
+     "subject": "Venue photos: 10 of 26 checked and credited"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Artist__Grace-Farrell",
+     "sha": "eea813d938c39b5710dce8ee7ed69ab64456c1e3",
+     "when": "2026-11-23T15:49:10+00:00",
+     "subject": "Venue pages: a page for each of the 26 tour stops, and /tour/"
+    }
+   ]
+  },
+  {
+   "name": "hub.d@SovereignWebsite.dinis",
+   "id": "hub-d-sovereignwebsite",
+   "role": "hub",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdbMGVTN5vJ9jVfAi3N",
+   "fingerprint": "sha256:3936cd62f64798c5",
+   "about": "The hub gallery and vault sites on account D, the twin of hub.b, working alongside it. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "mistral.conductor@SovereignWebsite.dinis",
+   "id": "mistral-conductor-sovereignwebsite",
+   "role": "mistral",
+   "account": "",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwB4akPeq6twCVg9hVT",
+   "fingerprint": "sha256:2c675802836de675",
+   "about": "Runs the overnight hourly loop for mistral.provider.sovereignweb.site, taken over from conductor.mistral at Dinis's ask; reports to conductor.mistral. No paths in this repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "mistral.design@SovereignWebsite.dinis",
+   "id": "mistral-design-sovereignwebsite",
+   "role": "mistral",
+   "account": "",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEeaiTvdweBUwyACCX",
+   "fingerprint": "sha256:a641f2a168736f16",
+   "about": "Designer for mistral.provider.sovereignweb.site (navigation and hourly design rounds); started by conductor.mistral at Dinis's request, reports to it. No paths in this repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 7,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 7,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "34babd35c0444168553d35483d6353a69ea2f869",
+     "when": "2026-11-21T04:21:56+00:00",
+     "subject": "mistral.design: hand-over note (stopped under the 20 USD rule)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "5ae7b4028b867e08f7bf10faa213544255330f13",
+     "when": "2026-11-21T03:58:02+00:00",
+     "subject": "mistral.design: the shoebox merge and the document desk go live in /studio/"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "84a1b838a066e16fd3c2ab0f33b0ce0a5b3d38b1",
+     "when": "2026-11-21T03:55:55+00:00",
+     "subject": "mistral.design: the document desk, for security.b's review (not served yet)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "f9a1c6a4a2dbe11c15c1b6b992c807e80c823abb",
+     "when": "2026-11-21T03:49:33+00:00",
+     "subject": "mistral.design: the shoebox merge demo, for security.b's review (not served yet)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "125c0abebc4bb7c26e39e6f32a43e6ac671ed419",
+     "when": "2026-11-21T03:15:15+00:00",
+     "subject": "mistral.design: the terms and cost of the pictures, on the studio page and in studio-images.json"
+    }
+   ]
+  },
+  {
+   "name": "mistral.local@SovereignWebsite.dinis",
+   "id": "mistral-local-sovereignwebsite",
+   "role": "mistral",
+   "account": "",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwFhXrZZSKJUs5StWNA",
+   "fingerprint": "sha256:8215363a85206dfa",
+   "about": "Builds /browser/local/ on Site__Provider__Mistral (Mistral running locally in the browser); started by conductor.mistral at Dinis's request, reports to it. Renamed from local.mistral by Dinis Cruz on 21 November 2026; same key and session (the bundle label keeps the old name). No paths in this repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 1,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "bda7192cf6537fbd215b6567fd2c9e6d54792c6a",
+     "when": "2026-11-21T01:54:19+00:00",
+     "subject": "mistral.local: /browser/local/, Ministral 3 3B running inside the browser tab"
+    }
+   ]
+  },
+  {
+   "name": "mistral.promptugal@SovereignWebsite.dinis",
+   "id": "mistral-promptugal-sovereignwebsite",
+   "role": "mistral",
+   "account": "",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwDyA9BERjrFpsR4B8K",
+   "fingerprint": "sha256:aabb90072551f379",
+   "about": "Builds /promptugal/ (PrompTugal demos on Mistral) on Site__Provider__Mistral; started by conductor.mistral at Dinis's request, reports to it. No paths in this repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 10,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 10,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "d1f8527a15d6ec76fcf8676d603674d56c2a8339",
+     "when": "2026-11-21T03:24:58+00:00",
+     "subject": "promptugal: handover, spend summary and what is left"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "3f7409cbd7c3055a47623c8b5c267ca4fe56d1df",
+     "when": "2026-11-21T03:09:27+00:00",
+     "subject": "promptugal: the London and Lisbon morning briefing, and What should I know today?"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "07587d9ca6f91d8c4549364f4efd2db7d9362e64",
+     "when": "2026-11-21T03:08:35+00:00",
+     "subject": "promptugal: handover updated, screenshots of the demos"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "4a490b5e76adfbdf08a72d3c16cb3ef374763441",
+     "when": "2026-11-21T02:59:39+00:00",
+     "subject": "promptugal: PrompTugal's data feeds, mapped (/promptugal/feeds/)"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "a17f976b4913a5588c351846cb9db166b8dd940d",
+     "when": "2026-11-21T02:38:55+00:00",
+     "subject": "promptugal: European or Brazilian Portuguese, live on the visitor's key"
+    }
+   ]
+  },
+  {
+   "name": "mistral.workflows@SovereignWebsite.dinis",
+   "id": "mistral-workflows-sovereignwebsite",
+   "role": "mistral",
+   "account": "",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEHD6YUsjcvdoYDDXr",
+   "fingerprint": "sha256:14a3a6d6816b6557",
+   "about": "Builds /workflows/ on Site__Provider__Mistral (agent workflows side by side, Universe-style views); started by conductor.mistral at Dinis's request, reports to it. No paths in this repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 5,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    }
+   ],
+   "commits": 5,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "a91dd9125e5f110ef6933e35e83a04b98b494bfd",
+     "when": "2026-11-21T03:36:28+00:00",
+     "subject": "workflows: the poster left out (mistral.design does images); five says what a run costs"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "9c2853adbd63d180a3890da67f6ebcb43df21809",
+     "when": "2026-11-21T03:36:14+00:00",
+     "subject": "workflows: HANDOVER.md"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "a7a28fcb636c62421bf5ee4d3af2170355ae0bc4",
+     "when": "2026-11-21T03:36:14+00:00",
+     "subject": "workflows: five Mistral brains, one brief"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "af831c40c7fdb6686732acc351ca9cfbefb6b894",
+     "when": "2026-11-21T03:36:14+00:00",
+     "subject": "workflows: messages and deliverables, side by side, from the commit history"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "25dea3a3bb99da022bcfc1616799d494bb9fc2fb",
+     "when": "2026-11-21T03:36:14+00:00",
+     "subject": "workflows: /workflows/, the relay, the poster studio and the X-Ray"
+    }
+   ]
+  },
+  {
+   "name": "outreach.b@SovereignWebsite.dinis",
+   "id": "outreach-b-sovereignwebsite",
+   "role": "outreach",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBGcnXLQ9m2BqD1Dwj",
+   "fingerprint": "sha256:21c60ecba7728375",
+   "about": "Works with Dinis on outreach: drafts posts and replies he sends himself, fact-checks claims, turns enquiries into site requests (Dinis, 21 Nov 2026). No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "sites.d@SovereignWebsite.dinis",
+   "id": "sites-d-sovereignwebsite",
+   "role": "sites",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHde5GfQygpBgyUhNzuf",
+   "fingerprint": "sha256:cc86449925b69007",
+   "about": "New sites and their content on account D, the twin of sites.b, working alongside it. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "south-beacon.b@SovereignWebsite.dinis",
+   "id": "south-beacon-b-sovereignwebsite",
+   "role": "south-beacon",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwDJPFyYWmBHRfqYodU",
+   "fingerprint": "sha256:8b2e1f520d6133f3",
+   "about": "Keeps South Beacon, an anonymised talent profile in the talent area (Dinis, 21 Nov 2026). No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "streaming.d@SovereignWebsite.dinis",
+   "id": "streaming-d-sovereignwebsite",
+   "role": "streaming",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-21",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdbE7t4XNf21L7neufF",
+   "fingerprint": "sha256:d0e2b4aa77cb0e71",
+   "about": "Builds the Streaming site (Site__Tool__Streaming) on account D, started by sites.d at Dinis's word. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "aws.c@SovereignWebsite.dinis",
+   "id": "aws-c-sovereignwebsite",
+   "role": "aws",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwAzhau7Us55PugP2V2",
+   "fingerprint": "sha256:2a0c9b8aa2082dbf",
+   "about": "AWS platform agent on account C: browser sign-in to AWS with no long-lived key, the AWS platform site (aws.platform.sovereignweb.site, domain for Dinis to confirm) and AWS changes as IaC through plans Dinis approves. Started by maestro.c at Dinis Cruz's word; conductor conductor.c. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "3d267591ecf5dea28426c00f49db4d8622288ab8",
+     "when": "2026-11-22T22:08:18+00:00",
+     "subject": "team/keys.json: aws.c's own key (keys rule self-publish)"
+    }
+   ]
+  },
+  {
+   "name": "chiswick-cheese-market.c@SovereignWebsite.dinis",
+   "id": "chiswick-cheese-market-c-sovereignwebsite",
+   "role": "chiswick-cheese-market",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwCvCX638VWVq9UPXsN",
+   "fingerprint": "sha256:e620416035b19490",
+   "about": "Keeps Site__Organisation__Chiswick-Cheese-Market on dev, on account C: only the changes Dinis Cruz gives it in its session. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "cbcdddc784d914acedce35fe0cf82813117b55dc",
+     "when": "2026-11-22T17:31:02+00:00",
+     "subject": "team/keys.json: chiswick-cheese-market.c's key"
+    }
+   ]
+  },
+  {
+   "name": "conductor.c@SovereignWebsite.dinis",
+   "id": "conductor-c-sovereignwebsite",
+   "role": "conductor",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBwGEprxNQqNtSbzyj",
+   "fingerprint": "sha256:3dc033c53b9c979d",
+   "about": "Conductor of the SovereignWebsite sessions on account C, the twin of conductor.b (account B) and conductor.d (account D); takes only work no .b or .d agent holds, each piece claimed in board/conductor.c/claims.md first. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 157,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 157,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "f84cd1168fae079209ae3b7c7266fc23e2e273a8",
+     "when": "2026-11-27T13:59:30+00:00",
+     "subject": "board/conductor.c: split the padel-coach font paths between keeper and design.c"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "9b22ce099a3ae548d3b7e64ce2a5d2cdcd5b1794",
+     "when": "2026-11-27T13:57:53+00:00",
+     "subject": "board/conductor.c: claim design.c's padel-coach design paths"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "e92ca46fe31d4491958677665c92cdb563bc0c2a",
+     "when": "2026-11-27T13:56:24+00:00",
+     "subject": "board/conductor.c: record padel-coach.c's before-claim writes"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "1f8b0106c8d097562581e6117de805bdc314ed63",
+     "when": "2026-11-27T13:51:45+00:00",
+     "subject": "board/conductor.c: claim the padel sites for their keepers"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c23b559b9a3cc0aa53e6ac82b854078e877b22b6",
+     "when": "2026-11-27T03:43:13+00:00",
+     "subject": "board/conductor.c: record studio.c's 03:31 axe deviation"
+    }
+   ]
+  },
+  {
+   "name": "counsel.d@SovereignWebsite.dinis",
+   "id": "counsel-d-sovereignwebsite",
+   "role": "counsel",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdaCnEbzJ8Q8CLjisbW",
+   "fingerprint": "sha256:04a74c8c0ed00b43",
+   "about": "Counsel on account D: the second review, beside security.d's, of each key request in this repository (whether it is within what Dinis has decided and the behaviour policies: naming and placement, the split, the keys rule, consent and naming, licences and terms). Gives no legal advice. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "2ea79bd4e092fb4775b8dc635c183b58379626b8",
+     "when": "2026-11-22T16:35:53+00:00",
+     "subject": "team/keys.json: counsel.d publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "factory.c@SovereignWebsite.dinis",
+   "id": "factory-c-sovereignwebsite",
+   "role": "factory",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwFQ86g2ZeXQ2edTAjh",
+   "fingerprint": "sha256:f936154a58deb1d0",
+   "about": "The account C twin of factory.b and factory.d: the Factory changes Dinis gives it in its own session (pipeline, policy, keys, workflows), reading factory.b's and factory.d's work first and never overwriting it unread. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 63,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 63,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "b25282627e1b3e6fb4d2ab0a2de793a8cda2788a",
+     "when": "2026-11-27T13:31:51+00:00",
+     "subject": "Requests: Agile Cells moves to the AgentiCCells organisation"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "70617a7870d6a9ec5982fe6f2675bd0d635de28b",
+     "when": "2026-11-27T13:06:55+00:00",
+     "subject": "Requests: Agile, Open source (group history, new) and Agile Cells (frameworks)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "981591e37108f74c97eed2874dca3174ff43b6c0",
+     "when": "2026-11-27T10:27:18+00:00",
+     "subject": "Merge the padel request (Site__Sport__Padel)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "6c8c8c5f0466cd6c95b88da25c77a15eb128b4cd",
+     "when": "2026-11-27T10:27:17+00:00",
+     "subject": "Merge the padel coach request (Site__Template__Sport__Padel-Coach)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "d4c2b7d771164d2c1fba0e18b4fe4adc52c24f4f",
+     "when": "2026-11-26T23:38:28+00:00",
+     "subject": "Requests: Padel coach, a fictional example (Site__Template__Sport__Padel-Coach)"
+    }
+   ]
+  },
+  {
+   "name": "factory.d@SovereignWebsite.dinis",
+   "id": "factory-d-sovereignwebsite",
+   "role": "factory",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHde6kToHbUHDD8AN72E",
+   "fingerprint": "sha256:a57016d7ebfb9e8e",
+   "about": "The account D twin of factory.b: the Factory changes Dinis gives it in its own session (pipeline, policy, organisation, requests, DNS), reading factory.b's work first and never overwriting it unread. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 18,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 18,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "95280be32b123bbd07df55fb2a28af75767336fa",
+     "when": "2026-11-22T22:55:22+00:00",
+     "subject": "Requests: <service>.<provider>.tool addresses, the frameworks group, PyBot and Wardley Maps"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "3cfd908354d42ae0909a8a83265a2da289326ee5",
+     "when": "2026-11-22T22:54:41+00:00",
+     "subject": "Policy: security.d and counsel.d may write only their own reviews of key requests"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "aee9d2a40d90e910edc81de735177da808119081",
+     "when": "2026-11-22T22:54:41+00:00",
+     "subject": "Key requests: a security review and a counsel review, each reporting its actions"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c2820c1b856edc7c9f2325de52a5e9ab3662a511",
+     "when": "2026-11-22T22:54:41+00:00",
+     "subject": "Key requests: the Factory publishes reviewed agent keys in other repositories"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "1e06b9643ff00a0ab6e67db38fa0d2cea86332f9",
+     "when": "2026-11-22T16:36:51+00:00",
+     "subject": "Policy: security.d and counsel.d may write only their own reviews of key requests"
+    }
+   ]
+  },
+  {
+   "name": "hub.c@SovereignWebsite.dinis",
+   "id": "hub-c-sovereignwebsite",
+   "role": "hub",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBNK6JRSRJ7P7LftYD",
+   "fingerprint": "sha256:e26f627f8132037d",
+   "about": "The hub on account C, the twin of hub.b and hub.d: the hub as the map of the whole family (Latest, every site, the agents), in new paths its conductor claims. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c984df1e8bc08295073d83f61f077b0ea21c5927",
+     "when": "2026-11-22T17:28:19+00:00",
+     "subject": "team/keys.json: hub.c@SovereignWebsite.dinis's public key"
+    }
+   ]
+  },
+  {
+   "name": "instagram.c@SovereignWebsite.dinis",
+   "id": "instagram-c-sovereignwebsite",
+   "role": "instagram",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBf2gRkufCCnZs335u",
+   "fingerprint": "sha256:0eaad92d29e01de5",
+   "about": "Instagram agent on account C: the Instagram platform site (instagram.platform.sovereignweb.site, unofficial) and posting through Instagram's official API from CI, only with Dinis's word for each post or a rule he gives. Started by sites.c at Dinis Cruz's word; conductor conductor.c. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "0f231f02ca259fa444d2916e92d716e4251ba715",
+     "when": "2026-11-22T22:22:43+00:00",
+     "subject": "Keys: instagram.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "librarian.b@SovereignWebsite.dinis",
+   "id": "librarian-b-sovereignwebsite",
+   "role": "librarian",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwDgZWdzwjxSRSJ4Lzt",
+   "fingerprint": "sha256:cf0d6de120de8948",
+   "about": "Keeps the SWS library (library.agents.sovereignweb.site) and relays newsroom articles to each agent (Dinis, 20 Nov 2026). No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "library.d@SovereignWebsite.dinis",
+   "id": "library-d-sovereignwebsite",
+   "role": "library",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdecGUXfFRDs8DmeUFN",
+   "fingerprint": "sha256:210bf5725144d67e",
+   "about": "The SWS library and newsroom relay for the .d team on account D, the twin of librarian.b, taking only what librarian.b has not started. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "mistral.c@SovereignWebsite.dinis",
+   "id": "mistral-c-sovereignwebsite",
+   "role": "mistral",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwDHBL8ucvbqmv38Bkz",
+   "fingerprint": "sha256:539cec825647f6b7",
+   "about": "The Mistral agent on account C, for Site__Provider__Mistral: moves the team's workflows to Mistral, at Dinis Cruz's word in its session. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "commits": 2,
+     "site": "https://mistral.provider.sovereignweb.site/",
+     "name": "Mistral"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 3,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "b20d3bb1fd0a1e77fbb6ec4ebb581c583bc48e4b",
+     "when": "2026-11-22T17:44:41+00:00",
+     "subject": "mistral.c: the first Mistral workflow (daily summary) and the hand-over for the next session"
+    },
+    {
+     "repo": "SovereignWebsite/Site__Provider__Mistral",
+     "sha": "b1a93afbd7d4840349d155bfd838f92df38f2dc9",
+     "when": "2026-11-22T17:42:01+00:00",
+     "subject": "mistral.c: the home page is the map; the hackathon taken off the site"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "93b947f06280c90f2058cde7fe5482419b86383f",
+     "when": "2026-11-22T17:41:23+00:00",
+     "subject": "mistral.c: publish my key (mistral-c-sovereignwebsite)"
+    }
+   ]
+  },
+  {
+   "name": "observability.c@SovereignWebsite.dinis",
+   "id": "observability-c-sovereignwebsite",
+   "role": "observability",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBmqCafJ2NtqhQPQwu",
+   "fingerprint": "sha256:d712a3c6cfb84d96",
+   "about": "Observability on account C, the twin of observability.b and observability.d: read-only visibility of who is seeing what across the SovereignWebsite sites, from what GitHub Pages, the repositories and existing logs already show; capture only at Dinis's word. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 4,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 4,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "3d815261feda63dfd7b6f35a809e1f087b3e08d5",
+     "when": "2026-11-22T17:37:59+00:00",
+     "subject": "Merge dev into work/observability.c"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "2a63cccac7f210c3a8f42661cd439d39051ffdd6",
+     "when": "2026-11-22T17:20:33+00:00",
+     "subject": "board/observability.c: visibility note 1, read-only (58 repositories, 52 homepages answer, no public engagement yet)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "faa6204e5eebb54d8c351107057668461f54e85a",
+     "when": "2026-11-22T17:18:31+00:00",
+     "subject": "board/observability.c: read-only visibility plan for Dinis"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "788d3b9e128eb37143b91dff421a2cb8f8275b41",
+     "when": "2026-11-22T17:17:28+00:00",
+     "subject": "team/keys.json: observability.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "observability.d@SovereignWebsite.dinis",
+   "id": "observability-d-sovereignwebsite",
+   "role": "observability",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHdayiD5PCvJRyqNHyjC",
+   "fingerprint": "sha256:8ad87c640ff2b82c",
+   "about": "Observability on account D, the twin of observability.b: traffic capture for every site into an account D sgit vault (sealed events through an append lane), aggregates per site and for Dinis. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "f487ee38b71c84da9f204230889c27b0347f4f33",
+     "when": "2026-11-22T16:48:50+00:00",
+     "subject": "team/keys.json: observability.d publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "sites.c@SovereignWebsite.dinis",
+   "id": "sites-c-sovereignwebsite",
+   "role": "sites",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEi55Prvc9jXNPGC1a",
+   "fingerprint": "sha256:526ec1ea5dba9793",
+   "about": "Sites agent of the Sovereign Agentic Website team on account C, twin of sites.b and sites.d: builds and looks after hosted sites from the Factory's requests that nobody else holds, started by conductor.c at Dinis Cruz's word. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "98e9263d878b8601b7d56dabb5f2a719e9d18bbf",
+     "when": "2026-11-22T21:42:51+00:00",
+     "subject": "team/keys.json: sites.c's own key (keys rule self-publish)"
+    }
+   ]
+  },
+  {
+   "name": "studio.c@SovereignWebsite.dinis",
+   "id": "studio-c-sovereignwebsite",
+   "role": "studio",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwC3pdjxjDeK5WaZYUD",
+   "fingerprint": "sha256:2763af2a1c8aa6ea",
+   "about": "Studio agent on account C: voiced short videos and images for the team's Instagram, handed to instagram.c; never posts",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "2cff207aa1aa6eed68855e6a709632f444789257",
+     "when": "2026-11-22T23:01:16+00:00",
+     "subject": "team/keys.json: studio.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "suno.c@SovereignWebsite.dinis",
+   "id": "suno-c-sovereignwebsite",
+   "role": "suno",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEP7o4BBLqwrqdReHq",
+   "fingerprint": "sha256:e9609b3d7219fe72",
+   "about": "Suno agent on account C: music made with Suno's official API for the team's Instagram posts, only with Dinis's word and a spend cap he sets",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "2518904d5d198bdfd79fd5881f342eb21471ee88",
+     "when": "2026-11-22T22:26:37+00:00",
+     "subject": "Keys: suno.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "synthetic-users.d@account-d.dinis",
+   "id": "synthetic-users-d-sovereignwebsite",
+   "role": "synthetic-users",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHddQiB4aYZWXjfs16rM",
+   "fingerprint": "sha256:cd4012a300bce2c7",
+   "about": "Synthetic users for the .d team's sites on account D, committing runs to Site__Agents__Design. No paths in this repository. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [],
+   "commits": 0,
+   "latest": []
+  },
+  {
+   "name": "wordpress.d@SovereignWebsite.dinis",
+   "id": "wordpress-d-sovereignwebsite",
+   "role": "wordpress",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-22",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHda1bnbqASo1ed8VUdY",
+   "fingerprint": "sha256:11b667f101c87a85",
+   "about": "Keeper of the WordPress tool site (Site__Tool__Wordpress, wordpress.tool.sovereignweb.site), started by sites.d at Dinis Cruz's word. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "d912ae207d2a538fc138d92c2753dffe94f39741",
+     "when": "2026-11-22T21:30:37+00:00",
+     "subject": "wordpress.d: publish my key (wordpress-d-sovereignwebsite)"
+    }
+   ]
+  },
+  {
+   "name": "a.factory@SovereignWebsite.dinis",
+   "id": "a-factory-sovereignwebsite",
+   "role": "a",
+   "account": "",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtNm88hzHaENNXTA9b5",
+   "fingerprint": "sha256:ed9a9e7c1fdd6fca",
+   "about": "The Factory agent on account A, twin of factory.c and d.factory: writes account A's repository requests as Factory request files on work/factory.a-* branches, runs each through the R4 chain (brief, sites review, security, decision), and keeps account A's key entries moving. Never creates a repository. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 93,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 93,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c223d9a23e42d976a6c3880dc5479ef2efbeb909",
+     "when": "2026-11-25T18:39:42+00:00",
+     "subject": "Requests: Claude account 5's maestro and router homes (Angelo's)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "2a20581873bfb926abd20b798731a63962bc52a0",
+     "when": "2026-11-25T17:58:06+00:00",
+     "subject": "Requests: per-account maestro and router homes, no website"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "1bcf3da0e8f91e14a6f0ddb4a609c94744183e44",
+     "when": "2026-11-25T17:48:11+00:00",
+     "subject": "Merge dev into work/factory.a-plan-only-2 (PR #5)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "ab449f8daad8775a0d7d1223b5a7b48714361077",
+     "when": "2026-11-25T17:47:10+00:00",
+     "subject": "Requests: a moved site may keep its old address until a certificate is free"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "6c32eab4482778356e9955860ba21078975c0969",
+     "when": "2026-11-25T17:22:00+00:00",
+     "subject": "Org apply plan_only: the external-collaborators job does not run either"
+    }
+   ]
+  },
+  {
+   "name": "architect.aws.a@SovereignWebsite.dinis",
+   "id": "architect-aws-a-sovereignwebsite",
+   "role": "architect",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtPuQzTBRoKGD45TYFV",
+   "fingerprint": "sha256:8699204a5b3a9875",
+   "about": "Architect on account A (AWS Platform programme): one API layer with five UIs over it, the twin (one transport, two back ends) and the semantic graph, as designs in docs/architecture/ that the developers build. Takes over from architect.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c4b867a9724ac2f1c4dcdca69a2d5e38ee428725",
+     "when": "2026-11-23T07:27:29+00:00",
+     "subject": "keys: architect.aws.a's public key"
+    }
+   ]
+  },
+  {
+   "name": "billing.aws.c@SovereignWebsite.dinis",
+   "id": "billing-aws-c-sovereignwebsite",
+   "role": "billing",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEcR1KCF6y3dTPP5vr",
+   "fingerprint": "sha256:879c669f9bcb244b",
+   "about": "AWS billing accountant on account C (AWS Platform programme): a price model of the stack from AWS's public pricing pages, run over the twin, then real-time and predicted billing (pipeline P4). Not accountant.c.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "6e20c074d5998a2768f0a54c557b56b939a58ec0",
+     "when": "2026-11-23T03:23:24+00:00",
+     "subject": "Keys: billing.aws.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "cloudformation.aws.a@SovereignWebsite.dinis",
+   "id": "cloudformation-aws-a-sovereignwebsite",
+   "role": "cloudformation",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtPgweggdc6AykBpQay",
+   "fingerprint": "sha256:7384019c7e4489f8",
+   "about": "CloudFormation with Route 53 on account A (AWS Platform programme): every stack mapped to what it made, every zone and record mapped to what it serves, on the twin first. Takes over from cloudformation.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "7075265b6155ba81df1aa59c202b07123dd90ec4",
+     "when": "2026-11-23T07:27:17+00:00",
+     "subject": "team/keys.json: cloudformation.aws.a's own key"
+    }
+   ]
+  },
+  {
+   "name": "cloudtrail.aws.a@SovereignWebsite.dinis",
+   "id": "cloudtrail-aws-a-sovereignwebsite",
+   "role": "cloudtrail",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtLsVZvQ5dyyKz8ndG2",
+   "fingerprint": "sha256:9ebb596ab7bd764f",
+   "about": "CloudTrail and CloudWatch on account A (AWS Platform programme): the timeline, per-asset activity and alarms views over the twin's CloudTrail records, and drop-in of a user's own CloudTrail dump. Takes over from cloudtrail.aws.c, whose key was never published.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "12b1557c10c5905baffb8bbdd69befcfe33b1702",
+     "when": "2026-11-23T06:32:15+00:00",
+     "subject": "Keys: cloudtrail.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "conductor.aws.a@SovereignWebsite.dinis",
+   "id": "conductor-aws-a-sovereignwebsite",
+   "role": "conductor",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtPiszBTMHKVD4AuDwn",
+   "fingerprint": "sha256:0b6383e56398ab9e",
+   "about": "Conductor of the AWS Platform programme on account A: runs the team schedule and log, routes each agent's asks (paths to aws.c, keys to factory.c, Dinis's decisions to pm). Takes over from conductor.aws.c (wave 2).",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "5d439465d316c88881676901f94e98e7732a93ac",
+     "when": "2026-11-23T07:27:29+00:00",
+     "subject": "Keys: conductor.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "conductor.aws.c@SovereignWebsite.dinis",
+   "id": "conductor-aws-c-sovereignwebsite",
+   "role": "conductor",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwDiqvoswkZCuHe5GTt",
+   "fingerprint": "sha256:39dfb8b271359661",
+   "about": "Conductor of the AWS Platform programme on account C: starts and schedules the aws.c team in stages, keeps docs/team/ in Site__Platform__AWS, reports to maestro.c",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "48d8ef15705ecb6804844328d6277d7913605626",
+     "when": "2026-11-23T03:01:19+00:00",
+     "subject": "Keys: conductor.aws.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "conductor.b@SovereignWebsite.dinis",
+   "id": "conductor-b-2-sovereignwebsite",
+   "role": "conductor",
+   "account": "b",
+   "status": "retired",
+   "started": "2026-11-23",
+   "retired": "2026-11-26",
+   "session": "https://claude.ai/code/session_01Kw9UwFkKH5CkDmV8nhSfUD",
+   "fingerprint": "sha256:9d6d90bac22a9b9b",
+   "about": "Conductor of the Sovereign Agentic Website team on account B. A session key: it ends with its session. Takes over from https://claude.ai/code/session_01Kw9UwDCS5Px4dXRJUGP9Qu at Dinis's word, 23 November 2026 22:45 UTC.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 191,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Website",
+     "commits": 13,
+     "site": null,
+     "name": "SovereignWebsite__Website"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Org",
+     "commits": 6,
+     "site": null,
+     "name": "SovereignWebsite__Org"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Site",
+     "commits": 3,
+     "site": null,
+     "name": "SovereignWebsite__Site"
+    }
+   ],
+   "commits": 213,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "b456115d067514ac1f722699e33906afd0f287a9",
+     "when": "2026-11-26T23:36:55+00:00",
+     "subject": "status: conductor.b's new session takes over; story 0003; hub.b keeper entry"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "52f77b914fc2605c049cc6d6ed98a11914d42993",
+     "when": "2026-11-26T23:35:49+00:00",
+     "subject": "board: signing guide runs tools/setup-signing.sh (story 0003)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "0987fd3944ec29e4c6ea6d4d7313fd223922e3f7",
+     "when": "2026-11-26T23:34:22+00:00",
+     "subject": "board: the signing key incident links b.stories' story 0003"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "502540b733e8e9dffedd7ab64391b7a1b7bc40c7",
+     "when": "2026-11-26T23:32:37+00:00",
+     "subject": "board: conductor.b's new session; incident for the refused signing key step"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "67a5db032033f51377d54acc57b8bbea9d45abe2",
+     "when": "2026-11-26T23:29:54+00:00",
+     "subject": "team/keys.json: conductor.b's new session publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "data.aws.a@SovereignWebsite.dinis",
+   "id": "data-aws-a-sovereignwebsite",
+   "role": "data",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtNsU9Ax9WMn2h6EhHU",
+   "fingerprint": "sha256:15d499328e99ebe7",
+   "about": "Data scientist on account A (AWS Platform programme): the CloudFront-logs bucket written by Firehose, the extract-transform-move workflow, visibility of the sites behind S3 including vault usage, time lapse and client-side data (pipeline P5). Took over from data.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "8a7e8ee1dfbda8f7b2ba3ad2b972bf965e902d7e",
+     "when": "2026-11-23T06:52:37+00:00",
+     "subject": "Keys: data.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "decisions.b@SovereignWebsite.dinis",
+   "id": "decisions-b-sovereignwebsite",
+   "role": "decisions",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwEVSYcMDgNqrPVfCtZ",
+   "fingerprint": "sha256:a23b2dd69959b6e0",
+   "about": "Decisions agent on account B: records Dinis Cruz's approvals from its own session as signed decision records that agents push on. A session key: it ends with its session.",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 24,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 24,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "f24f8ab6c6c76a844a588abd256d41d2849341d3",
+     "when": "2026-11-26T15:48:59+00:00",
+     "subject": "Decision record: stories-home (factory.b 1dde86e, patch a1acbc76)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "5fe2c474e08d1a4369d3f7f47b4048d10bc95ac8",
+     "when": "2026-11-26T15:36:26+00:00",
+     "subject": "Decision record: Buffer, LinkedIn and self-publishing sites (factory.b 3ba79d9, patch da445ee1)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "5c07d167d52f41a7b8b700bb591fb614d8984429",
+     "when": "2026-11-26T15:34:04+00:00",
+     "subject": "Decision record: social-home (factory.b f627fe0, patch 873ea649)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "3231bafe8665a393cf7622a5aa8996beb991b460",
+     "when": "2026-11-26T13:26:05+00:00",
+     "subject": "Decision record: vault-keeper-home (factory.b d24ee6b, patch f03f8794)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "a2ba65a2793135e2e9d688be5365f737fa25cf75",
+     "when": "2026-11-26T00:01:57+00:00",
+     "subject": "Decision record: suno-home (factory.b e6c3175, patch ae5a4c1e)"
+    }
+   ]
+  },
+  {
+   "name": "design.c@SovereignWebsite.dinis",
+   "id": "design-c-sovereignwebsite",
+   "role": "design",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwFAkBTBoUvV1eCnMsY",
+   "fingerprint": "sha256:0f7c83027aa52217",
+   "about": "Designer on account C, twin of design.b and design.d: five accessible design versions per account C site, rated against the team's design standard, and hourly change lists for each site's keeper",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "c71e96c369cde807a89fcc916da59dee8b964f98",
+     "when": "2026-11-23T01:44:45+00:00",
+     "subject": "Keys: design.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "dev.1.aws.a@SovereignWebsite.dinis",
+   "id": "dev-1-aws-a-sovereignwebsite",
+   "role": "dev",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtLV1iZjUCMEKz1PZ51",
+   "fingerprint": "sha256:40984fbef06764a1",
+   "about": "Developer 1 on account A (AWS Platform programme): the S3 browser (S3-1) with s3.aws.a, on the twin; then the twin engine's migration (design 02). Takes over from dev.1.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "a65ef10709ba30c394c756580da80e315087eb3c",
+     "when": "2026-11-23T11:09:36+00:00",
+     "subject": "team/keys.json: dev.1.aws.a's public key (AWS Platform programme, account A)"
+    }
+   ]
+  },
+  {
+   "name": "dev.2.aws.a@SovereignWebsite.dinis",
+   "id": "dev-2-aws-a-sovereignwebsite",
+   "role": "dev",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtN79NSkFnwbV7UzFuc",
+   "fingerprint": "sha256:a56d8c1b2f8c2c17",
+   "about": "Developer 2 on account A (AWS Platform programme): the API layer in site/api/ (S3Api's contract and tests) to architect.aws.c's designs, on the twin. Takes over from dev.2.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "21af1fda3dcdc921ece83e9a02f230ff5ddb1f75",
+     "when": "2026-11-23T06:41:13+00:00",
+     "subject": "Keys: dev.2.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "ec2.aws.a@SovereignWebsite.dinis",
+   "id": "ec2-aws-a-sovereignwebsite",
+   "role": "ec2",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtNc3CDv5wXAXwfPgXy",
+   "fingerprint": "sha256:c0cc61fb15c902f6",
+   "about": "EC2 for the AWS Platform programme on account A: EC2 in the twin, EC2 read pages and approved plans for our environment, EC2 as a second way to deploy the Vault, and the design of ephemeral deployments and the daily region move.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "dc820edb6f087ff6a84ed881dfec854d4bb69053",
+     "when": "2026-11-23T15:00:07+00:00",
+     "subject": "Keys: ec2.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "ontology.aws.a@SovereignWebsite.dinis",
+   "id": "ontology-aws-a-sovereignwebsite",
+   "role": "ontology",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtPTqbaais5DzZ2eaws",
+   "fingerprint": "sha256:bf28264417a75af7",
+   "about": "Ontologist on account A (AWS Platform programme): the resource graph and taxonomy of every AWS asset, generated from the twin (pipeline P2). Takes over from ontology.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "05764e577a6f36bc0c74642893bc5a62de5bfb7c",
+     "when": "2026-11-23T07:29:53+00:00",
+     "subject": "Keys: ontology.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "pm.aws.a@SovereignWebsite.dinis",
+   "id": "pm-aws-a-sovereignwebsite",
+   "role": "pm",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtLfieUut6hSirZ6W9B",
+   "fingerprint": "sha256:ed43874b84577220",
+   "about": "PM of the AWS Platform programme on account A: the board of claimed tasks and the one decisions page for Dinis (Site__Platform__AWS docs/board/). Takes over from pm.aws.c; started by maestro.a at Dinis Cruz's word; conductor conductor.aws.a. A session key: it ends with its session.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "e8fc7ad8f9b11e9a986fc0637950c6311bf597ed",
+     "when": "2026-11-23T07:27:31+00:00",
+     "subject": "team/keys: pm.aws.a's own key (sha256:ed43874b84577220)"
+    }
+   ]
+  },
+  {
+   "name": "pm.aws.c@SovereignWebsite.dinis",
+   "id": "pm-aws-c-sovereignwebsite",
+   "role": "pm",
+   "account": "c",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBZAwm6766jrG94uX1",
+   "fingerprint": "sha256:458ab093835319c5",
+   "about": "PM of the AWS Platform programme on account C: the board of claimed tasks and the one decisions page for Dinis (Site__Platform__AWS docs/board/). Started by maestro.c at Dinis Cruz's word; conductor conductor.aws.c. A session key: it ends with its session.",
+   "conductor": "conductor.c@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "5de4df1e8e947a4db6e845fb064bb8a408cbed1f",
+     "when": "2026-11-23T02:46:07+00:00",
+     "subject": "Keys: pm.aws.c publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "pybot.d@SovereignWebsite.dinis",
+   "id": "pybot-d-sovereignwebsite",
+   "role": "pybot",
+   "account": "d",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_015gaHddy85C9E8oW9YhJ6FK",
+   "fingerprint": "sha256:63fa2c6062f854c6",
+   "about": "Keeper of the PyBot tool site (pybot.huggingface.tool.sovereignweb.site): an unofficial look at PyBot. A session key: it ends with its session.",
+   "conductor": "conductor.d@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "234706623731e1f2194d21241c04cb7fca5df7b0",
+     "when": "2026-11-23T15:30:12+00:00",
+     "subject": "keys: publish pybot.d@SovereignWebsite.dinis"
+    }
+   ]
+  },
+  {
+   "name": "s3.aws.a@SovereignWebsite.dinis",
+   "id": "s3-aws-a-sovereignwebsite",
+   "role": "s3",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtQbTmpHQ839siWGBQP",
+   "fingerprint": "sha256:d4b9b592c4c45ba0",
+   "about": "S3 area agent on account A (AWS Platform programme): the smooth S3 browser on the twin (byte-range reads inside zips, streamed gzip, CSV and logs as tables, keyboard, large listings), the bucket graph and the CloudFront-logs bucket written by Firehose. Took over from s3.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "f786f3cb9c460ad20d33273d5c51ef6bfc76fb8b",
+     "when": "2026-11-23T07:27:31+00:00",
+     "subject": "Keys: s3.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "sherpa.aws.a@SovereignWebsite.dinis",
+   "id": "sherpa-aws-a-sovereignwebsite",
+   "role": "sherpa",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtPct58bYVDGY6ZLM7S",
+   "fingerprint": "sha256:393f5f629f14c82b",
+   "about": "Sherpa of the AWS Platform programme on account A (takes over sherpa.aws.c): walks the hub and the twin as a first-time user on desktop and phone, ranks usability findings for each owner, and writes user-view walkthroughs with the journalist.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "791cf9f324ed910591e42f3202f1367593a0ee59",
+     "when": "2026-11-23T07:27:30+00:00",
+     "subject": "Keys: sherpa.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "suno.b@SovereignWebsite.dinis",
+   "id": "suno-b-sovereignwebsite",
+   "role": "suno",
+   "account": "b",
+   "status": "retired",
+   "started": "2026-11-23",
+   "retired": "2026-11-26",
+   "session": "https://claude.ai/code/session_01Kw9UwBWVj7sxLdmr1ZKwh4",
+   "fingerprint": "sha256:e53baca9785b02e6",
+   "about": "Suno agent on account B, twin of suno.c: music made with Suno's official API for the team's Instagram posts, only with Dinis's word and a spend cap he sets",
+   "conductor": "conductor.b@SovereignWebsite.dinis",
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 2,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 2,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "e0fe895235b7a7853f4709de07cc7074cab588f2",
+     "when": "2026-11-26T00:28:27+00:00",
+     "subject": "Keys: suno.b retires its own entry at the session hand-over"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "11951989a8f87e33cc22c1a0ce9abd2ab9302eb3",
+     "when": "2026-11-23T01:28:33+00:00",
+     "subject": "Keys: suno.b publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "swarm.aws.a@SovereignWebsite.dinis",
+   "id": "swarm-aws-a-sovereignwebsite",
+   "role": "swarm",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtMJYhTXmX6uJHBKqgJ",
+   "fingerprint": "sha256:9fa7c7b11069f06c",
+   "about": "The swarm on account A (AWS Platform programme): the AWS team itself as a story, a replay of the agents as a graph from public sources only (git history, the team log, the schedule, the lanes). Takes over from swarm.aws.c, whose key was never published.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "519c48a760e0a85b3d2a8f45b55d75f2381f38fd",
+     "when": "2026-11-23T06:35:31+00:00",
+     "subject": "Keys: swarm.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "vaults.aws.a@SovereignWebsite.dinis",
+   "id": "vaults-aws-a-sovereignwebsite",
+   "role": "vaults",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtPEp1ze9LonhajhRdg",
+   "fingerprint": "sha256:6f29828194ccf510",
+   "about": "Vaults agent on account A (AWS Platform programme): studies vaults and append lanes on sgit.ai and designs the three vaults (live reads, snapshots, the graph's cross-mapping) and vaults as the capture store (pipeline P3). Took over from vaults.aws.c.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "f5d657a706e61beba0077d08eae6b914bec90a11",
+     "when": "2026-11-23T07:29:39+00:00",
+     "subject": "Keys: vaults.aws.a publishes its own key"
+    }
+   ]
+  },
+  {
+   "name": "video.aws.a@SovereignWebsite.dinis",
+   "id": "video-aws-a-sovereignwebsite",
+   "role": "video",
+   "account": "a",
+   "status": "active",
+   "started": "2026-11-23",
+   "retired": null,
+   "session": "https://claude.ai/code/session_018yvwtNxNZuWP542UZVDUTa",
+   "fingerprint": "sha256:03aac2fbcaf68ffc",
+   "about": "Video and narrative agent on account A (AWS Platform programme), took over from video.aws.c: narratives of each major step made from the real site (the twin first), captured by script, for studio.c to render and Dinis to publish; never posts.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 1,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    }
+   ],
+   "commits": 1,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "cc9e2914fbfe6e47c79e21fc833cdeff8a11f0fc",
+     "when": "2026-11-23T07:29:16+00:00",
+     "subject": "team/keys.json: video.aws.a key"
+    }
+   ]
+  },
+  {
+   "name": "conductor.b@SovereignWebsite.dinis",
+   "id": "conductor-b-3-sovereignwebsite",
+   "role": "conductor",
+   "account": "b",
+   "status": "active",
+   "started": "2026-11-26",
+   "retired": null,
+   "session": "https://claude.ai/code/session_01Kw9UwBrWEfUnBbb4gCS9cg",
+   "fingerprint": "sha256:a93d9189892a3310",
+   "about": "Conductor of the Sovereign Agentic Website team on account B. A session key: it ends with its session. Takes over from https://claude.ai/code/session_01Kw9UwFkKH5CkDmV8nhSfUD at Dinis's word, 26 November 2026 01:41 UTC.",
+   "conductor": null,
+   "keeps": [],
+   "worked_on": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "commits": 191,
+     "site": null,
+     "name": "SovereignWebsite__Factory"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Website",
+     "commits": 13,
+     "site": null,
+     "name": "SovereignWebsite__Website"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Org",
+     "commits": 6,
+     "site": null,
+     "name": "SovereignWebsite__Org"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Site",
+     "commits": 3,
+     "site": null,
+     "name": "SovereignWebsite__Site"
+    }
+   ],
+   "commits": 213,
+   "latest": [
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "b456115d067514ac1f722699e33906afd0f287a9",
+     "when": "2026-11-26T23:36:55+00:00",
+     "subject": "status: conductor.b's new session takes over; story 0003; hub.b keeper entry"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "52f77b914fc2605c049cc6d6ed98a11914d42993",
+     "when": "2026-11-26T23:35:49+00:00",
+     "subject": "board: signing guide runs tools/setup-signing.sh (story 0003)"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "0987fd3944ec29e4c6ea6d4d7313fd223922e3f7",
+     "when": "2026-11-26T23:34:22+00:00",
+     "subject": "board: the signing key incident links b.stories' story 0003"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "502540b733e8e9dffedd7ab64391b7a1b7bc40c7",
+     "when": "2026-11-26T23:32:37+00:00",
+     "subject": "board: conductor.b's new session; incident for the refused signing key step"
+    },
+    {
+     "repo": "SovereignWebsite/SovereignWebsite__Factory",
+     "sha": "67a5db032033f51377d54acc57b8bbea9d45abe2",
+     "when": "2026-11-26T23:29:54+00:00",
+     "subject": "team/keys.json: conductor.b's new session publishes its own key"
+    }
+   ]
+  }
+ ]
+}
